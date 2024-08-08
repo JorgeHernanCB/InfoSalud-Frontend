@@ -5,19 +5,26 @@ import { AppComponent } from './app.component';
 //Componentes de PrimeNG
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
+import { HelloWordComponent } from './components/hello-word/hello-word.component';
+import { HelloWordService } from './service/hello-word/hello-word.service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HelloWordComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ButtonModule,
-    TableModule
+    TableModule,
+    HttpClientModule
+
+
   ],
-  providers: [],
+  providers: [HelloWordService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
