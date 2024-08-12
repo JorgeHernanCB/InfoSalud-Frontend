@@ -8,6 +8,8 @@ import { Observable } from 'rxjs';
 export class HelloWordService {
 
   private apiURl = 'http://localhost:8080/api/hola?nombre=Cristian';
+  private apiURLuserFind = 'http://localhost:8080/user/findAll';
+  private apiURLuserSave = 'http://localhost:8080/user/save';
 
 
   constructor( private http:HttpClient) { }
@@ -17,5 +19,15 @@ export class HelloWordService {
       Authorization: 'Basic ' + btoa('user:password')
     })
     return this.http.get(this.apiURl, {headers, responseType: 'text'});
+  }
+
+  // Ver usuarios
+  getUsers(): Observable<any[]>{
+    return this.http.get<any[]>(this.apiURLuserFind);
+  }
+
+  //Guardar usuario
+  addUser(user:any): Observable<any>{
+    return this.http.post<any>(this.apiURLuserSave, user);
   }
 }

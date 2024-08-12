@@ -2,6 +2,7 @@ import { HelloWordService } from './../../service/hello-word/hello-word.service'
 import { Component, OnInit } from '@angular/core';
 //Forms
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+
 @Component({
   selector: 'app-hello-word',
   templateUrl: './hello-word.component.html',
@@ -13,7 +14,8 @@ export class HelloWordComponent implements OnInit {
 
  //Se crea el formulario
  userForm: FormGroup;
- users: { name: string; age: number }[] = [];
+ //users: { name: string; age: number }[] = [];
+ users: any[] = [];
 
 constructor( private HelloWordService: HelloWordService) {
 
@@ -26,6 +28,7 @@ constructor( private HelloWordService: HelloWordService) {
 
 ngOnInit(): void {
   this.getHelloWord();
+  this.loadUsers(); //Cargar los usuarios
 }
 getHelloWord(): void {
   this.HelloWordService.getHelloWord().subscribe(
@@ -41,9 +44,32 @@ getHelloWord(): void {
 //Funcion para agregar usuario
 addUser() { 
   if (this.userForm.valid) {
-    this.users.push(this.userForm.value); //Lo agrega a la tabla
-    this.userForm.reset();
+    //this.users.push(this.userForm.value); //Lo agrega a la tabla
+    //this.userForm.reset();
+    this.HelloWordService.addUser(this.userForm.value).subscribe(
+      (Response) => {
+          console.log('Usuario agregado', Response);
+
+          this.loadUsers();
+          this.userForm.reset()
+      },
+      (error) => {
+        console.error('Error al agregar el usuario', error);
+      }
+    );
   }
+}
+
+//Cargar usuarios
+loadUsers(){
+  this.HelloWordService.getUsers().subscribe(
+    (data) => {
+      this.users = data;
+    },
+    (error) => {
+      console.error('Error al cargar los usuarios', error);
+    }
+  );
 }
 
 }
