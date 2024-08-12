@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { LoggerService } from './logs/logger.service';
 
 
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -12,11 +14,10 @@ import { LoggerService } from './logs/logger.service';
 export class AppComponent {
   title = 'infoSalud';
 
-
   constructor( private logger: LoggerService) {
-
   }
   ngOnInit(): void {
     this.logger.log('Hola mundo InfoSalud');
   }
+
 }

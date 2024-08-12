@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class HelloWordService {
 
-  private apiURl = 'http://localhost:8080/api/hola?nombre=juab';
+  private apiURl = 'http://localhost:8080/api/hola?nombre=Cristian';
 
 
   constructor( private http:HttpClient) { }

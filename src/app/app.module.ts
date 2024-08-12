@@ -9,6 +9,9 @@ import { HelloWordComponent } from './components/hello-word/hello-word.component
 import { HelloWordService } from './service/hello-word/hello-word.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
+//Forms
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -20,6 +23,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     ButtonModule,
     TableModule,
+    ReactiveFormsModule,
+    FormsModule,
     HttpClientModule
 
 
