@@ -12,6 +12,8 @@ const routes: Routes = [
     //{ path: 'crud', component: CrudComponent, canActivate: [AuthGuard] },
     { path: '', redirectTo: '/login', pathMatch: 'full' },  // Redirige a login por defecto
     { path: '**', redirectTo: '/login' } // Maneja rutas no definidas
+
+    
   ];
 
 @NgModule({
