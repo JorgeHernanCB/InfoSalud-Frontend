@@ -1,4 +1,4 @@
-import { HelloWordService } from './../../service/hello-word/hello-word.service';
+import { HelloWordService } from '../../../service/hello-word/hello-word.service';
 import { Component, OnInit } from '@angular/core';
 //Forms
 import { FormGroup, FormControl, Validators } from '@angular/forms';
@@ -42,7 +42,7 @@ getHelloWord(): void {
 }
 
 //Funcion para agregar usuario
-addUser() { 
+addUser() {
   if (this.userForm.valid) {
     //this.users.push(this.userForm.value); //Lo agrega a la tabla
     //this.userForm.reset();
