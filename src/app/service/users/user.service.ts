@@ -8,9 +8,11 @@ export class UserService {
 
   constructor() { }
 
-  addUser(Username: Username): void{
+  public username: Username[] = []
+
+  addUser(username: Username): void{
     const newUSer: Username = {
-      ...Username
+      ...username
     }
   }
 }

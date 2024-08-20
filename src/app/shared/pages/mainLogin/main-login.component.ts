@@ -12,16 +12,17 @@ export class MainLoginComponent {
 
   title = 'infoSalud';
 
-  /*
-  Constructor(private UserService: UserService ) {}
+
+  constructor(private UserService: UserService ) {}
 
   get username(): Username[]{
     return [...this.UserService.username];
   }
 
   onNewUsername(username: Username): void{
+    this.UserService.addUser(username);
   }
-   */
+
 
 
 }

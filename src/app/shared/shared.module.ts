@@ -15,10 +15,10 @@ import { MainLoginComponent } from './pages/mainLogin/main-login.component';
 
 @NgModule({
   declarations: [
-    FooterComponent,
-    NavbarComponent,
     HomePageComponent,
     MainLoginComponent,
+    FooterComponent,
+    NavbarComponent,
   ],
   imports: [
     CommonModule,
@@ -27,9 +27,9 @@ import { MainLoginComponent } from './pages/mainLogin/main-login.component';
   ],
   exports:[
     HomePageComponent,
+    MainLoginComponent,
     FooterComponent,
     NavbarComponent,
-    MainLoginComponent
 
   ]
 })
