@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MenuItem } from 'primeng/api';
+import { AuthService } from '../../../service/authService/auth-service.service';
 
 @Component({
   selector: 'infoSalud-navbar',
@@ -46,5 +47,12 @@ export class NavbarComponent {
       },
 
     ];
+  }
+
+
+  constructor(private authService: AuthService) {}
+
+  onLogout(): void {
+    this.authService.logout();
   }
 }
