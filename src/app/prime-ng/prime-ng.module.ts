@@ -7,6 +7,7 @@ import { PasswordModule } from 'primeng/password';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { PanelMenuModule } from 'primeng/panelmenu';
 import { SidebarModule } from 'primeng/sidebar';
+import { InputTextModule } from 'primeng/inputtext';
 
 @NgModule({
   exports: [
@@ -17,7 +18,8 @@ import { SidebarModule } from 'primeng/sidebar';
     PanelModule,
     PasswordModule,
     FloatLabelModule,
-    SidebarModule
+    SidebarModule,
+    InputTextModule
 
   ]
 })

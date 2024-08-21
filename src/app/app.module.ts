@@ -27,8 +27,6 @@ import { PrimeNgModule } from './prime-ng/prime-ng.module';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule
-
-
   ],
   providers: [HelloWordService],
   bootstrap: [AppComponent]
