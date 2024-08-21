@@ -5,14 +5,19 @@ import { MenubarModule } from 'primeng/menubar';
 import { PanelModule } from 'primeng/panel';
 import { PasswordModule } from 'primeng/password';
 import { FloatLabelModule } from 'primeng/floatlabel';
+import { PanelMenuModule } from 'primeng/panelmenu';
+import { SidebarModule } from 'primeng/sidebar';
+
 @NgModule({
   exports: [
     ButtonModule,
     TableModule,
     MenubarModule,
+    PanelMenuModule,
     PanelModule,
     PasswordModule,
-    FloatLabelModule
+    FloatLabelModule,
+    SidebarModule
 
   ]
 })
