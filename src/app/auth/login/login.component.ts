@@ -35,7 +35,7 @@ export class LoginComponent {
         this.loginError = 'Login fallo. Por favor, verifique sus credenciales.';
       }
     }else{
-      this.loginForm.markAllAsTouched(); // Marca todos los campos como tocados para mostrar errores
+      this.loginForm.markAllAsTouched();
     }
   }
 
