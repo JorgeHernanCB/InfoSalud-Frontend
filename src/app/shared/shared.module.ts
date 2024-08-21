@@ -13,6 +13,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomePageComponent} from './pages/home-page/home-page.component';
 import { MainLoginComponent } from './pages/mainLogin/main-login.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { SettingsMenuComponent } from './components/settings-menu/settings-menu.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     MainLoginComponent,
     FooterComponent,
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    SettingsMenuComponent
   ],
   imports: [
     CommonModule,

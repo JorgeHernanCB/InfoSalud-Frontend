@@ -49,10 +49,4 @@ export class NavbarComponent {
     ];
   }
 
-
-  constructor(private authService: AuthService) {}
-
-  onLogout(): void {
-    this.authService.logout();
-  }
 }

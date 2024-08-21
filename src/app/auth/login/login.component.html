@@ -12,7 +12,7 @@
     </div>
 
     <div>
-      <label for="password">Password</label>
+      <p-password for="password"Password [toggleMask]="true"/>
       <input id="password" formControlName="password" type="password" required>
       <div *ngIf="password?.invalid && (password?.dirty || password?.touched)">
         <small *ngIf="password?.errors?.['required']">Password is required.</small>
@@ -26,4 +26,5 @@
       {{ loginError }}
     </div>
   </form>
+
 </div>
