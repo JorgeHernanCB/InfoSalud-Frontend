@@ -1,6 +1,9 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Username } from '../../interface/username.interface';
+
+import { Router } from '@angular/router';
+import { AuthService } from '../../service/authService/auth-service.service';
+
 
 @Component({
   selector: 'infoSalud-login',
@@ -8,32 +11,38 @@ import { Username } from '../../interface/username.interface';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
+  loginForm: FormGroup;
+  loginError: string | null = null;
 
-    @Output()
-    public onNewUsername: EventEmitter<Username> = new EventEmitter();
-
-    public username: Username = {
-      username: '',
-    };
-
-    emitUsername(): void{
-      this.onNewUsername.emit(this.username);
-      this.username.username = '';
-    }
-
-    public password: Username = {
-      password: '',
-    };
-    passForm: FormGroup = new FormGroup({});
-
-    constructor(private formB: FormBuilder){
-    this.makeForm();
-    };
-    makeForm(){
-      this.passForm = this.formB.group({
-        password: ['null',[Validators.required]]
-      });
-    }
-
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private fb: FormBuilder
+  ) {
+    this.loginForm = this.fb.group({
+      username: ['', [Validators.required, Validators.email]], // Validación para email
+      password: ['', [Validators.required, Validators.minLength(6)]] // Mínimo 6 caracteres
+    });
   }
+
+  onSubmit(): void {
+    if (this.loginForm.valid) {
+      const { username, password } = this.loginForm.value;
+      if (this.authService.login(username, password)) {
+        this.loginError = null;
+        this.router.navigate(['/home']);
+      } else {
+        this.loginError = 'Login failed. Please check your credentials.';
+      }
+    }
+  }
+
+  get username() {
+    return this.loginForm.get('username');
+  }
+
+  get password() {
+    return this.loginForm.get('password');
+  }
+}
 
