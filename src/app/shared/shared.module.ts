@@ -14,7 +14,7 @@ import { HomePageComponent} from './pages/home-page/home-page.component';
 import { MainLoginComponent } from './pages/mainLogin/main-login.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SettingsMenuComponent } from './components/settings-menu/settings-menu.component';
-import { AdministracionComponent } from './pages/administracion-page/administracion-page.component';
+import { HeaderComponent } from './components/header/header.component';
 
 
 @NgModule({
@@ -25,7 +25,7 @@ import { AdministracionComponent } from './pages/administracion-page/administrac
     NavbarComponent,
     SidebarComponent,
     SettingsMenuComponent,
-    AdministracionComponent
+    HeaderComponent
   ],
   imports: [
     CommonModule,
@@ -41,6 +41,7 @@ import { AdministracionComponent } from './pages/administracion-page/administrac
     SidebarComponent,
     FooterComponent,
     NavbarComponent,
+    HeaderComponent
 
   ]
 })

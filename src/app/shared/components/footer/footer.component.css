@@ -1,0 +1,15 @@
+#footer{
+  background-color: #FFFFFF;
+  /* padding: 20px; */
+  /* border-top: 20px; */
+  width: 100%;
+}
+
+.container-footer p{
+  margin-top:10px;
+  font-weight: 600;
+}
+
+.container-footer p img{
+  width: 50px;
+}

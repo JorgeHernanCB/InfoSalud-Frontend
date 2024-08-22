@@ -1,0 +1,27 @@
+
+#settingButton{
+  display: flex;
+  position: relative;
+  justify-content:flex-end;
+  bottom: 0;
+  right: 20px;
+  float: right;
+  flex-direction: column;
+  z-index: 1000;
+  /*position: relative;*/
+
+}
+/*
+position: fixed;
+bottom: 20px; /* Ajusta la posición del botón desde la parte inferior
+right: 20px; /* Ajusta la posición del botón desde la parte derecha
+z-index: 1000; /* Asegúrate de que el botón esté por encima del contenido
+background-color: #007bff; /* Color de fondo del botón
+border: none; /* Elimina el borde del botón
+border-radius: 50%; /* Hace que el botón sea redondo
+width: 50px; /* Ancho del botón
+height: 50px; /* Altura del botón
+display: flex;
+align-items: center;
+justify-content: center;
+*/
