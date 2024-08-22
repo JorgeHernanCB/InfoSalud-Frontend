@@ -5,7 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //primeNg
 import { PrimeNgModule } from '../prime-ng/prime-ng.module';
-import { LoginModule } from '../auth/login/login.module';
+import { LoginModule } from '../admin/auth/login/login.module';
 
 //Componentes
 import { FooterComponent } from './components/footer/footer.component';
