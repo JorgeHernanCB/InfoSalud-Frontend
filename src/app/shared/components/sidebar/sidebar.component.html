@@ -1,33 +1,19 @@
-<div id="sidebar">
+<aside id="sidebar active">
+  <p-sidebar [(visible)]="sidebarVisible" >
+    <h3 id="nameMenu">Menu</h3>
+    <p-panelMenu class="itemsSidebar" [model]="itemsSidebar" styleClass="w-full md:w-20rem"></p-panelMenu>
 
-  <p-sidebar [(visible)]="sidebarVisible">
-  <h3>Menu</h3>
-  <ul>
-    <li
-    routerLink="HomePage"
-    class="list-group-item"
-    >
-    HomePage
-    </li>
-    <li routerLink="mainLogin">
-      mainLogin
-    </li>
-    <li routerLink="HomePage"
-    class="list-group-item">
-      HomePage
-    </li>
-  </ul>
-</p-sidebar>
-<p-button
-  type="button"
-  (click)="sidebarVisible = true"
-  label=""
-  icon="pi pi-bars"
-  >
-</p-button>
-
-</div>
-
+  </p-sidebar>
+  <p-button
+    id="sidebarMenuButton"
+    type="button"
+    (click)="sidebarVisible = true"
+    label=""
+    [rounded]="true"
+    severity="contrast"
+    icon="pi pi-bars"
+  />
+</aside>
 
 <!---
 <ul class="list-group">
@@ -49,4 +35,3 @@
   </li>
 
 </ul> -->
-
