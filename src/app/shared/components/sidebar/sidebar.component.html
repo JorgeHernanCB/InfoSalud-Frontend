@@ -1,48 +1,39 @@
 <div id="sidebar">
-
-  <p-sidebar [(visible)]="sidebarVisible">
-  <h3>Menu</h3>
-  <ul>
-    <li routerLink="HomePage" class="list-group-item">
-    HomePage
-    </li>
-    <li routerLink="mainLogin">
-      mainLogin
-    </li>
-    <li routerLink="administracion" class="list-group-item">
-      Administracion
-    </li>
-  </ul>
-</p-sidebar>
-<p-button
-  type="button"
-  (click)="sidebarVisible = true"
-  label=""
-  icon="pi pi-bars"
-  >
-</p-button>
+    <p-sidebar [(visible)]="sidebarVisible">
+    <h3>Menu</h3>
+    <ul>
+      <li routerLink="HomePage" routerLinkActive="active">
+      HomePage
+      </li>
+      <li routerLink="mainLogin" routerLinkActive="active">
+        mainLogin
+      </li>
+      <li routerLink="/administration" routerLinkActive="active">
+        Administracion
+      </li>
+    </ul>
+      <ul class="menu">
+        <li *ngFor="let item of menuItems">
+          <a (click)="toggleSubmenu(item)" [routerLink]="item.routerLink || ''">
+            <i *ngIf="item.icon" [class]="item.icon"></i>
+            {{ item.label }}
+            <span *ngIf="item.items" class="pi pi-chevron-down"></span>
+          </a>
+          <ul *ngIf="item.items && isSubmenuActive(item)" class="submenu">
+            <li *ngFor="let subItem of item.items">
+              <a [routerLink]="subItem.routerLink">{{ subItem.label }}</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+  </p-sidebar>
+  <p-button
+    type="button"
+    (click)="sidebarVisible = true"
+    label=""
+    icon="pi pi-bars"
+    >
+  </p-button>
 
 </div>
-
-
-<!---
-<ul class="list-group">
-
-  <li routerLink="HomePage"
-    class="list-group-item">
-    HomePage
-  </li>
-
-  <li routerLink="mainLogin"
-    routerLinkActive="active"
-    [routerLinkActiveOptions]="{exact: true}"
-    class="list-group-item">
-    mainLogin
-  </li>
-
-  <li class="list-group-item" >
-    HomePage
-  </li>
-
-</ul> -->
 
