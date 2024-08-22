@@ -13,6 +13,7 @@ import { SharedModule } from './shared/shared.module';
 
 // importamos de prime-ng.module.ts
 import { PrimeNgModule } from './prime-ng/prime-ng.module';
+import { AppLayoutModule } from './layout/app.layout.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { PrimeNgModule } from './prime-ng/prime-ng.module';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AppLayoutModule
   ],
   providers: [HelloWordService],
   bootstrap: [AppComponent]
