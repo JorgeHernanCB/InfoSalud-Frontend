@@ -14,6 +14,7 @@ import { HomePageComponent} from './pages/home-page/home-page.component';
 import { MainLoginComponent } from './pages/mainLogin/main-login.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SettingsMenuComponent } from './components/settings-menu/settings-menu.component';
+import { HeaderComponent } from './components/header/header.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { SettingsMenuComponent } from './components/settings-menu/settings-menu.
     FooterComponent,
     NavbarComponent,
     SidebarComponent,
-    SettingsMenuComponent
+    SettingsMenuComponent,
+    HeaderComponent
   ],
   imports: [
     CommonModule,
@@ -39,6 +41,7 @@ import { SettingsMenuComponent } from './components/settings-menu/settings-menu.
     SidebarComponent,
     FooterComponent,
     NavbarComponent,
+    HeaderComponent
 
   ]
 })
