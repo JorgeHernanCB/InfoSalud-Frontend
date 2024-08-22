@@ -19,32 +19,67 @@ export class SidebarComponent {
         routerLink: ['/home'],
         items: [
           {
-            label: 'pagina1',
+            label: 'Proveedores',
             icon: 'pi pi',
             routerLink: ['/home/pagina1'],
           },
           {
-            label: 'pagina2',
+            label: 'Convenios',
             icon: 'pi pi',
           },
           {
-            label: 'pagina3',
+            label: 'Autorizaciones',
+            icon: 'pi pi',
+          },
+          {
+            label: 'Facturas',
+            icon: 'pi pi',
+          },
+          {
+            label: 'Auditorias',
             icon: 'pi pi',
           },
         ],
       },
       {
-        label: 'Usuarios',
+        label: 'Administración',
         icon: 'pi pi-users',
-        routerLink: ['/users'],
+        // routerLink: [''],
+        items: [
+          {
+            label: 'Perfil',
+            icon: 'pi pi',
+            routerLink: ['/home/pagina1'],
+          },
+          {
+            label: 'Parametros',
+            icon: 'pi pi',
+          },
+          {
+            label: 'Seguridad',
+            icon: 'pi pi',
+          },
+          {
+            label: 'Reglas de Validación',
+            icon: 'pi pi',
+          },
+          {
+            label: 'Masivos',
+            icon: 'pi pi',
+          },
+          {
+            label: 'Notificaciones',
+            icon: 'pi pi',
+          },
+        ],
       },
       {
-        label: 'Roles',
+        label: 'Proveedores',
         icon: 'pi pi-lock',
         routerLink: ['/roles'],
       },
       {
-        label: 'Permisos',
+        label: 'Convenios',
       },
     ];
   }
