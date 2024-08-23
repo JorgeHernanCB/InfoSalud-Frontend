@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { LoggerService } from './logs/logger.service';
+import { LoggerService } from './admin/logs/logger.service';
 
 
 

@@ -1,7 +1,10 @@
-<aside id="sidebar active">
-  <p-sidebar [(visible)]="sidebarVisible" >
+<aside id="sidebar">
+  <p-sidebar [(visible)]="sidebarVisible" styleClass="layout-config-sidebar w-20rem">
     <h3 id="nameMenu">Menu</h3>
-    <p-panelMenu class="itemsSidebar" [model]="itemsSidebar" styleClass="w-full md:w-20rem"></p-panelMenu>
+    <p-panelMenu class="itemsSidebar"
+      [model]="itemsSidebar"
+      styleClass="w-full md:w-15rem">
+    </p-panelMenu>
 
   </p-sidebar>
   <p-button
@@ -15,23 +18,8 @@
   />
 </aside>
 
-<!---
-<ul class="list-group">
-
-  <li routerLink="HomePage"
-    class="list-group-item">
-    HomePage
-  </li>
-
-  <li routerLink="mainLogin"
-    routerLinkActive="active"
-    [routerLinkActiveOptions]="{exact: true}"
-    class="list-group-item">
-    mainLogin
-  </li>
-
-  <li class="list-group-item" >
-    HomePage
-  </li>
-
-</ul> -->
+<!-- [(visible)]="visible"
+position="right"
+[transitionOptions]="'.3s
+cubic-bezier(0, 0, 0.2, 1)'"
+styleClass="layout-config-sidebar w-20rem -->
