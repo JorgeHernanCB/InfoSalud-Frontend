@@ -19,6 +19,7 @@ import {AppConfigModule} from "../layout/config/config.module";
 import { ProveedoresComponent } from './pages/proveedores/proveedores.component';
 import { ConveniosComponent } from './pages/convenios/convenios.component';
 import { BusinessCardComponent } from './components/business-card/business-card.component';
+import { DropdownCardsComponent } from './components/dropdown-cards/dropdown-cards.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { BusinessCardComponent } from './components/business-card/business-card.
     HeaderComponent,
     ProveedoresComponent,
     ConveniosComponent,
-    BusinessCardComponent
+    BusinessCardComponent,
+    DropdownCardsComponent
   ],
   imports: [
     CommonModule,
