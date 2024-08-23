@@ -18,6 +18,7 @@ import { HeaderComponent } from './components/header/header.component';
 import {AppConfigModule} from "../layout/config/config.module";
 import { ProveedoresComponent } from './pages/proveedores/proveedores.component';
 import { ConveniosComponent } from './pages/convenios/convenios.component';
+import { BusinessCardComponent } from './components/business-card/business-card.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { ConveniosComponent } from './pages/convenios/convenios.component';
     SettingsMenuComponent,
     HeaderComponent,
     ProveedoresComponent,
-    ConveniosComponent
+    ConveniosComponent,
+    BusinessCardComponent
   ],
   imports: [
     CommonModule,
@@ -47,7 +49,8 @@ import { ConveniosComponent } from './pages/convenios/convenios.component';
     SidebarComponent,
     FooterComponent,
     NavbarComponent,
-    HeaderComponent
+    HeaderComponent,
+    BusinessCardComponent,
 
   ]
 })
