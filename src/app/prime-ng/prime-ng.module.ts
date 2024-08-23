@@ -9,7 +9,8 @@ import { PanelMenuModule } from 'primeng/panelmenu';
 import { SidebarModule } from 'primeng/sidebar';
 import { InputTextModule } from 'primeng/inputtext';
 import { KeyFilterModule } from 'primeng/keyfilter';
-
+import { DropdownModule } from 'primeng/dropdown';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   exports: [
     ButtonModule,
@@ -21,7 +22,9 @@ import { KeyFilterModule } from 'primeng/keyfilter';
     FloatLabelModule,
     SidebarModule,
     InputTextModule,
-    KeyFilterModule
+    KeyFilterModule,
+    DropdownModule,
+    FormsModule
 
   ]
 })
