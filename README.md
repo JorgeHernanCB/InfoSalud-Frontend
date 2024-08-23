@@ -53,32 +53,3 @@ Las contribuciones son bienvenidas. Por favor, sigue los lineamientos establecid
 ## Licencia
 
 Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
-
-
-## Estructura de carpetas
-
-InfoSalud-Frontend/
-│
-├── e2e/                       # Pruebas end-to-end
-│   ├── src/                   # Código fuente de las pruebas E2E
-│   └── protractor.conf.js      # Configuración de Protractor
-│
-├── src/                       # Código fuente principal de la aplicación
-│   ├── app/                   # Código de la aplicación Angular
-│   │   ├── components/        # Componentes de la interfaz de usuario
-│   │   ├── services/          # Servicios que manejan la lógica de negocio
-│   │   ├── models/            # Modelos de datos e interfaces
-│   │   └── app.module.ts      # Módulo principal de la aplicación
-│   │
-│   ├── assets/                # Archivos estáticos (imágenes, fuentes, etc.)
-│   ├── environments/          # Configuraciones de entorno (dev, prod)
-│   ├── index.html             # Archivo HTML principal
-│   ├── main.ts                # Punto de entrada de la aplicación
-│   ├── polyfills.ts           # Polyfills necesarios para soportar navegadores antiguos
-│   └── styles.scss            # Estilos globales de la aplicación
-│
-├── angular.json               # Configuración del proyecto Angular
-├── package.json               # Dependencias y scripts del proyecto
-├── tsconfig.json              # Configuración de TypeScript
-└── README.md                  # Documentación del proyecto
-|
