@@ -15,6 +15,9 @@ import { MainLoginComponent } from './pages/mainLogin/main-login.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SettingsMenuComponent } from './components/settings-menu/settings-menu.component';
 import { HeaderComponent } from './components/header/header.component';
+import {AppConfigModule} from "../layout/config/config.module";
+import { ProveedoresComponent } from './pages/proveedores/proveedores.component';
+import { ConveniosComponent } from './pages/convenios/convenios.component';
 
 
 @NgModule({
@@ -25,7 +28,9 @@ import { HeaderComponent } from './components/header/header.component';
     NavbarComponent,
     SidebarComponent,
     SettingsMenuComponent,
-    HeaderComponent
+    HeaderComponent,
+    ProveedoresComponent,
+    ConveniosComponent
   ],
   imports: [
     CommonModule,
@@ -33,7 +38,8 @@ import { HeaderComponent } from './components/header/header.component';
     BrowserModule,
     BrowserAnimationsModule,
     PrimeNgModule,
-    LoginModule
+    LoginModule,
+    AppConfigModule
   ],
   exports:[
     HomePageComponent,

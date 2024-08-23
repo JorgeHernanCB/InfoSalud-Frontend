@@ -2,8 +2,8 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { Router } from '@angular/router';
-import { AuthService } from '../../../service/authService/auth-service.service';
-
+import { AuthService } from '../../../service/authService/auth-service.service'
+import { PasswordModule } from 'primeng/password';
 
 @Component({
   selector: 'infoSalud-login',
@@ -32,8 +32,10 @@ export class LoginComponent {
         this.loginError = null;
         this.router.navigate(['/home']);
       } else {
-        this.loginError = 'Login failed. Please check your credentials.';
+        this.loginError = 'Login fallo. Por favor, verifique sus credenciales.';
       }
+    }else{
+      this.loginForm.markAllAsTouched();
     }
   }
 

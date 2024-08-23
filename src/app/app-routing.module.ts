@@ -1,18 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from './shared/pages/home-page/home-page.component';
-import { MainLoginComponent } from './shared/pages/mainLogin/main-login.component';
-import { AuthGuard } from './admin/auth/login/auth-guard.service';
+import { AdministracionComponent } from "./shared/pages/administracion-page/administracion-page.component";
+import { ProveedoresComponent } from './shared/pages/proveedores/proveedores.component';
+import { ConveniosComponent } from './shared/pages/convenios/convenios.component';
 
 const routes: Routes = [
-    //path: 'dashboard', loadChildren: () => import('./router/dashboard/dashboard.module').then(m => m.DashboardModule)
-
-    { path: 'login', component: MainLoginComponent },
-    { path: 'home', component: HomePageComponent, canActivate: [AuthGuard] },
-    //{ path: 'crud', component: CrudComponent, canActivate: [AuthGuard] },
-    { path: '', redirectTo: '/login', pathMatch: 'full' },  // Redirige a login por defecto
-    { path: '**', redirectTo: '/login' } // Maneja rutas no definidas
-
+    { path: 'home', component: HomePageComponent },
+    { path: 'proveedores', component: ProveedoresComponent },
+    { path: 'convenios', component: ConveniosComponent },
+    { path: 'administration', component: AdministracionComponent},
+    { path: '', redirectTo: '/home', pathMatch: 'full' },  // Redirige a login por defecto
+    { path: '**', redirectTo: '/home' } // Maneja rutas no definidas
 
   ];
 
