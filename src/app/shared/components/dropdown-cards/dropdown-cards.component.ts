@@ -17,7 +17,10 @@ export class DropdownCardsComponent {
       { name: 'Bogota', country: 'Colombia' },
       { name: 'London', country: 'England' },
       { name: 'Madrid', country: 'Spain' },
-      { name: 'Paris', country: 'France' }
+      { name: 'Paris', country: 'France' },
+      { name: 'Buenos Aires', country: 'Argentina'},
+      { name: 'Lima', country: 'Peru' },
+      { name: 'Caracas', country: 'venezuela' }
     ];
   }
 
