@@ -5,7 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //primeNg
 import { PrimeNgModule } from '../prime-ng/prime-ng.module';
-import { LoginModule } from '../auth/login/login.module';
+import { LoginModule } from '../admin/auth/login/login.module';
 
 //Componentes
 import { FooterComponent } from './components/footer/footer.component';
@@ -16,6 +16,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SettingsMenuComponent } from './components/settings-menu/settings-menu.component';
 import { HeaderComponent } from './components/header/header.component';
 import {AppConfigModule} from "../layout/config/config.module";
+import { ProveedoresComponent } from './pages/proveedores/proveedores.component';
+import { ConveniosComponent } from './pages/convenios/convenios.component';
 
 
 @NgModule({
@@ -26,7 +28,9 @@ import {AppConfigModule} from "../layout/config/config.module";
     NavbarComponent,
     SidebarComponent,
     SettingsMenuComponent,
-    HeaderComponent
+    HeaderComponent,
+    ProveedoresComponent,
+    ConveniosComponent
   ],
   imports: [
     CommonModule,

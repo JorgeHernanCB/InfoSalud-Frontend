@@ -21,11 +21,12 @@ export class SidebarComponent {
           {
             label: 'Proveedores',
             icon: 'pi pi',
-            routerLink: ['/home/pagina1'],
+            routerLink: ['/proveedores'],
           },
           {
             label: 'Convenios',
             icon: 'pi pi',
+            routerLink: ['/convenios'],
           },
           {
             label: 'Autorizaciones',
