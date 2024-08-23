@@ -8,6 +8,7 @@ import { FloatLabelModule } from 'primeng/floatlabel';
 import { PanelMenuModule } from 'primeng/panelmenu';
 import { SidebarModule } from 'primeng/sidebar';
 import { InputTextModule } from 'primeng/inputtext';
+import { KeyFilterModule } from 'primeng/keyfilter';
 
 @NgModule({
   exports: [
@@ -19,7 +20,8 @@ import { InputTextModule } from 'primeng/inputtext';
     PasswordModule,
     FloatLabelModule,
     SidebarModule,
-    InputTextModule
+    InputTextModule,
+    KeyFilterModule
 
   ]
 })
