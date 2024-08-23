@@ -4,6 +4,20 @@
     padding: 10px;
 }
 
+/* Sliderbar */
+:host ::ng-deep .p-button{
+    background-color: #ffffff;
+    border: 0px;
+}
+
+:host ::ng-deep .p-button-icon{
+    color: #383838;
+}
+
+:host ::ng-deep .pi{
+    font-size: 1rem;
+}
+
 .header-sup .container-header{
     width: 40px;
     margin-top: 20px;

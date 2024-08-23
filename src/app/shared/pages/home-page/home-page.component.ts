@@ -7,7 +7,6 @@ import { AuthService } from '../../../service/authService/auth-service.service';
 })
 export class HomePageComponent {
 
-
   constructor(private authService: AuthService) {}
 
   onLogout(): void {
