@@ -1,23 +1,83 @@
-<div class="card flex justify-content-center">
-  <p-panel header="Header" [toggleable]="true">
-    <p-floatLabel>
-      <input pInputText pKeyFilter="alpha" id="name"  />
-      <label htmlFor="name1">Name</label>
-    </p-floatLabel>
-    <br>
-    <p-floatLabel>
-      <input pInputText pKeyFilter="alpha" id="surname" type="text" />
-      <label htmlFor="surname">surname</label>
-    </p-floatLabel>
-    <infoSalud-dropdown-cards></infoSalud-dropdown-cards>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.
-    </p>
+<!-- <div class="card"> -->
+  <p-panel header="BUSCADOR DE PARAMETROS" [toggleable]="true">
+    <!-- Row 1 -->
+    <div class="formgrid grid mt-3">
+      <div class="field col">
+        <p-floatLabel>
+          <input pInputText pKeyFilter="alpha" id="name"  />
+          <label htmlFor="name">Grupo</label>
+        </p-floatLabel>
+      </div>
+      <div class="field col">
+        <p-floatLabel>
+          <input pInputText id="codigo" type="text" />
+          <label htmlFor="codigo">Codigo</label>
+        </p-floatLabel>
+      </div>
+      <div class="field col">
+        <p-floatLabel>
+          <input pInputText id="valor" type="text" />
+          <label htmlFor="valor">Valor</label>
+        </p-floatLabel>
+      </div>
+      <div class="field col">
+        <p-floatLabel>
+          <input pInputText id="application" type="text" />
+          <label htmlFor="application">Aplicativo</label>
+        </p-floatLabel>
+      </div>
+    </div>
+    <div class="formgrid grid mt-3">
+      <div class="field col">
+        <p-floatLabel>
+          <input pInputText id="descripcion_grupo" type="text" />
+          <label htmlFor="descripcion_grupo">Descripci&oacute;n grupo</label>
+        </p-floatLabel>
+      </div>
+      <div class="field col">
+        <p-floatLabel>
+          <input pInputText id="description_parameter" type="text" />
+          <label htmlFor="description_parameter">Descripci&oacute;n Par&aacute;metro</label>
+        </p-floatLabel>
+      </div>
+      <div class="field col">
+        <infoSalud-dropdown-cards></infoSalud-dropdown-cards>
+      </div>
+      <div class="field col">
+        <p-floatLabel>
+          <input pInputText pKeyFilter="alpha" id="user" type="text" />
+          <label htmlFor="user">Usuario</label>
+        </p-floatLabel>
+      </div>
+    </div>
+    <div class="formgrid grid mt-3">
+      <div class="field col">
+        <input id="disabled-date" type="text" ptInputText [disabled]="true" />
+      </div>
+      <div class="field col">
+        <input 
+          id="disabled-date" 
+          type="text" 
+          ptInputText
+          [disabled]="true"
+        />
+      </div>
+    </div>
+    <div class="formgrid grid col-offset-8">
+      <div class="field-col">
+        <p-button label="Limpiar" [raised]="true" />
+      </div>
+      <div class="field-col ml-4">
+        <p-button label="Nuevo" [raised]="true" />
+      </div>
+      <div class="field-col gap-3 ml-4">
+        <p-button label="Buscar" [raised]="true" />
+      </div>
+    </div>
   </p-panel>
-</div>
+  <!-- Searchs -->
+   <div class="mt-4"></div>
+  <p-panel header="ENCONTRADOS" [toggleable]="true" >
+
+  </p-panel>
+<!-- </div> -->

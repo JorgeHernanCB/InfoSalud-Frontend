@@ -3,11 +3,11 @@
 }
 
 footer{
-  position: fixed;
+  /* position: fixed;
   bottom: 0;
   width: 100%;
-  align-items: center;
-  margin-top: 10px;
+  align-items: center; */
+  margin-top: 30px;
   -webkit-box-shadow: 1px -3px 27px 0px rgba(173,170,173,1);
   -moz-box-shadow: 1px -3px 27px 0px rgba(173,170,173,1);
   box-shadow: 1px -3px 27px 0px rgba(173,170,173,1);

@@ -2,14 +2,15 @@
   <body class="layout-wrapper">
     <main class="main">
       <infoSalud-header></infoSalud-header>
-
     </main>
-    <div class="mt-5 w-10">
-      <router-outlet></router-outlet>
+    <div class="layout-main">
+      <div class="mt-5 w-10">
+        <router-outlet></router-outlet>
+      </div>
+      <footer class="layout-footer w-full align-items-center ">
+        <infoSalud-footer></infoSalud-footer>
+      </footer>
     </div>
-    <footer class="layout-footer">
-      <infoSalud-footer></infoSalud-footer>
-    </footer>
   </body>
 </html>
 
