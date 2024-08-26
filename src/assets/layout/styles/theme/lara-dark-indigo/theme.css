@@ -1870,7 +1870,7 @@
     /* background: #a5b4fc;
     border-color: #a5b4fc; */
     background: #E03A3D;
-    border-color: #E03A3D;
+    border-color: #E03A3D; 
     color: #030712;
   }
   .p-togglebutton.p-button.p-highlight:hover .p-button-icon-left,
@@ -2020,10 +2020,11 @@
   }
   .p-button:not(:disabled):hover {
     /* background: #a5b4fc; */
-    background: #E03A3D;
+    /* background: #E03A3D; */
+    background: #CD1417;
     color: #030712;
     /* border-color: #a5b4fc; */
-    border-color: #E03A3D;
+    border-color: #CD1417;
   }
   .p-button:not(:disabled):active {
     /* background: #c7d2fe; */
