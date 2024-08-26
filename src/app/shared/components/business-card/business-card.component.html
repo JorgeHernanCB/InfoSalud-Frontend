@@ -1,7 +1,18 @@
 <!-- <div class="card"> -->
-  <p-panel header="BUSCADOR DE PARAMETROS" [toggleable]="true">
+  <p-panel header="BUSCADOR DE PROVEEDORES" [toggleable]="true">
+    <div class="formgrid grid col-offset-8">
+      <div class="field-col">
+        <p-button label="Limpiar" [raised]="true" [rounded]="true"  />
+      </div>
+      <div class="field-col ml-4">
+        <p-button label="Nuevo" [raised]="true" [rounded] = "true" />
+      </div>
+      <div class="field-col gap-3 ml-4">
+        <p-button label="Buscar" [raised]="true" [rounded] = "true" />
+      </div>
+    </div>
     <!-- Row 1 -->
-    <div class="formgrid grid mt-3">
+    <div class="formgrid grid mt-4">
       <div class="field col">
         <p-floatLabel>
           <input pInputText pKeyFilter="alpha" id="name"  />
@@ -63,17 +74,7 @@
         />
       </div>
     </div>
-    <div class="formgrid grid col-offset-8">
-      <div class="field-col">
-        <p-button label="Limpiar" [raised]="true" [rounded]="true"  />
-      </div>
-      <div class="field-col ml-4">
-        <p-button label="Nuevo" [raised]="true" [rounded] = "true" />
-      </div>
-      <div class="field-col gap-3 ml-4">
-        <p-button label="Buscar" [raised]="true" [rounded] = "true" />
-      </div>
-    </div>
+    
   </p-panel>
   <!-- Searchs -->
    <div class="mt-4"></div>
