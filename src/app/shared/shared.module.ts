@@ -21,6 +21,10 @@ import { FilteredButtonComponent } from './components/filtered-button/filtered-b
 import { ButtonGroupModule } from 'primeng/buttongroup';
 
 
+//Forms
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CalendarModule } from 'primeng/calendar';
+
 
 @NgModule({
   declarations: [
@@ -43,7 +47,9 @@ import { ButtonGroupModule } from 'primeng/buttongroup';
     PrimeNgModule,
     AppConfigModule,
     ButtonGroupModule,
-
+    FormsModule,
+    ReactiveFormsModule,
+    CalendarModule
   ],
   exports:[
     HomePageComponent,
