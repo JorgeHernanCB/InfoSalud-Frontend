@@ -31,7 +31,7 @@ export interface Deparment {
   name?: string;
   region?: string;
 }
-
+ //🛠
 export interface Estado {
   estado: string;
 }

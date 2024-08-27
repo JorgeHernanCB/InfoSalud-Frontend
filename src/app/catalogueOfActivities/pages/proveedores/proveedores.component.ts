@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TypePerson, City, Deparment, TypeDocument } from '../../interface/proveedores.interface';
+import { TypePerson, City, Deparment, TypeDocument, numberDocument } from '../../interface/proveedores.interface';
 
 @Component({
   selector: 'app-proveedores',
@@ -20,6 +20,9 @@ export class ProveedoresComponent {
 
   public typeDocument: TypeDocument[] | undefined = [];
   public selectedTypeDocument: TypeDocument | undefined;
+
+  public numberDocument: numberDocument[] | undefined = [];
+  public selectedNumberDocument: numberDocument | undefined;
 
   ngOnInit () {
     //Dropdown list of type person
@@ -54,6 +57,9 @@ export class ProveedoresComponent {
       { identification: 'Cedula de Extranjeria'},
       { identification: 'NIT'},
       { identification: 'Tarjeta de Identidad'}
+    ]
+    this.numberDocument =[
+      { number: '#', typeDocument: 'Cedula de Ciudadania'},
 
     ]
   }
