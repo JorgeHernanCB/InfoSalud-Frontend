@@ -8,11 +8,13 @@ import { ProveedoresComponent } from './pages/proveedores/proveedores.component'
 import { SharedModule } from '../shared/shared.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DropDownProveedoresComponent } from './pages/proveedores/drop-down-proveedores/drop-down-proveedores.component';
 
 @NgModule({
   declarations: [
     ConveniosComponent,
-    ProveedoresComponent
+    ProveedoresComponent,
+    DropDownProveedoresComponent
   ],
   imports: [
     CommonModule,
