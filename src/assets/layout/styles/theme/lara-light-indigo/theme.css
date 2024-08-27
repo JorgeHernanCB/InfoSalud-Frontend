@@ -975,13 +975,15 @@
     border-radius: 6px;
   }
   .p-dropdown:not(.p-disabled):hover {
-    border-color: #6366F1;
+    /* border-color: #6366F1; */
+    border-color: #E13A3D;
   }
   .p-dropdown:not(.p-disabled).p-focus {
     outline: 0 none;
     outline-offset: 0;
     box-shadow: 0 0 0 0.2rem #C7D2FE;
-    border-color: #6366F1;
+    /* border-color: #6366F1; */
+    border-color: #E13A3D;
   }
   .p-dropdown.p-dropdown-clearable .p-dropdown-label {
     padding-right: 1.75rem;

@@ -1873,7 +1873,7 @@
     border-color: #E03A3D; 
     color: #030712;
   }
-  .p-togglebutton.p-button.p-highlight:hover .p-button-icon-left,
+  .p-togglebutton.p-button.p-highlight:hover .p-button-icon-left,<
 .p-togglebutton.p-button.p-highlight:hover .p-button-icon-right {
     color: #030712;
   }
