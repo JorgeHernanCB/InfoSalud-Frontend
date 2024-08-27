@@ -7,7 +7,7 @@
       <p-dropdown
         [options]="typePerson"
         [(ngModel)]="selectedTypePerson"
-        optionLabel="TypePerson"
+        optionLabel="typePerson"
         placeholder="Tipo de persona"
       />
     </div>
@@ -16,8 +16,24 @@
       <p-dropdown
         [options]="cities"
         [(ngModel)]="selectedCity"
-        optionLabel="City"
-        placeholder="Seleccione una ciudad"
+        optionLabel="name"
+        placeholder="Seleccione ciudad"
+      />
+    </div>
+    <div class="justify-content-center">
+      <p-dropdown
+        [options]="deparments"
+        [(ngModel)]="selectedDeparment"
+        optionLabel="name"
+        placeholder="Seleccione un departmento"
+      />
+    </div>
+    <div class="justify-content-center">
+      <p-dropdown
+        [options]="typeDocument"
+        [(ngModel)]="selectedTypeDocument"
+        optionLabel="identification"
+        placeholder="Seleccione una Identificación"
       />
     </div>
 
