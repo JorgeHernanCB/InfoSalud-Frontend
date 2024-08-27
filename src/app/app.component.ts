@@ -2,9 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 import { LoggerService } from './admin/logs/logger.service';
 
-
-
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

@@ -17,6 +17,11 @@ import { HeaderComponent } from './components/header/header.component';
 import {AppConfigModule} from "../layout/config/config.module";
 import { BusinessCardComponent } from './components/business-card/business-card.component';
 import { DropdownCardsComponent } from './components/dropdown-cards/dropdown-cards.component';
+import { FilteredButtonComponent } from './components/filtered-button/filtered-button.component';
+import { ButtonGroupModule } from 'primeng/buttongroup';
+
+
+
 @NgModule({
   declarations: [
     HomePageComponent,
@@ -27,7 +32,8 @@ import { DropdownCardsComponent } from './components/dropdown-cards/dropdown-car
     SettingsMenuComponent,
     HeaderComponent,
     BusinessCardComponent,
-    DropdownCardsComponent
+    DropdownCardsComponent,
+    FilteredButtonComponent
   ],
   imports: [
     CommonModule,
@@ -36,6 +42,7 @@ import { DropdownCardsComponent } from './components/dropdown-cards/dropdown-car
     BrowserAnimationsModule,
     PrimeNgModule,
     AppConfigModule,
+    ButtonGroupModule,
 
   ],
   exports:[
