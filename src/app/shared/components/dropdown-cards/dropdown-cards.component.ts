@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { City } from '../../../core/interface/city.interface';
+import { Component } from '@angular/core';
+import { City } from '../../../catalogueOfActivities/interface/city.interface';
 @Component({
   selector: 'infoSalud-dropdown-cards',
   templateUrl: './dropdown-cards.component.html',
@@ -23,6 +23,5 @@ export class DropdownCardsComponent {
       { name: 'Caracas', country: 'venezuela' }
     ];
   }
-
 
 }

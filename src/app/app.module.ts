@@ -9,6 +9,9 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 //importamos de shared.module.ts
 import { SharedModule } from './shared/shared.module';
 
+//importamos de catalogueOfActivities.module.ts
+import { catalogueOfActivitiesModule } from './catalogueOfActivities/catalogueOfActivities.module';
+
 // importamos de prime-ng.module.ts
 import { PrimeNgModule } from './prime-ng/prime-ng.module';
 import { AppLayoutModule } from './layout/app.layout.module';
@@ -19,13 +22,14 @@ import { AppLayoutModule } from './layout/app.layout.module';
   ],
   imports: [
     BrowserModule,
-    SharedModule,
-    PrimeNgModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule,
     HttpClientModule,
-    AppLayoutModule
+    FormsModule,
+    AppLayoutModule,
+    catalogueOfActivitiesModule,
+    SharedModule,
+    PrimeNgModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,29 @@
+
+<div class="card p-fluid">
+    <h4>Proveedores</h4>
+    <p>This is your empty page template to start building beautiful applications.</p>
+
+    <div class="justify-content-center">
+      <p-dropdown
+        [options]="typePerson"
+        [(ngModel)]="selectedTypePerson"
+        optionLabel="TypePerson"
+        placeholder="Tipo de persona"
+      />
+    </div>
+
+    <div class="justify-content-center">
+      <p-dropdown
+        [options]="cities"
+        [(ngModel)]="selectedCity"
+        optionLabel="City"
+        placeholder="Seleccione una ciudad"
+      />
+    </div>
+
+    <infoSalud-business-card></infoSalud-business-card>
+
+</div>
+
+
+

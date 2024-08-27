@@ -5,7 +5,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //primeNg
 import { PrimeNgModule } from '../prime-ng/prime-ng.module';
-import { LoginModule } from '../admin/auth/login/login.module';
 
 //Componentes
 import { FooterComponent } from './components/footer/footer.component';
@@ -16,12 +15,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SettingsMenuComponent } from './components/settings-menu/settings-menu.component';
 import { HeaderComponent } from './components/header/header.component';
 import {AppConfigModule} from "../layout/config/config.module";
-import { ProveedoresComponent } from './pages/proveedores/proveedores.component';
-import { ConveniosComponent } from './pages/convenios/convenios.component';
 import { BusinessCardComponent } from './components/business-card/business-card.component';
 import { DropdownCardsComponent } from './components/dropdown-cards/dropdown-cards.component';
-
-
 @NgModule({
   declarations: [
     HomePageComponent,
@@ -31,8 +26,6 @@ import { DropdownCardsComponent } from './components/dropdown-cards/dropdown-car
     SidebarComponent,
     SettingsMenuComponent,
     HeaderComponent,
-    ProveedoresComponent,
-    ConveniosComponent,
     BusinessCardComponent,
     DropdownCardsComponent
   ],
@@ -42,8 +35,8 @@ import { DropdownCardsComponent } from './components/dropdown-cards/dropdown-car
     BrowserModule,
     BrowserAnimationsModule,
     PrimeNgModule,
-    LoginModule,
-    AppConfigModule
+    AppConfigModule,
+
   ],
   exports:[
     HomePageComponent,

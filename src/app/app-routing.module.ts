@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from './shared/pages/home-page/home-page.component';
 import { AdministracionComponent } from "./shared/pages/administracion-page/administracion-page.component";
-import { ProveedoresComponent } from './shared/pages/proveedores/proveedores.component';
-import { ConveniosComponent } from './shared/pages/convenios/convenios.component';
+import { ProveedoresComponent } from './catalogueOfActivities/pages/proveedores/proveedores.component';
+import { ConveniosComponent } from './catalogueOfActivities/pages/convenios/convenios.component';
 
 const routes: Routes = [
     { path: 'home', component: HomePageComponent },
