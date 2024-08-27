@@ -1,7 +1,6 @@
-
-<div class="card p-fluid">
-    <h4>Proveedores</h4>
-    <p>This is your empty page template to start building beautiful applications.</p>
+<p-panel header="BUSCADOR DE PROVEEDORES" [toggleable]="true">
+  <div class="card p-fluid">
+    <h2>Proveedores</h2>
 
     <div class="justify-content-center">
       <p-dropdown
@@ -18,6 +17,24 @@
         [(ngModel)]="selectedCity"
         optionLabel="name"
         placeholder="Seleccione una ciudad"
+        optionLabel="name"
+        placeholder="Seleccione ciudad"
+      />
+    </div>
+    <div class="justify-content-center">
+      <p-dropdown
+        [options]="deparments"
+        [(ngModel)]="selectedDeparment"
+        optionLabel="name"
+        placeholder="Seleccione un departmento"
+      />
+    </div>
+    <div class="justify-content-center">
+      <p-dropdown
+        [options]="typeDocument"
+        [(ngModel)]="selectedTypeDocument"
+        optionLabel="identification"
+        placeholder="Seleccione una Identificación"
       />
     </div>
 
