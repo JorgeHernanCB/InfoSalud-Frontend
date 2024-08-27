@@ -7,13 +7,13 @@
       <div class="formgrid grid mt-4 col-12">
         <div class="field col-3">
           <p-floatLabel>
-            <input pInputText pKeyFilter="alpha" class="ipt-required" id="name" formControlName="name"/>
+            <input pInputText pKeyFilter="alpha" class="ipt-required" id="name" formControlName="name" required/>
             <label htmlFor="name">Grupo</label>
           </p-floatLabel>
         </div>
         <div class="field col-3">
           <p-floatLabel>
-            <input pInputText id="codigo" type="number" formControlname="codigo" required/>
+            <input pInputText id="codigo" type="number" formControlName="codigo" />
             <label htmlFor="codigo">Codigo</label>
           </p-floatLabel>
         </div>
@@ -85,7 +85,7 @@
           </div>
         </div>
       </div>
-      <div class="formgrid grid col-6">
+      <!-- <div class="formgrid grid col-6">
         <div class="field col">
           <div class="flex auto">
             <input id="disabled-date" type="text" ptInputText [disabled]="true" />
@@ -99,7 +99,7 @@
             [disabled]="true"
           />
         </div>
-      </div>
+      </div> -->
     </form>
 
   </p-panel>

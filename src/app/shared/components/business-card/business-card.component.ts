@@ -19,8 +19,8 @@ export class BusinessCardComponent implements OnInit{
       //Se definen los valores del formulario
       // Ej: name: ['', Validators.required]
       name: ['',Validators.required],
-      codigo: [Number, Validators.required]
-    })
+      codigo: ['', Validators.required]
+    });
   }
 
   ngOnInit(): void {
