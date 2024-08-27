@@ -1,1 +1,38 @@
-<p>drop-down-proveedores works!</p>
+<div class="card p-fluid">
+  <h2>Proveedores- drop-down-proveedores</h2>
+
+  <div class="justify-content-center">
+    <p-dropdown
+      [options]="typePerson"
+      [(ngModel)]="selectedTypePerson"
+      optionLabel="typePerson"
+      placeholder="Tipo de persona"
+    />
+  </div>
+
+  <div class="justify-content-center">
+    <p-dropdown
+      [options]="cities"
+      [(ngModel)]="selectedCity"
+      optionLabel="name"
+      placeholder="Seleccione una ciudad"
+    />
+  </div>
+  <div class="justify-content-center">
+    <p-dropdown
+      [options]="deparments"
+      [(ngModel)]="selectedDeparment"
+      optionLabel="name"
+      placeholder="Seleccione un departmento"
+    />
+  </div>
+  <div class="justify-content-center">
+    <p-dropdown
+      [options]="typeDocument"
+      [(ngModel)]="selectedTypeDocument"
+      optionLabel="identification"
+      placeholder="Seleccione una Identificación"
+    />
+  </div>
+  <infoSalud-business-card></infoSalud-business-card>
+</div>
