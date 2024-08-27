@@ -1,7 +1,7 @@
-<p-panel header="BUSCADOR DE PROVEEDORES" [toggleable]="true">
-  <div class="card p-fluid">
-    <h2>Proveedores</h2>
+<div class="card p-fluid">
+  <h2>Proveedores</h2>
 
+<<<<<<< HEAD
     <div class="justify-content-center">
       <p-dropdown
         [options]="typePerson"
@@ -39,5 +39,47 @@
         placeholder="Seleccione una Identificación"
       />
     </div>
+=======
+  <!-- <div class="justify-content-center">
+    <p-dropdown
+      [options]="typePerson"
+      [(ngModel)]="selectedTypePerson"
+      optionLabel="naturalPerson"
+      placeholder="Tipo de persona"
+    />
+>>>>>>> 79d020d751a9f841f4ad1dfa4e58fabad068bdfc
   </div>
-</p-panel>
+
+  <div class="justify-content-center">
+    <p-dropdown
+      [options]="cities"
+      [(ngModel)]="selectedCity"
+      optionLabel="name"
+      placeholder="Seleccione una ciudad"
+      optionLabel="name"
+      placeholder="Seleccione ciudad"
+    />
+  </div>
+  <div class="justify-content-center">
+    <p-dropdown
+      [options]="deparments"
+      [(ngModel)]="selectedDeparment"
+      optionLabel="name"
+      placeholder="Seleccione un departmento"
+    />
+  </div>
+  <div class="justify-content-center">
+    <p-dropdown
+      [options]="typeDocument"
+      [(ngModel)]="selectedTypeDocument"
+      optionLabel="identification"
+      placeholder="Seleccione una Identificación"
+    />
+  </div> -->
+
+  <infoSalud-business-card></infoSalud-business-card>
+
+</div>
+
+
+

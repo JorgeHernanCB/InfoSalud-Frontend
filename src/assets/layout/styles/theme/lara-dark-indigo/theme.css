@@ -14,6 +14,7 @@
   --text-color-secondary: rgba(255, 255, 255, 0.6);
   /* --primary-color: #818cf8; */
   --primary-color: #E03A3D;
+  --input-require: #993e3e;
   --primary-color-text: #030712;
   --surface-0: #111827;
   --surface-50: #1f2937;
@@ -1873,7 +1874,7 @@
     border-color: #E03A3D; 
     color: #030712;
   }
-  .p-togglebutton.p-button.p-highlight:hover .p-button-icon-left,<
+  .p-togglebutton.p-button.p-highlight:hover .p-button-icon-left,
 .p-togglebutton.p-button.p-highlight:hover .p-button-icon-right {
     color: #030712;
   }

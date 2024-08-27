@@ -8,7 +8,8 @@ import { Component, HostListener } from '@angular/core';
 export class FilteredButtonComponent {
 
   // For responsive
-  isLargeScreen = false //width: 1060px
+  isExtraLargeScreen = false; //width: 1060px
+  isLargeScreen = false //with: 900px
   isMediumScreen = false // width: 740px
   isSmallScreen = false; //width: 460px
   isExtraSmallScreen = false //width: < 460px
@@ -24,9 +25,10 @@ export class FilteredButtonComponent {
 
   //Function
   private detectScreenSize(width: number){
-    this.isLargeScreen = width > 1060;
-    this.isMediumScreen = width > 750 && width <= 1060;
-    this.isSmallScreen = width > 550 && width <= 750;
+    this.isExtraLargeScreen = width > 1100;
+    this.isLargeScreen = width > 850 && width <= 1100;
+    this.isMediumScreen = width > 700 && width <= 850;
+    this.isSmallScreen = width > 550 && width <= 700;
     this.isExtraSmallScreen = width <= 550;
   }
 
