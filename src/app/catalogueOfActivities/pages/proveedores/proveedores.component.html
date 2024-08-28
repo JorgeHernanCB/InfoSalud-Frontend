@@ -1,2 +1,110 @@
 
-<infoSalud-drop-down-proveedores></infoSalud-drop-down-proveedores>
+<!-- <infoSalud-drop-down-proveedores></infoSalud-drop-down-proveedores> -->
+<!-- <div class="card"> -->
+<div class="card p-fluid">
+    <h2>Proveedores </h2>
+    <!-- Searchs -->
+    <p-panel header="BUSCADOR DE PROVEEDORES" [toggleable]="true">
+         <!-- forms -->
+        <form [formGroup]="proveedorsForm" (ngSubmit)="onSubmit()">
+          <app-filtered-button></app-filtered-button>
+          <!-- Row 1 -->
+          <div class="formgrid grid mt-4 col-12">
+            <div class="field col-3">
+              <p-floatLabel>
+                <input pInputText pKeyFilter="alpha" class="ipt-required" id="name" formControlName="name" required/>
+                <label htmlFor="name">Grupo</label>
+              </p-floatLabel>
+            </div>
+            <div class="field col-3">
+              <p-floatLabel>
+                <input pInputText id="codigo" type="number" formControlName="codigo" />
+                <label htmlFor="codigo">Codigo</label>
+              </p-floatLabel>
+            </div>
+            <div class="field col-3">
+              <p-floatLabel>
+                <input pInputText id="valor" type="text" />
+                <label htmlFor="valor">Valor</label>
+              </p-floatLabel>
+            </div>
+            <div class="field col-3">
+              <p-floatLabel>
+                <input pInputText id="application" type="text" />
+                <label htmlFor="application">Aplicativo</label>
+              </p-floatLabel>
+            </div>
+          </div>
+          <!-- Row 2 -->
+          <div class="formgrid grid col-12">
+            <div class="field col-3">
+              <p-floatLabel>
+                <input pInputText id="descripcion_grupo" type="text" />
+                <label htmlFor="descripcion_grupo">Descripci&oacute;n grupo</label>
+              </p-floatLabel>
+            </div>
+            <div class="field col-3">
+              <p-floatLabel>
+                <input pInputText id="description_parameter" type="text" />
+                <label htmlFor="description_parameter">Descripci&oacute;n Par&aacute;metro</label>
+              </p-floatLabel>
+            </div>
+            <div class="field col-3">
+              <infoSalud-dropdown-cards></infoSalud-dropdown-cards>
+            </div>
+            <div class="field col-3">
+              <p-floatLabel>
+                <input pInputText pKeyFilter="alpha" id="user" type="text"
+                id="disabled-date"
+                [disabled]="true"
+                placeholder="Cris.Arango"
+                />
+                <label htmlFor="Username">Cris.Arango</label>
+                <!-- ([(ngModel)])="value" <label htmlFor="user">Usuario</label> -->
+              </p-floatLabel>
+            </div>
+          </div>
+          <!-- Row 3 -->
+          <div class="formgrid grid col-12">
+          <!-- Calendar -->
+            <div class="field col-3">
+              <div class="flex-auto">
+                <!-- <label for="icondisplay" class="font-bold block mb-2"> Default Icon </label>  [(ngModel)]="date2"-->
+                    <p-calendar
+                      placeholder = "Fecha inicio vigencia"
+                      [showIcon]="true"
+                      inputId="buttondisplay"
+                      [showOnFocus]="false" />
+              </div>
+            </div>
+            <div class="field col-3">
+              <div class="flex-auto">
+                <!-- <label for="icondisplay" class="font-bold block mb-2"> Default Icon </label>  [(ngModel)]="date2"-->
+                <p-calendar
+                  placeholder = "Fecha fin vigencia"
+                  [showIcon]="true"
+                  inputId="buttondisplay"
+                  [showOnFocus]="false" />
+              </div>
+            </div>
+          </div>
+          <!-- <div class="formgrid grid col-6">
+            <div class="field col">
+              <input
+                id="disabled-date"
+                type="text"
+                ptInputText
+                [disabled]="true"
+              />
+            </div>
+          </div> -->
+        </form>
+    </p-panel>
+    <!-- Table -->
+    <div class="mt-4"> 
+        <p-panel header="ENCONTRADOS"  [toggleable]="true" >
+
+        </p-panel>
+    </div>
+</div>
+<!-- </div> -->

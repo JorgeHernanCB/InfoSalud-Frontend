@@ -1,11 +1,11 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-filtered-button',
   templateUrl: './filtered-button.component.html',
-  styleUrl: './filtered-button.component.css'
+  styleUrl: './filtered-button.component.css',
 })
-export class FilteredButtonComponent {
+export class FilteredButtonComponent{
 
   // For responsive
   isExtraLargeScreen = false; //width: 1060px
@@ -31,6 +31,5 @@ export class FilteredButtonComponent {
     this.isSmallScreen = width > 550 && width <= 700;
     this.isExtraSmallScreen = width <= 550;
   }
-
 
 }

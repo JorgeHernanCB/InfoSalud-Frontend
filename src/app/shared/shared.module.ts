@@ -24,7 +24,7 @@ import { ButtonGroupModule } from 'primeng/buttongroup';
 //Forms
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CalendarModule } from 'primeng/calendar';
-
+import { catalogueOfActivitiesModule } from '../catalogueOfActivities/catalogueOfActivities.module';
 
 @NgModule({
   declarations: [
@@ -37,7 +37,7 @@ import { CalendarModule } from 'primeng/calendar';
     HeaderComponent,
     BusinessCardComponent,
     DropdownCardsComponent,
-    FilteredButtonComponent
+    FilteredButtonComponent,
   ],
   imports: [
     CommonModule,
@@ -49,7 +49,8 @@ import { CalendarModule } from 'primeng/calendar';
     ButtonGroupModule,
     FormsModule,
     ReactiveFormsModule,
-    CalendarModule
+    CalendarModule,
+    
   ],
   exports:[
     HomePageComponent,
@@ -59,7 +60,8 @@ import { CalendarModule } from 'primeng/calendar';
     NavbarComponent,
     HeaderComponent,
     BusinessCardComponent,
-
+    FilteredButtonComponent,
+    DropdownCardsComponent
   ]
 })
 export class SharedModule { }
