@@ -20,6 +20,14 @@
         </div>
     </div>
 
+    <div class="mt-4 align-content-center">
+      <re-captcha
+        (resolved)="resolved($event)"
+        siteKey="6LeHRDsfAAAAAOkNj6VcGBU8jcX1qjiMqV_jhXMf"
+        formControlName="recaptcha"
+      ></re-captcha>
+    </div>
+
     <button type="submit" [disabled]="loginForm.invalid">Login</button>
 
     <div *ngIf="loginError" class="error-message">

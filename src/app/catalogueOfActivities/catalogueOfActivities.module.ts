@@ -18,6 +18,10 @@ import { ButtonGroupModule } from 'primeng/buttongroup';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CalendarModule } from 'primeng/calendar';
 import { SharedModule } from '../shared/shared.module';
+import { LoginModule } from '../admin/auth/login/login.module';
+
+
+
 
 
 @NgModule({
@@ -25,6 +29,7 @@ import { SharedModule } from '../shared/shared.module';
     ConveniosComponent,
     ProveedoresComponent,
     DropDownProveedoresComponent,
+
   ],
   imports: [
     CommonModule,
@@ -37,6 +42,7 @@ import { SharedModule } from '../shared/shared.module';
     ButtonGroupModule,
     ReactiveFormsModule,
     CalendarModule,
+    LoginModule
   ],
   exports: [
     ConveniosComponent,
