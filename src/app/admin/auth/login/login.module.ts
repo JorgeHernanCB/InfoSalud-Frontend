@@ -13,7 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     PrimeNgModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   exports:[
     LoginComponent

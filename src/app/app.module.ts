@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 //importamos de shared.module.ts
@@ -15,6 +14,7 @@ import { catalogueOfActivitiesModule } from './catalogueOfActivities/catalogueOf
 // importamos de prime-ng.module.ts
 import { PrimeNgModule } from './prime-ng/prime-ng.module';
 import { AppLayoutModule } from './layout/app.layout.module';
+import { LoginModule } from './admin/auth/login/login.module';
 
 @NgModule({
   declarations: [
@@ -28,6 +28,7 @@ import { AppLayoutModule } from './layout/app.layout.module';
     FormsModule,
     AppLayoutModule,
     catalogueOfActivitiesModule,
+    LoginModule,
     SharedModule,
     PrimeNgModule,
   ],

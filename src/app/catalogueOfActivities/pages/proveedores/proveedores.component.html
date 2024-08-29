@@ -1,2 +1,26 @@
 
 <infoSalud-drop-down-proveedores></infoSalud-drop-down-proveedores>
+
+<div class="card">
+  <p-table
+      [value]="proveedores"
+      styleClass="p-datatable-gridlines"
+      [tableStyle]="{ 'min-width': '50rem' }">
+          <ng-template pTemplate="header">
+              <tr>
+                  <th>typePerson</th>
+                  <th>city</th>
+                  <th>typeDocument</th>
+                  <th>departament</th>
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-proveedores>
+              <tr>
+                  <td>{{ proveedores.typePersona }}</td>
+                  <td>{{ proveedores.city }}</td>
+                  <td>{{ proveedores.typeDocument}}</td>
+                  <td>{{ proveedores.departament }}</td>
+              </tr>0
+          </ng-template>
+  </p-table>
+</div>

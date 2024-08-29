@@ -21,6 +21,7 @@ import { FilteredButtonComponent } from './components/filtered-button/filtered-b
 import { ButtonGroupModule } from 'primeng/buttongroup';
 
 
+
 //Forms
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CalendarModule } from 'primeng/calendar';
@@ -49,7 +50,8 @@ import { CalendarModule } from 'primeng/calendar';
     ButtonGroupModule,
     FormsModule,
     ReactiveFormsModule,
-    CalendarModule
+    CalendarModule,
+
   ],
   exports:[
     HomePageComponent,
@@ -59,7 +61,6 @@ import { CalendarModule } from 'primeng/calendar';
     NavbarComponent,
     HeaderComponent,
     BusinessCardComponent,
-
-  ]
+  ],
 })
 export class SharedModule { }
