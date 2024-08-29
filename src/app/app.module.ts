@@ -8,6 +8,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 //importamos de shared.module.ts
 import { SharedModule } from './shared/shared.module';
 
+
 //importamos de catalogueOfActivities.module.ts
 import { catalogueOfActivitiesModule } from './catalogueOfActivities/catalogueOfActivities.module';
 
@@ -15,6 +16,8 @@ import { catalogueOfActivitiesModule } from './catalogueOfActivities/catalogueOf
 import { PrimeNgModule } from './prime-ng/prime-ng.module';
 import { AppLayoutModule } from './layout/app.layout.module';
 import { LoginModule } from './admin/auth/login/login.module';
+
+
 
 @NgModule({
   declarations: [

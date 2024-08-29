@@ -4,6 +4,9 @@ import { FormsModule} from '@angular/forms';
 import { PrimeNgModule } from '../../../prime-ng/prime-ng.module';
 import { LoginComponent } from './login.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RecaptchaFormsModule, RecaptchaModule } from 'ng-recaptcha';
+
+
 
 @NgModule({
   declarations: [
@@ -14,6 +17,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     PrimeNgModule,
     FormsModule,
     ReactiveFormsModule,
+    RecaptchaFormsModule,
+    RecaptchaModule
   ],
   exports:[
     LoginComponent
