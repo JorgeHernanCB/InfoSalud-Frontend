@@ -24,7 +24,6 @@ import { ButtonGroupModule } from 'primeng/buttongroup';
 //Forms
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CalendarModule } from 'primeng/calendar';
-import { catalogueOfActivitiesModule } from '../catalogueOfActivities/catalogueOfActivities.module';
 
 @NgModule({
   declarations: [
