@@ -6,6 +6,7 @@ import { ProveedoresComponent } from './catalogueOfActivities/pages/proveedores/
 import { ConveniosComponent } from './catalogueOfActivities/pages/convenios/convenios.component';
 import { LoginComponent } from './admin/auth/login/login.component';
 
+
 const routes: Routes = [
     { path: 'login', component: LoginComponent},
     { path: 'home', component: HomePageComponent },

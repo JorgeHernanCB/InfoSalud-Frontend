@@ -7,3 +7,12 @@
 @import "../node_modules/primeicons/primeicons.css";
 
 @import "../node_modules/primeflex/primeflex.css";
+
+
+/* p-floatLabel */
+#custom-pfloatLabel{
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
