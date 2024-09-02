@@ -1,7 +1,9 @@
-<!-- src/app/login/login.component.html -->
-<div class="login-container">
-  <h2>Login</h2>
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+<div class="login-container border-round-3xl">
+  <div class="text-center">
+    <img src="../../../../assets/images/login/logo-abrev.png" alt="Inforcol S.A" id="logo-login" class="align-items-center" />
+  </div>
+  <h2 class="mt-4" style="font-style: oblique;">Bienvenidos a InfoSalud</h2>
+  <form class="mt-6" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <div>
       <label for="username">Username</label>
       <input id="username" pInputText  formControlName="username" type="email" required>
@@ -20,7 +22,7 @@
         </div>
     </div>
 
-    <div class="mt-4 align-content-center">
+    <div class="mt-4 p-col-6">
       <re-captcha
         (resolved)="resolved($event)"
         siteKey="6LeHRDsfAAAAAOkNj6VcGBU8jcX1qjiMqV_jhXMf"

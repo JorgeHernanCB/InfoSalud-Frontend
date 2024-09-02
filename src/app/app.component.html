@@ -1,18 +1,17 @@
-<html>
-  <body class="layout-wrapper">
-    <main class="main">
-      <infoSalud-header></infoSalud-header>
-    </main>
-    <div class="layout-main">
-      <div class="mt-5 w-11">
-        <router-outlet></router-outlet>
-      </div>
-      <footer class="layout-footer w-full align-items-center ">
-        <infoSalud-footer></infoSalud-footer>
-      </footer>
-    </div>
-  </body>
-</html>
+<ng-container *ngIf="showHeaderFooter">
+  <main class="main">
+    <infoSalud-header></infoSalud-header>
+  </main>
+</ng-container>
+<div class="layout-main">
+  <div class="mt-5 mb-8 w-11">
+    <router-outlet></router-outlet>
+  </div>
+<ng-container *ngIf="showHeaderFooter">
+  <footer class="layout-footer w-full align-items-center ">
+    <infoSalud-footer></infoSalud-footer>
+  </footer>
+</ng-container>
 
 
 <!-- <div class="layout-wrapper" [ngClass]="containerClass">

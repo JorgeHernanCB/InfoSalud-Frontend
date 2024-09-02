@@ -23,7 +23,7 @@ import { ButtonGroupModule } from 'primeng/buttongroup';
 //Forms
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CalendarModule } from 'primeng/calendar';
-import { catalogueOfActivitiesModule } from '../catalogueOfActivities/catalogueOfActivities.module';
+import { LoginModule } from '../admin/auth/login/login.module';
 
 @NgModule({
   declarations: [
@@ -49,7 +49,6 @@ import { catalogueOfActivitiesModule } from '../catalogueOfActivities/catalogueO
     FormsModule,
     ReactiveFormsModule,
     CalendarModule,
-
   ],
   exports:[
     HomePageComponent,
