@@ -21,15 +21,16 @@ export class SidebarComponent {
           {
             label: 'Proveedores',
             icon: 'pi pi-clipboard',
-            routerLink: ['/proveedores'],
+            routerLink:['/proveedores'],
             items: [
               {
                 label: 'Información Básica',
                 icon: 'pi pi',
               },
               {
-                label:'Caracteristicas',
+                label:'caracteristicas',
                 icon: 'pi pi',
+                routerLink:['/proveedores/caracteristicas'],
               },
               {
                 label:'¿Marcas?',

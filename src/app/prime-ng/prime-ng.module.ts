@@ -12,6 +12,8 @@ import { KeyFilterModule } from 'primeng/keyfilter';
 import { DropdownModule } from 'primeng/dropdown';
 import { FormsModule } from '@angular/forms';
 import { ChipModule } from 'primeng/chip';
+import { ButtonGroupModule } from 'primeng/buttongroup';
+import { CalendarModule } from 'primeng/calendar';
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import { ChipModule } from 'primeng/chip';
     KeyFilterModule,
     DropdownModule,
     FormsModule,
-    ChipModule
+    ChipModule,
+    ButtonGroupModule,
+    CalendarModule
 
   ]
 })

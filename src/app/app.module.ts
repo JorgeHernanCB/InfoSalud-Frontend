@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 //importamos de shared.module.ts
 import { SharedModule } from './shared/shared.module';
@@ -16,6 +17,7 @@ import { catalogueOfActivitiesModule } from './catalogueOfActivities/catalogueOf
 import { PrimeNgModule } from './prime-ng/prime-ng.module';
 import { AppLayoutModule } from './layout/app.layout.module';
 import { LoginModule } from './admin/auth/login/login.module';
+import { CommonModule } from '@angular/common';
 
 
 
@@ -24,7 +26,9 @@ import { LoginModule } from './admin/auth/login/login.module';
     AppComponent,
   ],
   imports: [
+    CommonModule,
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
