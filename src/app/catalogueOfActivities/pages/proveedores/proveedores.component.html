@@ -1,6 +1,3 @@
-<!-- <div class="card"></div> -->
-<!-- <infoSalud-drop-down-proveedores></infoSalud-drop-down-proveedores> -->
-<!-- <div class="card"> -->
 <div class="card p-fluid">
   <h2>Proveedores</h2>
   <!-- Searchs -->
@@ -22,7 +19,7 @@
               formControlName="name"
               required
             />
-            <label htmlFor="name">Grupo</label>
+            <label htmlFor="name" id="custom-pfloatLabel" class="w-10">Grupo</label>
           </p-floatLabel>
         </div>
 
@@ -34,14 +31,14 @@
               type="number"
               formControlName="codigo"
             />
-            <label htmlFor="codigo">Codigo</label>
+            <label htmlFor="codigo" id="custom-pfloatLabel" class="w-10">Codigo</label>
           </p-floatLabel>
         </div>
 
         <div class="field col-3">
           <p-floatLabel>
             <input pInputText id="valor" type="text" />
-            <label htmlFor="valor">Valor</label>
+            <label htmlFor="valor" id="custom-pfloatLabel" class="w-10">Valor</label>
           </p-floatLabel>
         </div>
 
@@ -58,13 +55,13 @@
         <div class="field col-3">
           <p-floatLabel>
             <input pInputText id="descripcion_grupo" type="text" />
-            <label htmlFor="descripcion_grupo">Descripci&oacute;n grupo</label>
+            <label htmlFor="descripcion_grupo" id="custom-pfloatLabel" class="w-10">Descripci&oacute;n grupo</label>
           </p-floatLabel>
         </div>
         <div class="field col-3">
           <p-floatLabel>
             <input pInputText id="description_parameter" type="text" />
-            <label htmlFor="description_parameter"
+            <label htmlFor="description_parameter" id="custom-pfloatLabel" class="w-10"
               >Descripci&oacute;n Par&aacute;metro</label
             >
           </p-floatLabel>
@@ -83,14 +80,57 @@
               [disabled]="true"
               placeholder="Cris.Arango"
             />
-            <label htmlFor="Username">Cris.Arango</label>
+            <label htmlFor="Username" id="custom-pfloatLabel" class="w-10">Cris.Arango</label>
             <!-- ([(ngModel)])="value" <label htmlFor="user">Usuario</label> -->
           </p-floatLabel>
         </div>
-
+      </div>
+      <!-- Row 3 -->
+      <div class="formgrid grid col-12">
+        <div class="field col-3">
+          <div class="flex-auto">
+            <p-dropdown
+            [options]="typePerson"
+            formControlName="typePerson"
+            optionLabel="typePerson"
+            placeholder="Tipo de persona"
+          />
+          </div>
+        </div>
+        <div class="field col-3">
+          <div class="flex-auto">
+            <p-dropdown
+            [options]="cities"
+            formControlName="city"
+            optionLabel="name"
+            placeholder="Seleccione una ciudad"
+          />
+          </div>
+        </div>
+        
+        <div class="field col-3">
+          <div class="flex-auto">
+            <p-dropdown
+            [options]="deparments"
+            formControlName="deparment"
+            optionLabel="name"
+            placeholder="Seleccione un departmento"
+          />
+          </div>
+        </div>
+        <div class="field col-3">
+          <div class="flex-auto">
+            <p-dropdown
+            [options]="typeDocument"
+            formControlName="typeDocument"
+            optionLabel="identification"
+            placeholder="Seleccione una Identificación"
+          />
+          </div>
+        </div>
       </div>
 
-      <!-- Row 3 -->
+      <!-- Row 4 -->
       <div class="formgrid grid col-12">
         <!-- Calendar -->
         <div class="field col-3">
@@ -101,6 +141,7 @@
               [showIcon]="true"
               inputId="buttondisplay"
               [showOnFocus]="false"
+              formControlName="date_start"
             />
           </div>
         </div>
@@ -112,45 +153,42 @@
               [showIcon]="true"
               inputId="buttondisplay"
               [showOnFocus]="false"
+              formControlName="date_finish"
             />
           </div>
         </div>
       </div>
-
-      <!-- <div class="formgrid grid col-6">
-            <div class="field col">
-              <input
-                id="disabled-date"
-                type="text"
-                ptInputText
-                [disabled]="true"
-              />
-            </div>
-          </div> -->
     </form>
   </p-panel>
-  <infoSalud-drop-down-proveedores></infoSalud-drop-down-proveedores>
+ 
 
   <!-- Table -->
   <div class="mt-4">
     <p-panel header="ENCONTRADOS" [toggleable]="true">
-      <p-chip label="NO se encontro ninguna tabla" icon="pi pi-times"/>
+      <!-- <p-chip label="" icon="pi pi-times"/> -->
       <p-table
         [value]="proveedores"
+        [paginator]="true"
+        [rows]="10"
+        [rowsPerPageOptions]="[10, 20, 50]"
         styleClass="p-datatable-gridlines"
         [tableStyle]="{ 'min-width': '50rem' }"
       >
         <ng-template pTemplate="header">
           <tr>
-            <th>typePerson</th>
-            <th>city</th>
-            <th>typeDocument</th>
-            <th>departament</th>
+            <th class="text-center">Nombre</th>
+            <th class="text-center">Tipo de persona</th>
+            <th class="text-center">Numero de documento</th>
+            <th class="text-center">Ciudad</th>
+            <th class="text-center">Tipo de Documento</th>
+            <th class="text-center">Departamento</th>
           </tr>
         </ng-template>
         <ng-template pTemplate="body" let-proveedores>
           <tr>
-            <td>{{ proveedores.typePersona }}</td>
+            <td>{{ proveedores.name }}</td>
+            <td>{{ proveedores.typePerson }}</td>
+            <td>{{ proveedores.numberDocument }}</td>
             <td>{{ proveedores.city }}</td>
             <td>{{ proveedores.typeDocument }}</td>
             <td>{{ proveedores.departament }}</td>
