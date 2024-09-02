@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TableFoundService } from './../../../service/table-found/table-found.service';
-import { proveedores } from '../../models/proveedores.interface';
+import { proveedores } from '../../models/interface/dBproveedores.interface';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 
 import { TypePerson, City, Deparment, TypeDocument, NumberIndentification } from '../../models/interface/proveedores.interface';
@@ -32,7 +32,7 @@ export class ProveedoresComponent implements OnInit {
     date_start: new FormControl<string>(''),
     date_finish: new FormControl<string>(''),
     })
-  
+
   value: string | undefined;
 
   proveedores!: proveedores [];
@@ -40,10 +40,10 @@ export class ProveedoresComponent implements OnInit {
 
   //Dropdowns
   public typePerson: TypePerson[] | undefined= [];
- 
+
 
   public cities: City[] | undefined = [];
- 
+
   public deparments: Deparment[] | undefined = [];
 
   public typeDocument: TypeDocument[] | undefined = [];

@@ -1,0 +1,114 @@
+{
+  "proveedores": [
+    {
+      "id": 1,
+      "typePerson": "Persona Natural",
+      "name": "Alice Johnson",
+      "typeDocument": "cc",
+      "numberDocument": "183955032",
+      "age": 24,
+      "city": "Pereira",
+      "departament": "Risaralda"
+    },
+    {
+      "id": 2,
+      "typePerson": "Persona Natural",
+      "name": "Bob Smith",
+      "typeDocument": "cc",
+      "numberDocument": "183955032",
+      "age": 24,
+      "city": "Pereira",
+      "departament": "Risaralda"
+    },
+    {
+      "id": 3,
+      "typePerson": "Persona Natural",
+      "name": "Charlie Brown",
+      "typeDocument": "cc",
+      "numberDocument": "183955032",
+      "age": 24,
+      "city": "Pereira",
+      "departament": "Risaralda"
+    },
+    {
+      "id": 4,
+      "typePerson": "Persona Natural",
+      "name": "Diana Prince",
+      "typeDocument": "cc",
+      "numberDocument": "183955032",
+      "age": 24,
+      "city": "Pereira",
+      "departament": "Risaralda"
+    },
+    {
+      "id": 5,
+      "typePerson": "Persona Natural",
+      "name": "Edward Norton",
+      "typeDocument": "cc",
+      "numberDocument": "183955032",
+      "age": 24,
+      "city": "Pereira",
+      "departament": "Risaralda"
+    },
+    {
+      "id": 6,
+      "typePerson": "Persona Natural",
+      "name": "Fiona Gallagher",
+      "typeDocument": "cc",
+      "numberDocument": "183955032",
+      "age": 24,
+      "city": "Pereira",
+      "departament": "Risaralda"
+    },
+    {
+      "id": 7,
+      "typePerson": "Persona Natural",
+      "name": "George Harris",
+      "typeDocument": "cc",
+      "numberDocument": "183955032",
+      "age": 24,
+      "city": "Pereira",
+      "departament": "Risaralda"
+    },
+    {
+      "id": 8,
+      "typePerson": "Persona Natural",
+      "name": "Hannah Brown",
+      "typeDocument": "cc",
+      "numberDocument": "183955032",
+      "age": 24,
+      "city": "Pereira",
+      "departament": "Risaralda"
+    },
+    {
+      "id": 9,
+      "typePerson": "Persona Natural",
+      "name": "Isaac Newton",
+      "typeDocument": "cc",
+      "numberDocument": "183955032",
+      "age": 24,
+      "city": "Pereira",
+      "departament": "Risaralda"
+    },
+    {
+      "id": 10,
+      "typePerson": "Persona Natural",
+      "name": "Julia Roberts",
+      "typeDocument": "cc",
+      "numberDocument": "183955032",
+      "age": 24,
+      "city": "Pereira",
+      "departament": "Risaralda"
+    },
+    {
+      "id": 11,
+      "typePerson": "Persona Natural",
+      "name": "Kevin Hart",
+      "typeDocument": "cc",
+      "numberDocument": "183955032",
+      "age": 24,
+      "city": "Pereira",
+      "departament": "Risaralda"
+    }
+  ]
+}

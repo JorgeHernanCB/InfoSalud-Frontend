@@ -7,7 +7,7 @@ import { AdministracionComponent } from "./shared/pages/administracion-page/admi
 import { ProveedoresComponent } from './catalogueOfActivities/pages/proveedores/proveedores.component';
 import { ConveniosComponent } from './catalogueOfActivities/pages/convenios/convenios.component';
 import { LoginComponent } from './admin/auth/login/login.component';
-import { proveedores } from './catalogueOfActivities/models/proveedores.interface';
+import { proveedores } from './catalogueOfActivities/models/interface/dBproveedores.interface';
 
 
 export const routes: Routes = [

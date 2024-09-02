@@ -1,11 +1,11 @@
 export interface proveedores {
     id?: number;
     typePerson?: string;
-    city?: string;
+    name?: string;
     typeDocument?: string;
     numberDocument?: string;
+    city?: string;
     departament?: string;
-    name?: string;
     age?: number;
 }
 

@@ -14,7 +14,9 @@ export interface Proveedores {
   companyName: companyName;
   businessReason: BusinessReason;
 }
+
 //part the interface of the providers(proveedores)
+
 export interface TypePerson {
   typePerson: string;
   naturalPerson?: string;
