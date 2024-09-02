@@ -49,11 +49,7 @@ import { catalogueOfActivitiesModule } from '../catalogueOfActivities/catalogueO
     FormsModule,
     ReactiveFormsModule,
     CalendarModule,
-<<<<<<< HEAD
 
-=======
-
->>>>>>> 58312e6c2ac8e45c55724a335759d78beb57cc9e
   ],
   exports:[
     HomePageComponent,

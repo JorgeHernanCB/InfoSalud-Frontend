@@ -1,15 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { TableFoundService } from './../../../service/table-found/table-found.service';
 import { proveedores } from '../../models/proveedores.interface';
-import { FormBuilder, FormGroup, FormsModule, Validators } from '@angular/forms';
-import { TypePerson, City, Deparment, TypeDocument, numberDocument } from '../../interface/proveedores.interface';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 
 //Components
 
-
-
 @Component({
-  selector: 'app-proveedores',
+  selector: 'infoSalud-proveedores',
   templateUrl: './proveedores.component.html',
   styleUrl: './proveedores.component.css',
 })
@@ -27,7 +25,6 @@ export class ProveedoresComponent implements OnInit {
   ){
     this.proveedorsForm = this.fb.group({
       //Se definen los valores del formulario
-      // Ej: name: ['', Validators.required]
       name: ['',Validators.required],
       codigo: ['', Validators.required]
     });

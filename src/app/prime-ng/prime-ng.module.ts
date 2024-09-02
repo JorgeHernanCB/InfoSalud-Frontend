@@ -11,6 +11,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { KeyFilterModule } from 'primeng/keyfilter';
 import { DropdownModule } from 'primeng/dropdown';
 import { FormsModule } from '@angular/forms';
+import { ChipModule } from 'primeng/chip';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { FormsModule } from '@angular/forms';
     InputTextModule,
     KeyFilterModule,
     DropdownModule,
-    FormsModule
+    FormsModule,
+    ChipModule
 
   ]
 })

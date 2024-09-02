@@ -13,7 +13,7 @@ export const routes: Routes = [
     { path: 'administration', component: AdministracionComponent},
     {path: 'login', component: LoginComponent},
     { path: '', redirectTo: '/login', pathMatch: 'full' },  // Redirige a login por defecto
-    { path: '**', redirectTo: '/home' } // Maneja rutas no definidas
+    // { path: '**', redirectTo: '/home' } // Maneja rutas no definidas
 
   ];
 

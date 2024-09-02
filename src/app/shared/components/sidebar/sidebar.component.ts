@@ -20,25 +20,70 @@ export class SidebarComponent {
         items: [
           {
             label: 'Proveedores',
-            icon: 'pi pi',
+            icon: 'pi pi-clipboard',
             routerLink: ['/proveedores'],
+            items: [
+              {
+                label: 'Información Básica',
+                icon: 'pi pi',
+              },
+              {
+                label:'Caracteristicas',
+                icon: 'pi pi',
+              },
+              {
+                label:'¿Marcas?',
+                icon: 'pi pi',
+              },
+              {
+                label:'Documentos',
+                icon: 'pi pi',
+              },
+              {
+                label:'Históricos',
+                icon: 'pi pi',
+              },
+              {
+                label:'Servicios Habilitados',
+                icon: 'pi pi',
+              },
+              {
+                label:'Seguimientos',
+                icon: 'pi pi',
+              },
+            ]
           },
           {
             label: 'Convenios',
-            icon: 'pi pi',
+            icon: 'pi pi-file-edit',
             routerLink: ['/convenios'],
+            items: [
+              {
+               label: 'Información Básica',
+               icon: 'pi pi',
+              },
+              {
+                label: 'Caracteristicas',
+                icon: 'pi pi',
+               },
+               {
+                label: 'Tarifas',
+                icon: 'pi pi',
+               }
+            ]
           },
           {
             label: 'Autorizaciones',
-            icon: 'pi pi',
+            icon: 'pi pi-unlock',
           },
           {
             label: 'Facturas',
-            icon: 'pi pi',
+            icon: 'pi pi-book',
           },
+
           {
             label: 'Auditorias',
-            icon: 'pi pi',
+            icon: 'pi pi-check-square',
           },
         ],
       },

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { City } from '../../../catalogueOfActivities/interface/city.interface';
+import { City } from '../../../catalogueOfActivities/models/interface/city.interface';
 @Component({
   selector: 'infoSalud-dropdown-cards',
   templateUrl: './dropdown-cards.component.html',

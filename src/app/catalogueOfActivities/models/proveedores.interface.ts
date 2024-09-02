@@ -8,3 +8,6 @@ export interface proveedores {
     name?: string;
     age?: number;
 }
+
+/*TODO
+ Organizar las interfaces*/

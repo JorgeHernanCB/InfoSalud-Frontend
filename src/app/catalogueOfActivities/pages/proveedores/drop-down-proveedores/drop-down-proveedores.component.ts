@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TypePerson, City, Deparment, TypeDocument, numberDocument } from '../../../interface/proveedores.interface';
+import { TypePerson, City, Deparment, TypeDocument, NumberIndentification } from '../../../models/interface/proveedores.interface';
 
 @Component({
   selector: 'infoSalud-drop-down-proveedores',
@@ -9,19 +9,19 @@ import { TypePerson, City, Deparment, TypeDocument, numberDocument } from '../..
 export class DropDownProveedoresComponent {
 
   public typePerson: TypePerson[] | undefined= [];
-  public selectedTypePerson: TypePerson | undefined;
+ //public selectedTypePerson: TypePerson | undefined;
 
   public cities: City[] | undefined = [];
-  public selectedCity: City | undefined;
+ // public selectedCity: City | undefined;
 
   public deparments: Deparment[] | undefined = [];
-  public selectedDeparment: Deparment | undefined;
+ // public selectedDeparment: Deparment | undefined;
 
   public typeDocument: TypeDocument[] | undefined = [];
-  public selectedTypeDocument: TypeDocument | undefined;
+  //public selectedTypeDocument: TypeDocument | undefined;
 
-  public numberDocument: numberDocument[] | undefined = [];
-  public selectedNumberDocument: numberDocument | undefined;
+  public numberIndentification: NumberIndentification[] | undefined = [];
+  //public selectedNumberDocument: numberDocument | undefined;
 
   ngOnInit () {
     //Dropdown list of type person
@@ -57,7 +57,7 @@ export class DropDownProveedoresComponent {
       { identification: 'NIT'},
       { identification: 'Tarjeta de Identidad'}
     ]
-    this.numberDocument =[
+    this.numberIndentification =[
       { number: '#', typeDocument: 'Cedula de Ciudadania'},
 
     ]

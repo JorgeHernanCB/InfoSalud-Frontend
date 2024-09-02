@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { UserService } from '../../../service/users/user.service';
-import { Username } from '../../../catalogueOfActivities/interface/username.interface';
+import { Username } from '../../../catalogueOfActivities/models/interface/username.interface';
 
 @Component({
   selector: 'infoSalud-main-login',
