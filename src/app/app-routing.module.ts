@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { LoginComponent } from './admin/auth/login/login.component';
 //Quitamos componentes que no se usan
 import { HomePageComponent } from './shared/pages/home-page/home-page.component';
 import { AdministracionComponent } from "./shared/pages/administracion-page/administracion-page.component";
 import { ProveedoresComponent } from './catalogueOfActivities/pages/proveedores/proveedores.component';
 import { ConveniosComponent } from './catalogueOfActivities/pages/convenios/convenios.component';
-import { LoginComponent } from './admin/auth/login/login.component';
 import { proveedores } from './catalogueOfActivities/models/interface/dBproveedores.interface';
 
 
@@ -21,8 +21,12 @@ export const routes: Routes = [
     loadChildren: () => import('./catalogueOfActivities/catalogueOfActivities.module').then(m => m.catalogueOfActivitiesModule)
   },
   {
+    path:'login',
+    component: LoginComponent
+  },
+  {
     path: '',
-    redirectTo: '/',
+    redirectTo: '/login',
     pathMatch: 'full'
   }
 

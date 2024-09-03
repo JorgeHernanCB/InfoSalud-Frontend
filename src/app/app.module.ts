@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,7 +18,6 @@ import { catalogueOfActivitiesModule } from './catalogueOfActivities/catalogueOf
 import { PrimeNgModule } from './prime-ng/prime-ng.module';
 import { AppLayoutModule } from './layout/app.layout.module';
 import { LoginModule } from './admin/auth/login/login.module';
-import { CommonModule } from '@angular/common';
 
 
 

@@ -2,15 +2,17 @@
   <main class="main">
     <infoSalud-header></infoSalud-header>
   </main>
+
+  <div class="mt-5 mb-8 w-11">
+    <router-outlet></router-outlet>
+  </div>
 </ng-container>
+
 <div class="layout-main">
   <ng-container *ngIf="showHeaderFooter">
     <footer class="layout-footer w-full align-items-center ">
       <infoSalud-footer></infoSalud-footer>
     </footer>
-    <div class="mt-5 mb-8 w-11">
-      <router-outlet></router-outlet>
-    </div>
 </ng-container>
 
 

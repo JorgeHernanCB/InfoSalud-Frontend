@@ -25,10 +25,8 @@ import { ProveedoresRoutingModule } from './proveedores-routing.module';
   ],
   imports: [
     CommonModule,
-    BrowserModule,
-    BrowserAnimationsModule,
-    FormsModule,
     ReactiveFormsModule,
+    FormsModule,
     ProveedoresRoutingModule,
     PrimeNgModule,
     SharedModule,

@@ -23,8 +23,6 @@ import { ButtonGroupModule } from 'primeng/buttongroup';
 //Forms
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CalendarModule } from 'primeng/calendar';
-import { LoginModule } from '../admin/auth/login/login.module';
-
 @NgModule({
   declarations: [
     HomePageComponent,
@@ -41,8 +39,6 @@ import { LoginModule } from '../admin/auth/login/login.module';
   imports: [
     CommonModule,
     RouterModule,
-    BrowserModule,
-    BrowserAnimationsModule,
     PrimeNgModule,
     AppConfigModule,
     ButtonGroupModule,

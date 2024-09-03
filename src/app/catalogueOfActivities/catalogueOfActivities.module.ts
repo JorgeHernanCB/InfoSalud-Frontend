@@ -22,8 +22,6 @@ import { ProveedoresModule } from './pages/proveedores/proveedores.module';
 @NgModule({
   declarations: [
     ConveniosComponent,
-    //ProveedoresComponent,
-    //DropDownProveedoresComponent,
 
   ],
   imports: [
@@ -35,7 +33,6 @@ import { ProveedoresModule } from './pages/proveedores/proveedores.module';
     //desde aqui
     PrimeNgModule,
     SharedModule,
-    LoginModule,
     ProveedoresModule,
   ],
   exports: [
