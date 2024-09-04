@@ -18,7 +18,6 @@ import { SharedModule } from '../shared/shared.module';
 import { AuthModule } from '../admin/auth/auth.module';
 import { ProveedoresModule } from './pages/proveedores/proveedores.module';
 
-
 @NgModule({
   declarations: [
     ConveniosComponent,

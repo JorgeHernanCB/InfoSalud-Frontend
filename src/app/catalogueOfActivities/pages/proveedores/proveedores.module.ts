@@ -14,14 +14,16 @@ import { CaracteristicasComponent } from './pages/caracteristicas/caracteristica
 import { DocumentosComponent } from './pages/documentos/documentos.component';
 import { SeguimientosComponent } from './pages/seguimientos/seguimientos.component';
 import { ProveedoresRoutingModule } from './proveedores-routing.module';
+import { InfoBasicaComponent } from './pages/info-basica/info-basica.component';
 
 @NgModule({
   declarations: [
     ProveedoresComponent,
-    DropDownProveedoresComponent,
     CaracteristicasComponent,
+    InfoBasicaComponent,
     DocumentosComponent,
-    SeguimientosComponent
+    SeguimientosComponent,
+    DropDownProveedoresComponent,
   ],
   imports: [
     CommonModule,
@@ -34,6 +36,7 @@ import { ProveedoresRoutingModule } from './proveedores-routing.module';
   exports: [
     ProveedoresComponent,
     CaracteristicasComponent,
+    InfoBasicaComponent,
     DropDownProveedoresComponent
   ]
 })

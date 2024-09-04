@@ -6,6 +6,9 @@ import { RecaptchaFormsModule, RecaptchaModule } from 'ng-recaptcha';
 import { LoginComponent } from './login/login.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+import { share } from 'rxjs';
+import { SharedModule } from '../../shared/shared.module';
+import { AuthRoutingModule } from './auth-routing.module';
 
 
 
@@ -15,12 +18,12 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     CommonModule,
-    FormsModule,
-    BrowserModule,
-    RouterModule,
     ReactiveFormsModule,
+    FormsModule,
     RecaptchaFormsModule,
+    AuthRoutingModule,
     RecaptchaModule,
+    SharedModule,
     PrimeNgModule,
   ],
   exports:[

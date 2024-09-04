@@ -2,21 +2,20 @@
   <main class="main">
     <infoSalud-header></infoSalud-header>
   </main>
-
-  <div class="mt-5 mb-8 w-11">
-    <router-outlet></router-outlet>
-  </div>
 </ng-container>
+
+<div class="mt-5 mb-8 w-11">
+  <router-outlet></router-outlet>
+</div>
 
 <div class="layout-main">
   <ng-container *ngIf="showHeaderFooter">
-    <footer class="layout-footer w-full align-items-center ">
+    <footer class="layout-footer w-full align-items-center">
       <infoSalud-footer></infoSalud-footer>
     </footer>
-</ng-container>
+  </ng-container>
 
-
-<!-- <div class="layout-wrapper" [ngClass]="containerClass">
+  <!-- <div class="layout-wrapper" [ngClass]="containerClass">
   <app-topbar></app-topbar>
   <div class="layout-sidebar">
       <app-sidebar></app-sidebar>
@@ -30,3 +29,4 @@
   <app-config></app-config>
   <div class="layout-mask"></div>
 </div> -->
+</div>

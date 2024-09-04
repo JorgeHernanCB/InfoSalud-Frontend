@@ -26,6 +26,7 @@ export class SidebarComponent {
               {
                 label: 'Información Básica',
                 icon: 'pi pi',
+                routerLink:['/proveedores/info-basica'],
               },
               {
                 label:'caracteristicas',
