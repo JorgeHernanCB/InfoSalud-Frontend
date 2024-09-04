@@ -17,8 +17,7 @@ import { catalogueOfActivitiesModule } from './catalogueOfActivities/catalogueOf
 // importamos de prime-ng.module.ts
 import { PrimeNgModule } from './prime-ng/prime-ng.module';
 import { AppLayoutModule } from './layout/app.layout.module';
-import { LoginModule } from './admin/auth/login/login.module';
-
+import { AuthModule } from './admin/auth/auth.module';
 
 
 @NgModule({
@@ -35,7 +34,7 @@ import { LoginModule } from './admin/auth/login/login.module';
     FormsModule,
     AppLayoutModule,
     catalogueOfActivitiesModule,
-    LoginModule,
+    AuthModule,
     SharedModule,
     PrimeNgModule,
   ],

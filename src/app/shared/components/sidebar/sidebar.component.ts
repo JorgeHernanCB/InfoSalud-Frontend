@@ -16,7 +16,7 @@ export class SidebarComponent {
       {
         label: 'Inicio',
         icon: 'pi pi-home',
-        routerLink: ['/proveedores'],
+          routerLink: ['/home-page'],
         items: [
           {
             label: 'Proveedores',

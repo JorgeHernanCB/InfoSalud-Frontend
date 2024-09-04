@@ -2,8 +2,6 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../service/authService/auth-service.service'
-import { PasswordModule } from 'primeng/password';
-
 @Component({
   selector: 'infoSalud-login',
   templateUrl: './login.component.html',

@@ -15,7 +15,7 @@ import { PrimeNgModule } from '../prime-ng/prime-ng.module';
 //modules propios de la aplicacion
 import { ConveniosComponent } from './pages/convenios/convenios.component';
 import { SharedModule } from '../shared/shared.module';
-import { LoginModule } from '../admin/auth/login/login.module';
+import { AuthModule } from '../admin/auth/auth.module';
 import { ProveedoresModule } from './pages/proveedores/proveedores.module';
 
 
@@ -33,6 +33,7 @@ import { ProveedoresModule } from './pages/proveedores/proveedores.module';
     //desde aqui
     PrimeNgModule,
     SharedModule,
+    AuthModule,
     ProveedoresModule,
   ],
   exports: [

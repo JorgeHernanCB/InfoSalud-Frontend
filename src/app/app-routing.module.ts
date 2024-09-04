@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { LoginComponent } from './admin/auth/login/login.component';
+import { AuthModule } from './admin/auth/auth.module';
+
 //Quitamos componentes que no se usan
 import { HomePageComponent } from './shared/pages/home-page/home-page.component';
 import { AdministracionComponent } from "./shared/pages/administracion-page/administracion-page.component";
@@ -21,14 +23,18 @@ export const routes: Routes = [
     loadChildren: () => import('./catalogueOfActivities/catalogueOfActivities.module').then(m => m.catalogueOfActivitiesModule)
   },
   {
-    path:'login',
-    component: LoginComponent
+    path:'auth',
+    loadChildren: () => import('./admin/auth/auth.module').then(m => m.AuthModule)
   },
   {
-    path: '',
-    redirectTo: '/login',
-    pathMatch: 'full'
+    path:'home',
+    component: HomePageComponent
   }
+
+
+  //TODO - Hacer que la ruta de administracion sea dinamica
+  //{path:'login',component: LoginComponent},
+  //{path: '', redirectTo: '/home', pathMatch: 'full'}
 
     // { path: 'home', component: HomePageComponent },
     // { path: 'proveedores', component: ProveedoresComponent },

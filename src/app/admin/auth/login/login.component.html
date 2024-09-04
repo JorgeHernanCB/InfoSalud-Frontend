@@ -37,7 +37,7 @@
     </div>
   </form> -->
   <form class="p-fluid p-grid p-justify-center" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-  
+
     <!-- Username Field -->
     <div class="p-col-12 p-md-6">
       <div class="p-field p-mb-2">
@@ -49,7 +49,7 @@
         </div>
       </div>
     </div>
-  
+
     <!-- Password Field -->
     <div class="p-col-12 p-md-6">
       <div class="p-field p-mb-2">
@@ -61,7 +61,7 @@
         </div>
       </div>
     </div>
-  
+
     <!-- Recaptcha Field -->
     <div class="p-col-12 p-md-6">
       <div class="p-field p-mb-2">
@@ -72,18 +72,19 @@
         ></re-captcha>
       </div>
     </div>
-  
+
     <!-- Login Button -->
     <div class="p-col-12 p-md-6 p-d-flex p-jc-center">
       <button type="submit" [disabled]="loginForm.invalid" class="p-button p-button-primary">Login</button>
     </div>
-  
+
     <!-- Error Message -->
     <div class="p-col-12 p-md-6" *ngIf="loginError">
       <div class="error-message">
         {{ loginError }}
       </div>
     </div>
+
   </form>
 
 </div>
