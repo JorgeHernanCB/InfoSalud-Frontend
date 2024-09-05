@@ -11,8 +11,6 @@ import { SeguridadComponent } from './pages/seguridad/seguridad.component';
 import { NotificacionesComponent } from './pages/notificaciones/notificaciones.component';
 
 import { AdministrationRoutingModule } from './pages/administration-routing.module';
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [

@@ -113,7 +113,7 @@ export class SidebarComponent {
           {
             label: 'Notificaciones',
             icon: 'pi pi',
-            routerLink: [''],
+            //routerLink: [],
           },
           {
             label: 'Reglas de Validación',
