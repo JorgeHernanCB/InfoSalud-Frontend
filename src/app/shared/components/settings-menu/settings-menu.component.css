@@ -1,10 +1,33 @@
+.sidebar-theme-container {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  z-index: 9999;
+}
+
+:host ::ng-deep .p-sidebar-icon{
+  margin-left: 77%;
+}
+
+:host ::ng-deep .p-sidebar .p-sidebar-header{
+  padding: 0.25rem;
+}
+
+:host ::ng-deep .p-sidebar-right{
+  height: 600%;
+  box-sizing: border-box !important;
+  overflow: hidden;
+  border-radius: 50px;
+}
+
 
 #settingButton{
   display: flex;
   position: relative;
   justify-content:flex-end;
   bottom: 0;
-  right: 20px;
+  /* right: 20px; */
   float: right;
   flex-direction: column;
   z-index: 1000;

@@ -1,12 +1,29 @@
-<div id="settingSidebar">
+<!-- <div id="settingSidebar"> -->
+<div class="sidebar-theme-container">
   <div>
     <p-sidebar
     [(visible)]="settingSidebar"
     position="right"
+    [modal]="false"
+    class = "adaptive-sidebar-right"
     >
-    <h3 class="mb-5">Temas</h3>
+    <!-- <h3 class="mb-5">Temas</h3> -->
+    <div class="mt-3">
       <app-config/>
+    </div>
+   
+
+    <!-- <div>
+      <p-fileUpload class="w-5" name="file" url="./upload.php" (onUpload)="onUpload($event)"></p-fileUpload>
+    </div> -->
+    <div class="mt-4">
+      <div class="field-col">
+        <p-button label="Configuraciones principales" [raised]="true" [rounded]="true" [routerLink]="['/administracion/parametros']" routerLinkActive="router-link-active" />
+      </div>
+    </div>
     </p-sidebar>
+
+    
   </div>
 
   <p-button
@@ -16,7 +33,10 @@
     label=""
     severity="contrast"
     icon="pi pi-cog"
+    [rounded]="true"
   >
   </p-button>
 
+  
+    
 </div>

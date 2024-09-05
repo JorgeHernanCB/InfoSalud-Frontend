@@ -20,9 +20,11 @@ import { DropdownCardsComponent } from './components/dropdown-cards/dropdown-car
 import { FilteredButtonComponent } from './components/filtered-button/filtered-button.component';
 import { ButtonGroupModule } from 'primeng/buttongroup';
 
+
 //Forms
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CalendarModule } from 'primeng/calendar';
+import { FileUploadModule } from 'primeng/fileupload';
 @NgModule({
   declarations: [
     HomePageComponent,
@@ -45,6 +47,7 @@ import { CalendarModule } from 'primeng/calendar';
     FormsModule,
     ReactiveFormsModule,
     CalendarModule,
+    FileUploadModule,
   ],
   exports:[
     HomePageComponent,
