@@ -26,6 +26,10 @@ export const routes: Routes = [
     path:'auth',
     loadChildren: () => import('./admin/auth/auth.module').then(m => m.AuthModule)
   },
+  {
+    path:'administracion',
+    loadChildren: () => import('./administration/administration.module').then(m => m.AdministrationModule)
+  }
 
 
   //TODO - Hacer que la ruta de administracion sea dinamica

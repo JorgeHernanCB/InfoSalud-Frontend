@@ -98,15 +98,22 @@ export class SidebarComponent {
           {
             label: 'Perfil',
             icon: 'pi pi',
-            routerLink: ['/home/pagina1'],
+            routerLink: ['/administracion/perfil'],
           },
           {
             label: 'Parametros',
             icon: 'pi pi',
+            routerLink: ['/administracion/parametros'],
           },
           {
             label: 'Seguridad',
             icon: 'pi pi',
+            routerLink: ['/administracion/seguridad'],
+          },
+          {
+            label: 'Notificaciones',
+            icon: 'pi pi',
+            routerLink: [''],
           },
           {
             label: 'Reglas de Validación',
@@ -114,10 +121,6 @@ export class SidebarComponent {
           },
           {
             label: 'Masivos',
-            icon: 'pi pi',
-          },
-          {
-            label: 'Notificaciones',
             icon: 'pi pi',
           },
         ],

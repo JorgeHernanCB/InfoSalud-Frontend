@@ -18,6 +18,7 @@ import { catalogueOfActivitiesModule } from './catalogueOfActivities/catalogueOf
 import { PrimeNgModule } from './prime-ng/prime-ng.module';
 import { AppLayoutModule } from './layout/app.layout.module';
 import { AuthModule } from './admin/auth/auth.module';
+import { AdministrationModule } from './administration/administration.module';
 
 
 @NgModule({
@@ -32,8 +33,10 @@ import { AuthModule } from './admin/auth/auth.module';
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
+
     AppLayoutModule,
     catalogueOfActivitiesModule,
+    AdministrationModule,
     AuthModule,
     SharedModule,
     PrimeNgModule,
