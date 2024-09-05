@@ -6,7 +6,6 @@ import { AuthModule } from './admin/auth/auth.module';
 
 //Quitamos componentes que no se usan
 import { HomePageComponent } from './shared/pages/home-page/home-page.component';
-import { AdministracionComponent } from "./shared/pages/administracion-page/administracion-page.component";
 import { ProveedoresComponent } from './catalogueOfActivities/pages/proveedores/proveedores.component';
 import { ConveniosComponent } from './catalogueOfActivities/pages/convenios/convenios.component';
 import { proveedores } from './catalogueOfActivities/models/interface/dBproveedores.interface';
@@ -29,7 +28,9 @@ export const routes: Routes = [
   {
     path:'administracion',
     loadChildren: () => import('./administration/administration.module').then(m => m.AdministrationModule)
-  }
+  },
+    { path: 'home', component: HomePageComponent }
+
 
 
   //TODO - Hacer que la ruta de administracion sea dinamica

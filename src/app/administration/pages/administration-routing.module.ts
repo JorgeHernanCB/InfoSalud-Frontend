@@ -12,18 +12,13 @@ const routes: Routes = [
       {path: 'perfil', component: PerfilComponent},
       {path: 'parametros', component: ParametrosComponent},
       {path: 'seguridad', component: SeguridadComponent},
-
-      // {
-      //   path: '**',
-      //   redirectTo: 'proveedores',
-      // }
     ]
   }
 ]
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
+  exports: [RouterModule]
 
 })
 export class AdministrationRoutingModule { }

@@ -11,10 +11,10 @@ interface uploadEvent {
   styleUrl: './parametros.component.css'
 })
 export class ParametrosComponent {
-  constructor(private messageService: MessageService) {}
+  // constructor(private messageService: MessageService) {}
 
-  onUpload(event: uploadEvent) {
-    this.messageService.add({severity: 'info', summary: 'File Uploaded', detail: 'File uploaded successfully'});
+  // onUpload(event: uploadEvent) {
+  //   this.messageService.add({severity: 'info', summary: 'File Uploaded', detail: 'File uploaded successfully'});
 
-    }
+  //   }
 }

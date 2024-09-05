@@ -14,9 +14,9 @@ export class SidebarComponent {
   ngOnInit() {
     this.itemsSidebar = [
       {
-        label: 'Inicio',
+        label: 'Categ Servicios',
         icon: 'pi pi-home',
-          routerLink: ['/home-page'],
+        routerLink: ['/home'],
         items: [
           {
             label: 'Proveedores',
