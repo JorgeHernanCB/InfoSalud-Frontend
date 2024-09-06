@@ -5,8 +5,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 
-//import { DropDownProveedoresComponent } from './pages/proveedores/drop-down-proveedores/drop-down-proveedores.component';
-
 import { PrimeNgModule } from '../prime-ng/prime-ng.module';
 //import { ButtonGroupModule } from 'primeng/buttongroup';
 //import { CalendarModule } from 'primeng/calendar';
@@ -15,11 +13,9 @@ import { PrimeNgModule } from '../prime-ng/prime-ng.module';
 //modules propios de la aplicacion
 import { SharedModule } from '../shared/shared.module';
 import { AuthModule } from '../admin/auth/auth.module';
-import { AuditoriasComponent } from './pages/auditorias/auditorias.component';
 
 @NgModule({
   declarations: [
-    AuditoriasComponent
   ],
   imports: [
     CommonModule,

@@ -21,7 +21,9 @@ import { SharedModule } from '../../../shared/shared.module';
     PrimeNgModule,
     SharedModule,
   ],
-  exports: [],
+  exports: [
+    AuditoriasComponent
+  ],
 
 })
 export class AuditoriasModule { }
