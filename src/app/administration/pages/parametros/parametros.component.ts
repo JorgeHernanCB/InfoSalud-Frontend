@@ -7,17 +7,13 @@ import { Component } from '@angular/core';
   styleUrl: './parametros.component.css'
 })
 export class ParametrosComponent {
-  // constructor(private messageService: MessageService) {}
-
   onUpload(event: any) {
     for (let file of event.files) {
 
       console.log('Archivo subido',file);
     }
-    //this.messageService.add({severity: 'info', summary: 'File Uploaded', detail: ''});
 
   }
-
 
 }
 

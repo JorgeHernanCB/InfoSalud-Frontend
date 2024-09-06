@@ -19,26 +19,19 @@ import { AuthModule } from '../admin/auth/auth.module';
 import { ProveedoresModule } from './pages/proveedores/proveedores.module';
 
 @NgModule({
-  declarations: [
-    ConveniosComponent,
-
-  ],
+  declarations: [],
   imports: [
     CommonModule,
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    //desde aqui
+    //modulos propios de la aplicacion
     PrimeNgModule,
     SharedModule,
     AuthModule,
-    ProveedoresModule,
   ],
-  exports: [
-    ConveniosComponent,
-    //ProveedoresComponent,
-  ],
+  exports: [],
   providers: [],
 })
 export class catalogueOfActivitiesModule { }

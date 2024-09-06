@@ -1,51 +1,40 @@
 <div class="login-container border-round-3xl">
   <div class="text-center">
-    <img src="../../../../assets/images/login/logo-abrev.png" alt="Inforcol S.A" id="logo-login" class="align-items-center" />
+    <img
+      src="../../../../assets/images/login/logo-abrev.png"
+      alt="Inforcol S.A"
+      id="logo-login"
+      class="align-items-center"
+    />
   </div>
-  <h2 class="mt-4" style="font-style: oblique;">Bienvenidos a InfoSalud</h2>
-  <!-- <form class="mt-6" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <div>
-      <label for="username">Username</label>
-      <input id="username" pInputText  formControlName="username" type="email" required>
-      <div *ngIf="username?.invalid && (username?.dirty || username?.touched)">
-        <small *ngIf="username?.errors?.['required']">Username is required.</small>
-        <small *ngIf="username?.errors?.['email']">Please enter a valid email address.</small>
-      </div>
-    </div>
 
-    <div>
-        <label for="password">Password</label>
-        <p-password id="password" formControlName="password" [feedback]="false" [toggleMask]="true" />
-        <div *ngIf="password?.invalid && (password?.dirty || password?.touched)">
-          <small *ngIf="password?.errors?.['required']">Contraseña es requerida.</small>
-          <small *ngIf="password?.errors?.['minlength']">La contraseña debe contener almenos 6 caracteres.</small>
-        </div>
-    </div>
-
-    <div class="mt-4">
-      <re-captcha
-        (resolved)="resolved($event)"
-        siteKey="6LeHRDsfAAAAAOkNj6VcGBU8jcX1qjiMqV_jhXMf"
-        formControlName="recaptcha"
-      ></re-captcha>
-    </div>
-
-    <button type="submit" [disabled]="loginForm.invalid">Login</button>
-
-    <div *ngIf="loginError" class="error-message">
-      {{ loginError }}
-    </div>
-  </form> -->
-  <form class="p-fluid p-grid p-justify-center" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-
+  <h2 class="mt-4" style="font-style: oblique">Bienvenidos a InfoSalud</h2>
+  <form
+    class="p-fluid p-grid p-justify-center"
+    [formGroup]="loginForm"
+    (ngSubmit)="onSubmit()"
+  >
     <!-- Username Field -->
     <div class="p-col-12 p-md-6">
       <div class="p-field p-mb-2">
         <label for="username">Username</label>
-        <input id="username" pInputText formControlName="username" type="email" required class="p-inputtext p-component full-width">
-        <div *ngIf="username?.invalid && (username?.dirty || username?.touched)">
-          <small *ngIf="username?.errors?.['required']">Username is required.</small>
-          <small *ngIf="username?.errors?.['email']">Please enter a valid email address.</small>
+        <input
+          id="username"
+          pInputText
+          formControlName="username"
+          type="email"
+          required
+          class="p-inputtext p-component full-width"
+        />
+        <div
+          *ngIf="username?.invalid && (username?.dirty || username?.touched)"
+        >
+          <small *ngIf="username?.errors?.['required']"
+            >Username is required.</small
+          >
+          <small *ngIf="username?.errors?.['email']"
+            >Please enter a valid email address.</small
+          >
         </div>
       </div>
     </div>
@@ -54,10 +43,22 @@
     <div class="p-col-12 p-md-6">
       <div class="p-field p-mb-2">
         <label for="password">Password</label>
-        <p-password id="password" formControlName="password" [feedback]="false" [toggleMask]="true" class="full-width"></p-password>
-        <div *ngIf="password?.invalid && (password?.dirty || password?.touched)">
-          <small *ngIf="password?.errors?.['required']">Password is required.</small>
-          <small *ngIf="password?.errors?.['minlength']">Password must be at least 6 characters long.</small>
+        <p-password
+          id="password"
+          formControlName="password"
+          [feedback]="false"
+          [toggleMask]="true"
+          class="full-width"
+        ></p-password>
+        <div
+          *ngIf="password?.invalid && (password?.dirty || password?.touched)"
+        >
+          <small *ngIf="password?.errors?.['required']"
+            >Password is required.</small
+          >
+          <small *ngIf="password?.errors?.['minlength']"
+            >Password must be at least 6 characters long.</small
+          >
         </div>
       </div>
     </div>
@@ -75,7 +76,13 @@
 
     <!-- Login Button -->
     <div class="p-col-12 p-md-6 p-d-flex p-jc-center">
-      <button type="submit" [disabled]="loginForm.invalid" class="p-button p-button-primary">Login</button>
+      <button
+        type="submit"
+        [disabled]="loginForm.invalid"
+        class="p-button p-button-primary"
+      >
+        Login
+      </button>
     </div>
 
     <!-- Error Message -->
@@ -84,7 +91,5 @@
         {{ loginError }}
       </div>
     </div>
-
   </form>
-
 </div>

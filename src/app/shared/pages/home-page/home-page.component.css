@@ -1,6 +1,7 @@
-/* #home-page{
+ #home-page{
     background-image: url('../../../../assets/images/Fondo-prueba.png');
-} */
+    background-size: cover;
+}
 
 #home-card{
     -webkit-box-shadow: -2px 10px 21px 10px rgba(209,207,209,1);
