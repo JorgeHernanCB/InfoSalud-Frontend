@@ -1,10 +1,6 @@
 import { Component } from '@angular/core';
-import { MessageService } from 'primeng/api';
 
-interface uploadEvent {
-  originalEvent: Event;
-  files: File[];
-}
+
 @Component({
   selector: 'app-parametros',
   templateUrl: './parametros.component.html',
@@ -13,8 +9,32 @@ interface uploadEvent {
 export class ParametrosComponent {
   // constructor(private messageService: MessageService) {}
 
-  // onUpload(event: uploadEvent) {
-  //   this.messageService.add({severity: 'info', summary: 'File Uploaded', detail: 'File uploaded successfully'});
+  onUpload(event: any) {
+    for (let file of event.files) {
 
-  //   }
+      console.log('Archivo subido',file);
+    }
+    //this.messageService.add({severity: 'info', summary: 'File Uploaded', detail: ''});
+
+  }
+
+
 }
+
+
+
+
+
+
+
+
+  //  constructor(private messageService: MessageService) {}
+
+  // onUpload(event: any) {
+    // this.messageService
+    // .add(
+    //   {severity: 'info',
+    //   summary: 'File Uploaded',
+    //   detail: 'File uploaded successfully'});
+   // console.log(event);
+    //}

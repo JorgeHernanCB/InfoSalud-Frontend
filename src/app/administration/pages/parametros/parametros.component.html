@@ -1,3 +1,14 @@
+<p-fileUpload
+  name="file[]"
+  url="./upload.php"
+  (onUpload)="onUpload($event)"
+  multiple="multiple"
+  accept="image/*"
+  maxFileSize="1000000">
+</p-fileUpload>
+
+
+
 <!-- <p>parametros works!</p>
 
 <p-fileUpload
@@ -6,7 +17,7 @@
   chooseIcon="pi pi-upload"
   name="file"
   url="./upload.php"
-  (click)="onUpload($event)"
->
-</p-fileUpload> -->
 
+>
+</p-fileUpload>
+(onUpload)="onUpload($event)" -->

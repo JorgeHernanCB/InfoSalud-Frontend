@@ -22,39 +22,39 @@ export class SidebarComponent {
             label: 'Proveedores',
             icon: 'pi pi-clipboard',
             routerLink:['/proveedores'],
-            items: [
-              {
-                label: 'Información Básica',
-                icon: 'pi pi',
-                routerLink:['/proveedores/info-basica'],
-              },
-              {
-                label:'caracteristicas',
-                icon: 'pi pi',
-                routerLink:['/proveedores/caracteristicas'],
-              },
-              {
-                label:'Documentos',
-                icon: 'pi pi',
-                routerLink:['/proveedores/documentos'],
-              },
-              {
-                label:'¿Marcas?',
-                icon: 'pi pi',
-              },
-              {
-                label:'Históricos',
-                icon: 'pi pi',
-              },
-              {
-                label:'Servicios Habilitados',
-                icon: 'pi pi',
-              },
-              {
-                label:'Seguimientos',
-                icon: 'pi pi',
-              },
-            ]
+            // items: [
+            //   {
+            //     label: 'Información Básica',
+            //     icon: 'pi pi',
+            //     routerLink:['/proveedores/info-basica'],
+            //   },
+            //   {
+            //     label:'caracteristicas',
+            //     icon: 'pi pi',
+            //     routerLink:['/proveedores/caracteristicas'],
+            //   },
+            //   {
+            //     label:'Documentos',
+            //     icon: 'pi pi',
+            //     routerLink:['/proveedores/documentos'],
+            //   },
+            //   {
+            //     label:'¿Marcas?',
+            //     icon: 'pi pi',
+            //   },
+            //   {
+            //     label:'Históricos',
+            //     icon: 'pi pi',
+            //   },
+            //   {
+            //     label:'Servicios Habilitados',
+            //     icon: 'pi pi',
+            //   },
+            //   {
+            //     label:'Seguimientos',
+            //     icon: 'pi pi',
+            //   },
+            // ]
           },
           {
             label: 'Convenios',
