@@ -1,29 +1,27 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule} from '@angular/forms';
 
 import { PrimeNgModule } from '../../../prime-ng/prime-ng.module';
 
-import { ProveedoresRoutingModule } from './proveedores-routing.module';
+import { FacturasRoutingModule } from './facturas-routing.module';
+import { FacturasComponent } from './facturas.component';
 import { SharedModule } from '../../../shared/shared.module';
-import { ProveedoresComponent } from './proveedores.component';
 
 @NgModule({
   declarations: [
-    ProveedoresComponent,
-
+    FacturasComponent,
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
-    ProveedoresRoutingModule,
+    FacturasRoutingModule,
     PrimeNgModule,
     SharedModule,
   ],
   exports: [
-    ProveedoresComponent,
-
-  ]
+    FacturasComponent,
+  ],
 })
-export class ProveedoresModule { }
+export class FacturasModule { }

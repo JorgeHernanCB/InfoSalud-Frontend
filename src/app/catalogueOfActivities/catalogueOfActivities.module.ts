@@ -13,13 +13,14 @@ import { PrimeNgModule } from '../prime-ng/prime-ng.module';
 
 
 //modules propios de la aplicacion
-import { ConveniosComponent } from './pages/convenios/convenios.component';
 import { SharedModule } from '../shared/shared.module';
 import { AuthModule } from '../admin/auth/auth.module';
-import { ProveedoresModule } from './pages/proveedores/proveedores.module';
+import { AuditoriasComponent } from './pages/auditorias/auditorias.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    AuditoriasComponent
+  ],
   imports: [
     CommonModule,
     BrowserModule,

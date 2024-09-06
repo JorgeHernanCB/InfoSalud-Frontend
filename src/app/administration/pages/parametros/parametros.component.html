@@ -1,11 +1,3 @@
-<!-- <p-fileUpload
-  name="file[]"
-  url="./upload.php"
-  (onUpload)="onUpload($event)"
-  multiple="multiple"
-  accept="image/*"
-  maxFileSize="1000000">
-</p-fileUpload> -->
 
 <p-fileUpload
   name="file[]"
@@ -18,22 +10,7 @@
 </p-fileUpload>
 
 <div *ngIf="imageUrl">
-  <img [src]="imageUrl" alt="Vista previa" class="preview-image" />
+  <img [src]="imageUrl" alt="Vista previa" class="preview-image"/>
   <p-button label="Subir/Actualizar" icon="pi pi-upload" (click)="onUpload()"></p-button>
   <p-button label="Eliminar" icon="pi pi-times" (click)="onDelete()" class="p-button-danger"></p-button>
 </div>
-
-
-
-<!-- <p>parametros works!</p>
-
-<p-fileUpload
-  mode="basic"
-  chooseLabel="Seleccionar"
-  chooseIcon="pi pi-upload"
-  name="file"
-  url="./upload.php"
-
->
-</p-fileUpload>
-(onUpload)="onUpload($event)" -->

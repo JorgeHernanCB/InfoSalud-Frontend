@@ -1,28 +1,27 @@
 import { NgModule } from '@angular/core';
+import { AuditoriasComponent } from './auditorias.component';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
-import { ConveniosRoutingModule } from './convenios-routing.module';
 import { PrimeNgModule } from '../../../prime-ng/prime-ng.module';
+
+import { AuditoriasRoutingModule } from './auditorias-routing.module';
 import { SharedModule } from '../../../shared/shared.module';
-import { ConveniosComponent } from './convenios.component';
 
 
 @NgModule({
   declarations: [
-    ConveniosComponent,
+    AuditoriasComponent
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
-    ConveniosRoutingModule,
-    //modulos propios de la aplicacion
+    AuditoriasRoutingModule,
     PrimeNgModule,
     SharedModule,
   ],
-  exports: [
-    ConveniosComponent,
-  ],
+  exports: [],
+
 })
-export class ConveniosModule { }
+export class AuditoriasModule { }
