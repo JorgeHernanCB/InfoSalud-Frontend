@@ -1,6 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import moment from 'moment';
 import 'moment/locale/es';
+import { UploadService } from '../../../service/imageHeader/upload.service';
+
+
 
 @Component({
   selector: 'infoSalud-header',
@@ -9,6 +12,7 @@ import 'moment/locale/es';
 })
 export class HeaderComponent implements OnInit, OnDestroy{
 
+  imageUrl: string | ArrayBuffer | null = null;
   // currentDate: moment.Moment = moment(); //Fecha actual
   // format = moment().format('YYYY-MM-DD hh:mm A');
   // format = moment().format('hh:mm A, MMMM D YYYY')
@@ -16,7 +20,7 @@ export class HeaderComponent implements OnInit, OnDestroy{
   fechaFormateada: string = '';
   private intervalid: any;
 
-  constructor () {
+  constructor (private UploadService: UploadService) {
   }
 
   ngOnInit(): void {
@@ -26,6 +30,10 @@ export class HeaderComponent implements OnInit, OnDestroy{
       this.intervalid = setInterval(() => {
         this.actualizarFecha();
       }, 1000); //Se actualiza cada segundo
+
+      this.UploadService.currentImage.subscribe(image =>{
+        this.imageUrl = image;
+      });
   }
   
   actualizarFecha(): void{

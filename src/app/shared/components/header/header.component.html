@@ -9,7 +9,8 @@
         <infoSalud-sidebar></infoSalud-sidebar>
     </div>
     <div class="flex-1 md:flex-auto flex align-items-left py-5">
-        <img src="../../../../assets/icons/liberty.ico" alt="" style="width: 70px; height: 70px;">
+        <!-- <img src="../../../../assets/icons/liberty.ico" alt="" style="width: 70px; height: 70px;"> -->
+         <img *ngIf="imageUrl" [src]="imageUrl" alt="Imagen subida" class="uploaded-image" style="width: 70px; height: 70px;">
     </div>
     <div class="flex-1 md:flex-auto flex align-items-center py-3">
         <a href="#">
