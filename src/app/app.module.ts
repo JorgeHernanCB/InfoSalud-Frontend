@@ -35,8 +35,6 @@ import { AdministrationModule } from './administration/administration.module';
     FormsModule,
 
     AppLayoutModule,
-    catalogueOfActivitiesModule,
-    AdministrationModule,
     AuthModule,
     SharedModule,
     PrimeNgModule,

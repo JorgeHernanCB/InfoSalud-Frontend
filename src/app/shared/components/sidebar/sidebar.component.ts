@@ -60,20 +60,20 @@ export class SidebarComponent {
             label: 'Convenios',
             icon: 'pi pi-file-edit',
             routerLink: ['/convenios'],
-            items: [
-              {
-               label: 'Información Básica',
-               icon: 'pi pi',
-              },
-              {
-                label: 'Caracteristicas',
-                icon: 'pi pi',
-               },
-               {
-                label: 'Tarifas',
-                icon: 'pi pi',
-               }
-            ]
+            // items: [
+            //   {
+            //    label: 'Información Básica',
+            //    icon: 'pi pi',
+            //   },
+            //   {
+            //     label: 'Caracteristicas',
+            //     icon: 'pi pi',
+            //    },
+            //    {
+            //     label: 'Tarifas',
+            //     icon: 'pi pi',
+            //    }
+            // ]
           },
           {
             label: 'Autorizaciones',

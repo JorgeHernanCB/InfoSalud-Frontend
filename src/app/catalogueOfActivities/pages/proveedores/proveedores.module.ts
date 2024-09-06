@@ -19,11 +19,7 @@ import { InfoBasicaComponent } from './pages/info-basica/info-basica.component';
 @NgModule({
   declarations: [
     ProveedoresComponent,
-    CaracteristicasComponent,
-    InfoBasicaComponent,
-    DocumentosComponent,
-    SeguimientosComponent,
-    DropDownProveedoresComponent,
+
   ],
   imports: [
     CommonModule,
@@ -35,9 +31,7 @@ import { InfoBasicaComponent } from './pages/info-basica/info-basica.component';
   ],
   exports: [
     ProveedoresComponent,
-    CaracteristicasComponent,
-    InfoBasicaComponent,
-    DropDownProveedoresComponent
+
   ]
 })
 export class ProveedoresModule { }

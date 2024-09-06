@@ -1,35 +1,25 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { LoginComponent } from './admin/auth/login/login.component';
-import { AuthModule } from './admin/auth/auth.module';
-
-//Quitamos componentes que no se usan
+//pagina de home
 import { HomePageComponent } from './shared/pages/home-page/home-page.component';
-import { ProveedoresComponent } from './catalogueOfActivities/pages/proveedores/proveedores.component';
-import { ConveniosComponent } from './catalogueOfActivities/pages/convenios/convenios.component';
-import { proveedores } from './catalogueOfActivities/models/interface/dBproveedores.interface';
 
 
 export const routes: Routes = [
 
+  { path: 'home', component: HomePageComponent },
+  { path:'auth',loadChildren: () => import('./admin/auth/auth.module').then(m => m.AuthModule)},
   {
     path:'proveedores',
     loadChildren: () => import('./catalogueOfActivities/pages/proveedores/proveedores.module').then(m => m.ProveedoresModule)
   },
   {
     path:'convenios',
-    loadChildren: () => import('./catalogueOfActivities/catalogueOfActivities.module').then(m => m.catalogueOfActivitiesModule)
+    loadChildren: () => import('./catalogueOfActivities/pages/convenios/convenios.module').then(m => m.ConveniosModule)
   },
-  {
-    path:'auth',
-    loadChildren: () => import('./admin/auth/auth.module').then(m => m.AuthModule)
-  },
-  {
-    path:'administracion',
-    loadChildren: () => import('./administration/administration.module').then(m => m.AdministrationModule)
-  },
-    { path: 'home', component: HomePageComponent }
+
+  {path:'administracion', loadChildren: () => import('./administration/administration.module').then(m => m.AdministrationModule)},
+
 
 
 
