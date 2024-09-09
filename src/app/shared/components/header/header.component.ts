@@ -13,9 +13,6 @@ import { UploadService } from '../../../service/imageHeader/upload.service';
 export class HeaderComponent implements OnInit, OnDestroy{
 
   imageUrl: string | ArrayBuffer | null = null;
-  // currentDate: moment.Moment = moment(); //Fecha actual
-  // format = moment().format('YYYY-MM-DD hh:mm A');
-  // format = moment().format('hh:mm A, MMMM D YYYY')
 
   fechaFormateada: string = '';
   private intervalid: any;
@@ -35,7 +32,7 @@ export class HeaderComponent implements OnInit, OnDestroy{
         this.imageUrl = image;
       });
   }
-  
+
   actualizarFecha(): void{
     const fechaActual = moment();
     //this.fechaFormateada = fechaActual.format('LLLL'); //Tipo de formato
