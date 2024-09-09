@@ -33,6 +33,10 @@ export class ParametrosComponent {
       };
       reader.readAsDataURL(this.selectedFile);
     }
+
+    if(this.fileUpload){
+      this.fileUpload.clear();
+    }
   }
 
   onUpload() {

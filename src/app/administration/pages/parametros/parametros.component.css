@@ -1,0 +1,18 @@
+:host ::ng-deep .p-fileupload .p-button{
+    background-color: #4CAF50;
+    border-color: #4CAF50;
+}
+
+:host ::ng-deep .p-fileupload .p-button:hover{
+    background-color: #45a049; /* Color cuando pases el mouse */
+    border-color: #45a049;
+}
+
+:host ::ng-deep .p-fileupload .p-button:focus,
+:host ::ng-deep .p-fileupload .p-button:active{
+    border-color: #45a049;
+    box-shadow: 0 0 0 3px #45a049;
+}
+
+
+

@@ -1,16 +1,36 @@
 
-<p-fileUpload
-  name="file[]"
-  url="./upload.php"
-  multiple="multiple"
-  mode="basic"
-  accept="image/*"
-  customUpload="true"
-  (uploadHandler)="onSelect($event)">
-</p-fileUpload>
-
-<div *ngIf="imageUrl">
-  <img [src]="imageUrl" alt="Vista previa" class="preview-image"/>
-  <p-button label="Subir/Actualizar" icon="pi pi-upload" (click)="onUpload()"></p-button>
-  <p-button label="Eliminar" icon="pi pi-times" (click)="onDelete()" class="p-button-danger"></p-button>
+<div class="card w-5">
+  <div class="flex md:flex-auto">
+    <div class="flex-1 flex align-items-center justify-content-center">
+        <div *ngIf="imageUrl">
+          <img [src]="imageUrl" alt="Vista previa" class="preview-image" style="width: 120px; height: 120px;"/>
+        </div>
+    </div>
+    <div class="flex-1 flex align-items-center justify-content-center">
+      <div class="flex-1">
+        <div>
+          <p-fileUpload
+          name="file[]"
+          url="./upload.php"
+          multiple="multiple"
+          mode="basic"
+          accept="image/*"
+          customUpload="true"
+          (onSelect)="onSelect($event)"
+          [auto]="false"
+          chooseLabel="Seleccionar archivo"
+          styleClass="custom-upload-btn"
+          >
+          </p-fileUpload>
+        </div>
+        <div class="mt-4">
+          <p-button label="Subir/Actualizar" icon="pi pi-upload" severity="warning" (click)="onUpload()"></p-button>
+        </div>
+        <div class="mt-4">
+          <p-button label="Eliminar" icon="pi pi-times" (click)="onDelete()" class="p-button-danger" severity="danger"></p-button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
