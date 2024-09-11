@@ -19,7 +19,7 @@
               required
             />
             <label htmlFor="name" id="custom-pfloatLabel" class="w-10"
-              >Grupo</label
+              >Nombre</label
             >
           </p-floatLabel>
         </div>
@@ -78,8 +78,7 @@
             >
           </p-floatLabel>
         </div>
-        <div class="field col-3">
-        </div>
+        <div class="field col-3"></div>
         <div class="field col-3">
           <p-floatLabel>
             <input
@@ -97,6 +96,7 @@
           </p-floatLabel>
         </div>
       </div>
+
       <!-- Row 3 -->
       <div class="formgrid grid col-12">
         <div class="field col-3">
@@ -130,6 +130,7 @@
             />
           </div>
         </div>
+
         <div class="field col-3">
           <div class="flex-auto">
             <p-dropdown
@@ -198,10 +199,17 @@
         [value]="proveedores"
         [paginator]="true"
         [rows]="10"
-        [rowsPerPageOptions]="[10, 20, 50]"
+        [rowsPerPageOptions]="[5, 10, 20, 100]"
         styleClass="p-datatable-gridlines"
         [tableStyle]="{ 'min-width': '50rem' }"
-        [globalFilterFields]="['name', 'typePerson', 'numberDocument', 'city', 'typeDocument', 'departament']"
+        [globalFilterFields]="[
+          'name',
+          'typePerson',
+          'numberDocument',
+          'city',
+          'typeDocument',
+          'departament'
+        ]"
         [(selection)]="SelectedProveedor"
         [rowHover]="true"
         dataKey="id"
@@ -224,15 +232,28 @@
         </ng-template>
         <ng-template pTemplate="header">
           <tr>
-            <th style="width: 4rem;">
+            <th style="width: 4rem">
               <p-tableHeaderCheckbox />
             </th>
-            <th pSortableColumn="name "class="text-center">Nombre <p-sortIcon field="name"></p-sortIcon></th>
-            <th pSortableColumn="typePerson" class="text-center">Tipo de persona <p-sortIcon field="typePerson"></p-sortIcon></th>
-            <th pSortableColumn="numberDocument" class="text-center">Numero de documento <p-sortIcon field="numberDocument"></p-sortIcon></th>
-            <th pSortableColumn="city" class="text-center">Ciudad <p-sortIcon field="city"></p-sortIcon></th>
-            <th pSortableColumn="typeDocument" class="text-center">Tipo de Documento <p-sortIcon field="typeDocument"></p-sortIcon></th>
-            <th pSortableColumn="departament" class="text-center">Departamento <p-sortIcon field="departament"></p-sortIcon></th>
+            <th pSortableColumn="name " class="text-center">
+              Nombre <p-sortIcon field="name"></p-sortIcon>
+            </th>
+            <th pSortableColumn="typePerson" class="text-center">
+              Tipo de persona <p-sortIcon field="typePerson"></p-sortIcon>
+            </th>
+            <th pSortableColumn="numberDocument" class="text-center">
+              Numero de documento
+              <p-sortIcon field="numberDocument"></p-sortIcon>
+            </th>
+            <th pSortableColumn="city" class="text-center">
+              Ciudad <p-sortIcon field="city"></p-sortIcon>
+            </th>
+            <th pSortableColumn="typeDocument" class="text-center">
+              Tipo de Documento <p-sortIcon field="typeDocument"></p-sortIcon>
+            </th>
+            <th pSortableColumn="departament" class="text-center">
+              Departamento <p-sortIcon field="departament"></p-sortIcon>
+            </th>
             <th class="text-center">Acciones</th>
           </tr>
         </ng-template>
@@ -250,25 +271,26 @@
             <td>
               <div class="flex justify-content-center align-items-center">
                 <!-- (click)="editProveedor(proveedor)" -->
-                <p-button 
-                  icon="pi pi-search" 
+                <p-button
+                  icon="pi pi-search"
                   severity="info"
                   class="p-button-rounded p-button-text flex-1"
                   (click)="viewProveedor(proveedor)"
-                  >
+                >
                 </p-button>
-                <p-button 
-                  icon="pi pi-pencil" 
+                <p-button
+                  icon="pi pi-pencil"
                   severity="warning"
-                  class="p-button-rounded p-button-text ml-2 flex-1" 
-                  (click)="editProveedor(proveedor)">
+                  class="p-button-rounded p-button-text ml-2 flex-1"
+                  (click)="editProveedor(proveedor)"
+                >
                 </p-button>
-                <p-button 
-                  icon="pi pi-trash" 
-                  class="p-button-rounded p-button-text ml-2 flex-1" 
-                  (click)="deleteProveedor(proveedor)">
+                <p-button
+                  icon="pi pi-trash"
+                  class="p-button-rounded p-button-text ml-2 flex-1"
+                  (click)="deleteProveedor(proveedor)"
+                >
                 </p-button>
-
               </div>
             </td>
           </tr>
@@ -286,175 +308,180 @@
       <!-- Dialogo para agregar o editar -->
       <p-dialog
         [(visible)]="proveedorDialog"
-        [style]="{width: '450px'}"
+        [style]="{ width: '450px' }"
         header="Detalle del proveedor"
         [modal]="true"
-        styleClass="p-fluid">
-          <ng-template pTemplate="content">
-            <div class="field">
-              <label for="name">Nombre</label>
-              <input 
-                type="text"
-                pInputText
-                id="name"
-                [(ngModel)]="proveedor.name"
-                required
-                autofocus
-              />
-              <small class="p-error" *ngIf="submitted && !proveedor.name">
-                Nombre es requerido
-              </small>
-            </div>
-            <div class="field">
-              <label for="typePerson">Tipo de persona</label>
-              <p-dropdown
-                [options]="typePerson"
-                formControlName="typePerson"
-                optionLabel="typePerson"
-                placeholder="Tipo de persona"
-              />
-              <small class="p-error" *ngIf="submitted && !proveedor.typePerson">
+        styleClass="p-fluid"
+      >
+        <ng-template pTemplate="content">
+          <div class="field">
+            <label for="name">Nombre</label>
+            <input
+              type="text"
+              pInputText
+              id="name"
+              formControlName="name"
+              required
+              autofocus
+            />
+            <small class="p-error" *ngIf="submitted && !proveedor.name">
+              Nombre es requerido
+            </small>
+          </div>
+          <div class="field">
+            <label for="typePerson">Tipo de persona</label>
+            <p-dropdown
+              [options]="typePerson"
+              formControlName="typePerson"
+              optionLabel="typePerson"
+              placeholder="Tipo de persona"
+            />
+            <small class="p-error" *ngIf="submitted && !proveedor.typePerson">
               Tipo de persona es requerido
-              </small>
-            </div>
-            <div class="field">
-              <label for="numberDocument">Numero de documento</label>
-              <input 
-                type="number"
-                pInputText
-                id="numberDocument"
-                [(ngModel)]="proveedor.numberDocument"
-                required
-                autofocus
-              />
-              <small class="p-error" *ngIf="submitted && !proveedor.numberDocument">
-                Numero de documento es requerido
-              </small>
-            </div>
-            <div class="field">
-              <label for="city">Ciudad</label>
-              <p-dropdown
-                [options]="cities"
-                formControlName="city"
-                optionLabel="name"
-                placeholder="Seleccione una ciudad"
-              />
-              <small class="p-error" *ngIf="submitted && !proveedor.city">
-                Ciudad es requerida
-              </small>
-            </div>
-            <div class="field">
-              <label for="departament">Departamento</label>
-              <p-dropdown
+            </small>
+          </div>
+          <div class="field">
+            <label for="numberDocument">Numero de documento</label>
+            <input
+              type="number"
+              pInputText
+              id="numberDocument"
+              formControlName="numberDocument"
+              required
+              autofocus
+            />
+            <small
+              class="p-error"
+              *ngIf="submitted && !proveedor.numberDocument"
+            >
+              Numero de documento es requerido
+            </small>
+          </div>
+          <div class="field">
+            <label for="city">Ciudad</label>
+            <p-dropdown
+              [options]="cities"
+              formControlName="city"
+              optionLabel="name"
+              placeholder="Seleccione una ciudad"
+            />
+            <small class="p-error" *ngIf="submitted && !proveedor.city">
+              Ciudad es requerida
+            </small>
+          </div>
+          <div class="field">
+            <label for="departament">Departamento</label>
+            <p-dropdown
               [options]="deparments"
               formControlName="deparment"
               optionLabel="name"
               placeholder="Seleccione un departamento"
             />
-              <small class="p-error" *ngIf="submitted && !proveedor.departament">
-                Departamento es requerido
-              </small>
-            </div>
-          </ng-template>
-          <ng-template pTemplate="footer"> 
-            <p-button
-              severity="danger"
-              label="Cancelar"
-              icon="pi pi-times"
-              [text]="true"
-              (onClick)="hideDialog()"
-            />
-            <p-button 
-              severity="success"
-              label="Save"
-              icon="pi pi-check"
-              [text]="true"
-              (onClick)="saveProveedor()"
-            />
-          </ng-template>
+            <small class="p-error" *ngIf="submitted && !proveedor.departament">
+              Departamento es requerido
+            </small>
+          </div>
+        </ng-template>
+        <ng-template pTemplate="footer">
+          <p-button
+            severity="danger"
+            label="Cancelar"
+            icon="pi pi-times"
+            [text]="true"
+            (onClick)="hideDialog()"
+          />
+          <p-button
+            severity="success"
+            label="Save"
+            icon="pi pi-check"
+            [text]="true"
+            (onClick)="saveProveedor()"
+          />
+        </ng-template>
       </p-dialog>
 
-      <p-confirmDialog [style]="{ width: '450px' }"  />
+      <p-confirmDialog [style]="{ width: '450px' }" />
 
       <!-- Diálogo de solo lectura -->
       <p-dialog
-      [(visible)]="viewDialog"
-      [style]="{width: '450px'}"
-      header="Detalles del proveedor"
-      [modal]="true"
-      [closable]="true"
-      [class]="{'p-fluid': true, 'p-dialog-readonly': true}">
-      <ng-template pTemplate="content">
-        <div class="field">
-          <label for="viewName">Nombre</label>
-          <input 
-            type="text"
-            pInputText
-            id="viewName"
-            [value]="proveedor.name"
-            disabled
+        [(visible)]="viewDialog"
+        [style]="{ width: '450px' }"
+        header="Detalles del proveedor"
+        [modal]="true"
+        [closable]="true"
+        [class]="{ 'p-fluid': true, 'p-dialog-readonly': true }"
+      >
+        <ng-template pTemplate="content">
+          <div class="field">
+            <label for="viewName">Nombre</label>
+            <input
+              type="text"
+              pInputText
+              id="viewName"
+              [value]="proveedor.name"
+              disabled
+            />
+          </div>
+          <div class="field">
+            <label for="viewTypePerson">Tipo de Persona</label>
+            <input
+              type="text"
+              pInputText
+              id="viewTypePerson"
+              [value]="proveedor.typePerson"
+              disabled
+            />
+          </div>
+          <div class="field">
+            <label for="viewNumberDocument">Número de Documento</label>
+            <input
+              type="text"
+              pInputText
+              id="viewNumberDocument"
+              [value]="proveedor.numberDocument"
+              disabled
+            />
+          </div>
+          <div class="field">
+            <label for="viewCity">Ciudad</label>
+            <input
+              type="text"
+              pInputText
+              id="viewCity"
+              [value]="proveedor.city"
+              disabled
+            />
+          </div>
+          <div class="field">
+            <label for="viewTypeDocument">Tipo de Documento</label>
+            <input
+              type="text"
+              pInputText
+              id="viewTypeDocument"
+              [value]="proveedor.typeDocument"
+              disabled
+            />
+          </div>
+          <div class="field">
+            <label for="viewDepartament">Departamento</label>
+            <input
+              type="text"
+              pInputText
+              id="viewDepartament"
+              [value]="proveedor.departament"
+              disabled
+            />
+          </div>
+        </ng-template>
+        <ng-template pTemplate="footer">
+          <p-button
+            label="Cerrar"
+            icon="pi pi-times"
+            (click)="hideViewDialog()"
+            [text]="true"
           />
-        </div>
-        <div class="field">
-          <label for="viewTypePerson">Tipo de Persona</label>
-          <input 
-            type="text"
-            pInputText
-            id="viewTypePerson"
-            [value]="proveedor.typePerson"
-            disabled
-          />
-        </div>
-        <div class="field">
-          <label for="viewNumberDocument">Número de Documento</label>
-          <input 
-            type="text"
-            pInputText
-            id="viewNumberDocument"
-            [value]="proveedor.numberDocument"
-            disabled
-          />
-        </div>
-        <div class="field">
-          <label for="viewCity">Ciudad</label>
-          <input 
-            type="text"
-            pInputText
-            id="viewCity"
-            [value]="proveedor.city"
-            disabled
-          />
-        </div>
-        <div class="field">
-          <label for="viewTypeDocument">Tipo de Documento</label>
-          <input 
-            type="text"
-            pInputText
-            id="viewTypeDocument"
-            [value]="proveedor.typeDocument"
-            disabled
-          />
-        </div>
-        <div class="field">
-          <label for="viewDepartament">Departamento</label>
-          <input 
-            type="text"
-            pInputText
-            id="viewDepartament"
-            [value]="proveedor.departament"
-            disabled
-          />
-        </div>
-      </ng-template>
-      <ng-template pTemplate="footer">
-        <p-button
-          label="Cerrar"
-          icon="pi pi-times"
-          (click)="hideViewDialog()"
-          [text]="true"
-        />
-      </ng-template>
-    </p-dialog>
+        </ng-template>
+      </p-dialog>
     </p-panel>
   </div>
 </div>

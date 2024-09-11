@@ -1,6 +1,6 @@
-<div id="home-page">
+<p-panel>
   <div>
-    <h2>Pagina de inicio</h2>
+    <h2>Bienvenido a InfoSalud</h2>
   </div>
 
   <div class="flex flex-wrap mt-4 mb-5 w-full">
@@ -10,7 +10,7 @@
           <i class="pi pi-shield" style="font-size: 60px"></i>
         </div>
         <div class="w-full align-items-center">
-          <h2>Soluciones en seguros</h2>
+          <h2>Soluciones para nuestros proveedores</h2>
         </div>
         <div>
           <p>
@@ -19,6 +19,13 @@
             voluptatibus cumque fugit molestias id nemo facilis corrupti
             asperiores libero nihil.
           </p>
+          <div>
+            <p-button
+              label="Proveedores"
+              [routerLink]="['/proveedores']"
+              class="mt-4">
+            </p-button>
+          </div>
         </div>
       </div>
     </div>
@@ -29,7 +36,7 @@
           <i class="pi pi-search" style="font-size: 60px"></i>
         </div>
         <div>
-          <h2>Estrategia</h2>
+          <h2>Estrategia para nuestros clientes</h2>
         </div>
         <div>
           <p>
@@ -38,6 +45,13 @@
             voluptatibus cumque fugit molestias id nemo facilis corrupti
             asperiores libero nihil
           </p>
+          <div>
+            <p-button
+              label="Configurar parametros"
+              [routerLink]="['/administracion/parametros']"
+              class="mt-4">
+            </p-button>
+          </div>
         </div>
       </div>
     </div>
@@ -48,7 +62,7 @@
           <i class="pi pi-book" style="font-size: 60px"></i>
         </div>
         <div>
-          <h2>A la medida</h2>
+          <h2>Diseñamos software a la medida</h2>
         </div>
         <div>
           <p>
@@ -57,9 +71,16 @@
             voluptatibus cumque fugit molestias id nemo facilis corrupti
             asperiores libero nihil.
           </p>
+          <div>
+            <p-button
+              label="Convenios"
+              [routerLink]="['/convenios']"
+              class="mt-4">
+            </p-button>
+          </div>
         </div>
       </div>
     </div>
   </div>
   <div id="home-page" class="justify-content-center text-center"></div>
-</div>
+</p-panel>

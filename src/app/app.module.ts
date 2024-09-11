@@ -10,7 +10,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //importamos de shared.module.ts
 import { SharedModule } from './shared/shared.module';
 
-
 //importamos de catalogueOfActivities.module.ts
 import { catalogueOfActivitiesModule } from './catalogueOfActivities/catalogueOfActivities.module';
 
@@ -20,11 +19,8 @@ import { AppLayoutModule } from './layout/app.layout.module';
 import { AuthModule } from './admin/auth/auth.module';
 import { AdministrationModule } from './administration/administration.module';
 
-
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
     CommonModule,
     BrowserModule,
@@ -40,6 +36,6 @@ import { AdministrationModule } from './administration/administration.module';
     PrimeNgModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

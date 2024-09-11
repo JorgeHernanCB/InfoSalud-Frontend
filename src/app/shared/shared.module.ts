@@ -13,7 +13,6 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SettingsMenuComponent } from './components/settings-menu/settings-menu.component';
 import { HeaderComponent } from './components/header/header.component';
 import {AppConfigModule} from "../layout/config/config.module";
-import { BusinessCardComponent } from './components/business-card/business-card.component';
 import { FilteredButtonComponent } from './components/filtered-button/filtered-button.component';
 import { ButtonGroupModule } from 'primeng/buttongroup';
 
@@ -27,7 +26,6 @@ import { FileUploadModule } from 'primeng/fileupload';
     SidebarComponent,
     SettingsMenuComponent,
     HeaderComponent,
-    BusinessCardComponent,
     FilteredButtonComponent,
   ],
   imports: [
@@ -47,7 +45,6 @@ import { FileUploadModule } from 'primeng/fileupload';
     FooterComponent,
     NavbarComponent,
     HeaderComponent,
-    BusinessCardComponent,
     FilteredButtonComponent,
   ]
 })

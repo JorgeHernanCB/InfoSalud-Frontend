@@ -1,7 +1,0 @@
-/* input:invalid:required {
-  background-image: linear-gradient(to right, rgb(182, 150, 155), lightgreen);
-} */
-
-.ipt-required{
-  background: var(--input-require);
-}

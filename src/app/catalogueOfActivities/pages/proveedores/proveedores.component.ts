@@ -1,16 +1,24 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { TableFoundService } from './../../../service/table-found/table-found.service';
 import { proveedores } from '../../models/interface/dBproveedores.interface';
-import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+  FormControl,
+} from '@angular/forms';
 
-import { TypePerson, City, Deparment, TypeDocument, NumberIndentification } from '../../models/interface/proveedores.interface';
-
+import {
+  TypePerson,
+  City,
+  Deparment,
+  TypeDocument,
+  NumberIndentification,
+} from '../../models/interface/proveedores.interface';
 
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { Table } from 'primeng/table';
-
-
 
 //Components
 
@@ -19,13 +27,10 @@ import { Table } from 'primeng/table';
   templateUrl: './proveedores.component.html',
   styleUrl: './proveedores.component.css',
 })
-
-
 export class ProveedoresComponent implements OnInit {
-
   public proveedorsForm = new FormGroup({
     id: new FormControl<string>(''),
-    name: new FormControl<string>('', {nonNullable: true}),
+    name: new FormControl<string>('', { nonNullable: true }),
     codigo: new FormControl<string>(''),
     typePerson: new FormControl<string>(''),
     typeDocument: new FormControl<string>(''),
@@ -39,43 +44,36 @@ export class ProveedoresComponent implements OnInit {
     businessReason: new FormControl<string>(''),
     date_start: new FormControl<string>(''),
     date_finish: new FormControl<string>(''),
-    })
+  });
 
   value: string | undefined;
 
-  proveedores!: proveedores [];
+  proveedores!: proveedores[];
 
   // Manejo de la tabla para eliminar y editar
   proveedorDialog: boolean = false;
   proveedor!: proveedores;
-  SelectedProveedor!: proveedores[] | null; 
+  SelectedProveedor!: proveedores[] | null;
   submitted: boolean = false;
   statuses!: any[];
   viewDialog: boolean = false;
 
   @ViewChild('dt1') dt1!: Table;
 
-
   //Dropdowns
-  public typePerson: TypePerson[] | undefined= [];
-
-
+  public typePerson: TypePerson[] | undefined = [];
   public cities: City[] | undefined = [];
-
   public deparments: Deparment[] | undefined = [];
-
   public typeDocument: TypeDocument[] | undefined = [];
-
   public numberIndentification: NumberIndentification[] | undefined = [];
   //public selectedNumberDocument: numberDocument | undefined;
-
 
   constructor(
     private fb: FormBuilder,
     private tableFoundService: TableFoundService,
     private messageService: MessageService,
     private confirmationService: ConfirmationService
-  ){
+  ) {
     // this.proveedorsForm = this.fb.group({
     //   //Se definen los valores del formulario
     //   name: ['',Validators.required],
@@ -84,25 +82,24 @@ export class ProveedoresComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.tableFoundService.getData().then((data)=> {
+    this.tableFoundService.getData().then((data) => {
       this.proveedores = data;
     });
 
-
     this.typePerson = [
-      { typePerson: 'Persona Natural'},
-      { typePerson: 'Persona Juridica'}
+      { typePerson: 'Persona Natural' },
+      { typePerson: 'Persona Juridica' },
     ];
     //Dropdown list of cities
     this.cities = [
-      { name:'Pereira', deparment: 'Risaralda' },
-      { name:'Bogota', deparment: 'Cundinamarca' },
-      { name:'Medellin', deparment: 'Antioquia' },
-      { name:'Cali ', deparment: 'Valle' },
-      { name:'Pasto', deparment: 'Nariño' },
-      { name:'Bucaramanga', deparment: 'Santander'},
-      { name:'Cartagena', deparment: 'Bolivar' },
-      { name:'Monteria', deparment: 'Cordoba' }
+      { name: 'Pereira', deparment: 'Risaralda' },
+      { name: 'Bogota', deparment: 'Cundinamarca' },
+      { name: 'Medellin', deparment: 'Antioquia' },
+      { name: 'Cali ', deparment: 'Valle' },
+      { name: 'Pasto', deparment: 'Nariño' },
+      { name: 'Bucaramanga', deparment: 'Santander' },
+      { name: 'Cartagena', deparment: 'Bolivar' },
+      { name: 'Monteria', deparment: 'Cordoba' },
     ];
     this.deparments = [
       { name: 'Risaralda', region: 'Eje Cafetero' },
@@ -112,37 +109,36 @@ export class ProveedoresComponent implements OnInit {
       { name: 'Nariño', region: 'Pacifica' },
       { name: 'Santander', region: 'Oriente' },
       { name: 'Bolivar', region: 'Caribe' },
-      { name: 'Cordoba', region: 'Caribe' }
-    ]
+      { name: 'Cordoba', region: 'Caribe' },
+    ];
     this.typeDocument = [
-      { identification: 'Cedula de Ciudadania'},
-      { identification: 'Pasaporte'},
-      { identification: 'Cedula de Extranjeria'},
-      { identification: 'NIT'},
-      { identification: 'Tarjeta de Identidad'}
-    ]
-    this.numberIndentification =[
-      { number: '#', typeDocument: 'Cedula de Ciudadania'},
-
-    ]
+      { identification: 'Cedula de Ciudadania' },
+      { identification: 'Pasaporte' },
+      { identification: 'Cedula de Extranjeria' },
+      { identification: 'NIT' },
+      { identification: 'Tarjeta de Identidad' },
+    ];
+    this.numberIndentification = [
+      { number: '#', typeDocument: 'Cedula de Ciudadania' },
+    ];
   }
 
   onSubmit() {
-    if (this.proveedorsForm.valid){
+    if (this.proveedorsForm.valid) {
       console.log(this.proveedorsForm.value);
-    }else{
+    } else {
       console.log('Formulario no valido');
     }
   }
 
-  openNew(){
+  openNew() {
     this.proveedor = {};
     this.submitted = false;
     this.proveedorDialog = true;
   }
 
-  viewProveedor(proveedor: proveedores){
-    this.proveedor = {...proveedor};
+  viewProveedor(proveedor: proveedores) {
+    this.proveedor = { ...proveedor };
     this.viewDialog = true;
   }
 
@@ -153,52 +149,60 @@ export class ProveedoresComponent implements OnInit {
         header: 'Confirmar',
         icon: 'pi pi-exclamation-triangle',
         accept: () => {
-          this.proveedores = this.proveedores.filter(val => !this.SelectedProveedor?.includes(val));
+          this.proveedores = this.proveedores.filter(
+            (val) => !this.SelectedProveedor?.includes(val)
+          );
           this.SelectedProveedor = [];
-          this.messageService.add({ severity: 'success', summary: 'Éxito', detail: 'Proveedores eliminados', life: 3000 });
-        }
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Éxito',
+            detail: 'Proveedores eliminados',
+            life: 3000,
+          });
+        },
       });
     }
   }
 
-  editProveedor(proveedor: proveedores){
-    this.proveedor = {...proveedor};
+  editProveedor(proveedor: proveedores) {
+    this.proveedor = { ...proveedor };
     this.proveedorDialog = true;
   }
 
-
-  deleteProveedor(proveedor: proveedores){
+  deleteProveedor(proveedor: proveedores) {
     this.confirmationService.confirm({
       message: 'Estas seguro de eliminar ' + proveedor.name + '?',
       header: 'Confirmar',
       icon: 'pi pi-exclamation-traingle',
       accept: () => {
-        this.proveedores = this.proveedores.filter((val) => val.id !== proveedor.id)
+        this.proveedores = this.proveedores.filter(
+          (val) => val.id !== proveedor.id
+        );
         this.proveedor = {};
         this.messageService.add({
           severity: 'success',
           summary: 'Succesful',
           detail: 'Proveedor eliminado',
-          life: 3000
+          life: 3000,
         });
-      }
+      },
     });
   }
 
   // Cierra el dialogo de edicion
-  hideDialog(){
+  hideDialog() {
     this.proveedorDialog = false;
     this.submitted = false;
   }
 
   //Cierra el dialogo de solo lectura
-  hideViewDialog(){
+  hideViewDialog() {
     this.viewDialog = false;
   }
 
   saveProveedor() {
     this.submitted = true;
-  
+
     if (this.proveedorsForm.valid) {
       if (this.proveedor.id) {
         // Asegúrate de que id esté definido y sea una cadena
@@ -209,14 +213,14 @@ export class ProveedoresComponent implements OnInit {
             severity: 'success',
             summary: 'Éxito',
             detail: 'Proveedor actualizado',
-            life: 3000
+            life: 3000,
           });
         } else {
           this.messageService.add({
             severity: 'error',
             summary: 'Error',
             detail: 'Proveedor no encontrado',
-            life: 3000
+            life: 3000,
           });
         }
       } else {
@@ -227,17 +231,17 @@ export class ProveedoresComponent implements OnInit {
           severity: 'success',
           summary: 'Éxito',
           detail: 'Proveedor agregado',
-          life: 3000
+          life: 3000,
         });
       }
-  
+
       this.proveedorDialog = false; // Cerrar diálogo
       this.proveedor = {}; // Limpiar objeto de proveedor
     }
   }
 
   findIndexById(id: string | number): number {
-    return this.proveedores.findIndex(proveedor => proveedor.id === id);
+    return this.proveedores.findIndex((proveedor) => proveedor.id === id);
   }
 
   createId(): number {
@@ -250,7 +254,4 @@ export class ProveedoresComponent implements OnInit {
       this.dt1.filterGlobal(inputElement.value, 'contains');
     }
   }
-
 }
-
-
