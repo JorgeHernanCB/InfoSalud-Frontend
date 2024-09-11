@@ -17,6 +17,12 @@ import { CalendarModule } from 'primeng/calendar';
 import { FileUploadModule } from 'primeng/fileupload';
 
 
+import { DialogModule } from 'primeng/dialog';
+import { ToolbarModule } from 'primeng/toolbar';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+
+
+
 @NgModule({
   exports: [
     ButtonModule,
@@ -34,7 +40,10 @@ import { FileUploadModule } from 'primeng/fileupload';
     ChipModule,
     ButtonGroupModule,
     CalendarModule,
-    FileUploadModule
+    FileUploadModule,
+    DialogModule,
+    ToolbarModule,
+    ConfirmDialogModule,
 
   ]
 })
