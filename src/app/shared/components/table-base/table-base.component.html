@@ -1,0 +1,456 @@
+<div class="card p-fluid">
+  <h2>Proveedores</h2>
+  <!-- Searchs -->
+  <p-panel header="BUSCADOR DE PROVEEDORES" [toggleable]="true">
+    <!-- forms -->
+    <form [formGroup]="proveedorsForm" (ngSubmit)="onSubmit()">
+      <app-filtered-button></app-filtered-button>
+
+      <!-- Row 1 -->
+      <div class="formgrid grid mt-4 col-12">
+        <div class="field col-3">
+          <p-floatLabel>
+            <input
+              pInputText
+              pKeyFilter="alpha"
+              class="ipt-required"
+              id="name"
+              formControlName="name"
+              required
+            />
+            <label htmlFor="name" id="custom-pfloatLabel" class="w-10"
+              >Grupo</label
+            >
+          </p-floatLabel>
+        </div>
+
+        <div class="field col-3">
+          <p-floatLabel>
+            <input
+              pInputText
+              id="codigo"
+              type="number"
+              formControlName="codigo"
+            />
+            <label htmlFor="codigo" id="custom-pfloatLabel" class="w-10"
+              >Codigo</label
+            >
+          </p-floatLabel>
+        </div>
+
+        <div class="field col-3">
+          <p-floatLabel>
+            <input pInputText id="valor" type="text" />
+            <label htmlFor="valor" id="custom-pfloatLabel" class="w-10"
+              >Valor</label
+            >
+          </p-floatLabel>
+        </div>
+
+        <div class="field col-3">
+          <p-floatLabel>
+            <input pInputText id="application" type="text" />
+            <label htmlFor="application">Aplicativo</label>
+          </p-floatLabel>
+        </div>
+      </div>
+      <!-- Row 2 -->
+      <div class="formgrid grid col-12">
+        <div class="field col-3">
+          <p-floatLabel>
+            <input pInputText id="descripcion_grupo" type="text" />
+            <label
+              htmlFor="descripcion_grupo"
+              id="custom-pfloatLabel"
+              class="w-10"
+              >Descripci&oacute;n grupo
+            </label>
+          </p-floatLabel>
+        </div>
+        <div class="field col-3">
+          <p-floatLabel>
+            <input pInputText id="description_parameter" type="text" />
+            <label
+              htmlFor="description_parameter"
+              id="custom-pfloatLabel"
+              class="w-10"
+              >Descripci&oacute;n Par&aacute;metro</label
+            >
+          </p-floatLabel>
+        </div>
+        <div class="field col-3">
+        </div>
+        <div class="field col-3">
+          <p-floatLabel>
+            <input
+              pInputText
+              pKeyFilter="alpha"
+              id="user"
+              type="text"
+              id="disabled-date"
+              [disabled]="true"
+              placeholder="Cris.Arango"
+            />
+            <label htmlFor="Username" id="custom-pfloatLabel" class="w-10"
+              >Cris.Arango</label
+            >
+          </p-floatLabel>
+        </div>
+      </div>
+      <!-- Row 3 -->
+      <div class="formgrid grid col-12">
+        <div class="field col-3">
+          <div class="flex-auto">
+            <p-dropdown
+              [options]="typePerson"
+              formControlName="typePerson"
+              optionLabel="typePerson"
+              placeholder="Tipo de persona"
+            />
+          </div>
+        </div>
+        <div class="field col-3">
+          <div class="flex-auto">
+            <p-dropdown
+              [options]="cities"
+              formControlName="city"
+              optionLabel="name"
+              placeholder="Seleccione una ciudad"
+            />
+          </div>
+        </div>
+
+        <div class="field col-3">
+          <div class="flex-auto">
+            <p-dropdown
+              [options]="deparments"
+              formControlName="departament"
+              optionLabel="name"
+              placeholder="Seleccione un departmento"
+            />
+          </div>
+        </div>
+        <div class="field col-3">
+          <div class="flex-auto">
+            <p-dropdown
+              [options]="typeDocument"
+              formControlName="typeDocument"
+              optionLabel="identification"
+              placeholder="Seleccione una Identificación"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Row 4 -->
+      <div class="formgrid grid col-12">
+        <!-- Calendar -->
+        <div class="field col-3">
+          <div class="flex-auto">
+            <p-calendar
+              placeholder="Fecha inicio vigencia"
+              [showIcon]="true"
+              inputId="buttondisplay"
+              [showOnFocus]="false"
+              formControlName="date_start"
+            />
+          </div>
+        </div>
+        <div class="field col-3">
+          <div class="flex-auto">
+            <p-calendar
+              placeholder="Fecha fin vigencia"
+              [showIcon]="true"
+              inputId="buttondisplay"
+              [showOnFocus]="false"
+              formControlName="date_finish"
+            />
+          </div>
+        </div>
+      </div>
+    </form>
+  </p-panel>
+
+  <!-- Table -->
+  <div class="mt-4">
+    <p-panel header="ENCONTRADOS" [toggleable]="true">
+      <!-- <p-toast /> -->
+      <p-toolbar styleClass="mb-4 gap-2">
+        <ng-template pTemplate="left">
+          <p-button
+            severity="success"
+            label="Agregar"
+            icon="pi pi-plus"
+            class="mr-2"
+            (onClick)="openNew()"
+          />
+          <p-button
+            severity="danger"
+            label="Eliminar"
+            icon="pi pi-trash"
+            (onClick)="deleteSelectedProveedors()"
+            [disabled]="!SelectedProveedor || !SelectedProveedor.length"
+          />
+        </ng-template>
+      </p-toolbar>
+      <p-table
+        #dt1
+        [value]="proveedores"
+        [paginator]="true"
+        [rows]="10"
+        [rowsPerPageOptions]="[10, 20, 50]"
+        styleClass="p-datatable-gridlines"
+        [tableStyle]="{ 'min-width': '50rem' }"
+        [globalFilterFields]="['name', 'typePerson', 'numberDocument', 'city', 'typeDocument', 'departament']"
+        [(selection)]="SelectedProveedor"
+        [rowHover]="true"
+        dataKey="id"
+        currentPageReportTemplate="Mostrando del {first} al {last} de {totalRecords} datos"
+        [showCurrentPageReport]="true"
+      >
+        <ng-template pTemplate="caption">
+          <div class="flex align-items-center justify-content-between">
+            <h5 class="m-0">Proveedores</h5>
+            <span class="p-input-icon-left w-5">
+              <i class="pi pi-search"></i>
+              <input
+                pInputText
+                type="text"
+                (input)="applyGlobalFilter($event)"
+                placeholder="Buscar..."
+              />
+            </span>
+          </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+          <tr>
+            <th style="width: 4rem;">
+              <p-tableHeaderCheckbox />
+            </th>
+            <th pSortableColumn="name" class="text-center">Nombre <p-sortIcon field="name"></p-sortIcon></th>
+            <th pSortableColumn="typePerson" class="text-center">Tipo de persona <p-sortIcon field="typePerson"></p-sortIcon></th>
+            <th pSortableColumn="numberDocument" class="text-center">Numero de documento <p-sortIcon field="numberDocument"></p-sortIcon></th>
+            <th pSortableColumn="city" class="text-center">Ciudad <p-sortIcon field="city"></p-sortIcon></th>
+            <th pSortableColumn="typeDocument" class="text-center">Tipo de Documento <p-sortIcon field="typeDocument"></p-sortIcon></th>
+            <th pSortableColumn="departament" class="text-center">Departamento <p-sortIcon field="departament"></p-sortIcon></th>
+            <th class="text-center">Acciones</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-proveedor>
+          <tr>
+            <td>
+              <p-tableCheckbox [value]="proveedor" />
+            </td>
+            <td>{{ proveedor.name }}</td>
+            <td>{{ proveedor.typePerson }}</td>
+            <td>{{ proveedor.numberDocument }}</td>
+            <td>{{ proveedor.city }}</td>
+            <td>{{ proveedor.typeDocument }}</td>
+            <td>{{ proveedor.departament }}</td>
+            <td>
+              <div class="flex justify-content-center align-items-center">
+                <!-- (click)="editProveedor(proveedor)" -->
+                <p-button 
+                  icon="pi pi-search" 
+                  severity="info"
+                  class="p-button-rounded p-button-text flex-1"
+                  (click)="viewProveedor(proveedor)"
+                  >
+                </p-button>
+                <p-button 
+                  icon="pi pi-pencil" 
+                  severity="warning"
+                  class="p-button-rounded p-button-text ml-2 flex-1" 
+                  (click)="editProveedor(proveedor)">
+                </p-button>
+                <p-button 
+                  icon="pi pi-trash" 
+                  class="p-button-rounded p-button-text ml-2 flex-1" 
+                  (click)="deleteProveedor(proveedor)">
+                </p-button>
+              </div>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+
+      <!-- Dialogo para agregar o editar -->
+      <p-dialog
+        [(visible)]="proveedorDialog"
+        [style]="{width: '450px'}"
+        header="Detalle del proveedor"
+        [modal]="true"
+        styleClass="p-fluid">
+        <ng-template pTemplate="content">
+          <form [formGroup]="proveedorsForm">
+            <div class="field">
+              <label for="name">Nombre</label>
+              <input 
+                type="text"
+                pInputText
+                id="name"
+                formControlName="name"
+                required
+                autofocus
+              />
+              <small class="p-error" *ngIf="submitted && proveedorsForm.controls['name'].invalid">
+                Nombre es requerido
+              </small>
+            </div>
+            <div class="field">
+              <label for="typePerson">Tipo de persona</label>
+              <div *ngIf="!typePerson || typePerson.length === 0" style="text-align: center; margin-top: 20px;">
+                <p-progressSpinner></p-progressSpinner>
+              </div>
+              <p-dropdown *ngIf="typePerson"
+                [options]="typePerson"
+                formControlName="typePerson"
+                optionLabel="typePerson"
+                placeholder="Tipo de persona"
+              />
+              <small class="p-error" *ngIf="submitted && proveedorsForm.controls['typePerson'].invalid">
+              Tipo de persona es requerido
+              </small>
+            </div>
+            <div class="field">
+              <label for="numberDocument">Numero de documento</label>
+              <input 
+                type="number"
+                pInputText
+                id="numberDocument"
+                formControlName="numberDocument"
+                required
+                autofocus
+              />
+              <small class="p-error" *ngIf="submitted && proveedorsForm.controls['numberDocument'].invalid">
+                Numero de documento es requerido
+              </small>
+            </div>
+            <div class="field">
+              <label for="city">Ciudad</label>
+              <p-dropdown
+                [options]="cities"
+                formControlName="city"
+                optionLabel="name"
+                placeholder="Seleccione una ciudad"
+              />
+              <small class="p-error" *ngIf="submitted && proveedorsForm.controls['city'].invalid">
+                Ciudad es requerida
+              </small>
+            </div>
+            <div class="field">
+              <label for="departament">Departamento</label>
+              <p-dropdown
+              [options]="deparments"
+              formControlName="departament"
+              optionLabel="name"
+              placeholder="Seleccione un departamento"
+            />
+              <small class="p-error" *ngIf="submitted && proveedorsForm.controls['departament'].invalid">
+                Departamento es requerido
+              </small>
+            </div>
+          </form>
+        </ng-template>
+        <ng-template pTemplate="footer"> 
+          <p-button
+            severity="danger"
+            label="Cancelar"
+            icon="pi pi-times"
+            [text]="true"
+            (onClick)="hideDialog()"
+          />
+          <p-button 
+            severity="success"
+            label="Save"
+            icon="pi pi-check"
+            [text]="true"
+            (onClick)="saveProveedor()"
+          />
+        </ng-template>
+      </p-dialog>
+      <p-confirmDialog [style]="{ width: '450px' }"  />
+
+      <!-- Diálogo de solo lectura -->
+      <p-dialog
+      [(visible)]="viewDialog"
+      [style]="{width: '450px'}"
+      header="Detalles del proveedor"
+      [modal]="true"
+      [closable]="true"
+      [class]="{'p-fluid': true, 'p-dialog-readonly': true}">
+      <ng-template pTemplate="content">
+        <div class="field">
+          <label for="viewName">Nombre</label>
+          <input 
+            type="text"
+            pInputText
+            id="viewName"
+            [value]="proveedor.name"
+            disabled
+          />
+        </div>
+        <div class="field">
+          <label for="viewTypePerson">Tipo de Persona</label>
+          <input 
+            type="text"
+            pInputText
+            id="viewTypePerson"
+            [value]="proveedor.typePerson"
+            disabled
+          />
+        </div>
+        <div class="field">
+          <label for="viewNumberDocument">Número de Documento</label>
+          <input 
+            type="text"
+            pInputText
+            id="viewNumberDocument"
+            [value]="proveedor.numberDocument"
+            disabled
+          />
+        </div>
+        <div class="field">
+          <label for="viewCity">Ciudad</label>
+          <input 
+            type="text"
+            pInputText
+            id="viewCity"
+            [value]="proveedor.city"
+            disabled
+          />
+        </div>
+        <div class="field">
+          <label for="viewTypeDocument">Tipo de Documento</label>
+          <input 
+            type="text"
+            pInputText
+            id="viewTypeDocument"
+            [value]="proveedor.typeDocument"
+            disabled
+          />
+        </div>
+        <div class="field">
+          <label for="viewDepartament">Departamento</label>
+          <input 
+            type="text"
+            pInputText
+            id="viewDepartament"
+            [value]="proveedor.departament"
+            disabled
+          />
+        </div>
+      </ng-template>
+      <ng-template pTemplate="footer">
+        <p-button
+          label="Cerrar"
+          icon="pi pi-times"
+          (click)="hideViewDialog()"
+          [text]="true"
+        />
+      </ng-template>
+    </p-dialog>
+    </p-panel>
+  </div>
+</div>
+<!-- </div> -->
