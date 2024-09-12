@@ -20,13 +20,14 @@ import { RadioButtonModule } from 'primeng/radiobutton';
 import { TagModule } from 'primeng/tag';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { NuevoProveedorComponent } from './pages/nuevo-proveedor/nuevoProveedor.component';
 
 
 
 @NgModule({
   declarations: [
     ProveedoresComponent,
-
+    NuevoProveedorComponent
   ],
   imports: [
     CommonModule,
@@ -39,6 +40,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
   ],
   exports: [
     ProveedoresComponent,
+    NuevoProveedorComponent
 
   ],
   providers:[ConfirmationService, MessageService],

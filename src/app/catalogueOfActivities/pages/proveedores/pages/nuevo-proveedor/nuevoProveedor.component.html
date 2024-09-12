@@ -1,0 +1,112 @@
+<div class="card p-fluid"></div>
+  <h2>Proveedores</h2>
+  <!-- Searchs -->
+  <p-panel header="AGREGA UN NUEVO PROVEEDORES" [toggleable]="true">
+    <!-- forms -->
+    <form [formGroup]="nuevoProveedorForm" (ngSubmit)="onSubmit()">
+      <app-filtered-button></app-filtered-button>
+
+      <!-- Row 1 -->
+      <div class="formgrid grid mt-4 col-12">
+        <div class="field col-3">
+          <div class="field col-3">
+            <div class="flex-auto">
+              <p-dropdown
+                [options]="typeProviders"
+                formControlName="typeProviders"
+                optionLabel="name"
+                placeholder="Seleccione un proveedor"
+              />
+            </div>
+          </div>
+          <p-floatLabel>
+            <input
+              pInputText
+              pKeyFilter="alpha"
+              class="ipt-required"
+              id="name"
+              formControlName="name"
+              required
+            />
+            <label htmlFor="name" id="custom-pfloatLabel" class="w-10"
+              >Nombre</label
+            >
+          </p-floatLabel>
+        </div>
+      </div>
+      <!-- Row 2 -->
+      <div class="formgrid grid col-12">
+        <div class="field col-3">
+          <div class="flex-auto">
+            <p-dropdown
+              [options]="typeProviders"
+              formControlName="typeProviders"
+              optionLabel="typeProviders"
+              placeholder="Seleccione un proveedor"
+            />
+          </div>
+        </div>
+      </div>
+      <!-- Row 3 -->
+      <div class="formgrid grid col-12">
+        <div class="field col-3">
+          <div class="flex-auto">
+            <p-dropdown
+              [options]="typePerson"
+              formControlName="typePerson"
+              optionLabel="typePerson"
+              placeholder="Tipo de persona"
+            />
+          </div>
+        </div>
+        <div class="field col-3">
+          <div class="flex-auto">
+            <p-dropdown
+              [options]="cities"
+              formControlName="city"
+              optionLabel="name"
+              placeholder="Seleccione una ciudad"
+            />
+          </div>
+        </div>
+
+        <div class="field col-3">
+          <div class="flex-auto">
+            <p-dropdown
+              [options]="typeDocument"
+              formControlName="typeDocument"
+              optionLabel="identification"
+              placeholder="Seleccione una Identificación"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Row 4 -->
+      <div class="formgrid grid col-12">
+        <!-- Calendar -->
+        <div class="field col-3">
+          <div class="flex-auto">
+            <p-calendar
+              placeholder="Fecha inicio vigencia"
+              [showIcon]="true"
+              inputId="buttondisplay"
+              [showOnFocus]="false"
+              formControlName="date_start"
+            />
+          </div>
+        </div>
+        <div class="field col-3">
+          <div class="flex-auto">
+            <p-calendar
+              placeholder="Fecha fin vigencia"
+              [showIcon]="true"
+              inputId="buttondisplay"
+              [showOnFocus]="false"
+              formControlName="date_finish"
+            />
+          </div>
+        </div>
+      </div>
+    </form>
+  </p-panel>

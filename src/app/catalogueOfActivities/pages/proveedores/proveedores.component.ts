@@ -13,7 +13,7 @@ import {
   City,
   Deparment,
   TypeDocument,
-  NumberIndentification,
+  NumberDocument,
 } from '../../models/interface/proveedores.interface';
 
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
@@ -27,14 +27,15 @@ import { Table } from 'primeng/table';
   templateUrl: './proveedores.component.html',
   styleUrl: './proveedores.component.css',
 })
+
 export class ProveedoresComponent implements OnInit {
   public proveedorsForm = new FormGroup({
     id: new FormControl<string>(''),
     name: new FormControl<string>('', { nonNullable: true }),
-    codigo: new FormControl<string>(''),
+    code: new FormControl<string>(''),
     typePerson: new FormControl<string>(''),
     typeDocument: new FormControl<string>(''),
-    numberIndentification: new FormControl<string>(''),
+    numberDocument: new FormControl<string>(''),
     city: new FormControl<string>(''),
     deparment: new FormControl<string>(''),
     state: new FormControl<string>(''),
@@ -65,7 +66,7 @@ export class ProveedoresComponent implements OnInit {
   public cities: City[] | undefined = [];
   public deparments: Deparment[] | undefined = [];
   public typeDocument: TypeDocument[] | undefined = [];
-  public numberIndentification: NumberIndentification[] | undefined = [];
+  public numberDocument: NumberDocument[] | undefined = [];
   //public selectedNumberDocument: numberDocument | undefined;
 
   constructor(
@@ -77,7 +78,7 @@ export class ProveedoresComponent implements OnInit {
     // this.proveedorsForm = this.fb.group({
     //   //Se definen los valores del formulario
     //   name: ['',Validators.required],
-    //   codigo: ['', Validators.required]
+    //   code: ['', Validators.required]
     // });
   }
 
@@ -118,7 +119,7 @@ export class ProveedoresComponent implements OnInit {
       { identification: 'NIT' },
       { identification: 'Tarjeta de Identidad' },
     ];
-    this.numberIndentification = [
+    this.numberDocument = [
       { number: '#', typeDocument: 'Cedula de Ciudadania' },
     ];
   }

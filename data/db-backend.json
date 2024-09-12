@@ -2,13 +2,14 @@
   "proveedores": [
     {
       "id": 1,
-      "typePerson": "Persona Natural",
       "name": "Alice Johnson",
+      "typePerson": "Persona Natural",
       "typeDocument": "cc",
       "numberDocument": "183955032",
-      "age": 24,
       "city": "Pereira",
-      "departament": "Risaralda"
+      "departament": "Risaralda",
+      "date_start": "2021-01-01",
+      "date_finish": "2021-12-31"
     },
     {
       "id": 2,
@@ -16,9 +17,10 @@
       "name": "Bob Smith",
       "typeDocument": "cc",
       "numberDocument": "183955032",
-      "age": 24,
       "city": "Pereira",
-      "departament": "Risaralda"
+      "departament": "Risaralda",
+      "date_start": "2021-01-01",
+      "date_finish": "2021-12-31"
     },
     {
       "id": 3,
@@ -26,9 +28,10 @@
       "name": "Charlie Brown",
       "typeDocument": "cc",
       "numberDocument": "183955032",
-      "age": 24,
       "city": "Pereira",
-      "departament": "Risaralda"
+      "departament": "Risaralda",
+      "date_start": "2021-01-01",
+      "date_finish": "2021-12-31"
     },
     {
       "id": 4,
@@ -36,9 +39,10 @@
       "name": "Diana Prince",
       "typeDocument": "cc",
       "numberDocument": "183955032",
-      "age": 24,
       "city": "Pereira",
-      "departament": "Risaralda"
+      "departament": "Risaralda",
+      "date_start": "2021-01-01",
+      "date_finish": "2021-12-31"
     },
     {
       "id": 5,
@@ -46,9 +50,10 @@
       "name": "Edward Norton",
       "typeDocument": "cc",
       "numberDocument": "183955032",
-      "age": 24,
       "city": "Pereira",
-      "departament": "Risaralda"
+      "departament": "Risaralda",
+      "date_start": "2021-01-01",
+      "date_finish": "2021-12-31"
     },
     {
       "id": 6,
@@ -56,9 +61,10 @@
       "name": "Fiona Gallagher",
       "typeDocument": "cc",
       "numberDocument": "183955032",
-      "age": 24,
       "city": "Pereira",
-      "departament": "Risaralda"
+      "departament": "Risaralda",
+      "date_start": "2021-01-01",
+      "date_finish": "2021-12-31"
     },
     {
       "id": 7,
@@ -66,9 +72,10 @@
       "name": "George Harris",
       "typeDocument": "cc",
       "numberDocument": "183955032",
-      "age": 24,
       "city": "Pereira",
-      "departament": "Risaralda"
+      "departament": "Risaralda",
+      "date_start": "2021-01-01",
+      "date_finish": "2021-12-31"
     },
     {
       "id": 8,
@@ -76,9 +83,10 @@
       "name": "Hannah Brown",
       "typeDocument": "cc",
       "numberDocument": "183955032",
-      "age": 24,
       "city": "Pereira",
-      "departament": "Risaralda"
+      "departament": "Risaralda",
+      "date_start": "2021-01-01",
+      "date_finish": "2021-12-31"
     },
     {
       "id": 9,
@@ -86,9 +94,10 @@
       "name": "Isaac Newton",
       "typeDocument": "cc",
       "numberDocument": "183955032",
-      "age": 24,
       "city": "Pereira",
-      "departament": "Risaralda"
+      "departament": "Risaralda",
+      "date_start": "2021-01-01",
+      "date_finish": "2021-12-31"
     },
     {
       "id": 10,
@@ -96,9 +105,10 @@
       "name": "Julia Roberts",
       "typeDocument": "cc",
       "numberDocument": "183955032",
-      "age": 24,
       "city": "Pereira",
-      "departament": "Risaralda"
+      "departament": "Risaralda",
+      "date_start": "2021-01-01",
+      "date_finish": "2021-12-31"
     },
     {
       "id": 11,
@@ -106,9 +116,10 @@
       "name": "Kevin Hart",
       "typeDocument": "cc",
       "numberDocument": "183955032",
-      "age": 24,
       "city": "Pereira",
-      "departament": "Risaralda"
+      "departament": "Risaralda",
+      "date_start": "2021-01-01",
+      "date_finish": "2021-12-31"
     }
   ]
 }

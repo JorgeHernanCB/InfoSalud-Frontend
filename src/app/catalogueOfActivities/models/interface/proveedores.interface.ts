@@ -1,21 +1,40 @@
 //Proveedores
 export interface Proveedores {
-  id?: number;
-  name: string;
-  codigo: string;
+  id?: number | string;
+  typeProviders: TypeProviders;
+  name?: string;
+  status: Status;
   typePerson: TypePerson;
   typeDocument: TypeDocument;
-  numberIndentification: NumberIndentification;
+  numberDocument: NumberDocument;
   city: City;
+  especialty: string;
   deparment: Deparment;
-  state: State;
-  typeSuppliers: TypeSuppliers;
-  specialtyByLocation: SpecialtyByLocation;
-  companyName: companyName;
-  businessReason: BusinessReason;
+  date_start?: Date_start;
+  date_finish?: Date_finish;
+  code?: string | number;
 }
 
 //part the interface of the providers(proveedores)
+
+
+export interface TypeProviders {
+  name: string;
+  audit?: string;
+  investigator?: string;
+  laboratory?: string;
+  IPS?: string;
+  clinic?: string;
+  hospital?: string;
+}
+
+export interface Status {
+  name: string;
+  active?: string;
+  cancel?: string;
+  blocked?: string;
+
+}
 
 export interface TypePerson {
   typePerson: string;
@@ -30,17 +49,12 @@ export interface TypeDocument {
   passport?: string | number;
 }
 
-export interface NumberIndentification {
+export interface NumberDocument {
   number: string | number;
   typeDocument: string;
 }
 
-export interface TypeSuppliers {
-  type: string;
-}
-
 export interface City {
-  id?: number;
   name: string;
   deparment?: string;
 }
@@ -50,24 +64,10 @@ export interface Deparment {
   region?: string;
 }
 
-export interface State {
-  condition?: string;
+export interface Date_start {
+  date_start: string | Date | number;
+}
+export interface Date_finish {
+  date_finish: string | Date | number;
 }
 
-export interface SpecialtyByLocation {
-  code?: string | number;
-  name?: string;
-  adress?: string | number;
-  active?: boolean;
-  headOffice?: string; //Sede principal
-  department?: Deparment;
-  city?: City;
-}
-
-export interface companyName {
-  name : string;
-}
-
-export interface BusinessReason{
-  reason: string;
-}

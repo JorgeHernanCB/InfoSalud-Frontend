@@ -2,113 +2,137 @@
   "proveedores": [
     {
       "id": 1,
-      "typePerson": "Persona Natural",
+      "typeProvider": "IPS",
       "name": "Alice Johnson",
+      "status": "Activo",
+      "typePerson": "Persona Natural",
       "typeDocument": "cc",
       "numberDocument": "183955032",
-      "age": 24,
       "city": "Pereira",
-      "departament": "Risaralda"
+      "departament": "Risaralda",
+      "especialty": "Medicina General"
     },
     {
       "id": 2,
+      "typeProvider": "IPS",
       "typePerson": "Persona Natural",
       "name": "Bob Smith",
+      "status": "Activo",
       "typeDocument": "cc",
       "numberDocument": "183955032",
-      "age": 24,
       "city": "Pereira",
-      "departament": "Risaralda"
+      "departament": "Risaralda",
+      "especialty": "Medicina General"
     },
     {
       "id": 3,
+      "typeProvider": "Laboratorio",
+      "status": "Activo",
       "typePerson": "Persona Natural",
       "name": "Charlie Brown",
       "typeDocument": "cc",
       "numberDocument": "183955032",
-      "age": 24,
       "city": "Pereira",
-      "departament": "Risaralda"
+      "departament": "Risaralda",
+      "especialty": "Medicina General"
     },
     {
       "id": 4,
+      "typeProvider": "Laboratorio",
+      "status": "Activo",
       "typePerson": "Persona Natural",
       "name": "Diana Prince",
       "typeDocument": "cc",
       "numberDocument": "183955032",
-      "age": 24,
       "city": "Pereira",
-      "departament": "Risaralda"
+      "departament": "Risaralda",
+      "especialty": "Medicina General"
     },
     {
       "id": 5,
+      "typeProvider": "Laboratorio",
       "typePerson": "Persona Natural",
+      "status": "Activo",
       "name": "Edward Norton",
       "typeDocument": "cc",
       "numberDocument": "183955032",
-      "age": 24,
       "city": "Pereira",
-      "departament": "Risaralda"
+      "departament": "Risaralda",
+      "especialty": "Medicina General"
     },
     {
       "id": 6,
+      "typeProvider": "Laboratorio",
+      "status": "Activo",
       "typePerson": "Persona Natural",
       "name": "Fiona Gallagher",
       "typeDocument": "cc",
       "numberDocument": "183955032",
-      "age": 24,
       "city": "Pereira",
-      "departament": "Risaralda"
+      "departament": "Risaralda",
+      "especialty": "Medicina General"
     },
     {
       "id": 7,
+      "typeProvider": "Laboratorio",
       "typePerson": "Persona Natural",
+      "status": "Activo",
       "name": "George Harris",
       "typeDocument": "cc",
       "numberDocument": "183955032",
-      "age": 24,
       "city": "Pereira",
+      "especialty": "Medicina General",
       "departament": "Risaralda"
+
     },
     {
       "id": 8,
+      "typeProvider": "Laboratorio",
       "typePerson": "Persona Natural",
+      "status": "Activo",
       "name": "Hannah Brown",
       "typeDocument": "cc",
       "numberDocument": "183955032",
-      "age": 24,
       "city": "Pereira",
-      "departament": "Risaralda"
+      "departament": "Risaralda",
+      "especialty": "Medicina General"
     },
     {
       "id": 9,
+      "typeProvider": "Laboratorio",
       "typePerson": "Persona Natural",
+      "status": "Activo",
       "name": "Isaac Newton",
       "typeDocument": "cc",
       "numberDocument": "183955032",
-      "age": 24,
       "city": "Pereira",
-      "departament": "Risaralda"
+      "departament": "Risaralda",
+      "especialty": "Medicina General"
     },
     {
       "id": 10,
+      "typeProvider": "Laboratorio",
       "typePerson": "Persona Natural",
+      "status": "Activo",
       "name": "Julia Roberts",
       "typeDocument": "cc",
       "numberDocument": "183955032",
-      "age": 24,
       "city": "Pereira",
-      "departament": "Risaralda"
+      "departament": "Risaralda",
+      "especialty": "Medicina General"
+
     },
     {
       "id": 11,
+      "typeProvider": "Laboratorio",
       "typePerson": "Persona Natural",
+      "status": "Activo",
       "name": "Kevin Hart",
       "typeDocument": "cc",
       "numberDocument": "183955032",
-      "age": 24,
       "city": "Pereira",
-      "departament": "Risaralda"
+      "departament": "Risaralda",
+      "especialty": "Medicina General"
     }
   ]
 }

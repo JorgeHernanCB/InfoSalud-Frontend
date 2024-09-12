@@ -12,10 +12,10 @@ export class ParametrosComponent {
 
   selectedFile: File | null = null;
   imageUrl: string | ArrayBuffer | null = null;
-  
+
 
   @ViewChild(FileUpload) fileUpload!: FileUpload;
-  
+
 
   constructor(private UploadService: UploadService) {
     this.UploadService.currentImage.subscribe(image => {
@@ -44,7 +44,7 @@ export class ParametrosComponent {
       const reader = new FileReader();
 
       reader.onload = () =>{
-        this.UploadService.changeImage(reader.result);
+        this.UploadService.changeImageHeader(reader.result);
       };
 
       reader.readAsDataURL(this.selectedFile);
@@ -52,7 +52,7 @@ export class ParametrosComponent {
   }
 
   onDelete() {
-    this.UploadService.changeImage(null);
+    this.UploadService.changeImageHeader(null);
 
     //Clear the archive select and preview
     this.selectedFile = null;
