@@ -44,21 +44,21 @@ export class NuevoProveedorComponent {
   ngOnInit(): void {
     //Dropdown list of status
     this.status = [
-      { name: 'Activo' },
-      { name: 'Inactivo' },
-      { name: 'Bloqueado' },
+      { status: 'Activo' },
+      { status: 'Inactivo' },
+      { status: 'Bloqueado' },
     ];
 
     //Dropdown list of cities
     this.cities = [
-      { name: 'Pereira', deparment: 'Risaralda' },
-      { name: 'Bogota', deparment: 'Cundinamarca' },
-      { name: 'Medellin', deparment: 'Antioquia' },
-      { name: 'Cali ', deparment: 'Valle' },
-      { name: 'Pasto', deparment: 'Nariño' },
-      { name: 'Bucaramanga', deparment: 'Santander' },
-      { name: 'Cartagena', deparment: 'Bolivar' },
-      { name: 'Monteria', deparment: 'Cordoba' },
+      { city: 'Pereira', deparment: 'Risaralda' },
+      { city: 'Bogota', deparment: 'Cundinamarca' },
+      { city: 'Medellin', deparment: 'Antioquia' },
+      { city: 'Cali ', deparment: 'Valle' },
+      { city: 'Pasto', deparment: 'Nariño' },
+      { city: 'Bucaramanga', deparment: 'Santander' },
+      { city: 'Cartagena', deparment: 'Bolivar' },
+      { city: 'Monteria', deparment: 'Cordoba' },
     ];
 
     //Dropdown list of typeDocument

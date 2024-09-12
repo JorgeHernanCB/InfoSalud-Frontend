@@ -29,17 +29,11 @@ export interface TypeProviders {
 }
 
 export interface Status {
-  name: string;
-  active?: string;
-  cancel?: string;
-  blocked?: string;
-
+  status: string;
 }
 
 export interface TypePerson {
   typePerson: string;
-  naturalPerson?: string;
-  legalPerson?: string;
 }
 
 export interface TypeDocument {
@@ -55,7 +49,7 @@ export interface NumberDocument {
 }
 
 export interface City {
-  name: string;
+  city: string;
   deparment?: string;
 }
 
