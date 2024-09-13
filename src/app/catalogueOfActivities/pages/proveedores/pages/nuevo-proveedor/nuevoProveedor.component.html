@@ -36,7 +36,7 @@
           <p-dropdown
             [options]="typeProviders"
             formControlName="typeProviders"
-            optionLabel="name"
+            optionLabel="namee"
             placeholder="Seleccione un proveedor"
           />
         </div>
@@ -61,7 +61,7 @@
           <p-dropdown
               [options]="typeProviders"
               formControlName="typeProviders"
-              optionLabel="name"
+              optionLabel="namee"
               placeholder="Seleccione un proveedor"
             />
         </div>
@@ -140,29 +140,35 @@
                 required
               />
               <label htmlFor="name" id="custom-pfloatLabel" class="w-10"
-                >Raz&oacute;n social / Nombre</label
+                >Nombre/Raz&oacute;n social</label
               >
             </p-floatLabel>
           </div>
-
+          <div class="field col-3">
+            <p-floatLabel>
+              <input
+                pInputText
+                pKeyFilter="alpha"
+                class="ipt-required"
+                id="address"
+                formControlName="address"
+                required
+              />
+              <label htmlFor="address" id="custom-pfloatLabel" class="w-10"
+                >Dirección</label
+              >
+            </p-floatLabel>
+          </div>
           <div class="field col-3">
             <p-dropdown
-                [options]="typeProviders"
-                formControlName="typeProviders"
-                optionLabel="typeProviders"
-                placeholder="Seleccione un proveedor"
-              />
+                [options]="status"
+                formControlName="status"
+                optionLabel="status"
+                placeholder="Estado"
+            />
           </div>
 
-          <div class="field col-3">
-            <p-dropdown
-                [options]="typePerson"
-                formControlName="typePerson"
-                optionLabel="typePerson"
-                placeholder="Tipo de persona"
-              />
-          </div>
-      
+
         </div>
         <!-- Row 2 -->
         <div class="formgrid grid col-12">
