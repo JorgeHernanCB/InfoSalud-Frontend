@@ -1,24 +1,26 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../service/authService/auth-service.service'
+
+
 @Component({
   selector: 'infoSalud-login',
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
+
 export class LoginComponent implements OnInit {
+
   loginForm!: FormGroup;
   loginError: string | null = null;
   formData: any;
-  // private siteKey = '6LdVVzEqAAAAAAyHoy-OFj3gkNdAfiAJywLx0PYe';
 
 
   constructor(
     private authService: AuthService,
     private router: Router,
     private fb: FormBuilder,
-    // private recaptcha3: Ngre
   ) {}
 
   ngOnInit(): void {

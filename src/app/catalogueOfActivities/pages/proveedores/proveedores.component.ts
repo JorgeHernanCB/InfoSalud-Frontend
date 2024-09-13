@@ -1,29 +1,14 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import {FormBuilder,FormGroup, Validators, FormControl,} from '@angular/forms';
+
 import { TableFoundService } from './../../../service/table-found/table-found.service';
 import { proveedores } from '../../models/interface/dBproveedores.interface';
-import {
-  FormBuilder,
-  FormGroup,
-  Validators,
-  FormControl,
-} from '@angular/forms';
 
-import {
-  TypePerson,
-  City,
-  Deparment,
-  TypeDocument,
-  NumberDocument,
-  TypeProviders,
-  Status,
-  Special
-} from '../../models/interface/proveedores.interface';
-
-import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { Table } from 'primeng/table';
 
-//Components
+import { TypePerson, City, Deparment, TypeDocument, NumberDocument, TypeProviders, Status,Special } from '../../models/interface/proveedores.interface';
+
 
 @Component({
   selector: 'infoSalud-proveedores',
@@ -33,23 +18,7 @@ import { Table } from 'primeng/table';
 
 export class ProveedoresComponent implements OnInit {
   public proveedorsForm = new FormGroup({
-    // id: new FormControl<string>(''),
-    // name: new FormControl<string>('', { nonNullable: true }),
-    // code: new FormControl<string>(''),
-    // typeProviders: new FormControl<string>(''),
-    // special: new FormControl<string>(''),
-    // typePerson: new FormControl<string>(''),
-    // typeDocument: new FormControl<string>(''),
-    // numberDocument: new FormControl<string>(''),
-    // city: new FormControl<string>(''),
-    // departament: new FormControl<string>(''),
-    // status: new FormControl<string>(''),
-    // typeSuppliers: new FormControl<string>(''),
-    // specialtyByLocation: new FormControl<string>(''),
-    // companyName: new FormControl<string>(''),
-    // businessReason: new FormControl<string>(''),
-    // date_start: new FormControl<string>(''),
-    // date_finish: new FormControl<string>(''),
+
     id: new FormControl<string>(''),
     name: new FormControl<string>(''),
     code: new FormControl<string>(''),
@@ -61,6 +30,7 @@ export class ProveedoresComponent implements OnInit {
     city: new FormControl<string>(''),
     departament: new FormControl<string>(''),
     status: new FormControl<string>(''),
+
   });
 
   value: string | undefined;
@@ -90,25 +60,19 @@ export class ProveedoresComponent implements OnInit {
   public typeProviders: TypeProviders[] | undefined = [];
   public status: Status[] | undefined = [];
   public special: Special[] | undefined = [];
-  
-  //public selectedNumberDocument: numberDocument | undefined;
+
 
   constructor(
     private fb: FormBuilder,
     private tableFoundService: TableFoundService,
     private messageService: MessageService,
     private confirmationService: ConfirmationService
-
-  ) {
-    // this.proveedorsForm = this.fb.group({
-    //   //Se definen los valores del formulario
-    //   name: ['',Validators.required],
-    //   code: ['', Validators.required]
-    // });
+ )
+  {
     this.tableFoundService.getData().then((data) => {
       this.allProveedores = data;
       this.proveedores = [];
-    }) 
+    })
   }
 
   ngOnInit(): void {
@@ -120,13 +84,14 @@ export class ProveedoresComponent implements OnInit {
       }else{
         console.error('No se pudieron cargar los valores');
       }
-      
+
     });
 
     this.typePerson = [
       { typePerson: 'Persona Natural' },
       { typePerson: 'Persona Juridica' },
     ];
+
     //Dropdown list of cities
     this.cities = [
       { city: 'Pereira', deparment: 'Risaralda' },
@@ -138,6 +103,7 @@ export class ProveedoresComponent implements OnInit {
       { city: 'Cartagena', deparment: 'Bolivar' },
       { city: 'Monteria', deparment: 'Cordoba' },
     ];
+    //Dropdown list of deparments
     this.deparments = [
       { name: 'Risaralda', region: 'Eje Cafetero' },
       { name: 'Cundinamarca', region: 'Centro' },
@@ -148,11 +114,13 @@ export class ProveedoresComponent implements OnInit {
       { name: 'Bolivar', region: 'Caribe' },
       { name: 'Cordoba', region: 'Caribe' },
     ];
+    //Dropdown typeDocument
     this.typeDocument = [
       { identification: 'Cedula de Ciudadania' },
       { identification: 'NIT' },
       { identification: 'DNI' },
     ];
+    //Dropdown numberDocument
     this.numberDocument = [
       { number: '#', typeDocument: 'Cedula de Ciudadania' },
     ];
@@ -171,6 +139,7 @@ export class ProveedoresComponent implements OnInit {
       { status: 'Bloqueado'},
       { status: 'Cancelado'}
     ];
+    //Dropdown Special
     this.special = [
       { name: ''},
     ]
@@ -194,19 +163,13 @@ export class ProveedoresComponent implements OnInit {
     const isAnyField = Object.values(formValues).some(value => value);
 
     console.log(isAnyField);
-    
-    // this.proveedores = this.allProveedores.filter(proveedor => {
-    //   return (!formValues.typeProviders || proveedor.typeProviders === formValues.typeProviders)
-    //     && (!formValues.status || proveedor.status === formValues.status)
-    //     && (!formValues.departament || proveedor.departament === formValues.departament)
-    //     && (!formValues.city || proveedor.city === formValues.city);
-    // })
+
     if (!isAnyField){
       this.proveedores = [...this.allProveedores];
       return;
     }
 
-      // Filtrar proveedores basado en los valores ingresados
+    // Filtrar proveedores basado en los valores ingresados
     this.proveedores = this.allProveedores.filter(proveedor => {
       return (!formValues.typeProviders || proveedor.typeProviders === formValues.typeProviders)
         && (!formValues.status || proveedor.status === formValues.status)
@@ -219,7 +182,6 @@ export class ProveedoresComponent implements OnInit {
 
     console.log(this.proveedores);
   }
-  
 
   //Clear de form
   clearForm() {

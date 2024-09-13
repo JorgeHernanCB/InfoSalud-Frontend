@@ -10,6 +10,7 @@ import { FileUpload } from 'primeng/fileupload';
 })
 export class ParametrosComponent {
 
+
   selectedFile: File | null = null;
   imageUrl: string | ArrayBuffer | null = null;
 
@@ -17,7 +18,8 @@ export class ParametrosComponent {
   @ViewChild(FileUpload) fileUpload!: FileUpload;
 
 
-  constructor(private UploadService: UploadService) {
+  constructor(
+    private UploadService: UploadService) {
     this.UploadService.currentImage.subscribe(image => {
       this.imageUrl = image;
     });
@@ -64,21 +66,3 @@ export class ParametrosComponent {
     }
   }
 }
-
-
-
-
-
-
-
-
-  //  constructor(private messageService: MessageService) {}
-
-  // onUpload(event: any) {
-    // this.messageService
-    // .add(
-    //   {severity: 'info',
-    //   summary: 'File Uploaded',
-    //   detail: 'File uploaded successfully'});
-   // console.log(event);
-    //}
