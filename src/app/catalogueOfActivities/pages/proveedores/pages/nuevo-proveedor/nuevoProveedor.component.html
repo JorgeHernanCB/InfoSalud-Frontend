@@ -1,5 +1,3 @@
-<div class="card p-fluid">
-  <!-- <h2>Proveedores</h2> -->
   <!-- Searchs -->
   <p-panel header="CONFIGURAR UN NUEVO PROVEEDORES" [toggleable]="true">
     <!-- forms -->
@@ -7,18 +5,18 @@
       <!-- <app-filtered-button></app-filtered-button> -->
       <div class="formgrid grid">
         <div class="field-col ml-4">
-          <p-button 
-            label="Regresar" 
-            [raised]="true" 
-            [rounded]="true" 
+          <p-button
+            label="Regresar"
+            [raised]="true"
+            [rounded]="true"
             [routerLink]="['/proveedores']"
           />
         </div>
         <div class="field-col ml-4">
-          <p-button 
-            label="Agregar" 
-            [raised]="true" 
-            [rounded]="true" 
+          <p-button
+            label="Agregar"
+            [raised]="true"
+            [rounded]="true"
           />
         </div>
       </div>
@@ -46,7 +44,7 @@
               required
             />
             <label htmlFor="name" id="custom-pfloatLabel" class="w-10"
-              >Nombre</label
+              >Raz&oacute;n social / Nombre</label
             >
           </p-floatLabel>
         </div>
@@ -81,7 +79,7 @@
             <p-dropdown
               [options]="cities"
               formControlName="city"
-              optionLabel="name"
+              optionLabel="city"
               placeholder="Seleccione una ciudad"
             />
           </div>

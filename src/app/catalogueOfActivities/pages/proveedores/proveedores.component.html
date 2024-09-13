@@ -5,10 +5,10 @@
     <!-- forms -->
     <form [formGroup]="proveedorsForm" (ngSubmit)="onSubmit()">
       <app-filtered-button></app-filtered-button>
-            
+
       <!-- Row 1 -->
       <div class="formgrid grid mt-4 col-12">
-        
+
         <div class="field col-3">
           <p-dropdown
                 [options]="typeProviders"
@@ -89,7 +89,7 @@
               htmlFor="razon_social"
               id="custom-pfloatLabel"
               class="w-10"
-              >Raz&oacute;n social
+              >Raz&oacute;n social/Nombre
             </label>
           </p-floatLabel>
         </div>
@@ -164,7 +164,7 @@
             <td class="text-center">{{ proveedor.name}}</td>
             <td class="text-center">{{ proveedor.typeProviders }}</td>
             <td class="text-center">{{ proveedor.status }}</td>
-            <td class="text-center">{{ proveedor.department }}</td>
+            <td class="text-center">{{ proveedor.departament }}</td>
             <td class="text-center">{{ proveedor.city }}</td>
             <td>
               <div class="flex justify-content-center align-items-center">
@@ -177,6 +177,7 @@
                 </p-button>
                 <p-button
                   icon="pi pi-pencil"
+                  severity="warning"
                   class="p-button-rounded p-button-text ml-2 flex-1"
                 >
                 </p-button>
