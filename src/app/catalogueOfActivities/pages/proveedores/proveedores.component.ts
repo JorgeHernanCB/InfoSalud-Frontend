@@ -14,6 +14,8 @@ import {
   Deparment,
   TypeDocument,
   NumberDocument,
+  TypeProviders,
+  Status
 } from '../../models/interface/proveedores.interface';
 
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
@@ -67,6 +69,8 @@ export class ProveedoresComponent implements OnInit {
   public deparments: Deparment[] | undefined = [];
   public typeDocument: TypeDocument[] | undefined = [];
   public numberDocument: NumberDocument[] | undefined = [];
+  public typeProviders: TypeProviders[] | undefined = [];
+  public status: Status[] | undefined = [];
   //public selectedNumberDocument: numberDocument | undefined;
 
   constructor(
@@ -122,6 +126,22 @@ export class ProveedoresComponent implements OnInit {
     this.numberDocument = [
       { number: '#', typeDocument: 'Cedula de Ciudadania' },
     ];
+    //Dropdown typeProviders
+    this.typeProviders = [
+      { name: 'Auditor'},
+      { name: 'Investigador'},
+      { name: 'Laboratorio'},
+      { name: 'IPS'},
+      { name: 'Clinica' },
+      { name: 'Hospital' },
+    ];
+    //Dropdown Status
+    this.status = [
+      { status: 'Activo'},
+      { status: 'Bloqueado'},
+      { status: 'Cancelado'}
+
+    ]
   }
 
   onSubmit() {

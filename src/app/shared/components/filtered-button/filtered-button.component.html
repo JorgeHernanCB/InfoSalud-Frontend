@@ -2,20 +2,14 @@
   <div
     class="formgrid grid"
     [ngClass]="{
-      'col-offset-8': isExtraLargeScreen,
-      'col-offset-6': isLargeScreen,
-      'col-offset-4': isMediumScreen,
-      'col-offset-2': isSmallScreen,
+      'col-offset-6': isExtraLargeScreen,
+      'col-offset-4': isLargeScreen,
+      'col-offset-2': isMediumScreen,
+      'col-offset-1': isSmallScreen,
       'col-offset-0': isExtraSmallScreen
     }"
   >
-    <div class="field-col">
-      <p-button label="Limpiar" [raised]="true" [rounded]="true" />
-    </div>
-    <div class="field-col ml-4">
-      <p-button label="Agregar" [raised]="true" [rounded]="true" />
-    </div>
-    <div class="field-col ml-4">
+    <div class="field-col mt-2">
       <p-button
         label="Nuevo"
         [raised]="true"
@@ -23,8 +17,20 @@
         [routerLink]="['/proveedores/nuevo-proveedor']"
       />
     </div>
-    <div class="field-col gap-3 ml-4">
+    <div class="field-col ml-2 mt-2">
       <p-button type="submit" label="Buscar" [raised]="true" [rounded]="true" />
+    </div>
+    <div class="field-col gap-3 ml-2 mt-2">
+      <p-button label="Limpiar" [raised]="true" [rounded]="true" />
+    </div>
+    <div class="field-col gap-3 ml-2 mt-2">
+      <p-button label="Descargar" [raised]="true" [rounded]="true" />
+    </div>
+    <div class="field-col gap-3 ml-2 mt-2">
+      <p-button label="Masivo" [raised]="true" [rounded]="true" />
+    </div>
+    <div class="field-col gap-3 ml-2 mt-2">
+      <p-button label="Salir" [raised]="true" [rounded]="true" />
     </div>
   </div>
 </p-buttonGroup>

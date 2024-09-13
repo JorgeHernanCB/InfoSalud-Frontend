@@ -1,28 +1,28 @@
 <div class="card p-fluid">
-  <h2>Proveedores</h2>
+  <!-- <h2>Proveedores</h2> -->
   <!-- Searchs -->
   <p-panel header="BUSCADOR DE PROVEEDORES" [toggleable]="true">
     <!-- forms -->
     <form [formGroup]="proveedorsForm" (ngSubmit)="onSubmit()">
       <app-filtered-button></app-filtered-button>
-
+            
       <!-- Row 1 -->
       <div class="formgrid grid mt-4 col-12">
         
         <div class="field col-3">
           <p-dropdown
-              [options]="typeDocument"
-              formControlName="typeDocument"
-              optionLabel="identification"
-              placeholder="Tipo de Proveedor"
-            />
+                [options]="typeProviders"
+                formControlName="typeProviders"
+                optionLabel="name"
+                placeholder="Tipo de proveedor"
+              />
         </div>
 
         <div class="field col-3">
           <p-dropdown
-          [options]="typeDocument"
-          formControlName="typeDocument"
-          optionLabel="identification"
+          [options]="status"
+          formControlName="status"
+          optionLabel="status"
           placeholder="Estado"
         />
         </div>
@@ -41,7 +41,7 @@
             <p-dropdown
               [options]="cities"
               formControlName="city"
-              optionLabel="name"
+              optionLabel="city"
               placeholder="Seleccione una ciudad / Municipio"
             />
           </div>
@@ -161,7 +161,7 @@
             </td> -->
             <td class="text-center">{{ proveedor.typeDocument }}</td>
             <td class="text-center">{{ proveedor.numberDocument }}</td>
-            <td class="text-center">{{ proveedor.razonSocial}}</td>
+            <td class="text-center">{{ proveedor.name}}</td>
             <td class="text-center">{{ proveedor.typeProviders }}</td>
             <td class="text-center">{{ proveedor.status }}</td>
             <td class="text-center">{{ proveedor.department }}</td>
@@ -171,14 +171,13 @@
                 <!-- (click)="editProveedor(proveedor)" -->
                 <p-button
                   icon="pi pi-search"
-                  severity="info"
-                  class="p-button-rounded p-button-text flex-1"
+                  class="p-button-rounded p-button-text flex-1 custom-button"
+                  [raised]="true"
                 >
                 </p-button>
                 <p-button
                   icon="pi pi-pencil"
-                  severity="warning"
-                  class="p-button-rounded p-button-text ml-2 flex-1" 
+                  class="p-button-rounded p-button-text ml-2 flex-1"
                 >
                 </p-button>
               </div>

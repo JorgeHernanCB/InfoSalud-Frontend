@@ -1,10 +1,27 @@
-<div class="card p-fluid"></div>
-  <h2>Proveedores</h2>
+<div class="card p-fluid">
+  <!-- <h2>Proveedores</h2> -->
   <!-- Searchs -->
-  <p-panel header="AGREGA UN NUEVO PROVEEDORES" [toggleable]="true">
+  <p-panel header="CONFIGURAR UN NUEVO PROVEEDORES" [toggleable]="true">
     <!-- forms -->
     <form [formGroup]="nuevoProveedorForm" (ngSubmit)="onSubmit()">
-      <app-filtered-button></app-filtered-button>
+      <!-- <app-filtered-button></app-filtered-button> -->
+      <div class="formgrid grid">
+        <div class="field-col ml-4">
+          <p-button 
+            label="Regresar" 
+            [raised]="true" 
+            [rounded]="true" 
+            [routerLink]="['/proveedores']"
+          />
+        </div>
+        <div class="field-col ml-4">
+          <p-button 
+            label="Agregar" 
+            [raised]="true" 
+            [rounded]="true" 
+          />
+        </div>
+      </div>
 
       <!-- Row 1 -->
       <div class="formgrid grid mt-4 col-12">
