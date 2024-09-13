@@ -57,3 +57,7 @@ small {
   width: 150px;
   text-align: center;
 }
+
+:host ::ng-deep .p-button{
+  display: block;
+}
