@@ -49,7 +49,7 @@ export class NuevoProveedorComponent {
   SelectedLocation!: Location[] | null;
 
   //Table de sedes
-  showTable: boolean = false;
+  showTable: boolean = true;
 
 
   onSubmit() {

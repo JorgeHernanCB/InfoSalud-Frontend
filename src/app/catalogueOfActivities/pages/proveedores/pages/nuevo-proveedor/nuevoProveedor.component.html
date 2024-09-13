@@ -105,13 +105,12 @@
           </div>
         </div>
       </div>
-
       <div class="field col-3" >
         <p-button
         label="Seleccionar una Sede"
         [raised]="true"
         [rounded]="true"
-        click="toggleTable()"
+        (click)="toggleTable()"
         />
       </div>
     </form>
@@ -119,7 +118,8 @@
 
   <div class="mt-4">
     <!-- Sección de Sedes-->
-    <p-panel header="CONFIGURACIÓN DE SEDES " [toggleable]="true">
+    <p-panel header="CONFIGURACIÓN DE SEDES" [toggleable]="true" *ngIf="showTable"
+    >
       <!-- forms -->
       <form [formGroup]="nuevoProveedorForm" (ngSubmit)="onSubmit()">
         <!-- Row 1 -->
