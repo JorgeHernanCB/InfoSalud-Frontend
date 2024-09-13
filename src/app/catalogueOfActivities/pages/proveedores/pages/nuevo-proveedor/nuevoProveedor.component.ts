@@ -24,6 +24,8 @@ export class NuevoProveedorComponent {
     this.nuevoProveedorForm = this.formBuilder.group({
       id: [''],
       name: ['', Validators.required],
+      code: ['', Validators.required],
+      address: ['', Validators.required],
       typeDocument: ['', Validators.required],
       typePerson: ['', Validators.required],
       typeProviders: ['', Validators.required],
@@ -46,8 +48,8 @@ export class NuevoProveedorComponent {
   public locations!: Location[];
   SelectedLocation!: Location[] | null;
 
-
-
+  //Table de sedes
+  showTable: boolean = false;
 
 
   onSubmit() {
@@ -64,7 +66,11 @@ export class NuevoProveedorComponent {
     this.detectScreenSize(window.innerWidth);
 
     this.tableLocationService.getData().then((data) => {
-      this.locations = data;
+      this.locations = data.map((item: any) => ({
+        ...item,
+        active: item.active === 'true' || item.active === 'true' || item.active === '1' ? true : false
+      }));
+
     });
 
     //Dropdown list of status
@@ -115,6 +121,9 @@ export class NuevoProveedorComponent {
       { name: 'Hospital' },
     ]
   }
+  toggleTable():void{
+    this.showTable = !this.showTable;
+  }
 
   //Responsive
   @HostListener('window:resize', ['$event'])
@@ -128,7 +137,7 @@ export class NuevoProveedorComponent {
   isMediumScreen = false // width: 740px
   isSmallScreen = false; //width: 460px
   isExtraSmallScreen = false //width: < 460px
-  
+
   //Function
   private detectScreenSize(width: number){
     this.isExtraLargeScreen = width > 1100;

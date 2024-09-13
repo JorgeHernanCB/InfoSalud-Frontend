@@ -1,17 +1,19 @@
-  <!-- Searchs -->
-  <div class="card p-fluid">
+<!-- Searchs -->
+<div class="card p-fluid">
   <p-panel header="CONFIGURAR UN NUEVO PROVEEDORES" [toggleable]="true">
     <!-- forms -->
     <form [formGroup]="nuevoProveedorForm" (ngSubmit)="onSubmit()">
       <!-- <app-filtered-button></app-filtered-button> -->
-      <div class="formgrid grid"
-      [ngClass]="{
-        'col-offset-8': isExtraLargeScreen,
-        'col-offset-6': isLargeScreen,
-        'col-offset-3': isMediumScreen,
-        'col-offset-1': isSmallScreen,
-        'col-offset-0': isExtraSmallScreen
-      }">
+      <div
+        class="formgrid grid"
+        [ngClass]="{
+          'col-offset-8': isExtraLargeScreen,
+          'col-offset-6': isLargeScreen,
+          'col-offset-3': isMediumScreen,
+          'col-offset-1': isSmallScreen,
+          'col-offset-0': isExtraSmallScreen
+        }"
+      >
         <div class="field-col ml-4">
           <p-button
             label="Regresar"
@@ -21,22 +23,17 @@
           />
         </div>
         <div class="field-col ml-4">
-          <p-button
-            label="Agregar"
-            [raised]="true"
-            [rounded]="true"
-          />
+          <p-button label="Agregar" [raised]="true" [rounded]="true" />
         </div>
       </div>
 
       <!-- Row 1 -->
       <div class="formgrid grid mt-4 col-12">
-
         <div class="field col-3">
           <p-dropdown
             [options]="typeProviders"
             formControlName="typeProviders"
-            optionLabel="namee"
+            optionLabel="name"
             placeholder="Seleccione un proveedor"
           />
         </div>
@@ -59,65 +56,249 @@
 
         <div class="field col-3">
           <p-dropdown
-              [options]="typeProviders"
-              formControlName="typeProviders"
-              optionLabel="namee"
-              placeholder="Seleccione un proveedor"
-            />
+            [options]="typeProviders"
+            formControlName="typeProviders"
+            optionLabel="name"
+            placeholder="Seleccione un proveedor"
+          />
         </div>
 
         <div class="field col-3">
           <p-dropdown
-              [options]="status"
-              formControlName="status"
-              optionLabel="status"
-              placeholder="Estado"
+            [options]="status"
+            formControlName="status"
+            optionLabel="status"
+            placeholder="Estado"
           />
         </div>
       </div>
       <!-- Row 2 -->
       <div class="formgrid grid col-12">
+        <div class="field col-3">
+          <p-dropdown
+            [options]="typePerson"
+            formControlName="typePerson"
+            optionLabel="typePerson"
+            placeholder="Tipo de persona"
+          />
+        </div>
 
-          <div class="field col-3">
+        <div class="field col-3">
+          <div class="flex-auto">
             <p-dropdown
-              [options]="typePerson"
-              formControlName="typePerson"
-              optionLabel="typePerson"
-              placeholder="Tipo de persona"
+              [options]="cities"
+              formControlName="city"
+              optionLabel="city"
+              placeholder="Seleccione una ciudad"
             />
           </div>
+        </div>
 
-          <div class="field col-3">
-            <div class="flex-auto">
-              <p-dropdown
-                [options]="cities"
-                formControlName="city"
-                optionLabel="city"
-                placeholder="Seleccione una ciudad"
-              />
-            </div>
+        <div class="field col-3">
+          <div class="flex-auto">
+            <p-dropdown
+              [options]="typeDocument"
+              formControlName="typeDocument"
+              optionLabel="identification"
+              placeholder="Seleccione una Identificación"
+            />
           </div>
+        </div>
+      </div>
 
-          <div class="field col-3">
-            <div class="flex-auto">
-              <p-dropdown
-                [options]="typeDocument"
-                formControlName="typeDocument"
-                optionLabel="identification"
-                placeholder="Seleccione una Identificación"
-              />
-            </div>
-          </div>
+      <div class="field col-3" >
+        <p-button
+        label="Seleccionar una Sede"
+        [raised]="true"
+        [rounded]="true"
+        click="toggleTable()"
+        />
       </div>
     </form>
   </p-panel>
 
   <div class="mt-4">
     <!-- Sección de Sedes-->
-    <p-panel header="CONFIGURACIÓN DE SEDES " [toggleable]="true" c>
+    <p-panel header="CONFIGURACIÓN DE SEDES " [toggleable]="true">
       <!-- forms -->
       <form [formGroup]="nuevoProveedorForm" (ngSubmit)="onSubmit()">
+        <!-- Row 1 -->
+        <div class="formgrid grid mt-4 col-12">
+          <p-floatLabel>
+            <input
+              pInputText
+              pKeyFilter="alpha"
+              class="ipt-required"
+              id="code"
+              formControlName="code"
+              required
+            />
+            <label htmlFor="code" id="custom-pfloatLabel" class="w-10"
+              >Codigo</label
+            >
+          </p-floatLabel>
+          <div class="field col-3">
+            <p-dropdown
+              [options]="typeProviders"
+              formControlName="typeProviders"
+              optionLabel="name"
+              placeholder="Tipo de proveedor"
+            />
+          </div>
 
+          <div class="field col-3">
+            <p-floatLabel>
+              <input
+                pInputText
+                pKeyFilter="alpha"
+                class="ipt-required"
+                id="name"
+                formControlName="name"
+                required
+              />
+              <label htmlFor="name" id="custom-pfloatLabel" class="w-10"
+                >Nombre/Raz&oacute;n social</label
+              >
+            </p-floatLabel>
+          </div>
+          <div class="field col-3">
+            <p-floatLabel>
+              <input
+                pInputText
+                pKeyFilter="alpha"
+                class="ipt-required"
+                id="address"
+                formControlName="address"
+                required
+              />
+              <label htmlFor="address" id="custom-pfloatLabel" class="w-10"
+                >Dirección</label
+              >
+            </p-floatLabel>
+          </div>
+          <div class="field col-3">
+            <p-dropdown
+              [options]="status"
+              formControlName="status"
+              optionLabel="status"
+              placeholder="Estado"
+            />
+          </div>
+        </div>
+        <!-- Row 2 -->
+        <div class="formgrid grid col-12">
+          <div class="field col-3">
+            <p-dropdown
+              [options]="cities"
+              formControlName="city"
+              optionLabel="city"
+              placeholder="Seleccione una ciudad"
+            />
+          </div>
+
+          <div class="field col-3">
+            <p-dropdown
+              [options]="typeDocument"
+              formControlName="typeDocument"
+              optionLabel="identification"
+              placeholder="Seleccione una Identificación"
+            />
+          </div>
+        </div>
+
+
+      </form>
+      <!---------------------------------------------------------------------------------------->
+      <!-- Tabla de Sedes-->
+      <p-table
+        #dt1
+        [value]="locations"
+        [paginator]="true"
+        [rows]="10"
+        [rowsPerPageOptions]="[5, 10, 20, 100]"
+        styleClass="p-datatable-gridlines"
+        [tableStyle]="{ 'min-width': '50rem' }"
+        [globalFilterFields]="[
+          'code',
+          'name',
+          'address',
+          'city',
+          'departament',
+          'active',
+          'locationMain'
+        ]"
+        [(selection)]="SelectedLocation"
+        [rowHover]="true"
+        dataKey="id"
+        currentPageReportTemplate="Mostrando del {first} al {last} de {totalRecords} datos"
+        [showCurrentPageReport]="true"
+      >
+        <ng-template pTemplate="header">
+          <tr>
+            <!-- <th style="width: 4rem;">
+              <p-tableHeaderCheckbox />
+            </th> -->
+            <th pSortableColumn="code" class="text-center">
+              Codigo<p-sortIcon field="code"></p-sortIcon>
+            </th>
+            <th pSortableColumn="name" class="text-center">
+              Nombre <p-sortIcon field="name"></p-sortIcon>
+            </th>
+            <th pSortableColumn="address" class="text-center">
+              Direcci&oacute;n<p-sortIcon field="address"></p-sortIcon>
+            </th>
+            <th pSortableColumn="city" class="text-center">
+              Ciudad<p-sortIcon field="city"></p-sortIcon>
+            </th>
+            <th pSortableColumn="departament" class="text-center">
+              Departamento<p-sortIcon field="departament"></p-sortIcon>
+            </th>
+            <th pSortableColumn="active" class="text-center">
+              Activo<p-sortIcon field="active"></p-sortIcon>
+            </th>
+            <!-- <th pSortableColumn="locationMain" class="text-center">Ciudad / Municipio <p-sortIcon field="locationMain"></p-sortIcon></th> -->
+            <th class="text-center">Acciones</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-locations>
+          <tr>
+            <!-- <td>
+              <p-tableCheckbox [value]="proveedor" />
+            </td> -->
+            <td class="text-center">{{ locations.code }}</td>
+            <td class="text-center">{{ locations.name }}</td>
+            <td class="text-center">{{ locations.address }}</td>
+            <td class="text-center">{{ locations.city }}</td>
+            <td class="text-center">{{ locations.departament }}</td>
+            <td class="text-center">{{ locations.active }}</td>
+            <!-- <td class="text-center">{{ locations.locationMain }}</td> -->
+            <td>
+              <div class="flex justify-content-center align-items-center">
+                <!-- (click)="editProveedor(proveedor)" -->
+                <p-button
+                  icon="pi pi-search"
+                  class="p-button-rounded p-button-text flex-1 custom-button"
+                  [raised]="true"
+                >
+                </p-button>
+                <p-button
+                  icon="pi pi-pencil"
+                  severity="warning"
+                  class="p-button-rounded p-button-text ml-2 flex-1"
+                >
+                </p-button>
+              </div>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </p-panel>
+  </div>
+  <div class="mt-4">
+    <!-- Sección de Especialidades-->
+    <p-panel header="CONFIGURACIÓN DE ESPECIALIDADES " [toggleable]="true" c>
+      <!-- forms -->
+      <form [formGroup]="nuevoProveedorForm" (ngSubmit)="onSubmit()">
         <!-- Row 1 -->
         <div class="formgrid grid mt-4 col-12">
           <div class="field col-3">
@@ -161,14 +342,12 @@
           </div>
           <div class="field col-3">
             <p-dropdown
-                [options]="status"
-                formControlName="status"
-                optionLabel="status"
-                placeholder="Estado"
+              [options]="status"
+              formControlName="status"
+              optionLabel="status"
+              placeholder="Estado"
             />
           </div>
-
-
         </div>
         <!-- Row 2 -->
         <div class="formgrid grid col-12">
@@ -194,39 +373,51 @@
 
       <!-- Tabla de Sedes-->
       <p-table
-      #dt1
-      [value]="locations"
-      [paginator]="true"
-      [rows]="10"
-      [rowsPerPageOptions]="[5, 10, 20, 100]"
-      styleClass="p-datatable-gridlines"
-      [tableStyle]="{ 'min-width': '50rem' }"
-      [globalFilterFields]="[
-        'code',
-        'name',
-        'address',
-        'city',
-        'departament',
-        'active',
-        'locationMain'
-      ]"
+        #dt1
+        [value]="locations"
+        [paginator]="true"
+        [rows]="10"
+        [rowsPerPageOptions]="[5, 10, 20, 100]"
+        styleClass="p-datatable-gridlines"
+        [tableStyle]="{ 'min-width': '50rem' }"
+        [globalFilterFields]="[
+          'code',
+          'name',
+          'address',
+          'city',
+          'departament',
+          'active',
+          'locationMain'
+        ]"
         [(selection)]="SelectedLocation"
         [rowHover]="true"
         dataKey="id"
         currentPageReportTemplate="Mostrando del {first} al {last} de {totalRecords} datos"
         [showCurrentPageReport]="true"
-        >
+      >
         <ng-template pTemplate="header">
           <tr>
             <!-- <th style="width: 4rem;">
               <p-tableHeaderCheckbox />
             </th> -->
-            <th pSortableColumn="code" class="text-center">Codigo<p-sortIcon field="code"></p-sortIcon></th>
-            <th pSortableColumn="name" class="text-center">Nombre <p-sortIcon field="name"></p-sortIcon></th>
-            <th pSortableColumn="address" class="text-center">Direcci&oacute;n<p-sortIcon field="address"></p-sortIcon></th>
-            <th pSortableColumn="city" class="text-center">Ciudad<p-sortIcon field="city"></p-sortIcon></th>
-            <th pSortableColumn="departament" class="text-center">Departamento<p-sortIcon field="departament"></p-sortIcon></th>
-            <th pSortableColumn="active" class="text-center">Activo<p-sortIcon field="active"></p-sortIcon></th>
+            <th pSortableColumn="code" class="text-center">
+              Codigo<p-sortIcon field="code"></p-sortIcon>
+            </th>
+            <th pSortableColumn="name" class="text-center">
+              Nombre <p-sortIcon field="name"></p-sortIcon>
+            </th>
+            <th pSortableColumn="address" class="text-center">
+              Direcci&oacute;n<p-sortIcon field="address"></p-sortIcon>
+            </th>
+            <th pSortableColumn="city" class="text-center">
+              Ciudad<p-sortIcon field="city"></p-sortIcon>
+            </th>
+            <th pSortableColumn="departament" class="text-center">
+              Departamento<p-sortIcon field="departament"></p-sortIcon>
+            </th>
+            <th pSortableColumn="active" class="text-center">
+              Activo<p-sortIcon field="active"></p-sortIcon>
+            </th>
             <!-- <th pSortableColumn="locationMain" class="text-center">Ciudad / Municipio <p-sortIcon field="locationMain"></p-sortIcon></th> -->
             <th class="text-center">Acciones</th>
           </tr>
@@ -238,7 +429,7 @@
             </td> -->
             <td class="text-center">{{ locations.code }}</td>
             <td class="text-center">{{ locations.name }}</td>
-            <td class="text-center">{{ locations.address}}</td>
+            <td class="text-center">{{ locations.address }}</td>
             <td class="text-center">{{ locations.city }}</td>
             <td class="text-center">{{ locations.departament }}</td>
             <td class="text-center">{{ locations.active }}</td>
@@ -247,23 +438,22 @@
               <div class="flex justify-content-center align-items-center">
                 <!-- (click)="editProveedor(proveedor)" -->
                 <p-button
-                icon="pi pi-search"
-                class="p-button-rounded p-button-text flex-1 custom-button"
-                [raised]="true"
+                  icon="pi pi-search"
+                  class="p-button-rounded p-button-text flex-1 custom-button"
+                  [raised]="true"
                 >
-              </p-button>
-              <p-button
-              icon="pi pi-pencil"
-              severity="warning"
-              class="p-button-rounded p-button-text ml-2 flex-1"
-              >
-            </p-button>
+                </p-button>
+                <p-button
+                  icon="pi pi-pencil"
+                  severity="warning"
+                  class="p-button-rounded p-button-text ml-2 flex-1"
+                >
+                </p-button>
               </div>
             </td>
           </tr>
         </ng-template>
       </p-table>
     </p-panel>
-  </div>
-</div>
 
+</div>
