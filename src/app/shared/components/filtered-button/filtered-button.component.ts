@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
 import { ProveedoresService } from '../../../service/proveedores/proveedores.service';
 import {Proveedores} from './../../../catalogueOfActivities/models/interface/proveedores.interface';
 
@@ -8,6 +8,9 @@ import {Proveedores} from './../../../catalogueOfActivities/models/interface/pro
   styleUrl: './filtered-button.component.css',
 })
 export class FilteredButtonComponent implements OnInit {
+
+  @Output() onClear : EventEmitter<void> = new EventEmitter<void>();
+  @Output() onSearch : EventEmitter<void> = new EventEmitter<void>();
 
   private proveedores: Proveedores[] = [];
 
@@ -37,6 +40,16 @@ export class FilteredButtonComponent implements OnInit {
     this.isMediumScreen = width > 700 && width <= 850;
     this.isSmallScreen = width > 550 && width <= 700;
     this.isExtraSmallScreen = width <= 550;
+  }
+
+  //Search
+  onSearchClick(){
+    this.onSearch.emit()
+  }
+
+  //Clear
+  onClearClick() {
+    this.onClear.emit()
   }
 
 }

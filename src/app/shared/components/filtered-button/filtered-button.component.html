@@ -21,10 +21,10 @@
       />
     </div>
     <div class="field-col ml-2 mt-2">
-      <p-button type="submit" label="Buscar" [raised]="true" [rounded]="true" />
+      <p-button type="submit" label="Buscar" [raised]="true" [rounded]="true" (click)="onSearchClick()"/>
     </div>
     <div class="field-col gap-3 ml-2 mt-2">
-      <p-button label="Limpiar" [raised]="true" [rounded]="true" />
+      <p-button label="Limpiar" [raised]="true" [rounded]="true" (click)="onClearClick()" />
     </div>
     <div class="field-col gap-3 ml-2 mt-2">
       <p-button label="Descargar" [raised]="true" [rounded]="true" />

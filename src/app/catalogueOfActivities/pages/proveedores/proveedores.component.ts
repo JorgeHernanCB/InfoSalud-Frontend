@@ -15,7 +15,8 @@ import {
   TypeDocument,
   NumberDocument,
   TypeProviders,
-  Status
+  Status,
+  Special
 } from '../../models/interface/proveedores.interface';
 
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
@@ -32,21 +33,34 @@ import { Table } from 'primeng/table';
 
 export class ProveedoresComponent implements OnInit {
   public proveedorsForm = new FormGroup({
+    // id: new FormControl<string>(''),
+    // name: new FormControl<string>('', { nonNullable: true }),
+    // code: new FormControl<string>(''),
+    // typeProviders: new FormControl<string>(''),
+    // special: new FormControl<string>(''),
+    // typePerson: new FormControl<string>(''),
+    // typeDocument: new FormControl<string>(''),
+    // numberDocument: new FormControl<string>(''),
+    // city: new FormControl<string>(''),
+    // departament: new FormControl<string>(''),
+    // status: new FormControl<string>(''),
+    // typeSuppliers: new FormControl<string>(''),
+    // specialtyByLocation: new FormControl<string>(''),
+    // companyName: new FormControl<string>(''),
+    // businessReason: new FormControl<string>(''),
+    // date_start: new FormControl<string>(''),
+    // date_finish: new FormControl<string>(''),
     id: new FormControl<string>(''),
-    name: new FormControl<string>('', { nonNullable: true }),
+    name: new FormControl<string>(''),
     code: new FormControl<string>(''),
+    typeProviders: new FormControl<string>(''),
+    special: new FormControl<string>(''),
     typePerson: new FormControl<string>(''),
     typeDocument: new FormControl<string>(''),
     numberDocument: new FormControl<string>(''),
     city: new FormControl<string>(''),
-    deparment: new FormControl<string>(''),
-    state: new FormControl<string>(''),
-    typeSuppliers: new FormControl<string>(''),
-    specialtyByLocation: new FormControl<string>(''),
-    companyName: new FormControl<string>(''),
-    businessReason: new FormControl<string>(''),
-    date_start: new FormControl<string>(''),
-    date_finish: new FormControl<string>(''),
+    departament: new FormControl<string>(''),
+    status: new FormControl<string>(''),
   });
 
   value: string | undefined;
@@ -63,6 +77,10 @@ export class ProveedoresComponent implements OnInit {
 
   @ViewChild('dt1') dt1!: Table;
 
+  //Mostrar Datos en la tabla
+  allProveedores: any[] = [];
+
+
   //Dropdowns
   public typePerson: TypePerson[] | undefined = [];
   public cities: City[] | undefined = [];
@@ -71,6 +89,8 @@ export class ProveedoresComponent implements OnInit {
   public numberDocument: NumberDocument[] | undefined = [];
   public typeProviders: TypeProviders[] | undefined = [];
   public status: Status[] | undefined = [];
+  public special: Special[] | undefined = [];
+  
   //public selectedNumberDocument: numberDocument | undefined;
 
   constructor(
@@ -78,17 +98,29 @@ export class ProveedoresComponent implements OnInit {
     private tableFoundService: TableFoundService,
     private messageService: MessageService,
     private confirmationService: ConfirmationService
+
   ) {
     // this.proveedorsForm = this.fb.group({
     //   //Se definen los valores del formulario
     //   name: ['',Validators.required],
     //   code: ['', Validators.required]
     // });
+    this.tableFoundService.getData().then((data) => {
+      this.allProveedores = data;
+      this.proveedores = [];
+    }) 
   }
 
   ngOnInit(): void {
     this.tableFoundService.getData().then((data) => {
-      this.proveedores = data;
+      console.log(data);
+      if(data){
+        this.proveedores = data;
+        this.proveedores = [...this.allProveedores];
+      }else{
+        console.error('No se pudieron cargar los valores');
+      }
+      
     });
 
     this.typePerson = [
@@ -139,6 +171,9 @@ export class ProveedoresComponent implements OnInit {
       { status: 'Bloqueado'},
       { status: 'Cancelado'}
     ];
+    this.special = [
+      { name: ''},
+    ]
   }
 
   onSubmit() {
@@ -147,6 +182,48 @@ export class ProveedoresComponent implements OnInit {
     } else {
       console.log('Formulario no valido');
     }
+  }
+
+  //Search
+  onSearch(){
+    const formValues = this.proveedorsForm.value;
+
+    console.log(formValues);
+
+    //Si hay algun campo lleno
+    const isAnyField = Object.values(formValues).some(value => value);
+
+    console.log(isAnyField);
+    
+    // this.proveedores = this.allProveedores.filter(proveedor => {
+    //   return (!formValues.typeProviders || proveedor.typeProviders === formValues.typeProviders)
+    //     && (!formValues.status || proveedor.status === formValues.status)
+    //     && (!formValues.departament || proveedor.departament === formValues.departament)
+    //     && (!formValues.city || proveedor.city === formValues.city);
+    // })
+    if (!isAnyField){
+      this.proveedores = [...this.allProveedores];
+      return;
+    }
+
+      // Filtrar proveedores basado en los valores ingresados
+    this.proveedores = this.allProveedores.filter(proveedor => {
+      return (!formValues.typeProviders || proveedor.typeProviders === formValues.typeProviders)
+        && (!formValues.status || proveedor.status === formValues.status)
+        && (!formValues.departament || proveedor.departament === formValues.departament)
+        && (!formValues.city || proveedor.city === formValues.city)
+        && (!formValues.typeDocument || proveedor.typeDocument === formValues.typeDocument)
+        && (!formValues.numberDocument || proveedor.numberDocument === formValues.numberDocument)
+        && (!formValues.name || proveedor.name.toLowerCase().includes(formValues.name.toLowerCase()));
+    });
+
+    console.log(this.proveedores);
+  }
+  
+
+  //Clear de form
+  clearForm() {
+    this.proveedorsForm.reset(); // Limpia el formulario
   }
 
 }
