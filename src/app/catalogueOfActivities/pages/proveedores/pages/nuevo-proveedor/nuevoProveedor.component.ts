@@ -1,7 +1,12 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
+import {TableLocationService} from '../../../../../service/table-location(sedes)/table-location.service';
 import { City, TypeDocument, TypePerson, NumberDocument, TypeProviders, Status } from '../../../../models/interface/proveedores.interface'
+import { Location } from '../../../../models/interface/location.interface';
+
+
+
 
 @Component({
   selector: 'infoSalud-nuevoProveedor',
@@ -10,16 +15,12 @@ import { City, TypeDocument, TypePerson, NumberDocument, TypeProviders, Status }
 })
 export class NuevoProveedorComponent {
 
-  public cities: City[] | undefined = [];
-  public typePerson: TypePerson[] | undefined = [];
-  public typeDocument: TypeDocument[] = [];
-  public numberDocument: NumberDocument[] = [];
-  public typeProviders: TypeProviders[] | undefined = [];
-  public status: Status[] | undefined = [];
-
 
   public nuevoProveedorForm: FormGroup;
-  constructor(private formBuilder: FormBuilder) {
+  constructor(
+    private tableLocationService: TableLocationService,
+    private formBuilder: FormBuilder
+  ) {
     this.nuevoProveedorForm = this.formBuilder.group({
       id: [''],
       name: ['', Validators.required],
@@ -33,6 +34,22 @@ export class NuevoProveedorComponent {
     });
   }
 
+  //Proveedores
+  public cities: City[] | undefined = [];
+  public typePerson: TypePerson[] | undefined = [];
+  public typeDocument: TypeDocument[] = [];
+  public numberDocument: NumberDocument[] = [];
+  public typeProviders: TypeProviders[] | undefined = [];
+  public status: Status[] | undefined = [];
+
+  //Sedes de proveedores
+  public locations!: Location[];
+  SelectedLocation!: Location[] | null;
+
+
+
+
+
   onSubmit() {
     if (this.nuevoProveedorForm.valid) {
       console.log(this.nuevoProveedorForm.value);
@@ -42,6 +59,11 @@ export class NuevoProveedorComponent {
   }
 
   ngOnInit(): void {
+
+    this.tableLocationService.getData().then((data) => {
+      this.locations = data;
+    });
+
     //Dropdown list of status
     this.status = [
       { status: 'Activo' },
