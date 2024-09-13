@@ -126,12 +126,13 @@
         styleClass="p-datatable-gridlines"
         [tableStyle]="{ 'min-width': '50rem' }"
         [globalFilterFields]="[
-          'name',
-          'typePerson',
-          'numberDocument',
-          'city',
           'typeDocument',
-          'departament'
+          'numberDocument',
+          'name',
+          'typeProviders',
+          'status',
+          'departament',
+          'city'
         ]"
         [(selection)]="SelectedProveedor"
         [rowHover]="true"
@@ -144,13 +145,13 @@
             <!-- <th style="width: 4rem;">
               <p-tableHeaderCheckbox />
             </th> -->
-            <th class="text-center">Tipo de identificaci&oacute;n <p-sortIcon field="name"></p-sortIcon></th>
-            <th class="text-center">N&uacute;mero de identificaci&oacute;n <p-sortIcon field="typePerson"></p-sortIcon></th>
-            <th class="text-center">Nombre / Raz&oacute;n Social <p-sortIcon field="numberDocument"></p-sortIcon></th>
-            <th class="text-center">Tipo de Proveedor <p-sortIcon field="city"></p-sortIcon></th>
-            <th class="text-center">Estado <p-sortIcon field="typeDocument"></p-sortIcon></th>
-            <th class="text-center">Departamento / Provincia <p-sortIcon field="departament"></p-sortIcon></th>
-            <th class="text-center">Ciudad / Municipio <p-sortIcon field="departament"></p-sortIcon></th>
+            <th pSortableColumn="typeDocument" class="text-center">Tipo de identificaci&oacute;n <p-sortIcon field="typeDocument"></p-sortIcon></th>
+            <th pSortableColumn="numberDocument" class="text-center">N&uacute;mero de identificaci&oacute;n <p-sortIcon field="numberDocument"></p-sortIcon></th>
+            <th pSortableColumn="name" class="text-center">Nombre / Raz&oacute;n Social <p-sortIcon field="name"></p-sortIcon></th>
+            <th pSortableColumn="typeProviders" class="text-center">Tipo de Proveedor <p-sortIcon field="typeProviders"></p-sortIcon></th>
+            <th pSortableColumn="status" class="text-center">Estado <p-sortIcon field="status"></p-sortIcon></th>
+            <th pSortableColumn="departament" class="text-center">Departamento / Provincia <p-sortIcon field="departament"></p-sortIcon></th>
+            <th pSortableColumn="city" class="text-center">Ciudad / Municipio <p-sortIcon field="city"></p-sortIcon></th>
             <th class="text-center">Acciones</th>
           </tr>
         </ng-template>
@@ -171,6 +172,7 @@
                 <!-- (click)="editProveedor(proveedor)" -->
                 <p-button
                   icon="pi pi-search"
+                  severity="info"
                   class="p-button-rounded p-button-text flex-1 custom-button"
                   [raised]="true"
                 >
@@ -179,6 +181,7 @@
                   icon="pi pi-pencil"
                   severity="warning"
                   class="p-button-rounded p-button-text ml-2 flex-1"
+                  [raised]="true"
                 >
                 </p-button>
               </div>
