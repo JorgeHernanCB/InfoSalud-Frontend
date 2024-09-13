@@ -4,7 +4,7 @@
   <p-panel header="BUSCADOR DE PROVEEDORES" [toggleable]="true">
     <!-- forms -->
     <form [formGroup]="proveedorsForm" (ngSubmit)="onSubmit()">
-      <app-filtered-button></app-filtered-button>
+      <app-filtered-button (onSearch)="onSearch()" (onClear)="clearForm()"></app-filtered-button>
 
       <!-- Row 1 -->
       <div class="formgrid grid mt-4 col-12">
@@ -72,9 +72,9 @@
 
         <div class="field col-3">
           <p-floatLabel>
-            <input pInputText id="numero_identificacion" type="number" />
+            <input pInputText id="numberDocument" type="number" formControlName="numberDocument"/>
             <label
-              htmlFor="numero_identificacion"
+              htmlFor="numberDocument"
               id="custom-pfloatLabel"
               class="w-10"
               >N&uacute;mero de identificaci&oacute;n
@@ -84,9 +84,9 @@
 
         <div class="field col-3">
           <p-floatLabel>
-            <input pInputText id="razon_social" type="text" />
+            <input pInputText id="name" type="text" formControlName="name" />
             <label
-              htmlFor="razon_social"
+              htmlFor="name"
               id="custom-pfloatLabel"
               class="w-10"
               >Raz&oacute;n social/Nombre
@@ -98,18 +98,14 @@
       <!-- Row 3 -->
       <div class="formgrid grid col-12">
         <div class="field col-3">
-          <p-floatLabel>
-            <input pInputText id="especialidad" type="text" />
-            <label
-              htmlFor="especialidad"
-              id="custom-pfloatLabel"
-              class="w-10"
-              >Especialidad
-            </label>
-          </p-floatLabel>
+          <p-dropdown
+              [options]="special"
+              formControlName="special"
+              optionLabel="name"
+              placeholder="Tipo de especialidad"
+            />
         </div>
       </div>
-
     </form>
   </p-panel>
 
@@ -134,11 +130,11 @@
           'departament',
           'city'
         ]"
-        [(selection)]="SelectedProveedor"
         [rowHover]="true"
         dataKey="id"
         currentPageReportTemplate="Mostrando del {first} al {last} de {totalRecords} datos"
         [showCurrentPageReport]="true"
+        emptyMessage="No hay datos"
       >
         <ng-template pTemplate="header">
           <tr>
@@ -163,7 +159,7 @@
             <td class="text-center">{{ proveedor.typeDocument }}</td>
             <td class="text-center">{{ proveedor.numberDocument }}</td>
             <td class="text-center">{{ proveedor.name}}</td>
-            <td class="text-center">{{ proveedor.TypeProviders }}</td>
+            <td class="text-center">{{ proveedor.typeProviders }}</td>
             <td class="text-center">{{ proveedor.status }}</td>
             <td class="text-center">{{ proveedor.departament }}</td>
             <td class="text-center">{{ proveedor.city }}</td>

@@ -20,6 +20,7 @@ export class TableFoundService {
         status: 'Activo',
         city: 'Armenia',
         departament: 'Quindio',
+        special: ''
       },
       {
         id: 1,
@@ -31,6 +32,7 @@ export class TableFoundService {
         status: 'Inactivo',
         city: 'Santa Marta',
         departament: 'Mangdalena',
+        special: ''
       },
       {
         id: 3,
@@ -42,6 +44,7 @@ export class TableFoundService {
         status: 'Activo',
         city: 'Neiva',
         departament: 'Huila',
+        special: ''
       },
       {
         id: 4,
@@ -53,6 +56,7 @@ export class TableFoundService {
         status: 'Bloqueado',
         city: 'Barranquilla',
         departament: 'Atlantico',
+        special: ''
       },
       {
         id: 5,
@@ -64,6 +68,7 @@ export class TableFoundService {
         status: 'Inactivo',
         city: 'Dosquebradas',
         departament: 'Risaralda',
+        special: ''
       },
       {
         id: 6,
@@ -75,6 +80,7 @@ export class TableFoundService {
         status: 'Activo',
         city: 'Manizales',
         departament: 'Caldas',
+        special: ''
       },
       {
         id: 7,
@@ -86,6 +92,7 @@ export class TableFoundService {
         status: 'Activo',
         city: 'Calima',
         departament: 'Valle',
+        special: ''
       },
       {
         id: 8,
@@ -97,6 +104,7 @@ export class TableFoundService {
         status: 'Bloqueado',
         city: 'Popayan',
         departament: 'Cauca',
+        special: ''
       },
       {
         id: 9,
@@ -108,6 +116,7 @@ export class TableFoundService {
         status: 'Activo',
         city: 'Tunja',
         departament: 'Boyaca',
+        special: ''
       },
       {
         id: 10,
@@ -119,6 +128,7 @@ export class TableFoundService {
         status: 'Inactivo',
         city: 'Bucaramanga',
         departament: 'Santander',
+        special: ''
       },
       {
         id: 11,
@@ -130,6 +140,7 @@ export class TableFoundService {
         status: 'Activo',
         city: 'Pereira',
         departament: 'Risaralda',
+        special: ''
       },
       {
         id: 12,
@@ -141,6 +152,7 @@ export class TableFoundService {
         status: 'Activo',
         city: 'Pasto',
         departament: 'Nariño',
+        special: ''
       },
       {
         id: 13,
@@ -152,6 +164,7 @@ export class TableFoundService {
         status: 'Inactivo',
         city: 'Pereira',
         departament: 'Risaralda',
+        special: ''
       },
       {
         id: 14,
@@ -163,6 +176,7 @@ export class TableFoundService {
         status: 'Activo',
         city: 'Pereira',
         departament: 'Risaralda',
+        special: ''
       }
     ]
   }

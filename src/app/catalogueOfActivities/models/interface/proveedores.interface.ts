@@ -4,12 +4,13 @@ export interface Proveedores {
   typeProviders: TypeProviders;
   name?: string;
   status: Status;
+  special: Special;
   typePerson: TypePerson;
   typeDocument: TypeDocument;
   numberDocument: NumberDocument;
   city: City;
   especialty: string;
-  deparment: Deparment;
+  departament: Deparment;
   date_start?: Date_start;
   date_finish?: Date_finish;
   code?: string | number;
@@ -63,5 +64,9 @@ export interface Date_start {
 }
 export interface Date_finish {
   date_finish: string | Date | number;
+}
+
+export interface Special{
+  name: string;
 }
 
