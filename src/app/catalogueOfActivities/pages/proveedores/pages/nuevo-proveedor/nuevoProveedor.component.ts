@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import {TableLocationService} from '../../../../../service/table-location(sedes)/table-location.service';
@@ -60,6 +60,9 @@ export class NuevoProveedorComponent {
 
   ngOnInit(): void {
 
+    //Screen
+    this.detectScreenSize(window.innerWidth);
+
     this.tableLocationService.getData().then((data) => {
       this.locations = data;
     });
@@ -112,4 +115,27 @@ export class NuevoProveedorComponent {
       { name: 'Hospital' },
     ]
   }
+
+  //Responsive
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any){
+    this.detectScreenSize(event.target.innerWidth);
+  }
+
+  // For responsive
+  isExtraLargeScreen = false; //width: 1060px
+  isLargeScreen = false //with: 900px
+  isMediumScreen = false // width: 740px
+  isSmallScreen = false; //width: 460px
+  isExtraSmallScreen = false //width: < 460px
+  
+  //Function
+  private detectScreenSize(width: number){
+    this.isExtraLargeScreen = width > 1100;
+    this.isLargeScreen = width > 850 && width <= 1100;
+    this.isMediumScreen = width > 700 && width <= 850;
+    this.isSmallScreen = width > 550 && width <= 700;
+    this.isExtraSmallScreen = width <= 550;
+  }
+
 }
