@@ -14,6 +14,8 @@ export interface Proveedores {
   date_start?: Date_start;
   date_finish?: Date_finish;
   code?: string | number;
+  active?: Active;
+  sedePrincipal ?: PrincipalSede;
 }
 
 //part the interface of the providers(proveedores)
@@ -67,6 +69,14 @@ export interface Date_finish {
 }
 
 export interface Special{
+  name: string;
+}
+
+export interface Active{
+  name: string;
+}
+
+export interface PrincipalSede{
   name: string;
 }
 

@@ -2,7 +2,7 @@ import { Component, HostListener } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import {TableLocationService} from '../../../../../service/table-location(sedes)/table-location.service';
-import { City, TypeDocument, TypePerson, NumberDocument, TypeProviders, Status } from '../../../../models/interface/proveedores.interface'
+import { City, TypeDocument, TypePerson, NumberDocument, TypeProviders, Status, Active, PrincipalSede, Deparment } from '../../../../models/interface/proveedores.interface'
 import { Location } from '../../../../models/interface/location.interface';
 
 
@@ -14,6 +14,9 @@ import { Location } from '../../../../models/interface/location.interface';
   styleUrl: './nuevoProveedor.component.css',
 })
 export class NuevoProveedorComponent {
+
+  displaySearchDialog: boolean = false;
+  searchTerm: string = '';
 
 
   public nuevoProveedorForm: FormGroup;
@@ -30,9 +33,10 @@ export class NuevoProveedorComponent {
       typePerson: ['', Validators.required],
       typeProviders: ['', Validators.required],
       numberDocument: ['', Validators.required],
-      status: ['', Validators.required],
+      status: [{value:'', disabled: true}, Validators.required],
       city: ['', Validators.required],
       selectPlaces: ['', Validators.required],
+      active: ['', Validators.required],
     });
   }
 
@@ -43,6 +47,9 @@ export class NuevoProveedorComponent {
   public numberDocument: NumberDocument[] = [];
   public typeProviders: TypeProviders[] | undefined = [];
   public status: Status[] | undefined = [];
+  public active: Active[] | undefined = [];
+  public sedePrincipal: PrincipalSede[] | undefined = [];
+  public departments: Deparment[] | undefined = [];
 
   //Sedes de proveedores
   public locations!: Location[];
@@ -75,6 +82,17 @@ export class NuevoProveedorComponent {
       { status: 'Activo' },
       { status: 'Inactivo' },
       { status: 'Bloqueado' },
+    ];
+
+    this.departments = [
+      { name: 'Risaralda', region: 'Eje Cafetero' },
+      { name: 'Cundinamarca', region: 'Centro' },
+      { name: 'Antioquia', region: 'Antioquia' },
+      { name: 'Valle', region: 'Pacifica' },
+      { name: 'Nariño', region: 'Pacifica' },
+      { name: 'Santander', region: 'Oriente' },
+      { name: 'Bolivar', region: 'Caribe' },
+      { name: 'Cordoba', region: 'Caribe' },
     ];
 
     //Dropdown list of cities
@@ -116,7 +134,21 @@ export class NuevoProveedorComponent {
       { name: 'IPS'},
       { name: 'Clinica' },
       { name: 'Hospital' },
-    ]
+    ];
+
+    this.active = [
+      { name: 'Si' },
+      { name: 'No' },
+    ];
+
+    this.sedePrincipal = [
+      { name: 'Si'},
+      { name: 'No'},
+    ];
+  }
+
+  showNumberDocumentDialog(){
+    this.displaySearchDialog = true;
   }
 
 }
