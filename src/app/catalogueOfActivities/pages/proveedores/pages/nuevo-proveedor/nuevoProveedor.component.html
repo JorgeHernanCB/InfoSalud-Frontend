@@ -24,13 +24,29 @@
 
       <!-- Row 1 -->
       <div class="formgrid grid mt-4 col-12">
+
         <div class="field col-3">
           <p-dropdown
-            [options]="typeProviders"
-            formControlName="typeProviders"
-            optionLabel="name"
-            placeholder="Seleccione un proveedor"
+            [options]="typeDocument"
+            formControlName="typeDocument"
+            optionLabel="identification"
+            placeholder="Seleccione una Identificación"
           />
+        </div>
+        <div class="field col-3">
+          <p-floatLabel>
+            <input
+              pInputText
+              pKeyFilter="alpha"
+              class="ipt-required"
+              id="numberDocument"
+              formControlName="numberDocument"
+              required
+            />
+            <label htmlFor="numberDocument" id="custom-pfloatLabel" class="w-10"
+              >Numero de identificaci&oacute;n</label
+            >
+          </p-floatLabel>
         </div>
         <div class="field col-3">
           <p-floatLabel>
@@ -53,18 +69,18 @@
       <div class="formgrid grid col-12">
         <div class="field col-3">
           <p-dropdown
-            [options]="typeProviders"
-            formControlName="typeProviders"
-            optionLabel="name"
-            placeholder="Seleccione un proveedor"
-          />
-        </div>
-        <div class="field col-3">
-          <p-dropdown
             [options]="typePerson"
             formControlName="typePerson"
             optionLabel="typePerson"
             placeholder="Tipo de persona"
+          />
+        </div>
+        <div class="field col-3">
+          <p-dropdown
+            [options]="typeProviders"
+            formControlName="typeProviders"
+            optionLabel="name"
+            placeholder="Seleccione un proveedor"
           />
         </div>
         <div class="field col-3">
