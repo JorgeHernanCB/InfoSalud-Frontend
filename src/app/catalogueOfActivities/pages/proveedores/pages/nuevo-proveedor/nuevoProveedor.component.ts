@@ -48,6 +48,10 @@ export class NuevoProveedorComponent {
   public locations!: Location[];
   SelectedLocation!: Location[] | null;
 
+  //Table de sedes
+  showTable: boolean = false;
+
+
   onSubmit() {
     if (this.nuevoProveedorForm.valid) {
       console.log(this.nuevoProveedorForm.value);
