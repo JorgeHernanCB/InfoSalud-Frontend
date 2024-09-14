@@ -1,19 +1,10 @@
 <!-- Searchs -->
 <div class="card p-fluid">
-  <p-panel header="CONFIGURAR UN NUEVO PROVEEDORES" [toggleable]="true">
+  <p-panel header="CONFIGURAR UN NUEVO PROVEEDOR" [toggleable]="true">
     <!-- forms -->
     <form [formGroup]="nuevoProveedorForm" (ngSubmit)="onSubmit()">
-      <div
-        class="formgrid grid"
-        [ngClass]="{
-          'col-offset-8': isExtraLargeScreen,
-          'col-offset-6': isLargeScreen,
-          'col-offset-3': isMediumScreen,
-          'col-offset-1': isSmallScreen,
-          'col-offset-0': isExtraSmallScreen
-        }"
-        >
-        <div class="field-col ml-4">
+      <div class="formgrid grid justify-content-end">
+        <div class="field-col">
           <p-button
             label="Regresar"
             [raised]="true"
@@ -21,8 +12,8 @@
             [routerLink]="['/proveedores']"
           />
         </div>
-        <div class="field-col ml-4">
-          <p-button label="Agregar" [raised]="true" [rounded]="true" />
+        <div class="field-col ml-4 mr-5">
+          <p-button label="Guardar" [raised]="true" [rounded]="true" severity="success" />
         </div>
       </div>
 
@@ -106,14 +97,6 @@
         </div>
       </div>
     </form>
-    <div class="col-3" >
-    <p-button
-    label="Seleccionar una Sede"
-    [raised]="true"
-    [rounded]="true"
-    (click)="toggleTable()"
-    />
-    </div>
   </p-panel>
 
   <div class="mt-4">
@@ -121,7 +104,6 @@
     <p-panel
       header="CONFIGURACIÓN DE SEDES"
       [toggleable]="true"
-      *ngIf="showTable"
     >
       <!-- forms -->
       <form [formGroup]="nuevoProveedorForm" (ngSubmit)="onSubmit()">

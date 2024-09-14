@@ -48,10 +48,6 @@ export class NuevoProveedorComponent {
   public locations!: Location[];
   SelectedLocation!: Location[] | null;
 
-  //Table de sedes
-  showTable: boolean = true;
-
-
   onSubmit() {
     if (this.nuevoProveedorForm.valid) {
       console.log(this.nuevoProveedorForm.value);
@@ -61,9 +57,6 @@ export class NuevoProveedorComponent {
   }
 
   ngOnInit(): void {
-
-    //Screen
-    this.detectScreenSize(window.innerWidth);
 
     this.tableLocationService.getData().then((data) => {
       this.locations = data.map((item: any) => ({
@@ -120,31 +113,6 @@ export class NuevoProveedorComponent {
       { name: 'Clinica' },
       { name: 'Hospital' },
     ]
-  }
-  toggleTable():void{
-    this.showTable = !this.showTable;
-  }
-
-  //Responsive
-  @HostListener('window:resize', ['$event'])
-  onResize(event: any){
-    this.detectScreenSize(event.target.innerWidth);
-  }
-
-  // For responsive
-  isExtraLargeScreen = false; //width: 1060px
-  isLargeScreen = false //with: 900px
-  isMediumScreen = false // width: 740px
-  isSmallScreen = false; //width: 460px
-  isExtraSmallScreen = false //width: < 460px
-
-  //Function
-  private detectScreenSize(width: number){
-    this.isExtraLargeScreen = width > 1100;
-    this.isLargeScreen = width > 850 && width <= 1100;
-    this.isMediumScreen = width > 700 && width <= 850;
-    this.isSmallScreen = width > 550 && width <= 700;
-    this.isExtraSmallScreen = width <= 550;
   }
 
 }
