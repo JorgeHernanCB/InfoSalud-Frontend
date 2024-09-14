@@ -1,0 +1,60 @@
+:host::ng-deep .button-container {
+    display: flex;
+    /* justify-content: space-between; */
+    /* align-items: center; */
+    flex-wrap: wrap; /* Permite que los botones se envuelvan en pantallas más pequeñas */
+    gap: 8px;
+    padding: 8px;
+  }
+  
+  /* Botón Salir alineado a la izquierda */
+  :host::ng-deep .left-button {
+    flex: 0 1 auto; /* No se expande ni se contrae */
+    min-width: 100px;
+    margin-right: auto;
+  }
+  
+  /* Contenedor de los botones a la derecha */
+  :host::ng-deep .right-buttons {
+    display: flex;
+    gap: 8px; /* Espacio entre los botones */
+    flex: 1; /* Ocupa el espacio restante */
+    justify-content: flex-end; /* Alinea los botones a la derecha */
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  
+  /* Botones a la derecha */
+  :host::ng-deep .right-button {
+    flex: 1 1 auto; /* Permite que los botones se expandan */
+    max-width: 120px; /* Ancho máximo para cada botón */
+    min-width: 100px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 20px;
+  }
+  
+  /* Responsividad */
+  @media (max-width: 1024px) {
+
+    :host::ng-deep .right-button {
+      flex: 1; /* Botones ocupan aproximadamente 20% del ancho del contenedor */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    :host::ng-deep .button-container {
+      flex-direction: column; /* Cambia la dirección del contenedor en pantallas pequeñas */
+      align-items: flex-start; /* Alinea los elementos al principio en pantallas pequeñas */
+    }
+  
+    :host::ng-deep .right-buttons {
+      width: 100%; /* Asegura que los botones a la derecha ocupen todo el ancho */
+      justify-content: flex-start;
+    }
+  
+    :host::ng-deep .left-button {
+      margin-bottom: 8px; /* Espacio entre el botón Salir y los botones a la derecha en pantallas pequeñas */
+    }
+  }

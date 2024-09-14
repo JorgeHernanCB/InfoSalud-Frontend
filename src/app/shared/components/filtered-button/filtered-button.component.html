@@ -1,44 +1,22 @@
 <p-buttonGroup>
-  <div
-    class="formgrid grid"
-    [ngClass]="{
-      'col-offset-5': isExtraLargeScreen,
-      'col-offset-3': isLargeScreen,
-      'col-offset-2': isMediumScreen,
-      'col-offset-1': isSmallScreen,
-      'col-offset-0': isExtraSmallScreen
-    }"
-  >
-    <!-- <div class="field-col ml-4">
-      <p-button label="Agregar" [raised]="true" [rounded]="true" />
-    </div> -->
-    <div class="field-col ml-2 mt-2">
-      <p-button
-        label="Nuevo"
-        [raised]="true"
-        [rounded]="true"
-        [routerLink]="['/proveedores/nuevo-proveedor']"
+  <div class="button-container">
+    <!-- Boton salir a la izquierda -->
+    <p-button label="Salir" [raised]="true" [rounded]="true" styleClass="left-button" [routerLink]="['/home']"
+    />
+
+    <!-- Botones hacia la derecha -->
+    <div class="right-buttons">
+      <p-button label="Masivo" [raised]="true" [rounded]="true" styleClass="right-button" />
+
+      <p-button label="Descargar" [raised]="true" [rounded]="true" styleClass="right-button"/>
+
+      <p-button label="Limpiar" [raised]="true" [rounded]="true" styleClass="right-button" (click)="onClearClick()" />
+
+      <p-button label="Nuevo" [raised]="true" [rounded]="true" styleClass="right-button" [routerLink]="['/proveedores/nuevo-proveedor']"
       />
-    </div>
-    <div class="field-col ml-2 mt-2">
-      <p-button type="submit" label="Buscar" [raised]="true" [rounded]="true" (click)="onSearchClick()"/>
-    </div>
-    <div class="field-col gap-3 ml-2 mt-2">
-      <p-button label="Limpiar" [raised]="true" [rounded]="true" (click)="onClearClick()" />
-    </div>
-    <div class="field-col gap-3 ml-2 mt-2">
-      <p-button label="Descargar" [raised]="true" [rounded]="true" />
-    </div>
-    <div class="field-col gap-3 ml-2 mt-2">
-      <p-button label="Masivo" [raised]="true" [rounded]="true" />
-    </div>
-    <div class="field-col gap-3 ml-2 mt-2">
-      <p-button
-        label="Salir"
-        [raised]="true"
-        [rounded]="true"
-        [routerLink]="['/home']"
-      />
+
+      <p-button type="submit" label="Buscar" [raised]="true" [rounded]="true" styleClass="right-button" (click)="onSearchClick()"/>
+
     </div>
   </div>
 </p-buttonGroup>

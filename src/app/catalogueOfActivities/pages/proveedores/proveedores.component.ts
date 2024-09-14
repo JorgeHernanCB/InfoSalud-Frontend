@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import {FormBuilder,FormGroup, Validators, FormControl,} from '@angular/forms';
 
 import { TableFoundService } from './../../../service/table-found/table-found.service';
@@ -14,6 +14,7 @@ import { TypePerson, City, Deparment, TypeDocument, NumberDocument, TypeProvider
   selector: 'infoSalud-proveedores',
   templateUrl: './proveedores.component.html',
   styleUrl: './proveedores.component.css',
+  changeDetection: ChangeDetectionStrategy.Default
 })
 
 export class ProveedoresComponent implements OnInit {
@@ -66,26 +67,27 @@ export class ProveedoresComponent implements OnInit {
     private fb: FormBuilder,
     private tableFoundService: TableFoundService,
     private messageService: MessageService,
-    private confirmationService: ConfirmationService
+    private confirmationService: ConfirmationService,
+    private cdr: ChangeDetectorRef,
  )
-  {
-    this.tableFoundService.getData().then((data) => {
-      this.allProveedores = data;
-      this.proveedores = [];
-    })
-  }
+  {}
 
   ngOnInit(): void {
     this.tableFoundService.getData().then((data) => {
-      console.log(data);
+      console.log('Datos cargados',data);
       if(data){
-        this.proveedores = data;
+        this.allProveedores = data;
         this.proveedores = [...this.allProveedores];
       }else{
         console.error('No se pudieron cargar los valores');
       }
 
     });
+
+    this.initializeDropdowns();
+  }
+
+  initializeDropdowns(){
 
     this.typePerson = [
       { typePerson: 'Persona Natural' },
@@ -157,30 +159,42 @@ export class ProveedoresComponent implements OnInit {
   onSearch(){
     const formValues = this.proveedorsForm.value;
 
-    console.log(formValues);
+    console.log('Valores del formulario', formValues);
 
     //Si hay algun campo lleno
     const isAnyField = Object.values(formValues).some(value => value);
 
-    console.log(isAnyField);
+    console.log('Hay algo lleno?', isAnyField);
 
     if (!isAnyField){
       this.proveedores = [...this.allProveedores];
+      this.cdr.detectChanges();
       return;
     }
-
     // Filtrar proveedores basado en los valores ingresados
     this.proveedores = this.allProveedores.filter(proveedor => {
-      return (!formValues.typeProviders || proveedor.typeProviders === formValues.typeProviders)
-        && (!formValues.status || proveedor.status === formValues.status)
-        && (!formValues.departament || proveedor.departament === formValues.departament)
-        && (!formValues.city || proveedor.city === formValues.city)
-        && (!formValues.typeDocument || proveedor.typeDocument === formValues.typeDocument)
-        && (!formValues.numberDocument || proveedor.numberDocument === formValues.numberDocument)
-        && (!formValues.name || proveedor.name.toLowerCase().includes(formValues.name.toLowerCase()));
+      // Comprobar cada condición y mostrar en la consola
+      const matches = {
+        typeProviders: !formValues.typeProviders || proveedor.typeProviders === formValues.typeProviders,
+        status: !formValues.status || proveedor.status === formValues.status,
+        departament: !formValues.departament || proveedor.departament === formValues.departament,
+        city: !formValues.city || proveedor.city === formValues.city,
+        typeDocument: !formValues.typeDocument || proveedor.typeDocument === formValues.typeDocument,
+        numberDocument: !formValues.numberDocument || proveedor.numberDocument === formValues.numberDocument,
+        name: !formValues.name || proveedor.name.toLowerCase().includes(formValues.name.toLowerCase())
+      };
+
+      // Log para ver si el proveedor coincide con los criterios
+      console.log('Evaluando proveedor:', proveedor);
+      console.log('Coincide con formulario?', matches);
+
+      // Retornar true si todas las condiciones se cumplen
+      return Object.values(matches).every(condition => condition);
     });
 
-    console.log(this.proveedores);
+    console.log('Proveedores filtrados:' ,this.proveedores);
+
+    this.cdr.detectChanges();
   }
 
   //Clear de form
