@@ -17,6 +17,14 @@ const routes: Routes = [
         component: NuevoProveedorComponent
       },
       {
+        path: 'mostrar/:id', 
+        component: ProveedoresComponent
+      },
+      {
+        path: 'editar/:id',
+        component: ProveedoresComponent
+      },
+      {
         path: '**',
         redirectTo: 'proveedores',
       }

@@ -61,3 +61,13 @@ small {
 :host ::ng-deep .p-button{
   display: block;
 }
+
+:host ::ng-deep .recaptcha-container {
+  display: flex;
+  justify-content: center;
+}
+
+/* :host ::ng-deep re-capctha{
+  width: 100%;
+  max-width: 100%;
+} */

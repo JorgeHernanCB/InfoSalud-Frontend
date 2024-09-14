@@ -8,6 +8,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 import { Table } from 'primeng/table';
 
 import { TypePerson, City, Deparment, TypeDocument, NumberDocument, TypeProviders, Status,Special } from '../../models/interface/proveedores.interface';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -69,6 +70,7 @@ export class ProveedoresComponent implements OnInit {
     private messageService: MessageService,
     private confirmationService: ConfirmationService,
     private cdr: ChangeDetectorRef,
+    private router: Router,
  )
   {}
 
@@ -200,6 +202,16 @@ export class ProveedoresComponent implements OnInit {
   //Clear de form
   clearForm() {
     this.proveedorsForm.reset(); // Limpia el formulario
+  }
+
+  //Ver proveedor
+  showProveedor(id: string){
+    this.router.navigate([`/proveedores/mostrar/${id}`]);
+  }
+
+  //editar proveedor
+  editProveedor(id: string){
+    this.router.navigate([`/proveedores/editar/${id}`]);
   }
 
 }

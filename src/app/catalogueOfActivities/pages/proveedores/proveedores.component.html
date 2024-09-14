@@ -168,6 +168,7 @@
                   icon="pi pi-search"
                   severity="info"
                   class="p-button-rounded p-button-text flex-1 custom-button"
+                  (click)="showProveedor(proveedor.id)"
                   [raised]="true"
                 >
                 </p-button>
@@ -175,6 +176,7 @@
                   icon="pi pi-pencil"
                   severity="warning"
                   class="p-button-rounded p-button-text ml-2 flex-1"
+                  (click)="editProveedor(proveedor.id)"
                   [raised]="true"
                 >
                 </p-button>
