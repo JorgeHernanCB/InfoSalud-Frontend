@@ -9,13 +9,15 @@ import { ProveedoresRoutingModule } from './proveedores-routing.module';
 import { SharedModule } from '../../../shared/shared.module';
 import { ProveedoresComponent } from './proveedores.component';
 import { NuevoProveedorComponent } from './pages/nuevo-proveedor/nuevoProveedor.component';
+import { ModificarProveedorComponent } from './pages/modificar-Proveedor/modificar-Proveedor.component';
 
 
 
 @NgModule({
   declarations: [
     ProveedoresComponent,
-    NuevoProveedorComponent
+    NuevoProveedorComponent,
+    ModificarProveedorComponent
   ],
   imports: [
     CommonModule,
@@ -28,7 +30,8 @@ import { NuevoProveedorComponent } from './pages/nuevo-proveedor/nuevoProveedor.
   ],
   exports: [
     ProveedoresComponent,
-    NuevoProveedorComponent
+    NuevoProveedorComponent,
+    ModificarProveedorComponent
 
   ],
   providers:[ConfirmationService, MessageService],

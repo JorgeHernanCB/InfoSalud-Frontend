@@ -10,7 +10,7 @@ export interface Proveedores {
   numberDocument: NumberDocument;
   city: City;
   especialty: string;
-  departament: Deparment;
+  departament: Departament;
   date_start?: Date_start;
   date_finish?: Date_finish;
   code?: string | number;
@@ -54,7 +54,7 @@ export interface City {
   deparment?: string;
 }
 
-export interface Deparment {
+export interface Departament {
   name?: string;
   region?: string;
 }

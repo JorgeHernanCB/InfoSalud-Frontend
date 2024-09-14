@@ -7,7 +7,7 @@ import { proveedores } from '../../models/interface/dBproveedores.interface';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { Table } from 'primeng/table';
 
-import { TypePerson, City, Deparment, TypeDocument, NumberDocument, TypeProviders, Status,Special } from '../../models/interface/proveedores.interface';
+import { TypePerson, City, Departament, TypeDocument, NumberDocument, TypeProviders, Status,Special } from '../../models/interface/proveedores.interface';
 import { Router } from '@angular/router';
 
 
@@ -19,6 +19,7 @@ import { Router } from '@angular/router';
 })
 
 export class ProveedoresComponent implements OnInit {
+
   public proveedorsForm = new FormGroup({
 
     id: new FormControl<string>(''),
@@ -56,7 +57,7 @@ export class ProveedoresComponent implements OnInit {
   //Dropdowns
   public typePerson: TypePerson[] | undefined = [];
   public cities: City[] | undefined = [];
-  public deparments: Deparment[] | undefined = [];
+  public deparments: Departament[] | undefined = [];
   public typeDocument: TypeDocument[] | undefined = [];
   public numberDocument: NumberDocument[] | undefined = [];
   public typeProviders: TypeProviders[] | undefined = [];
@@ -123,6 +124,7 @@ export class ProveedoresComponent implements OnInit {
       { identification: 'Cedula de Ciudadania' },
       { identification: 'NIT' },
       { identification: 'DNI' },
+      { identification: 'PASAPORTE' },
     ];
     //Dropdown numberDocument
     this.numberDocument = [

@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { ProveedoresComponent } from './proveedores.component';
 import { NuevoProveedorComponent } from './pages/nuevo-proveedor/nuevoProveedor.component';
+import { ModificarProveedorComponent } from './pages/modificar-Proveedor/modificar-Proveedor.component';
 
 const routes: Routes = [
   {
@@ -17,12 +18,12 @@ const routes: Routes = [
         component: NuevoProveedorComponent
       },
       {
-        path: 'mostrar/:id', 
+        path: 'mostrar/:id',
         component: ProveedoresComponent
       },
       {
         path: 'editar/:id',
-        component: ProveedoresComponent
+        component: ModificarProveedorComponent
       },
       {
         path: '**',
