@@ -35,6 +35,7 @@ export class NuevoProveedorComponent {
       numberDocument: ['', Validators.required],
       status: [{value:'', disabled: true}, Validators.required],
       city: ['', Validators.required],
+      departament: ['', Validators.required],
       selectPlaces: ['', Validators.required],
       active: ['', Validators.required],
       sedePrincipal: ['', Validators.required],
