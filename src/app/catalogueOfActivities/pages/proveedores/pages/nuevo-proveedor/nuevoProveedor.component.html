@@ -49,7 +49,7 @@
               >Numero de identificaci&oacute;n</label
             >
           </p-floatLabel>
-          
+
           <p-button
             icon="pi pi-search"
             class="p-button-rounded p-button-text search-btn"
@@ -86,7 +86,7 @@
 
       <!-- Row 2 -->
       <div class="formgrid grid col-12">
-        
+
         <div class="field col-3">
           <p-dropdown
             [options]="typeProviders"
@@ -201,7 +201,7 @@
 
             <div class="field col-3">
               <p-dropdown
-                [options]="departments"
+                [options]="departaments"
                 formControlName="departament"
                 optionLabel="name"
                 placeholder="Seleccione un departamento / provincia"
@@ -560,7 +560,7 @@
           </div>
 
         </div>
-        
+
         <!-- Aquí puedes agregar más contenido como una tabla de resultados o cualquier otro elemento -->
       </div>
 
@@ -568,7 +568,7 @@
       <!-- [value]="searchFilterProviders"
           [paginator]="true"
           [rows]="10"
-          [rowsPerPageOptions]="[5, 10, 20, 100]" 
+          [rowsPerPageOptions]="[5, 10, 20, 100]"
           currentPageReportTemplate="Mostrando del {first} al {last} de {totalRecords} datos"-->
       <p-table
         styleClass="p-datatable-gridlines"

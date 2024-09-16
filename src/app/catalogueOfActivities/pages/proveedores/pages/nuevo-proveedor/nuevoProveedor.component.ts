@@ -2,7 +2,7 @@ import { Component, HostListener } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import {TableLocationService} from '../../../../../service/table-location(sedes)/table-location.service';
-import { City, TypeDocument, TypePerson, NumberDocument, TypeProviders, Status, Active, PrincipalSede, Deparment } from '../../../../models/interface/proveedores.interface'
+import { City, TypeDocument, TypePerson, NumberDocument, TypeProviders, Status, Active, PrincipalSede, Departament } from '../../../../models/interface/proveedores.interface'
 import { Location } from '../../../../models/interface/location.interface';
 
 
@@ -49,7 +49,7 @@ export class NuevoProveedorComponent {
   public status: Status[] | undefined = [];
   public active: Active[] | undefined = [];
   public sedePrincipal: PrincipalSede[] | undefined = [];
-  public departments: Deparment[] | undefined = [];
+  public departaments: Departament[] | undefined = [];
 
   //Sedes de proveedores
   public locations!: Location[];
@@ -84,7 +84,7 @@ export class NuevoProveedorComponent {
       { status: 'Bloqueado' },
     ];
 
-    this.departments = [
+    this.departaments = [
       { name: 'Risaralda', region: 'Eje Cafetero' },
       { name: 'Cundinamarca', region: 'Centro' },
       { name: 'Antioquia', region: 'Antioquia' },
