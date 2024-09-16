@@ -69,7 +69,9 @@ export interface Date_finish {
 }
 
 export interface Special{
+  code: number;
   name: string;
+  description: string;
 }
 
 export interface Active{
