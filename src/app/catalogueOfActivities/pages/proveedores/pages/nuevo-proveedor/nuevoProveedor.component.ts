@@ -2,7 +2,8 @@ import { Component, HostListener } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import {TableLocationService} from '../../../../../service/table-location(sedes)/table-location.service';
-import { City, TypeDocument, TypePerson, NumberDocument, TypeProviders, Status, Active, PrincipalSede, Departament } from '../../../../models/interface/proveedores.interface'
+import {TableSpecialService} from '../../../../../service/table-special(especialidades)/table-special.service';
+import { City, TypeDocument, TypePerson, NumberDocument, TypeProviders, Status, Active, PrincipalSede, Departament, Special } from '../../../../models/interface/proveedores.interface'
 import { Location } from '../../../../models/interface/location.interface';
 
 
@@ -22,6 +23,7 @@ export class NuevoProveedorComponent {
   public nuevoProveedorForm: FormGroup;
   constructor(
     private tableLocationService: TableLocationService,
+    private tableSpecialService: TableSpecialService,
     private formBuilder: FormBuilder
   ) {
     this.nuevoProveedorForm = this.formBuilder.group({
@@ -58,6 +60,10 @@ export class NuevoProveedorComponent {
   public locations!: Location[];
   SelectedLocation!: Location[] | null;
 
+  //Especialidades
+  public specials!: Special[];
+  SelectedSpecial!: Special[] | null;
+
   //Table de sedes
   showTable: boolean = false;
 
@@ -79,6 +85,14 @@ export class NuevoProveedorComponent {
       }));
 
     });
+
+    this.tableSpecialService.getData().then((data) => {
+      this.specials = data.map((item: any) => ({
+        ...item,
+        active: item.active === 'true' || item.active === 'true' || item.active === '1' ? true : false
+      }));
+    })
+
 
     //Dropdown list of status
     this.status = [

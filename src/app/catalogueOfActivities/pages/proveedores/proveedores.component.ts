@@ -147,7 +147,7 @@ export class ProveedoresComponent implements OnInit {
     ];
     //Dropdown Special
     this.special = [
-      { name: ''},
+      { code: 123, name: '', description: 'Hola mundo'},
     ]
   }
 

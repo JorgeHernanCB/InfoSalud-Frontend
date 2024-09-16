@@ -128,8 +128,29 @@
       <p-panel header="CONFIGURACIÓN DE SEDES" [toggleable]="true" [collapsed]="true">
         <!-- forms -->
         <form [formGroup]="nuevoProveedorForm" (ngSubmit)="onSubmit()">
+
+          <div class="formgrid grid justify-content-end">
+            <!-- <div class="field-col">
+              <p-button
+                label="Regresar"
+                [raised]="true"
+                [rounded]="true"
+                [routerLink]="['/proveedores']"
+              />
+            </div> -->
+            <div class="field-col ml-4 mr-5">
+              <p-button
+                label="Nuevo"
+                [raised]="true"
+                [rounded]="true"
+                icon="pi pi-plus"
+                severity="success"
+              />
+            </div>
+
+          </div>
           <!-- Row 1 -->
-          <div class="formgrid grid col-12">
+          <div class="formgrid mt-4 grid col-12">
 
             <div class="field col-3">
               <p-floatLabel>
@@ -270,7 +291,7 @@
               <th pSortableColumn="departament" class="text-center">
                 Departamento<p-sortIcon field="departament"></p-sortIcon>
               </th>
-              <th class="text-center">Acciones</th>
+              <!-- <th class="text-center">Acciones</th> -->
             </tr>
           </ng-template>
           <ng-template pTemplate="body" let-locations>
@@ -286,7 +307,7 @@
               <td class="text-center">{{ locations.city }}</td>
               <td class="text-center">{{ locations.departament }}</td>
               <!-- <td class="text-center">{{ locations.locationMain }}</td> -->
-              <td>
+              <!-- <td>
                 <div class="flex justify-content-center align-items-center">
                   <p-button
                     icon="pi pi-search"
@@ -302,7 +323,7 @@
                   >
                   </p-button>
                 </div>
-              </td>
+              </td> -->
             </tr>
           </ng-template>
         </p-table>
@@ -313,85 +334,61 @@
         <p-panel header="CONFIGURACIÓN DE ESPECIALIDADES " [toggleable]="true" [collapsed]="true">
           <!-- forms -->
           <form [formGroup]="nuevoProveedorForm" (ngSubmit)="onSubmit()">
+
+            <div class="formgrid grid justify-content-end">
+              <!-- <div class="field-col">
+                <p-button
+                  label="Regresar"
+                  [raised]="true"
+                  [rounded]="true"
+                  [routerLink]="['/proveedores']"
+                />
+              </div> -->
+              <div class="field-col ml-4 mr-5">
+                <p-button
+                  label="Nuevo"
+                  [raised]="true"
+                  [rounded]="true"
+                  icon="pi pi-plus"
+                  severity="success"
+                />
+              </div>
+  
+            </div>
             <!-- Row 1 -->
             <div class="formgrid grid mt-4 col-12">
+              
+              <div class="field col-3">
+                <p-floatLabel>
+                  <input
+                    pInputText
+                    class="ipt-required"
+                    id="code"
+                    formControlName="code"
+                    required
+                  />
+                  <label htmlFor="name" id="custom-pfloatLabel" class="w-10"
+                    >C&oacute;digo</label
+                  >
+                </p-floatLabel>
+              </div>
+
               <div class="field col-3">
                 <p-dropdown
-                  [options]="typeProviders"
-                  formControlName="typeProviders"
+                  [options]="specials"
+                  formControlName="specials"
                   optionLabel="name"
                   placeholder="Tipo de proveedor"
                 />
               </div>
 
-              <div class="field col-3">
-                <p-floatLabel>
-                  <input
-                    pInputText
-                    pKeyFilter="alpha"
-                    class="ipt-required"
-                    id="name"
-                    formControlName="name"
-                    required
-                  />
-                  <label htmlFor="name" id="custom-pfloatLabel" class="w-10"
-                    >Nombre/Raz&oacute;n social</label
-                  >
-                </p-floatLabel>
-              </div>
-
-              <div class="field col-3">
-                <p-floatLabel>
-                  <input
-                    pInputText
-                    pKeyFilter="alpha"
-                    class="ipt-required"
-                    id="address"
-                    formControlName="address"
-                    required
-                  />
-                  <label htmlFor="address" id="custom-pfloatLabel" class="w-10"
-                    >Dirección</label
-                  >
-                </p-floatLabel>
-              </div>
-
-              <div class="field col-3">
-                <p-dropdown
-                  [options]="status"
-                  formControlName="status"
-                  optionLabel="status"
-                  placeholder="Estado"
-                />
-              </div>
-            </div>
-
-            <!-- Row 2 -->
-            <div class="formgrid grid col-12">
-              <div class="field col-3">
-                <p-dropdown
-                  [options]="cities"
-                  formControlName="city"
-                  optionLabel="city"
-                  placeholder="Seleccione una ciudad"
-                />
-              </div>
-
-              <div class="field col-3">
-                <p-dropdown
-                  [options]="typeDocument"
-                  formControlName="typeDocument"
-                  optionLabel="identification"
-                  placeholder="Seleccione una Identificación"
-                />
-              </div>
             </div>
           </form>
 
-          <!-- Tabla de Sedes-->
+          <!-- Tabla de Especialidades-->
           <p-table
             #dt1
-            [value]="locations"
+            [value]="specials"
             [paginator]="true"
             [rows]="10"
             [rowsPerPageOptions]="[5, 10, 20, 100]"
@@ -399,14 +396,9 @@
             [tableStyle]="{ 'min-width': '50rem' }"
             [globalFilterFields]="[
               'code',
-              'name',
-              'address',
-              'city',
-              'departament',
-              'active',
-              'locationMain'
+              'name'
             ]"
-            [(selection)]="SelectedLocation"
+            [(selection)]="SelectedSpecial"
             [rowHover]="true"
             dataKey="id"
             currentPageReportTemplate="Mostrando del {first} al {last} de {totalRecords} datos"
@@ -421,35 +413,19 @@
                   Codigo<p-sortIcon field="code"></p-sortIcon>
                 </th>
                 <th pSortableColumn="name" class="text-center">
-                  Nombre <p-sortIcon field="name"></p-sortIcon>
+                  Especialidad <p-sortIcon field="name"></p-sortIcon>
                 </th>
-                <th pSortableColumn="address" class="text-center">
-                  Direcci&oacute;n<p-sortIcon field="address"></p-sortIcon>
-                </th>
-                <th pSortableColumn="city" class="text-center">
-                  Ciudad<p-sortIcon field="city"></p-sortIcon>
-                </th>
-                <th pSortableColumn="departament" class="text-center">
-                  Departamento<p-sortIcon field="departament"></p-sortIcon>
-                </th>
-                <th pSortableColumn="active" class="text-center">
-                  Activo<p-sortIcon field="active"></p-sortIcon>
-                </th>
-                <th class="text-center">Acciones</th>
+                <!-- <th class="text-center">Acciones</th> -->
               </tr>
             </ng-template>
-            <ng-template pTemplate="body" let-locations>
+            <ng-template pTemplate="body" let-specials>
               <tr>
                 <!-- <td>
               <p-tableCheckbox [value]="proveedor" />
             </td> -->
-                <td class="text-center">{{ locations.code }}</td>
-                <td class="text-center">{{ locations.name }}</td>
-                <td class="text-center">{{ locations.address }}</td>
-                <td class="text-center">{{ locations.city }}</td>
-                <td class="text-center">{{ locations.departament }}</td>
-                <td class="text-center">{{ locations.active }}</td>
-                <td>
+                <td class="text-center">{{ specials.code }}</td>
+                <td class="text-center">{{ specials.name }}</td>
+                <!-- <td>
                   <div class="flex justify-content-center align-items-center">
                     <p-button
                       icon="pi pi-search"
@@ -464,7 +440,7 @@
                     >
                     </p-button>
                   </div>
-                </td>
+                </td> -->
               </tr>
             </ng-template>
           </p-table>
@@ -615,7 +591,6 @@
             <td>{{}}</td>
             <td>{{}}</td> -->
           </tr>
-
         </ng-template>
 
       </p-table>
