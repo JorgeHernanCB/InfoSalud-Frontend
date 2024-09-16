@@ -16,6 +16,10 @@ import { Location } from '../../../../models/interface/location.interface';
 })
 export class NuevoProveedorComponent {
 
+  // Dialogo del Upload
+  displayUploadDialog: boolean = false;
+
+  // Dialogo del buscar numero
   displaySearchDialog: boolean = false;
   searchTerm: string = '';
 
@@ -166,6 +170,21 @@ export class NuevoProveedorComponent {
 
   showNumberDocumentDialog(){
     this.displaySearchDialog = true;
+  }
+
+  // Metodo para abrir el dialogo del Upload
+  openUploadDialog() {
+    this.displayUploadDialog = true;
+  }
+
+  //Metodo para manejar el evento de subida
+  onUpload(event: any){
+    console.log('Archivo subido', event.files);
+  }
+
+  //Metodo para cerrar el dialogo
+  onDialogHide(){
+    this.displayUploadDialog = false;
   }
 
 }
