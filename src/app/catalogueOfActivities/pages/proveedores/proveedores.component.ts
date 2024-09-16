@@ -7,7 +7,7 @@ import { proveedores } from '../../models/interface/dBproveedores.interface';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { Table } from 'primeng/table';
 
-import { TypePerson, City, Departament, TypeDocument, NumberDocument, TypeProviders, Status,Special } from '../../models/interface/proveedores.interface';
+import { TypePerson, City, Departament, TypeDocument, NumberDocument, TypeProviders, Status,Special, Proveedores } from '../../models/interface/proveedores.interface';
 import { Router } from '@angular/router';
 
 
@@ -207,13 +207,13 @@ export class ProveedoresComponent implements OnInit {
   }
 
   //Ver proveedor
-  showProveedor(id: string){
-    this.router.navigate([`/proveedores/mostrar/${id}`]);
+  showProveedor(proveedor: Proveedores){
+    this.router.navigate([`/proveedores/mostrar/${proveedor.id}`], { state: { proveedor } });
   }
 
   //editar proveedor
-  editProveedor(id: string){
-    this.router.navigate([`/proveedores/editar/${id}`]);
+  editProveedor(proveedor: Proveedores){
+    this.router.navigate([`/proveedores/editar/${proveedor.id}`], { state: { proveedor } });
   }
 
 }

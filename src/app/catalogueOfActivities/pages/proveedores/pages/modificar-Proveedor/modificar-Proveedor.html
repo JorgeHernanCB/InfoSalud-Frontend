@@ -1,7 +1,6 @@
 <p-panel header="MODIFICAR UN PROVEEDOR" [toggleable]="true">
   <form [formGroup]="modificaProveedorForm" (ngSubmit)="onSubmit()">
     <!-- <app-filtered-button (onSearch)="onSearch()" (onClear)="clearForm()"></app-filtered-button> -->
-
      <!--Botons actions-->
     <div class="formgrid grid justify-content-end">
       <div class="field-col">
@@ -25,12 +24,15 @@
     <!-- Row 1 -->
     <div class="formgrid grid mt-4 col-12">
       <div class="field col-3">
-        <p-dropdown
+        <p-dropdown *ngIf="typeDocument"
           [options]="typeDocument"
           formControlName="typeDocument"
-          optionLabel="typePerson"
+          optionLabel="typeDocument"
           placeholder="Tipo de documento"
         />
+        <small class="p-error" *ngIf="submitted && modificaProveedorForm.controls['typeDocument'].invalid">
+          Tipo de documento es requerido
+        </small>
       </div>
 
       <div class="field col-3">
@@ -44,6 +46,9 @@
           <label htmlFor="numberDocument" id="custom-pfloatLabel" class="w-10"
             >N&uacute;mero de identificaci&oacute;n
           </label>
+          <small class="p-error" *ngIf="submitted && modificaProveedorForm.controls['numberDocument'].invalid">
+            Numero de documento es requerido
+          </small>
         </p-floatLabel>
       </div>
       <!-- Razon social/Nombre -->
@@ -60,10 +65,13 @@
           <label htmlFor="name" id="custom-pfloatLabel" class="w-10"
             >Raz&oacute;n social / Nombre</label
           >
+          <small class="p-error" *ngIf="submitted && modificaProveedorForm.controls['name'].invalid">
+            Nombre es requerido
+          </small>
         </p-floatLabel>
       </div>
       <div class="field col-3">
-        <p-dropdown
+        <p-dropdown *ngIf="typeProviders"
           [options]="typeProviders"
           formControlName="typeProviders"
           optionLabel="name"
@@ -81,6 +89,9 @@
           optionLabel="name"
           placeholder="Departamento / provincia"
         />
+        <small class="p-error" *ngIf="submitted && modificaProveedorForm.controls['departament'].invalid">
+          Departamento es requerido
+        </small>
       </div>
 
       <div class="field col-3">
@@ -103,6 +114,9 @@
           <label htmlFor="numberDocument" id="custom-pfloatLabel" class="w-10"
             >N&uacute;mero de identificaci&oacute;n
           </label>
+          <small class="p-error" *ngIf="submitted && modificaProveedorForm.controls['numberDocument'].invalid">
+            Numero de documento es requerido
+          </small>
         </p-floatLabel>
       </div>
 
@@ -113,9 +127,10 @@
           optionLabel="city"
           placeholder="Seleccione una ciudad"
         />
+        <small class="p-error" *ngIf="submitted && modificaProveedorForm.controls['city'].invalid">
+          Ciudad es requerida
+        </small>
       </div>
     </div>
-
-    <!-- Row 3 -->
   </form>
 </p-panel>

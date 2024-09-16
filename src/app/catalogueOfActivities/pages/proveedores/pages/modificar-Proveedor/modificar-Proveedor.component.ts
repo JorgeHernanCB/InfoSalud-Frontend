@@ -1,45 +1,81 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
-import { TypePerson, Departament, City, TypeProviders, Status  } from '../../../../models/interface/proveedores.interface';
+import { Validators, FormGroup, FormControl } from '@angular/forms';
+import {
+  TypePerson,
+  Departament,
+  City,
+  TypeProviders,
+  Status,
+  Proveedores,
+  TypeDocument,
+} from '../../../../models/interface/proveedores.interface';
+import { ProveedoresService } from '../../../../../service/proveedores/proveedores.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'infoSalud-modificar-Proveedor',
   templateUrl: './modificar-Proveedor.html',
-  styleUrl: './modificar-Proveedor.component.css'
+  styleUrl: './modificar-Proveedor.component.css',
 })
 export class ModificarProveedorComponent implements OnInit {
+  public proveedores!: Proveedores;
+  public proveedor!: Proveedores;
+  public proveedorDialog: boolean = false;
+  submitted: boolean = false;
+  statuses!: any[];
 
   public modificaProveedorForm = new FormGroup({
 
-    name: new FormControl<string>(''),
-    typeDocument: new FormControl<string>(''),
-    numberDocument: new FormControl<string>(''),
-    typeProviders: new FormControl<string>(''),
-    status: new FormControl<string>(''),
-    departament: new FormControl<string>(''),
-    city: new FormControl<string>(''),
-
-
+    name: new FormControl<string>('', {
+      nonNullable: true,
+      validators: Validators.required,
+    }),
+    typeDocument: new FormControl<string>('', {
+      validators: Validators.required,
+    }),
+    numberDocument: new FormControl<string>('', {
+      nonNullable: true,
+      validators: Validators.required,
+    }),
+    typeProviders: new FormControl<string>('value:, disabled: true', {
+      nonNullable: true,
+      validators: Validators.required,
+    }),
+    status: new FormControl<string>('', {
+      nonNullable: true,
+      validators: Validators.required,
+    }),
+    departament: new FormControl<string>('', {
+      nonNullable: true,
+      validators: Validators.required,
+    }),
+    city: new FormControl<string>('', {
+      nonNullable: true,
+      validators: Validators.required,
+    }),
+    typePerson: new FormControl<string>('', {
+      nonNullable: true, validators: Validators.required }),
   });
 
   //Dropdowns
-  public typeDocument: TypePerson[] | undefined = [];
+  public typeDocument: TypeDocument[] | undefined = [];
+  public typePerson: TypePerson[] | undefined = [];
   public departament: Departament[] | undefined = [];
   public cities: City[] | undefined = [];
   public typeProviders: TypeProviders[] | undefined = [];
   public status: Status[] | undefined = [];
 
-
-
-  constructor() { }
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
-
     this.initializeDropdowns();
+
+
+
   }
   initializeDropdowns() {
 
-    this.typeDocument = [
+    this.typePerson = [
       { typePerson: 'Cedula Ciudadania' },
       { typePerson: 'NIT' },
       { typePerson: 'DNI' },
@@ -47,10 +83,19 @@ export class ModificarProveedorComponent implements OnInit {
     ];
     //Dropdown Status
     this.status = [
-      { status: 'Activo'},
-      { status: 'Bloqueado'},
-      { status: 'Cancelado'}
+      { status: 'Activo' },
+      { status: 'Bloqueado' },
+      { status: 'Cancelado' },
     ];
+
+    this.typeDocument = [
+      { identification: 'Cedula de Ciudadania' },
+      { identification: 'Pasaporte' },
+      { identification: 'Cedula de Extranjeria' },
+      { identification: 'NIT' },
+      { identification: 'Tarjeta de Identidad' },
+    ];
+
     //Dropdown TypeProviders
     this.typeProviders = [
       { name: 'IPS' },
@@ -93,10 +138,27 @@ export class ModificarProveedorComponent implements OnInit {
       { name: 'Vichada' },
       { name: 'Norte de Santander' },
       { name: 'Quindío' },
-      { name: 'Risaralda'}
+      { name: 'Risaralda' },
     ];
-
   }
+
+   editProveedor(proveedor: Proveedores) {
+    this.proveedor = { ...proveedor };
+    this.modificaProveedorForm.patchValue({
+     name: this.proveedor.name || '',
+      typePerson: this.proveedor.typePerson || '',
+      typeDocument: this.proveedor.typeDocument,
+      numberDocument: this.proveedor.numberDocument,
+     TypeProviders: this.proveedor.typeProviders,
+     Status: this.proveedor.status,
+      Departament: this.proveedor.departament,
+      City: this.proveedor.city,
+   });
+   }
+   viewDetails(proveedor: Proveedores) {
+    this.router.navigate(['/modificar-proveedor'],
+      { state: { proveedor } });
+    }
 
   onSubmit() {
     if (this.modificaProveedorForm.valid) {
@@ -105,7 +167,4 @@ export class ModificarProveedorComponent implements OnInit {
       console.log('Formulario no valido');
     }
   }
-
-
 }
-

@@ -36,7 +36,7 @@ export interface Status {
 }
 
 export interface TypePerson {
-  typePerson: string;
+  typePerson?: string;
 }
 
 export interface TypeDocument {
