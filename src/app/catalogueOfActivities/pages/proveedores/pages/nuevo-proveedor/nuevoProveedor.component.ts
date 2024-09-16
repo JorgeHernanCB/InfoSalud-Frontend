@@ -32,7 +32,7 @@ export class NuevoProveedorComponent {
   ) {
     this.nuevoProveedorForm = this.formBuilder.group({
       id: [''],
-      name: ['', Validators.required],
+      name: [{value:'', disabled: true}, Validators.required],
       code: ['', Validators.required],
       address: ['', Validators.required],
       typeDocument: ['', Validators.required],
@@ -48,6 +48,11 @@ export class NuevoProveedorComponent {
 
     });
   }
+
+  //Formulario sede
+
+
+  //Formulario specials
 
   //Proveedores
   public cities: City[] | undefined = [];
@@ -68,8 +73,15 @@ export class NuevoProveedorComponent {
   public specials!: Special[];
   SelectedSpecial!: Special[] | null;
 
-  //Table de sedes
+  //Sedes
   showTable: boolean = false;
+  addSedeDialog: boolean = false;
+
+  //Especialidades
+  showTableSpecials: boolean = false;
+  addSpecialDialog: boolean = false;
+
+  
 
 
   onSubmit() {
@@ -185,6 +197,30 @@ export class NuevoProveedorComponent {
   //Metodo para cerrar el dialogo
   onDialogHide(){
     this.displayUploadDialog = false;
+  }
+
+  //Abrir modal para agregar sedes
+  openNewSedes(){
+    this.showTable = false;
+    this.addSedeDialog = true
+  }
+
+  //Cerrar modal sede
+  onSedeHide(){
+    this.showTable = false;
+    this.addSedeDialog = false;
+  }
+
+  //Abrir modal para agregar especialidades
+  openNewSpecials(){
+    this.showTableSpecials = false;
+    this.addSpecialDialog = true;
+  }
+
+  //Cerrar modal special
+  onSpecialHide(){
+    this.showTableSpecials = false;
+    this.addSpecialDialog = false;
   }
 
 }

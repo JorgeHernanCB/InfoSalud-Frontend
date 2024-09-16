@@ -19,7 +19,11 @@
   }
 
 :host ::ng-deep .ipt-required{
-  background-color: rgba(214, 212, 212, 0.512); /* Borde rojo si es inválido */
+  background-color: rgba(255, 226, 226, 0.762); /* Borde rojo si es inválido */
+}
+
+:host ::ng-deep .ipt-disabled{
+  background-color: #d6d6d6;
 }
 
   
