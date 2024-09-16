@@ -164,19 +164,23 @@
             <td>
               <div class="flex justify-content-center align-items-center">
                 <!-- (click)="editProveedor(proveedor)" -->
+                 <!-- (click)="showProveedor(proveedor)" -->
                 <p-button
                   icon="pi pi-search"
                   severity="info"
                   class="p-button-rounded p-button-text flex-1 custom-button"
-                  (click)="showProveedor(proveedor.id)"
+                  [routerLink]="['/proveedores/mostrar', proveedor.id]"
+                  [state]="{ proveedor: proveedor, isViewMode: true}"
                   [raised]="true"
                 >
                 </p-button>
+                <!-- (click)="editProveedor(proveedor)" -->
                 <p-button
                   icon="pi pi-pencil"
                   severity="warning"
                   class="p-button-rounded p-button-text ml-2 flex-1"
-                  (click)="editProveedor(proveedor.id)"
+                  [routerLink]="['/proveedores/editar', proveedor.id]"
+                  [state]="{ proveedor: proveedor, isViewMode: false}"
                   [raised]="true"
                 >
                 </p-button>

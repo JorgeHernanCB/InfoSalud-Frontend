@@ -7,8 +7,6 @@ import { City, TypeDocument, TypePerson, NumberDocument, TypeProviders, Status, 
 import { Location } from '../../../../models/interface/location.interface';
 
 
-
-
 @Component({
   selector: 'infoSalud-nuevoProveedor',
   templateUrl: './nuevoProveedor.component.html',

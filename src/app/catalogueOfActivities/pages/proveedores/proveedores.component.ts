@@ -208,12 +208,12 @@ export class ProveedoresComponent implements OnInit {
 
   //Ver proveedor
   showProveedor(proveedor: Proveedores){
-    this.router.navigate([`/proveedores/mostrar/${proveedor.id}`], { state: { proveedor } });
+    this.router.navigate(['/proveedores/mostrar',proveedor.id], { state: { proveedor: proveedor, isViewMode: true } });
   }
 
   //editar proveedor
   editProveedor(proveedor: Proveedores){
-    this.router.navigate([`/proveedores/editar/${proveedor.id}`], { state: { proveedor } });
+    this.router.navigate(['/proveedores/editar',proveedor.id], { state: { proveedor: proveedor, isViewMode: false } });
   }
 
 }
