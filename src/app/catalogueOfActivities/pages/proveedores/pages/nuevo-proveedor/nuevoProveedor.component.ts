@@ -23,6 +23,9 @@ export class NuevoProveedorComponent {
   displaySearchDialog: boolean = false;
   searchTerm: string = '';
 
+  //Variable para el spinner
+  loading: boolean = true;
+
 
   public nuevoProveedorForm: FormGroup;
   constructor(
@@ -81,7 +84,7 @@ export class NuevoProveedorComponent {
   showTableSpecials: boolean = false;
   addSpecialDialog: boolean = false;
 
-  
+
 
 
   onSubmit() {
@@ -109,6 +112,9 @@ export class NuevoProveedorComponent {
       }));
     })
 
+    setTimeout(() => {
+      this.loading = false;
+    }, 1500);
 
     //Dropdown list of status
     this.status = [

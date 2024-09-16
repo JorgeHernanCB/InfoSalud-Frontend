@@ -22,7 +22,7 @@ export interface Proveedores {
 
 
 export interface TypeProviders {
-  name: string;
+  name?: string;
   audit?: string;
   investigator?: string;
   laboratory?: string;

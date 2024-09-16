@@ -15,6 +15,7 @@ import { ChipModule } from 'primeng/chip';
 import { ButtonGroupModule } from 'primeng/buttongroup';
 import { CalendarModule } from 'primeng/calendar';
 import { FileUploadModule } from 'primeng/fileupload';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 
 
 import { DialogModule } from 'primeng/dialog';
@@ -44,7 +45,7 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
     DialogModule,
     ToolbarModule,
     ConfirmDialogModule,
-
+    ProgressSpinnerModule
   ]
 })
 export class PrimeNgModule { }
