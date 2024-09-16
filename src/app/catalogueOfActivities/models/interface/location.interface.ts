@@ -5,7 +5,7 @@ export interface Location {
   address?: string | number;
   city?: string | number;
   departament?: string | number;
-  active?: string | boolean;
+  active?: string;
   locationMain?: string | number;
 
 }

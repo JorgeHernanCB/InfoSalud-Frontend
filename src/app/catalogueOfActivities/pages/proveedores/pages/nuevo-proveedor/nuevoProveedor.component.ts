@@ -37,6 +37,8 @@ export class NuevoProveedorComponent {
       city: ['', Validators.required],
       selectPlaces: ['', Validators.required],
       active: ['', Validators.required],
+      sedePrincipal: ['', Validators.required],
+
     });
   }
 

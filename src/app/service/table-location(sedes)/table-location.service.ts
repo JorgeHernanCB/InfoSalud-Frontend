@@ -13,11 +13,23 @@ export class TableLocationService {
       {
         id: 2,
         code: '123',
-        name: 'Sede Principal - San Juan De Dios',
+        name: 'San Juan De Dios',
         address: 'Calle 10 # 12-34',
+        sedePrincipal: 'No',
         city:'Pereira',
         departament: 'Risaralda',
-        active: 'Activa',
+        active: 'Si',
+        locationMain:'Principal'
+      },
+      {
+        id: 2,
+        code: '123',
+        name: 'San Juan De Dios',
+        address: 'Calle 10 # 12-34',
+        sedePrincipal: 'Si',
+        city:'Pereira',
+        departament: 'Risaralda',
+        active: 'Si',
         locationMain:'Principal'
       },
       {
@@ -25,9 +37,43 @@ export class TableLocationService {
         code: '123',
         name: 'Sede Principal - San Juan De Dios',
         address: 'Calle 10 # 12-34',
+        sedePrincipal: 'Si',
         city:'Pereira',
         departament: 'Risaralda',
-        active: 'Activa',
+        active: 'No',
+        locationMain:'Principal'
+      },
+      {
+        id: 2,
+        code: '123',
+        name: 'San Juan De Dios',
+        address: 'Calle 10 # 12-34',
+        sedePrincipal: 'Si',
+        city:'Pereira',
+        departament: 'Risaralda',
+        active: 'No',
+        locationMain:'Principal'
+      },
+      {
+        id: 2,
+        code: '123',
+        name: 'San Juan De Dios',
+        address: 'Calle 10 # 12-34',
+        sedePrincipal: 'Si',
+        city:'Pereira',
+        departament: 'Risaralda',
+        active: 'No',
+        locationMain:'Principal'
+      },
+      {
+        id: 2,
+        code: '123',
+        name: 'rosales',
+        address: 'Calle 10 # 12-34',
+        sedePrincipal: 'Si',
+        city:'Pereira',
+        departament: 'Risaralda',
+        active: 'No',
         locationMain:'Principal'
       },
       {
@@ -35,9 +81,10 @@ export class TableLocationService {
         code: '123',
         name: 'Sede Principal - San Juan De Dios',
         address: 'Calle 10 # 12-34',
+        sedePrincipal: 'Si',
         city:'Pereira',
         departament: 'Risaralda',
-        active: 'Activa',
+        active: 'Si',
         locationMain:'Principal'
       },
       {
@@ -45,9 +92,10 @@ export class TableLocationService {
         code: '123',
         name: 'Sede Principal - San Juan De Dios',
         address: 'Calle 10 # 12-34',
+        sedePrincipal: 'Si',
         city:'Pereira',
         departament: 'Risaralda',
-        active: 'Activa',
+        active: 'No',
         locationMain:'Principal'
       },
       {
@@ -55,59 +103,21 @@ export class TableLocationService {
         code: '123',
         name: 'Sede Principal - San Juan De Dios',
         address: 'Calle 10 # 12-34',
+        sedePrincipal: 'Si',
         city:'Pereira',
         departament: 'Risaralda',
-        active: 'Activa',
+        active: 'Si',
         locationMain:'Principal'
       },
       {
         id: 2,
         code: '123',
-        name: 'Sede Principal - San Juan De Dios',
+        name: 'San Jorge',
         address: 'Calle 10 # 12-34',
+        sedePrincipal: 'No',
         city:'Pereira',
         departament: 'Risaralda',
-        active: 'Activa',
-        locationMain:'Principal'
-      },
-      {
-        id: 2,
-        code: '123',
-        name: 'Sede Principal - San Juan De Dios',
-        address: 'Calle 10 # 12-34',
-        city:'Pereira',
-        departament: 'Risaralda',
-        active: 'Activa',
-        locationMain:'Principal'
-      },
-      {
-        id: 2,
-        code: '123',
-        name: 'Sede Principal - San Juan De Dios',
-        address: 'Calle 10 # 12-34',
-        city:'Pereira',
-        departament: 'Risaralda',
-        active: 'Activa',
-        locationMain:'Principal'
-      },
-      {
-        id: 2,
-        code: '123',
-        name: 'Sede Principal - San Juan De Dios',
-        address: 'Calle 10 # 12-34',
-        city:'Pereira',
-        departament: 'Risaralda',
-        active: 'Activa',
-        locationMain:'Principal'
-      },
-      {
-        id: 2,
-        code: '123',
-        name: 'Sede Principal - San Juan De Dios',
-        address: 'Calle 10 # 12-34',
-        city:'Pereira',
-        departament: 'Risaralda',
-        active: 'Activa',
+        active: 'No',
         locationMain:'Principal'
       },
     ]

@@ -232,9 +232,10 @@
             'code',
             'name',
             'address',
+            'active',
+            'sedePrincipal',
             'city',
             'departament',
-            'active',
             'locationMain'
           ]"
           [(selection)]="SelectedLocation"
@@ -257,14 +258,17 @@
               <th pSortableColumn="address" class="text-center">
                 Direcci&oacute;n<p-sortIcon field="address"></p-sortIcon>
               </th>
+              <th pSortableColumn="active" class="text-center">
+                Activo<p-sortIcon field="active"></p-sortIcon>
+              </th>
+              <th pSortableColumn="sedePrincipal" class="text-center">
+                Sede Principal<p-sortIcon field="sedePrincipal"></p-sortIcon>
+              </th>
               <th pSortableColumn="city" class="text-center">
                 Ciudad<p-sortIcon field="city"></p-sortIcon>
               </th>
               <th pSortableColumn="departament" class="text-center">
                 Departamento<p-sortIcon field="departament"></p-sortIcon>
-              </th>
-              <th pSortableColumn="active" class="text-center">
-                Activo<p-sortIcon field="active"></p-sortIcon>
               </th>
               <th class="text-center">Acciones</th>
             </tr>
@@ -277,9 +281,10 @@
               <td class="text-center">{{ locations.code }}</td>
               <td class="text-center">{{ locations.name }}</td>
               <td class="text-center">{{ locations.address }}</td>
+              <td class="text-center">{{ locations.active }}</td>
+              <td class="text-center">{{ locations.sedePrincipal }}</td>
               <td class="text-center">{{ locations.city }}</td>
               <td class="text-center">{{ locations.departament }}</td>
-              <td class="text-center">{{ locations.active }}</td>
               <!-- <td class="text-center">{{ locations.locationMain }}</td> -->
               <td>
                 <div class="flex justify-content-center align-items-center">
