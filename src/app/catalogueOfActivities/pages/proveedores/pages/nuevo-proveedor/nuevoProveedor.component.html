@@ -30,7 +30,9 @@
             [options]="typeDocument"
             formControlName="typeDocument"
             optionLabel="identification"
-            placeholder="Seleccione una Identificación"
+            placeholder="Seleccione un Tipo de Identificación"
+            class="ipt-required"
+            required
           />
         </div>
 
@@ -63,10 +65,9 @@
             <input
               pInputText
               pKeyFilter="alpha"
-              class="ipt-required"
               id="name"
               formControlName="name"
-              required
+              [disabled]="true"
             />
             <label htmlFor="name" id="custom-pfloatLabel" class="w-10"
               >Raz&oacute;n social / Nombre</label
@@ -100,7 +101,6 @@
           <p-floatLabel>
             <input
               pInputText
-              class="ipt-required"
               id="status"
               formControlName="status"
               [disabled]="true"
@@ -157,13 +157,12 @@
                 <input
                   pInputText
                   pKeyFilter="alpha"
-                  class="ipt-required"
                   id="code"
                   formControlName="code"
-                  required
+                  [disabled]="true"
                 />
                 <label htmlFor="code" id="custom-pfloatLabel" class="w-10"
-                  >Codigo</label
+                  >123</label
                 >
               </p-floatLabel>
             </div>
@@ -446,19 +445,49 @@
           </p-table>
         </p-panel>
       </div>
+
+      <!-- Botones del servicio -->
+      <div class="formgrid grid justify-content-end mt-4">
+        <div class="field-col">
+          <p-button
+            label = "Servicios Habilitados"
+            [raised] = "true"
+            [rounded] = "true"
+            severity = "info"
+            (click) = "openUploadDialog()"
+          >
+          </p-button>
+        </div>
+        <div class="field-col ml-4">
+          <p-button
+            label="Cancelar"
+            [raised]="true"
+            [rounded]="true"
+          />
+        </div>
+        <div class="field-col ml-4 mr-5">
+          <p-button
+            label="Guardar"
+            [raised]="true"
+            [rounded]="true"
+            severity="success"
+          />
+        </div>
+
+      </div>
     </div>
   </div>
 
 
   <!-- Dialogo Numero documento -->
   <p-dialog
-  [(visible)]="displaySearchDialog"
-  header="Filtro B&uacute;squeda Proveedores"
-  [modal]="true"
-  [style]="{ width: '50vw' }"
-  [closable]="true"
-  [draggable]="false"
-  [resizable]="false"
+    [(visible)]="displaySearchDialog"
+    header="Filtro B&uacute;squeda Proveedores"
+    [modal]="true"
+    [style]="{ width: '50vw' }"
+    [closable]="true"
+    [draggable]="false"
+    [resizable]="false"
   >
   <!-- [formGroup]="filterSearchProviderForm" -->
     <form (ngSubmit)="onSubmit()">
@@ -620,5 +649,42 @@
         </div>
       </p-footer>
     </form>
+  </p-dialog>
+
+  <!-- Modal para el uploadFile -->
+   <!-- [width]="400" -->
+  <p-dialog
+    header="Subir Archivo"
+    [(visible)]="displayUploadDialog"
+    [modal]="true"
+    [closable]="true"
+    [resizable]="false"
+    [style]="{ width: '50vw' }"
+    [draggable]="false"
+    [responsive]="true"
+    [baseZIndex]="10000"
+    (onHide)="onDialogHide()"
+  >
+    <p-fileUpload
+    mode="basic"
+    name="file"
+    url="your-backend-api-url/upload"
+    accept="image/*"
+    maxFileSize="1000000"
+    (onUpload)="onUpload($event)"
+    chooseLabel="Seleccionar archivo"
+    class="upload-button"
+  ></p-fileUpload>
+
+  <p-footer>
+    <button
+      type="button"
+      pButton
+      label="Cerrar"
+      icon="pi pi-times"
+      (click)="displayUploadDialog = false"
+    ></button>
+  </p-footer>
+
   </p-dialog>
 </div>

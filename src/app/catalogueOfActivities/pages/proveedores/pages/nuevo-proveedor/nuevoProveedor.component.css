@@ -17,3 +17,10 @@
     background: none; /* Fondo transparente para que no sobresalga */
     cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
   }
+
+:host ::ng-deep .ipt-required{
+  background-color: rgba(214, 212, 212, 0.512); /* Borde rojo si es inválido */
+}
+
+  
+
