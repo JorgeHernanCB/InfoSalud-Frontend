@@ -1,0 +1,279 @@
+<p-panel header="PROVEEDOR" [toggleable]="true">
+  <!-- Formulario de edición -->
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit()" *ngIf="!isViewMode">
+    <h2>Editar Proveedor</h2>
+    <!-- Botones de acción -->
+    <div class="formgrid grid flex justify-content-between">
+      <div class="field-col ml-4">
+        <p-button
+          label="Regresar"
+          [raised]="true"
+          [rounded]="true"
+          [routerLink]="['/proveedores']"
+        />
+      </div>
+      <div class="field-col mr-5">
+        <p-button
+          label="Guardar"
+          [raised]="true"
+          [rounded]="true"
+          type="submit"
+        />
+      </div>
+    </div>
+
+    <!-- Fila 1 -->
+    <div class="formgrid grid mt-4 col-12">
+
+      <div class="field col-3">
+        <p-dropdown
+          [options]="typeDocument"
+          formControlName="typeDocument"
+          optionLabel="identification"
+          placeholder="Tipo de identificacion"
+        />
+        <small class="p-error" *ngIf="submitted && editForm.controls['typeDocument'].invalid">
+          Tipo de documento es requerido
+        </small>
+      </div>
+
+      <div class="field col-3">
+        <p-floatLabel>
+          <input
+            pInputText
+            id="numberDocument"
+            type="number"
+            formControlName="numberDocument"
+        />
+        <label htmlFor="numberDocument" id="custom-pfloatLabel" class="w-10">
+          Número de identificación
+        </label>
+        <small class="p-error" *ngIf="submitted && editForm.controls['numberDocument'].invalid">
+          Número de documento es requerido
+        </small>
+      </p-floatLabel>
+      </div>
+
+      <div class="field col-3">
+        <p-floatLabel>
+          <input
+            pInputText
+            class="ipt-required"
+            id="name"
+            formControlName="name"
+            required
+          />
+          <label htmlFor="name" id="custom-pfloatLabel" class="w-10">
+            Nombre/Raz&oacute;n Social
+          </label>
+          <small class="p-error" *ngIf="submitted && editForm.controls['name'].invalid">
+            Nombre es requerido
+          </small>
+        </p-floatLabel>
+      </div>
+
+      <div class="field col-3">
+        <p-dropdown
+          [options]="typePerson"
+          formControlName="typePerson"
+          optionLabel="typePerson"
+          placeholder="Tipo de persona"
+        />
+      </div>
+    </div>
+
+    <!-- Fila 2 -->
+    <div class="formgrid grid col-12">
+
+      <div class="field col-3">
+        <p-dropdown
+          [options]="typeProviders"
+          formControlName="typeProviders"
+          optionLabel="name"
+          placeholder="Tipo de proveedor"
+        />
+      </div>
+
+
+      <div class="field col-3">
+        <p-dropdown
+          [options]="departament"
+          formControlName="departament"
+          optionLabel="name"
+          placeholder="Departamento / provincia"
+        />
+        <small class="p-error" *ngIf="submitted && editForm.controls['departament'].invalid">
+          Departamento es requerido
+        </small>
+      </div>
+
+      <div class="field col-3 input-with-button">
+
+        <p-floatLabel>
+          <input
+            pInputText
+            type="number"
+            class="ipt-required"
+            id="status"
+            formControlName="status"
+            [disabled]="true"          
+          />
+          <label htmlFor="status" id="custom-pfloatLabel" class="w-10">Estado</label>
+        </p-floatLabel>
+        <p-button
+            icon="pi pi-search"
+            class="p-button-rounded p-button-text search-btn"
+            (click)="showStatusDialog()"
+          ></p-button>
+      </div>
+      <!-- <div class="field col-3">
+        <p-dropdown
+          [options]="cities"
+          formControlName="city"
+          optionLabel="city"
+          placeholder="Seleccione una ciudad"
+        />
+        <small class="p-error" *ngIf="submitted && editForm.controls['city'].invalid">
+          Ciudad es requerida
+        </small>
+      </div> -->
+    </div>
+  </form>
+
+  <!-- Formulario de visualización -->
+  <form [formGroup]="viewForm" *ngIf="isViewMode">
+    <h2>Ver Proveedor</h2>
+    <!-- Botones de acción -->
+    <div class="ml-4">
+      <div class="field-col">
+        <p-button
+          label="Regresar"
+          [raised]="true"
+          [rounded]="true"
+          [routerLink]="['/proveedores']"
+        />
+      </div>
+    </div>
+
+    <!-- Fila 1 -->
+    <div class="formgrid grid mt-4 col-12">
+      <div class="field col-3">
+        <p-dropdown
+          [options]="typeDocument"
+          formControlName="typeDocument"
+          optionLabel="identification"
+          placeholder="Tipo de documento"
+        />
+      </div>
+
+      <div class="field col-3">
+        <p-floatLabel>
+          <input
+            pInputText
+            id="numberDocument"
+            type="number"
+            formControlName="numberDocument"
+          />
+          <label htmlFor="numberDocument" id="custom-pfloatLabel" class="w-10">
+            Número de identificación
+          </label>
+        </p-floatLabel>
+      </div>
+
+      <div class="field col-3">
+        <p-floatLabel>
+          <input
+            pInputText
+            class="ipt-required"
+            id="name"
+            formControlName="name"
+          />
+          <label htmlFor="name" id="custom-pfloatLabel" class="w-10">
+            Razón social / Nombre
+          </label>
+        </p-floatLabel>
+      </div>
+
+      <div class="field col-3">
+        <p-dropdown
+          [options]="typeProviders"
+          formControlName="typeProviders"
+          optionLabel="name"
+          placeholder="Tipo de proveedor"
+        />
+      </div>
+    </div>
+
+    <!-- Fila 2 -->
+    <div class="formgrid grid col-12">
+      <div class="field col-3">
+        <p-dropdown
+          [options]="departament"
+          formControlName="departament"
+          optionLabel="name"
+          placeholder="Departamento / provincia"
+        />
+      </div>
+
+      <div class="field col-3">
+        <p-dropdown
+          [options]="status"
+          formControlName="status"
+          optionLabel="status"
+          placeholder="Estado"
+        />
+      </div>
+
+      <div class="field col-3">
+        <p-dropdown
+          [options]="cities"
+          formControlName="city"
+          optionLabel="city"
+          placeholder="Seleccione una ciudad"
+        />
+      </div>
+    </div>
+  </form>
+</p-panel>
+<p-dialog
+  header="Cambiar Estado"
+  [(visible)]="displayStatusDialog"
+  [modal]="true"
+  [closable]="true"
+  [resizable]="false"
+  [style]="{ width: '50vw' }"
+  [draggable]="false"
+  [responsive]="true"
+  [baseZIndex]="10000"
+  (onHide)="onStatusHide()"
+>
+  <form (ngSubmit)="onSubmit()">
+    <!-- Contenido del modal -->
+    <div class="p-fluid">
+      <div class="p-field">
+
+        <!-- Row 1 -->
+        <div class="formgrid grid col-12">
+
+          <div class="field col-6">
+            <p-dropdown
+              [options]="status"
+              formControlName="status"
+              optionLabel="status"
+              placeholder="Estado"
+              />
+          </div>
+        </div>
+      </div>
+    </div>
+    <p-footer>
+      <button
+        type="button"
+        pButton
+        label="Cerrar"
+        icon="pi pi-times"
+        (click)="displayStatusDialog = false"
+      ></button>
+    </p-footer>
+  </form>
+</p-dialog>

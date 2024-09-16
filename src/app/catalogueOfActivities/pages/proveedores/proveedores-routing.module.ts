@@ -19,11 +19,13 @@ const routes: Routes = [
       },
       {
         path: 'mostrar/:id',
-        component: ProveedoresComponent
+        component: ModificarProveedorComponent,
+        data: { isViewMode: true}
       },
       {
         path: 'editar/:id',
-        component: ModificarProveedorComponent
+        component: ModificarProveedorComponent,
+        data: { isViewMode: false}
       },
       {
         path: '**',

@@ -40,7 +40,7 @@ export interface TypePerson {
 }
 
 export interface TypeDocument {
-  identification?: string | number;
+  identification?: string ;
   cc?: string | number;
   nit?: string | number;
   passport?: string | number;
