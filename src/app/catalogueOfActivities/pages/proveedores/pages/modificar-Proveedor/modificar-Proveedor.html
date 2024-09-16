@@ -1,107 +1,121 @@
-<p>modificar Proveedor works!</p>
-
 <p-panel header="MODIFICAR UN PROVEEDOR" [toggleable]="true">
-
   <form [formGroup]="modificaProveedorForm" (ngSubmit)="onSubmit()">
     <!-- <app-filtered-button (onSearch)="onSearch()" (onClear)="clearForm()"></app-filtered-button> -->
+
+     <!--Botons actions-->
+    <div class="formgrid grid justify-content-end">
+      <div class="field-col">
+        <p-button
+          label="Regresar"
+          [raised]="true"
+          [rounded]="true"
+          [routerLink]="['/proveedores']"
+        />
+      </div>
+      <div class="field-col ml-4 mr-5">
+        <p-button
+          label="Guardar"
+          [raised]="true"
+          [rounded]="true"
+          severity="success"
+        />
+      </div>
+    </div>
 
     <!-- Row 1 -->
     <div class="formgrid grid mt-4 col-12">
       <div class="field col-3">
         <p-dropdown
-              [options]="typeDocument"
-              formControlName="typeDocument"
-              optionLabel="typePerson"
-              placeholder="Tipo de proveedor"
-            />
+          [options]="typeDocument"
+          formControlName="typeDocument"
+          optionLabel="typePerson"
+          placeholder="Tipo de documento"
+        />
       </div>
 
       <div class="field col-3">
-        <p-dropdown
-        [options]="status"
-        formControlName="status"
-        optionLabel="status"
-        placeholder="Estado"
-      />
-      </div>
-
-       <div class="field col-3">
-        <p-dropdown
-            [options]="departament"
-            formControlName="departament"
-            optionLabel="name"
-            placeholder="Seleccione un departamento / provincia"
+        <p-floatLabel>
+          <input
+            pInputText
+            id="numberDocument"
+            type="number"
+            formControlName="numberDocument"
           />
+          <label htmlFor="numberDocument" id="custom-pfloatLabel" class="w-10"
+            >N&uacute;mero de identificaci&oacute;n
+          </label>
+        </p-floatLabel>
+      </div>
+      <!-- Razon social/Nombre -->
+      <div class="field col-3">
+        <p-floatLabel>
+          <input
+            pInputText
+            pKeyFilter="alpha"
+            class="ipt-required"
+            id="name"
+            formControlName="name"
+            required
+          />
+          <label htmlFor="name" id="custom-pfloatLabel" class="w-10"
+            >Raz&oacute;n social / Nombre</label
+          >
+        </p-floatLabel>
+      </div>
+      <div class="field col-3">
+        <p-dropdown
+          [options]="typeProviders"
+          formControlName="typeProviders"
+          optionLabel="name"
+          placeholder="Tipo de proveedor"
+        />
       </div>
     </div>
 
     <!-- Row 2 -->
     <div class="formgrid grid col-12">
       <div class="field col-3">
-        <p-floatLabel>
-          <input pInputText id="numberDocument" type="number" formControlName="numberDocument"/>
-          <label
-            htmlFor="numberDocument"
-            id="custom-pfloatLabel"
-            class="w-10"
-            >N&uacute;mero de identificaci&oacute;n
-          </label>
-        </p-floatLabel>
-      </div>
-
-      <!-- <div class="field col-3">
         <p-dropdown
-            [options]="typeDocument"
-            formControlName="typeDocument"
-            optionLabel="identification"
-            placeholder="Seleccione un tipo de identificación"
-          />
-      </div> -->
+          [options]="departament"
+          formControlName="departament"
+          optionLabel="name"
+          placeholder="Departamento / provincia"
+        />
+      </div>
+
+      <div class="field col-3">
+        <p-dropdown
+          [options]="status"
+          formControlName="status"
+          optionLabel="status"
+          placeholder="Estado"
+        />
+      </div>
 
       <div class="field col-3">
         <p-floatLabel>
-          <input pInputText id="numberDocument" type="number" formControlName="numberDocument"/>
-          <label
-            htmlFor="numberDocument"
-            id="custom-pfloatLabel"
-            class="w-10"
+          <input
+            pInputText
+            id="numberDocument"
+            type="number"
+            formControlName="numberDocument"
+          />
+          <label htmlFor="numberDocument" id="custom-pfloatLabel" class="w-10"
             >N&uacute;mero de identificaci&oacute;n
           </label>
         </p-floatLabel>
       </div>
 
       <div class="field col-3">
-        <p-floatLabel>
-          <input pInputText id="name" type="text" formControlName="name" />
-          <label
-            htmlFor="name"
-            id="custom-pfloatLabel"
-            class="w-10"
-            >Raz&oacute;n social/Nombre
-          </label>
-        </p-floatLabel>
+        <p-dropdown
+          [options]="cities"
+          formControlName="city"
+          optionLabel="city"
+          placeholder="Seleccione una ciudad"
+        />
       </div>
     </div>
 
     <!-- Row 3 -->
-    <div class="formgrid grid col-12">
-      <div class="field col-3">
-        <p-dropdown
-            [options]="typeProviders"
-            formControlName="typeProviders"
-            optionLabel="name"
-            placeholder="Tipo de proveedor"
-          />
-      </div>
-    </div>
   </form>
 </p-panel>
-
-<div class="field-col">
-  <p-button
-    label="Regresar"
-    [raised]="true"
-    [rounded]="true"
-    [routerLink]="['/proveedores']"
-  />
-</div>
