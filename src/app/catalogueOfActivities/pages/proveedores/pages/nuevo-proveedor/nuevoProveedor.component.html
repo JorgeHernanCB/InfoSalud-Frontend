@@ -17,6 +17,7 @@
           label="Guardar"
             [raised]="true"
             [rounded]="true"
+            type="submit"
           />
         </div>
       </div>
@@ -30,10 +31,10 @@
             formControlName="typeDocument"
             optionLabel="identification"
             placeholder="Seleccione un Tipo de Identificación"
-            class="ipt-required"
-            required
             />
           </div>
+          <!-- required -->
+          <!-- class="ipt-required" -->
 
           <div class="field col-3 input-with-button">
             <p-floatLabel>
@@ -43,7 +44,6 @@
               class="ipt-required"
               id="numberDocument"
               formControlName="numberDocument"
-              required
             />
             <label htmlFor="numberDocument" id="custom-pfloatLabel" class="w-10"
               >N&uacute;mero de identificaci&oacute;n</label
@@ -111,13 +111,6 @@
         </div>
       </form>
       <div class="col-3">
-      <!-- [disabled]="true" -->
-      <!-- <p-button
-    label="Seleccionar una Sede"
-    [raised]="true"
-    [rounded]="true"
-    (click)="toggleTable()"
-    /> -->
     </div>
   </p-panel>
 
@@ -333,7 +326,7 @@
     [draggable]="false"
     [resizable]="false"
   >
-    <form (ngSubmit)="onSubmit()">
+    <form [formGroup]="nuevoProveedorForm" (ngSubmit)="onSubmit()">
       <!-- Contenido del modal -->
       <div class="p-fluid">
         <div class="p-field">

@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import {TableLocationService} from '../../../../../service/table-location(sedes)/table-location.service';
@@ -36,7 +36,7 @@ export class NuevoProveedorComponent {
       name: [{value:'', disabled: true}, Validators.required],
       code: ['', Validators.required],
       address: ['', Validators.required],
-      typeDocument: ['', Validators.required],
+      typeDocument: [{value:''}, Validators.required],
       typePerson: ['', Validators.required],
       typeProviders: ['', Validators.required],
       numberDocument: ['', Validators.required],
@@ -112,7 +112,7 @@ export class NuevoProveedorComponent {
 
     setTimeout(() => {
       this.loading = false;
-    }, 1500);
+    }, 1000);
 
     //Dropdown list of status
     this.status = [

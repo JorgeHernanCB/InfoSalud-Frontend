@@ -58,9 +58,9 @@
   }
   .ui-progress-spinner-circle {
     border-top-color: #3498db !important; /* Color del borde superior (azul) */
-    border-right-color: rgba(52, 152, 219, 0.2) !important; /* Parte transparente */
-    border-bottom-color: rgba(52, 152, 219, 0.2) !important;
-    border-left-color: rgba(52, 152, 219, 0.2) !important;
+    border-right-color: rgba(245, 241, 241, 0.952) !important; /* Parte transparente */
+    border-bottom-color: rgba(241, 240, 240, 0.973) !important;
+    border-left-color: rgba(255, 255, 255, 0.863) !important;
     background-color: transparent !important; /* Fondo transparente */
   }
   .ui-progress-spinner {
