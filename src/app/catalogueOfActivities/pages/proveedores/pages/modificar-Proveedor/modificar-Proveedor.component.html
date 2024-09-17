@@ -31,6 +31,7 @@
             [options]="typeDocument"
             formControlName="typeDocument"
             optionLabel="identification"
+            class="ipt-disabled"
             placeholder="Tipo de identificacion"
           />
           <small class="p-error" *ngIf="submitted && editForm.controls['typeDocument'].invalid">
@@ -44,6 +45,7 @@
               pInputText
               id="numberDocument"
               type="number"
+              class="ipt-disabled"
               formControlName="numberDocument"
           />
           <label htmlFor="numberDocument" id="custom-pfloatLabel" class="w-10">
@@ -59,7 +61,7 @@
           <p-floatLabel>
             <input
               pInputText
-              class="ipt-required"
+              class="ipt-disabled"
               id="name"
               formControlName="name"
               required
@@ -78,6 +80,7 @@
             [options]="typePerson"
             formControlName="typePerson"
             optionLabel="typePerson"
+            class="ipt-disabled"
             placeholder="Tipo de persona"
           />
         </div>
@@ -90,6 +93,7 @@
           <p-dropdown
             [options]="typeProviders"
             formControlName="typeProviders"
+            class="ipt-disabled"
             optionLabel="name"
             placeholder="Tipo de proveedor"
           />
@@ -101,6 +105,7 @@
             [options]="departament"
             formControlName="departament"
             optionLabel="name"
+            class="ipt-disabled"
             placeholder="Departamento / provincia"
           />
           <small class="p-error" *ngIf="submitted && editForm.controls['departament'].invalid">
@@ -114,7 +119,7 @@
             <input
               pInputText
               type="number"
-              class="ipt-required"
+              class="ipt-disabled"
               id="status"
               formControlName="status"
               [disabled]="true"          
@@ -149,7 +154,6 @@
       <p-toolbar styleClass="mb-4 gap-2">
         <ng-template pTemplate="left">
           <p-button
-            severity="success"
             label="Agregar"
             icon="pi pi-plus"
             class="mr-2"
@@ -158,7 +162,6 @@
             (onClick)="openNewSede()"
           />
           <p-button
-            severity="danger"
             label="Eliminar"
             icon="pi pi-trash"
             [rounded]="true"
@@ -251,7 +254,6 @@
             <td>
               <p-button
                   icon="pi pi-pencil"
-                  severity="warning"
                   class="p-button-rounded p-button-text ml-2 flex-1"
                   (click)="editSede(location)"
               />
@@ -275,7 +277,6 @@
       <p-toolbar styleClass="mb-4 gap-2">
         <ng-template pTemplate="left">
           <p-button
-            severity="success"
             label="Agregar"
             icon="pi pi-plus"
             class="mr-2"
@@ -284,7 +285,6 @@
             (onClick)="openNewSpecial()"
           />
           <p-button
-            severity="danger"
             label="Eliminar"
             icon="pi pi-trash"
             [rounded]="true"
@@ -351,7 +351,6 @@
             <td class="text-center">
               <p-button
                   icon="pi pi-pencil"
-                  severity="warning"
                   class="p-button-rounded p-button-text ml-2 flex-1"
                   (click)="editSpecial(special)"
               />
@@ -370,6 +369,94 @@
   </div>
 
   <!-- Seccion de servicios habilitados -->
+  <div class="mt-4">
+    <p-panel header="Editar Servicios Habilitados" [collapsed]="true" [toggleable]="true">
+      <p-toolbar styleClass="mb-4 gap-2">
+        <ng-template pTemplate="left">
+          <!-- icon="pi pi-plus" -->
+          <p-button
+            label="Servicios Habilitados"
+            class="mr-2"
+            [rounded]="true"
+            [raised]="true"
+            (onClick)="openNewServiceHabilitado()"
+          />
+          <!-- <p-button
+            severity="danger"
+            label="Eliminar"
+            icon="pi pi-trash"
+            [rounded]="true"
+            [raised]="true"
+            (onClick)="deleteSelectedServiceHabilitado()"
+            [disabled]="!SelectedService || !SelectedService.length"
+          /> -->
+        </ng-template>
+      </p-toolbar>
+      <!-- [(selection)]="SelectedService" -->
+      <p-table
+        #dt5
+        [value]="serviceHabilitado"
+        [paginator]="true"
+        [rows]="10"
+        [rowsPerPageOptions]="[5, 10, 20, 100]"
+        styleClass="p-datatable-gridlines"
+        [tableStyle]="{ 'min-width': '50rem' }"
+        [globalFilterFields]="[
+          'code',
+          'name',
+          'departament',
+          'city'
+        ]"
+        [rowHover]="true"
+        dataKey="id"
+        currentPageReportTemplate="Mostrando del {first} al {last} de {totalRecords} datos"
+        [showCurrentPageReport]="true"
+      >
+        <ng-template pTemplate="header">
+          <tr>
+            <!-- <th style="width: 4rem;">
+              <p-tableHeaderCheckbox />
+            </th> -->
+            <th pSortableColumn="code" class="text-center">
+              C&oacute;digo Servicio<p-sortIcon field="code"></p-sortIcon>
+            </th>
+            <th pSortableColumn="name" class="text-center">
+              Nombre Servicio<p-sortIcon field="name"></p-sortIcon>
+            <th pSortableColumn="departament" class="text-center">Departamento / Provincia</th>
+            <th pSortableColumn="city" class="text-center">Ciudad / Municipio</th>
+            <!-- <th class="text-center">Mod</th>
+            <th class="text-center">Eli</th> -->
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-servicio_habilitado>
+          <tr>
+            <!-- <td>
+              <p-tableCheckbox [value]="special" />
+            </td> -->
+            <td class="text-center">{{ servicio_habilitado.code }}</td>
+            <td class="text-center">{{ servicio_habilitado.name }}</td>
+            <td class="text-center">{{ servicio_habilitado.departament}}</td>
+            <td class="text-center">{{ servicio_habilitado.city}}</td>
+            <!-- <td>
+              <div class="flex justify-content-center align-items-center">
+                <p-button
+                  icon="pi pi-pencil"
+                  severity="warning"
+                  class="p-button-rounded p-button-text ml-2 flex-1"
+                  (click)="editSede(location)"
+                />
+                <p-button
+                  icon="pi pi-trash"
+                  class="p-button-rounded p-button-text ml-2 flex-1"
+                  (click)="deleteSede(location)"
+                />
+              </div>
+            </td> -->
+          </tr>
+        </ng-template>
+      </p-table>
+    </p-panel>
+  </div>
 
   <!-- Botones -->
   <div class="formgrid grid flex justify-content-between mt-4">
@@ -437,7 +524,6 @@
           <p-floatLabel>
             <input
               pInputText
-              class="ipt-required"
               id="name"
               formControlName="name"
             />
@@ -716,7 +802,7 @@
                 [options]="especial"
                 formControlName="name"
                 optionLabel="name"
-                placeholder="Estado"
+                placeholder="Especialidad"
               />
             <small class="p-error" *ngIf="submittedSpecials && specialForm.controls['name'].invalid">
               Especialidad es requerido
@@ -750,3 +836,43 @@
     </div>
   </form>
 </p-dialog>
+
+<!-- Dialogo para modal servicios habilitados -->
+<p-dialog
+header="Servicios Habilitados"
+[(visible)]="serviceUpload"
+[modal]="true"
+[closable]="true"
+[resizable]="false"
+[style]="{ width: '30vw' }"
+[draggable]="false"
+[responsive]="true"
+[baseZIndex]="10000"
+(onHide)="onServiceHide()"
+>
+  <div class="mt-4">
+    <p-fileUpload
+      mode="basic"
+      name="file"
+      url="your-backend-api-url/upload"
+      accept="image/*"
+      maxFileSize="1000000"
+      (onUpload)="onUploadService($event)"
+      chooseLabel="Seleccionar archivo"
+      class="upload-button"
+      ></p-fileUpload>
+  </div>
+
+  <p-footer>
+    <button
+      type="button"
+      pButton
+      label="Cerrar"
+      icon="pi pi-times"
+      [rounded]="true"
+      [raised]="true"
+      (click)="serviceUpload = false"
+    ></button>
+  </p-footer>
+</p-dialog>
+

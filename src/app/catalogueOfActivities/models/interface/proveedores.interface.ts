@@ -83,3 +83,11 @@ export interface PrincipalSede{
   name: string;
 }
 
+export interface serviceHabilitado{
+  id?:number;
+  code?:number;
+  name?:string;
+  departament?:string;
+  city?:string;
+}
+
