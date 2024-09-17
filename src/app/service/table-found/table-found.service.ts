@@ -12,8 +12,8 @@ export class TableFoundService {
     return [
       {
         id: 2,
-        typePerson: 'Persona Natural',
-        name: 'Belli alish',
+        typePerson: 'Persona Juridica',
+        name: 'Carlos Mario Hernandez',
         typeProviders: 'Auditor',
         typeDocument: 'Cedula de ciudadnia',
         numberDocument: '183955032',
@@ -25,7 +25,7 @@ export class TableFoundService {
       {
         id: 1,
         typePerson: 'Persona Natural',
-        name: 'Andres Gaviria',
+        name: 'Andres Felipe Arango',
         typeProviders: 'Laboratorio',
         typeDocument: 'DNI',
         numberDocument: '1239485949',
@@ -37,7 +37,7 @@ export class TableFoundService {
       {
         id: 3,
         typePerson: 'Persona Natural',
-        name: 'Carlos Mario Hernandez',
+        name: 'Cristian Cardona',
         typeProviders: 'IPS',
         typeDocument: 'NIT',
         numberDocument: '48596968585',
@@ -60,7 +60,7 @@ export class TableFoundService {
       },
       {
         id: 5,
-        typePerson: 'Persona Natural',
+        typePerson: 'Persona Juridica',
         name: 'Eliana rojas',
         typeProviders: 'Clinica',
         typeDocument: 'Cedula de ciudadania',
@@ -156,7 +156,7 @@ export class TableFoundService {
       },
       {
         id: 13,
-        typePerson: 'Persona Natural',
+        typePerson: 'Persona Juriica',
         name: 'Maria Cardona',
         typeProviders: 'Laboratorio',
         typeDocument: 'DNI',

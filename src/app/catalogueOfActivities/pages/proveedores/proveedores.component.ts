@@ -1,14 +1,15 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import {FormBuilder,FormGroup, Validators, FormControl,} from '@angular/forms';
-
-import { TableFoundService } from './../../../service/table-found/table-found.service';
-import { proveedores } from '../../models/interface/dBproveedores.interface';
+import { Router } from '@angular/router';
 
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { Table } from 'primeng/table';
 
 import { TypePerson, City, Departament, TypeDocument, NumberDocument, TypeProviders, Status,Special, Proveedores } from '../../models/interface/proveedores.interface';
-import { Router } from '@angular/router';
+import { TableFoundService } from './../../../service/table-found/table-found.service';
+import { proveedores } from '../../models/interface/dBproveedores.interface';
+
+
 
 
 @Component({

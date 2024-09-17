@@ -22,23 +22,22 @@
           />
         </div>
       </div> -->
-  
+
       <!-- Fila 1 -->
       <div class="formgrid grid mt-4 col-12">
-  
+
         <div class="field col-3">
           <p-dropdown
             [options]="typeDocument"
             formControlName="typeDocument"
             optionLabel="identification"
-            class="ipt-disabled"
-            placeholder="Tipo de identificacion"
+            placeholder="Tipo de identificación"
           />
           <small class="p-error" *ngIf="submitted && editForm.controls['typeDocument'].invalid">
             Tipo de documento es requerido
           </small>
         </div>
-  
+
         <div class="field col-3">
           <p-floatLabel>
             <input
@@ -56,7 +55,7 @@
           </small>
         </p-floatLabel>
         </div>
-  
+
         <div class="field col-3">
           <p-floatLabel>
             <input
@@ -67,14 +66,14 @@
               required
             />
             <label htmlFor="name" id="custom-pfloatLabel" class="w-10">
-              Nombre/Raz&oacute;n Social
+              Nombre / Raz&oacute;n Social
             </label>
             <small class="p-error" *ngIf="submitted && editForm.controls['name'].invalid">
               Nombre es requerido
             </small>
           </p-floatLabel>
         </div>
-  
+
         <div class="field col-3">
           <p-dropdown
             [options]="typePerson"
@@ -85,10 +84,10 @@
           />
         </div>
       </div>
-  
+
       <!-- Fila 2 -->
       <div class="formgrid grid col-12">
-  
+
         <div class="field col-3">
           <p-dropdown
             [options]="typeProviders"
@@ -98,8 +97,8 @@
             placeholder="Tipo de proveedor"
           />
         </div>
-  
-  
+
+
         <div class="field col-3">
           <p-dropdown
             [options]="departament"
@@ -112,9 +111,9 @@
             Departamento es requerido
           </small>
         </div>
-  
+
         <div class="field col-3 input-with-button">
-  
+
           <p-floatLabel>
             <input
               pInputText
@@ -122,7 +121,7 @@
               class="ipt-disabled"
               id="status"
               formControlName="status"
-              [disabled]="true"          
+              [disabled]="true"
             />
             <label htmlFor="status" id="custom-pfloatLabel" class="w-10">Estado</label>
           </p-floatLabel>
@@ -737,7 +736,7 @@
       </div>
     </form>
   </ng-template>
-  
+
   <ng-template pTemplate="footer">
     <div class="formgrid grid flex justify-content-between">
       <div class="field-col ml-4">
@@ -821,7 +820,7 @@
             (onClick)="hideSpecialDialogAddEdit()"
           />
           </div>
-  
+
           <div class="field-col mr-5">
           <p-button
             label="Guardar"
@@ -836,43 +835,3 @@
     </div>
   </form>
 </p-dialog>
-
-<!-- Dialogo para modal servicios habilitados -->
-<p-dialog
-header="Servicios Habilitados"
-[(visible)]="serviceUpload"
-[modal]="true"
-[closable]="true"
-[resizable]="false"
-[style]="{ width: '30vw' }"
-[draggable]="false"
-[responsive]="true"
-[baseZIndex]="10000"
-(onHide)="onServiceHide()"
->
-  <div class="mt-4">
-    <p-fileUpload
-      mode="basic"
-      name="file"
-      url="your-backend-api-url/upload"
-      accept="image/*"
-      maxFileSize="1000000"
-      (onUpload)="onUploadService($event)"
-      chooseLabel="Seleccionar archivo"
-      class="upload-button"
-      ></p-fileUpload>
-  </div>
-
-  <p-footer>
-    <button
-      type="button"
-      pButton
-      label="Cerrar"
-      icon="pi pi-times"
-      [rounded]="true"
-      [raised]="true"
-      (click)="serviceUpload = false"
-    ></button>
-  </p-footer>
-</p-dialog>
-

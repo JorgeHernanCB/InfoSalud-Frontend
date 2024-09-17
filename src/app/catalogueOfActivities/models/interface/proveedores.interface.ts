@@ -76,7 +76,7 @@ export interface Special{
 }
 
 export interface Active{
-  name: string;
+  name?: string;
 }
 
 export interface PrincipalSede{

@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ConveniosComponent } from './convenios.component';
+import { ModificarConveniosComponent } from './pages/modificar-convenios/modificar-convenios.component';
+import { NuevoConveniosComponent } from './pages/nuevo-convenios/nuevo-convenios.component';
+
+
 const routes: Routes = [
   {
     path: '',
@@ -8,6 +12,18 @@ const routes: Routes = [
       {
         path: '',
         component: ConveniosComponent
+      },
+      {
+        path: 'nuevo-convenios',
+        component: NuevoConveniosComponent
+      },
+      {
+        path: 'modificar-convenios',
+        component: ModificarConveniosComponent
+      },
+      {
+        path: '**',
+        redirectTo: 'convenios',
       }
     ]
   }

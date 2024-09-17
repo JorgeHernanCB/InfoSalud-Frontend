@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup,FormControl ,  FormBuilder, Validators } from '@angular/forms';
 
 import {TableLocationService} from '../../../../../service/table-location(sedes)/table-location.service';
 import {TableSpecialService} from '../../../../../service/table-special(especialidades)/table-special.service';
@@ -51,13 +51,28 @@ export class NuevoProveedorComponent {
       active: ['', Validators.required],
       sedePrincipal: ['', Validators.required],
 
-    });
+    })
   }
 
   //Formulario sede
-
+  public sedesForm = new FormGroup({
+    id: new FormControl<number>(0, { nonNullable: true }),
+    code: new FormControl<number>(0, [Validators.required]), // Código como número no nulo
+    name: new FormControl<string>(''),
+    sede: new FormControl<string>('', [Validators.required]),
+    address: new FormControl<string>(''),
+    active: new FormControl<string>(''),
+    principalSede: new FormControl<string>('', [Validators.required]),
+    departament: new FormControl<string>('', [Validators.required]),
+    city: new FormControl<string>('', [Validators.required]),
+  });
 
   //Formulario specials
+  public specialForm = new FormGroup({
+    id: new FormControl<number>(0, { nonNullable: true }),
+    code: new FormControl<number>(0, [Validators.required]),
+    specials: new FormControl<string>(''),
+  })
 
   //Proveedores
   public cities: City[] | undefined = [];
@@ -114,6 +129,7 @@ export class NuevoProveedorComponent {
       }));
     })
 
+    //ProgressSpinner
     setTimeout(() => {
       this.loading = false;
     }, 1000);

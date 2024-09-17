@@ -31,7 +31,7 @@
             formControlName="typeDocument"
             class="ipt-required"
             optionLabel="identification"
-            placeholder="Seleccione un Tipo de Identificación"
+            placeholder="Tipo de Identificación"
             />
           </div>
           <!-- required -->
@@ -92,7 +92,7 @@
             [options]="typeProviders"
             formControlName="typeProviders"
             optionLabel="name"
-            placeholder="Seleccione un proveedor"
+            placeholder="Proveedor"
           />
         </div>
 
@@ -156,7 +156,7 @@
             'name',
             'address',
             'active',
-            'sedePrincipal',
+            'principalSede',
             'city',
             'departament',
             'locationMain'
@@ -184,7 +184,7 @@
               <th pSortableColumn="active" class="text-center">
                 Activo<p-sortIcon field="active"></p-sortIcon>
               </th>
-              <th pSortableColumn="sedePrincipal" class="text-center">
+              <th pSortableColumn="principalSede" class="text-center">
                 Sede Principal<p-sortIcon field="sedePrincipal"></p-sortIcon>
               </th>
               <th pSortableColumn="city" class="text-center">
@@ -204,8 +204,8 @@
               <td class="text-center">{{ locations.code }}</td>
               <td class="text-center">{{ locations.name }}</td>
               <td class="text-center">{{ locations.address }}</td>
-              <td class="text-center">{{ locations.active }}</td>
-              <td class="text-center">{{ locations.sedePrincipal }}</td>
+              <td class="text-center">{{ locations.active}}</td>
+              <td class="text-center">{{ locations.principalSede }}</td>
               <td class="text-center">{{ locations.city }}</td>
               <td class="text-center">{{ locations.departament }}</td>
               <!-- <td class="text-center">{{ locations.locationMain }}</td> -->
@@ -316,200 +316,196 @@
       </div>
     </div>
   </div>
-</div>
 
-<!-- Dialogo Numero documento -->
-<p-dialog
-[(visible)]="displaySearchDialog"
-header="Filtro B&uacute;squeda Proveedores"
-[modal]="true"
-[style]="{ width: '70vw' }"
-[closable]="true"
-[draggable]="false"
-[resizable]="false"
->
-<form [formGroup]="nuevoProveedorForm" (ngSubmit)="onSubmit()">
-  <!-- Contenido del modal -->
-  <div class="p-fluid">
-    <div class="p-field">
 
-      <!-- Row 1 -->
-      <div class="formgrid grid col-12">
+  <!-- Dialogo Numero documento -->
+  <p-dialog
+    [(visible)]="displaySearchDialog"
+    header="Filtro B&uacute;squeda Proveedores"
+    [modal]="true"
+    [style]="{ width: '70vw' }"
+    [closable]="true"
+    [draggable]="false"
+    [resizable]="false"
+  >
+    <form [formGroup]="nuevoProveedorForm" (ngSubmit)="onSubmit()">
+      <!-- Contenido del modal -->
+      <div class="p-fluid">
+        <div class="p-field">
 
-        <div class="field col-6">
-          <p-dropdown
-            [options]="typeDocument"
-            formControlName="typeDocument"
-            optionLabel="identification"
-            placeholder="Seleccione una Identificación"
-          />
-        </div>
+          <!-- Row 1 -->
+          <div class="formgrid grid col-12">
 
-        <div class="field col-6">
-          <p-floatLabel>
-            <input
-              pInputText
-              id="number"
-              formControlName="numberDocument"
-            />
-            <label htmlFor="numberDocument" id="custom-pfloatLabel" class="w-10"
-              >N&uacute;mero de identificaci&oacute;n</label
-            >
-          </p-floatLabel>
-        </div>
-      </div>
-
-      <!-- Row 2 -->
-      <div class="formgrid grid col-12">
-        <div class="field col-6">
-          <p-floatLabel>
-            <input
-              pInputText
-              id="name"
-              formControlName="name"
-              [disabled]="true"
+            <div class="field col-6">
+              <p-dropdown
+                [options]="typeDocument"
+                formControlName="typeDocument"
+                optionLabel="identification"
+                placeholder="Identificación"
               />
-              <label htmlFor="name" id="custom-pfloatLabel" class="w-10"
-              >Nombre/Raz&oacute;n Social</label
-            >
-          </p-floatLabel>
-        </div>
-        <div class="field col-6">
-            <p-dropdown
-              [options]="typePerson"
-              formControlName="typePerson"
-              optionLabel="typePerson"
-              placeholder="Tipo de persona"
-            />
+            </div>
+
+            <div class="field col-6">
+              <p-floatLabel>
+                <input
+                  pInputText
+                  id="number"
+                  formControlName="numberDocument"
+                />
+                <label htmlFor="numberDocument" id="custom-pfloatLabel" class="w-10"
+                  >N&uacute;mero de identificaci&oacute;n</label
+                >
+              </p-floatLabel>
+            </div>
+          </div>
+
+          <!-- Row 2 -->
+          <div class="formgrid grid col-12">
+            <div class="field col-6">
+              <p-floatLabel>
+                <input
+                  pInputText
+                  id="name"
+                  formControlName="name"
+                  [disabled]="true"
+                  />
+                  <label htmlFor="name" id="custom-pfloatLabel" class="w-10"
+                  >Nombre / Raz&oacute;n Social</label
+                >
+              </p-floatLabel>
+            </div>
+            <div class="field col-6">
+                <p-dropdown
+                  [options]="typePerson"
+                  formControlName="typePerson"
+                  optionLabel="typePerson"
+                  placeholder="Tipo de persona"
+                />
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+
+      <!-- Table -->
+      <p-table
+        styleClass="p-datatable-gridlines"
+        [tableStyle]="{ 'min-width': '50rem' }"
+        [globalFilterFields]="[
+          'typeDocument',
+          'numberDocument',
+          'name',
+        ]"
+        [rowHover]="true"
+        dataKey="id"
+        [showCurrentPageReport]="true"
+        emptyMessage = "No hay datos"
+      >
+        <ng-template pTemplate="header">
+          <tr>
+            <th class="text-center">
+              Sel
+            </th>
+            <th class="text-center">
+              Tipo de identificaci&oacute;n
+            </th>
+            <th class="text-center">
+              N&uacute;mero de identificaci&oacute;n
+            </th>
+            <th class="text-center">
+              Raz&oacute;n Social
+            </th>
+
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-proveedor>
+          <tr>
+            <td><p-tableCheckbox/></td>
+            <td>Cedula de ciudadania</td>
+            <td>12326454647483485636374</td>
+            <td>Ejecutivo del Cafe enfocado en el desarrollo sustentable para las familias de bajo recurso en todo el corregimiento del Valle</td>
+          </tr>
+        </ng-template>
+
+      </p-table>
+
+      <p-footer>
+        <div class="mt-4 flex justify-content-between w-full">
+          <div>
+            <button
+              type="button"
+              pButton
+              label="Cerrar"
+              [rounded]="true"
+              icon="pi pi-times"
+              (click)="displaySearchDialog = false"
+            ></button>
+          </div>
+          <div>
+            <button
+              type="button"
+              pButton
+              label="Guardar"
+              [rounded]="true"
+              icon="pi pi-check"
+              (click)="displaySearchDialog = false"
+            ></button>
+          </div>
+        </div>
+      </p-footer>
+    </form>
+  </p-dialog>
+
+  <!-- Modal para el uploadFile -->
+   <!-- [width]="400" -->
+  <p-dialog
+    header="Subir Archivo"
+    [(visible)]="displayUploadDialog"
+    [modal]="true"
+    [closable]="true"
+    [resizable]="false"
+    [style]="{ width: '30vw'}"
+    [draggable]="false"
+    [responsive]="true"
+    [baseZIndex]="10000"
+    (onHide)="onDialogHide()"
+  >
+  <div class="mt-4">
+    <p-fileUpload
+      mode="basic"
+      name="file"
+      url="your-backend-api-url/upload"
+      accept="image/*"
+      maxFileSize="1000000"
+      (onUpload)="onUpload($event)"
+      chooseLabel="Seleccionar archivo"
+      class="upload-button"
+      ></p-fileUpload>
   </div>
 
-  <!-- Table -->
-  <p-table
-    styleClass="p-datatable-gridlines"
-    [tableStyle]="{ 'min-width': '50rem' }"
-    [globalFilterFields]="[
-      'typeDocument',
-      'numberDocument',
-      'name',
-      'typePerson',
-    ]"
-    [rowHover]="true"
-    dataKey="id"
-    [showCurrentPageReport]="true"
-    emptyMessage = "No hay datos"
-  >
-    <ng-template pTemplate="header">
-      <tr>
-        <th class="text-center">
-          Sel
-        </th>
-        <th class="text-center">
-          Tipo de identificaci&oacute;n
-        </th>
-        <th class="text-center">
-          N&uacute;mero de identificaci&oacute;n
-        </th>
-        <th class="text-center">
-          Raz&oacute;n Social
-        </th>
-        <th class="text-center">
-          Tipo de Persona
-        </th>
-      </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-proveedor>
-      <tr>
-        <td><p-tableCheckbox/></td>
-        <td>Cedula de ciudadania</td>
-        <td>12326454647483485636374</td>
-        <td>Ejecutivo del Cafe enfocado en el desarrollo sustentable para las familias de bajo recurso en todo el corregimiento del Valle</td>
-      </tr>
-    </ng-template>
-
-  </p-table>
-
   <p-footer>
-    <div class="mt-4 flex justify-content-between w-full">
-      <div>
-        <button
-          type="button"
-          pButton
-          label="Cerrar"
-          [rounded]="true"
-          icon="pi pi-times"
-          class="p-button-danger"
-          (click)="displaySearchDialog = false"
-        ></button>
-      </div>
-      <div>
-        <button
-          type="button"
-          pButton
-          label="Guardar"
-          [rounded]="true"
-          icon="pi pi-check"
-          (click)="displaySearchDialog = false"
-        ></button>
-      </div>
-    </div>
+    <button
+      type="button"
+      pButton
+      label="Cerrar"
+      icon="pi pi-times"
+      (click)="displayUploadDialog = false"
+    ></button>
   </p-footer>
-</form>
-</p-dialog>
 
-<!-- Modal para el uploadFile -->
-<!-- [width]="400" -->
-<p-dialog
-header="Subir Archivo"
-[(visible)]="displayUploadDialog"
-[modal]="true"
-[closable]="true"
-[resizable]="false"
-[style]="{ width: '30vw'}"
-[draggable]="false"
-[responsive]="true"
-[baseZIndex]="10000"
-(onHide)="onDialogHide()"
->
-<div class="mt-4">
-<p-fileUpload
-  mode="basic"
-  name="file"
-  url="your-backend-api-url/upload"
-  accept="image/*"
-  maxFileSize="1000000"
-  (onUpload)="onUpload($event)"
-  chooseLabel="Seleccionar archivo"
-  class="upload-button"
-  ></p-fileUpload>
-</div>
-
-<p-footer>
-<button
-  type="button"
-  pButton
-  label="Cerrar"
-  icon="pi pi-times"
-  (click)="displayUploadDialog = false"
-></button>
-</p-footer>
-
-</p-dialog>
+  </p-dialog>
 
 
-<!-- Dialogo para agregar una sede -->
-<p-dialog
-[(visible)]="addSedeDialog"
-[style]="{width: '600px'}"
-header="Agregar una nueva sede"
-[modal]="true"
-styleClass="p-fluid">
-<ng-template pTemplate="content">
-  <!-- [formGroup]="addSedesForm" -->
-  <form >
-    <div class="formgrid grid col-12 mt-4">
+  <!-- Dialogo para agregar una sede -->
+  <p-dialog
+    [(visible)]="addSedeDialog"
+    [style]="{width: '600px'}"
+    header="Agregar una nueva sede"
+    [modal]="true"
+    styleClass="p-fluid">
+    <ng-template pTemplate="content">
+      <!-- [formGroup]="addSedesForm" -->
+      <form [formGroup]="sedesForm" >
+        <div class="formgrid grid col-12 mt-4">
 
       <div class="field col-6">
         <p-floatLabel>
@@ -526,6 +522,20 @@ styleClass="p-fluid">
         Nombre/Razon social es requerido
         </small> -->
       </div>
+          <div class="field col-6">
+            <p-floatLabel>
+              <input
+                pInputText
+                id="sede"
+                formControlName="sede"
+              />
+              <label htmlFor="sede" id="custom-pfloatLabel" class="w-10"
+                >Nombre</label
+              >
+            </p-floatLabel>
+
+          </div>
+
 
       <div class="field col-6">
         <p-floatLabel>
@@ -543,32 +553,41 @@ styleClass="p-fluid">
         </small> -->
       </div>
     </div>
+          <div class="field col-6">
+            <p-floatLabel>
+              <input
+                pInputText
+                id="address"
+                formControlName="address"
+              />
+              <label htmlFor="name" id="custom-pfloatLabel" class="w-10"
+                >Direcci&oacute;n</label
+                >
+            </p-floatLabel>
 
-    <div class="formgrid grid col-12">
+          </div>
+        </div>
 
-      <div class="field col-6">
-        <p-dropdown
-        [options]="active"
-        formControlName="active"
-        optionLabel="name"
-          placeholder="Activo"
-        />
-        <!-- <small class="p-error" *ngIf="submitted && proveedorsForm.controls['city'].invalid">
-          Activa es requerida
-        </small> -->
-      </div>
 
-      <div class="field col-6">
-        <p-dropdown
-          [options]="departaments"
-          formControlName="departament"
-          optionLabel="name"
-          placeholder="Departamento"
-        />
-        <!-- <small class="p-error" *ngIf="submitted && proveedorsForm.controls['departament'].invalid">
-        Departamento es requerido
-      </small> -->
-    </div>
+        <div class="formgrid grid col-12">
+
+          <div class="field col-6">
+            <p-dropdown
+            [options]="active"
+            formControlName="active"
+            optionLabel="name"
+              placeholder="Activo"
+            />
+          </div>
+
+          <div class="field col-6">
+            <p-dropdown
+              [options]="departaments"
+              formControlName="departament"
+              optionLabel="name"
+              placeholder="Departamento"
+            />
+        </div>
 
   </div>
     <!-- Row 3 -->
@@ -621,6 +640,17 @@ styleClass="p-fluid">
   <!-- [formGroup]="addSedesForm" -->
   <form >
     <div class="formgrid grid col-12 mt-4">
+  <!-- Dialogo para agregar una especialidad -->
+  <p-dialog
+    [(visible)]="addSpecialDialog"
+    [style]="{width: '600px'}"
+    header="Agregar una nueva sede"
+    [modal]="true"
+    styleClass="p-fluid">
+    <ng-template pTemplate="content">
+      <!-- [formGroup]="addSedesForm" -->
+      <form [formGroup]="specialForm">
+        <div class="formgrid grid col-12 mt-4">
 
       <div class="field col-6">
         <p-floatLabel>
@@ -638,6 +668,20 @@ styleClass="p-fluid">
         Codigo es requerido
         </small> -->
       </div>
+          <div class="field col-6">
+            <p-floatLabel>
+              <input
+                pInputText
+                type="number"
+                id="code"
+                formControlName="code"
+              />
+              <label htmlFor="code" id="custom-pfloatLabel" class="w-10"
+                >Codigo</label
+              >
+            </p-floatLabel>
+
+          </div>
 
       <div class="field col-6">
         <p-floatLabel>
@@ -657,6 +701,21 @@ styleClass="p-fluid">
     </div>
   </form>
 </ng-template>
+          <div class="field col-6">
+            <p-floatLabel>
+              <input
+                pInputText
+                id="specialidad"
+                formControlName="specials"
+              />
+              <label htmlFor="specialidad" id="custom-pfloatLabel" class="w-10"
+                >Especialidad</label
+              >
+            </p-floatLabel>
+          </div>
+        </div>
+      </form>
+    </ng-template>
 
 <ng-template pTemplate="footer">
   <div class="formgrid grid flex justify-content-between">
