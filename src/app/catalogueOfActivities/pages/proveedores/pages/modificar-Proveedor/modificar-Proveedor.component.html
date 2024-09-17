@@ -835,3 +835,42 @@
     </div>
   </form>
 </p-dialog>
+
+<!-- UploadFile -->
+<p-dialog
+  header="Subir Archivo"
+  [(visible)]="serviceUpload"
+  [modal]="true"
+  [closable]="true"
+  [resizable]="false"
+  [style]="{ width: '30vw' }"
+  [draggable]="false"
+  [responsive]="true"
+  [baseZIndex]="10000"
+  (onHide)="onServiceHide()"
+  >
+  <div class="mt-4">
+    <p-fileUpload
+      mode="basic"
+      name="file"
+      url="your-backend-api-url/upload"
+      accept="image/*"
+      maxFileSize="1000000"
+      (onUpload)="onUploadService($event)"
+      chooseLabel="Seleccionar archivo"
+      class="upload-button"
+    ></p-fileUpload>
+  </div>
+
+  <p-footer>
+    <button
+      type="button"
+      pButton
+      label="Cerrar"
+      icon="pi pi-times"
+      [rounded]="true"
+      [raised]="true"
+      (click)="serviceUpload = false"
+    ></button>
+  </p-footer>
+</p-dialog>
