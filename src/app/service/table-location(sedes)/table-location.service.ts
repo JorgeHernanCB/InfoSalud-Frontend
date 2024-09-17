@@ -2,11 +2,10 @@ import { Injectable } from '@angular/core';
 import { TypeProviders } from '../../catalogueOfActivities/models/interface/proveedores.interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TableLocationService {
-
-  constructor() { }
+  constructor() {}
 
   getDataTable() {
     return [
@@ -16,10 +15,10 @@ export class TableLocationService {
         name: 'Hospital San Juan De Dios',
         address: 'Calle 10 # 12-34',
         principalSede: 'Si',
-        city:'Cali',
+        city: 'Cali',
         departament: 'Valle del Cauca',
         active: 'Si',
-        locationMain:'Principal'
+        locationMain: 'Principal',
       },
       // {
       //   id: 2,
@@ -49,10 +48,10 @@ export class TableLocationService {
         name: 'Fundación Cardio Infantil',
         address: 'Calle 10 # 12-34',
         principalSede: 'Si',
-        city:'Pereira',
+        city: 'Pereira',
         departament: 'Risaralda',
         active: 'Si',
-        locationMain:'Principal'
+        locationMain: 'Principal',
       },
       {
         id: 3,
@@ -60,15 +59,14 @@ export class TableLocationService {
         name: 'Fundación Santa Fe de Bogotá',
         address: 'Calle 10 # 12-34',
         principalSede: 'No',
-        city:'Bogota',
+        city: 'Bogota',
         departament: 'Cundinamarca',
         active: 'No',
-        locationMain:'Principal'
+        locationMain: 'Principal',
       },
-    ]
+    ];
   }
-  getData(){
+  getData() {
     return Promise.resolve(this.getDataTable());
   }
-
 }
