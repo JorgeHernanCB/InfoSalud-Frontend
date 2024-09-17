@@ -6,7 +6,7 @@ export interface Location {
   city?: string;
   principalSede?: string;
   departament?: string;
-  active?: string;
+  activo?: string;
   locationMain?: string;
 
 }

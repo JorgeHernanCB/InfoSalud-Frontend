@@ -362,7 +362,7 @@ export class ModificarProveedorComponent implements OnInit {
         code: formValue.code ?? undefined,
         name: formValue.name ?? undefined,
         address: formValue.address ?? undefined,
-        active: formValue.active ?? undefined,
+        activo: formValue.active ?? undefined,
         principalSede: formValue.principalSede ?? undefined,
         departament: formValue.departament ?? undefined,
         city: formValue.city ?? undefined,

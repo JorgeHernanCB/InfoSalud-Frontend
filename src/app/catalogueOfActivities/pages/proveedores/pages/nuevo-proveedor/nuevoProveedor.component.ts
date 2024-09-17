@@ -81,7 +81,7 @@ export class NuevoProveedorComponent {
   public numberDocument: NumberDocument[] = [];
   public typeProviders: TypeProviders[] | undefined = [];
   public status: Status[] | undefined = [];
-  public active: Active[] | undefined = [];
+  public activo: Active[] | undefined = [];
   public sedePrincipal: PrincipalSede[] | undefined = [];
   public departaments: Departament[] | undefined = [];
 
@@ -193,7 +193,7 @@ export class NuevoProveedorComponent {
       { name: 'Hospital' },
     ];
 
-    this.active = [
+    this.activo = [
       { name: 'Si' },
       { name: 'No' },
     ];
