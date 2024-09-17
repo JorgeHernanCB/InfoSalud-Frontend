@@ -11,7 +11,8 @@ import {
   NumberDocument,
   PrincipalSede, 
   Active,
-  Special
+  Special,
+  serviceHabilitado
 } from '../../../../models/interface/proveedores.interface';
 import { ProveedoresService } from '../../../../../service/proveedores/proveedores.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -20,6 +21,8 @@ import { TableLocationService } from '../../../../../service/table-location(sede
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { Location } from '../../../../models/interface/location.interface';
 import { TableSpecialService } from '../../../../../service/table-special(especialidades)/table-special.service';
+import { TableServicesService } from '../../../../../service/table-services(serviciosHabilitados)/table-services.service';
+
 
 
 @Component({
@@ -52,6 +55,10 @@ export class ModificarProveedorComponent implements OnInit {
   specialAddEdit: boolean = false;
   submittedSpecials: boolean = false;
   special!: Special;
+
+  // Servicios habilitados
+  serviceUpload: boolean = false;
+  serviceHabilitado!: serviceHabilitado[]
 
 
 
@@ -96,7 +103,7 @@ export class ModificarProveedorComponent implements OnInit {
     id: new FormControl<number>(0, { nonNullable: true }),
     code: new FormControl<number>(0, [Validators.required]),
     name: new FormControl<string>(''),
-  })
+  });
 
 
   //Dropdowns
@@ -116,6 +123,7 @@ export class ModificarProveedorComponent implements OnInit {
     private proveedoresService: ProveedoresService,
     private tableLocationService: TableLocationService,
     private tableSpecialService: TableSpecialService,
+    private tableServiceService: TableServicesService,
     private messageService: MessageService,
     private confirmationService: ConfirmationService,
   ) {
@@ -138,8 +146,17 @@ export class ModificarProveedorComponent implements OnInit {
       this.specials = data.map((item: any) => ({
         ...item,
         active: item.active === 'true' || item.active === 'true' || item.active === '1' ? true : false
-      }))
-    })
+      }));
+    });
+
+    //Tabla de servicios habilitados
+    this.tableServiceService.getData().then((data) =>{
+      this.serviceHabilitado = data.map((item: any) => ({
+        ...item,
+        active: item.active === 'true' || item.active === 'true' || item.active === '1' ? true : false
+      }));
+    });
+
 
     this.initializeDropdowns();
 
@@ -236,9 +253,12 @@ export class ModificarProveedorComponent implements OnInit {
     ];
 
     this.especial = [
-      { code: 123 , name:'Especialidad 1'},
-      { code: 134 , name: 'Especialidad 2'},
-      { code: 142 , name: 'Especialidad 3'},
+      { code: 123 , name: 'Ambulancia'},
+      { code: 134 , name: 'Centro de cirugia ambulatoria'},
+      { code: 142 , name: 'Anestesia'},
+      { code: 111 , name: 'Cardiologia'},
+      { code: 112 , name: 'Servicios de quiropractico'},
+      { code: 113 , name: 'Laboratorio Clinico'},
     ];
   }
 
@@ -298,7 +318,6 @@ export class ModificarProveedorComponent implements OnInit {
       console.log('Formulario no válido');
     }
   }
-
 
   //Abrir modal de estado
   showStatusDialog(){
@@ -483,6 +502,24 @@ export class ModificarProveedorComponent implements OnInit {
         });
       }
     });
+  }
+
+  // SECCION SERVICIOS HABILITADOS
+  // ------------------------------------------
+
+  openNewServiceHabilitado(){
+    // this.sedesForm.reset();
+    // this.submittedSedeAddEdit = false;
+    this.serviceUpload = true;
+  }
+
+  //Cerrar modal Upload
+  onServiceHide(){
+    this.serviceUpload = false;
+  }
+
+  onUploadService(event: any){
+    console.log('Archivo subido', event.files);
   }
 
 

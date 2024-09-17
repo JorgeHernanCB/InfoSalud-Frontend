@@ -12,22 +12,32 @@ export class TableSpecialService {
       {
         id: 1,
         code: 111,
-        name: 'Especialidad 1'
+        name: 'Ambulancia'
       },
       {
         id: 2,
         code: 112,
-        name: 'Especialidad 2'
+        name: 'Centro de cirugia ambulatoria'
       },
       {
         id: 3,
         code: 113,
-        name: 'Especialidad 3'
+        name: 'Anestesia'
       },
       {
         id: 4,
         code: 114,
-        name: 'Especialidad 4'
+        name: 'Cardiologia'
+      },
+      {
+        id: 5,
+        code: 115,
+        name: 'Servicios de quiropráctico'
+      },
+      {
+        id: 6,
+        code: 116,
+        name: 'Laboratorio Clinico'
       },
       
     ]

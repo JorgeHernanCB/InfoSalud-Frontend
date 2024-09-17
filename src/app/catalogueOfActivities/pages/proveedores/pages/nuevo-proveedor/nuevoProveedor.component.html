@@ -14,7 +14,7 @@
           </div>
         <div class="field-col mr-5">
           <p-button
-          label="Guardar"
+            label="Guardar"
             [raised]="true"
             [rounded]="true"
             type="submit"
@@ -29,6 +29,7 @@
           <p-dropdown
             [options]="typeDocument"
             formControlName="typeDocument"
+            class="ipt-required"
             optionLabel="identification"
             placeholder="Seleccione un Tipo de Identificación"
             />
@@ -293,12 +294,13 @@
             label="Cancelar"
             [raised]="true"
             [rounded]="true"
+            (click) = "showConfirmCancelar()"
           />
         </div>
 
         <div class="field-col flex gap-2">
           <p-button
-          label = "Servicios Habilitados"
+            label = "Servicios Habilitados"
             [raised] = "true"
             [rounded] = "true"
             (click) = "openUploadDialog()"
@@ -314,374 +316,387 @@
       </div>
     </div>
   </div>
+</div>
 
+<!-- Dialogo Numero documento -->
+<p-dialog
+[(visible)]="displaySearchDialog"
+header="Filtro B&uacute;squeda Proveedores"
+[modal]="true"
+[style]="{ width: '70vw' }"
+[closable]="true"
+[draggable]="false"
+[resizable]="false"
+>
+<form [formGroup]="nuevoProveedorForm" (ngSubmit)="onSubmit()">
+  <!-- Contenido del modal -->
+  <div class="p-fluid">
+    <div class="p-field">
 
-  <!-- Dialogo Numero documento -->
-  <p-dialog
-    [(visible)]="displaySearchDialog"
-    header="Filtro B&uacute;squeda Proveedores"
-    [modal]="true"
-    [style]="{ width: '70vw' }"
-    [closable]="true"
-    [draggable]="false"
-    [resizable]="false"
-  >
-    <form [formGroup]="nuevoProveedorForm" (ngSubmit)="onSubmit()">
-      <!-- Contenido del modal -->
-      <div class="p-fluid">
-        <div class="p-field">
+      <!-- Row 1 -->
+      <div class="formgrid grid col-12">
 
-          <!-- Row 1 -->
-          <div class="formgrid grid col-12">
+        <div class="field col-6">
+          <p-dropdown
+            [options]="typeDocument"
+            formControlName="typeDocument"
+            optionLabel="identification"
+            placeholder="Seleccione una Identificación"
+          />
+        </div>
 
-            <div class="field col-6">
-              <p-dropdown
-                [options]="typeDocument"
-                formControlName="typeDocument"
-                optionLabel="identification"
-                placeholder="Seleccione una Identificación"
-              />
-            </div>
-
-            <div class="field col-6">
-              <p-floatLabel>
-                <input
-                  pInputText
-                  id="number"
-                  formControlName="numberDocument"
-                />
-                <label htmlFor="numberDocument" id="custom-pfloatLabel" class="w-10"
-                  >N&uacute;mero de identificaci&oacute;n</label
-                >
-              </p-floatLabel>
-            </div>
-          </div>
-
-          <!-- Row 2 -->
-          <div class="formgrid grid col-12">
-            <div class="field col-6">
-              <p-floatLabel>
-                <input
-                  pInputText
-                  id="name"
-                  formControlName="name"
-                  [disabled]="true"
-                  />
-                  <label htmlFor="name" id="custom-pfloatLabel" class="w-10"
-                  >Nombre/Raz&oacute;n Social</label
-                >
-              </p-floatLabel>
-            </div>
-            <div class="field col-6">
-                <p-dropdown
-                  [options]="typePerson"
-                  formControlName="typePerson"
-                  optionLabel="typePerson"
-                  placeholder="Tipo de persona"
-                />
-            </div>
-          </div>
+        <div class="field col-6">
+          <p-floatLabel>
+            <input
+              pInputText
+              id="number"
+              formControlName="numberDocument"
+            />
+            <label htmlFor="numberDocument" id="custom-pfloatLabel" class="w-10"
+              >N&uacute;mero de identificaci&oacute;n</label
+            >
+          </p-floatLabel>
         </div>
       </div>
 
-      <!-- Table -->
-      <p-table
-        styleClass="p-datatable-gridlines"
-        [tableStyle]="{ 'min-width': '50rem' }"
-        [globalFilterFields]="[
-          'typeDocument',
-          'numberDocument',
-          'name',
-          'typePerson',
-        ]"
-        [rowHover]="true"
-        dataKey="id"
-        [showCurrentPageReport]="true"
-        emptyMessage = "No hay datos"
-      >
-        <ng-template pTemplate="header">
-          <tr>
-            <th class="text-center">
-              Sel
-            </th>
-            <th class="text-center">
-              Tipo de identificaci&oacute;n
-            </th>
-            <th class="text-center">
-              N&uacute;mero de identificaci&oacute;n
-            </th>
-            <th class="text-center">
-              Raz&oacute;n Social
-            </th>
-            <th class="text-center">
-              Tipo de Persona
-            </th>
-          </tr>
-        </ng-template>
-        <ng-template pTemplate="body" let-proveedor>
-          <tr>
-            <td><p-tableCheckbox/></td>
-            <td>Cedula de ciudadania</td>
-            <td>12326454647483485636374</td>
-            <td>Ejecutivo del Cafe enfocado en el desarrollo sustentable para las familias de bajo recurso en todo el corregimiento del Valle</td>
-          </tr>
-        </ng-template>
-
-      </p-table>
-
-      <p-footer>
-        <div class="mt-4 flex justify-content-between w-full">
-          <div>
-            <button
-              type="button"
-              pButton
-              label="Cerrar"
-              [rounded]="true"
-              icon="pi pi-times"
-              class="p-button-danger"
-              (click)="displaySearchDialog = false"
-            ></button>
-          </div>
-          <div>
-            <button
-            severity="success"
-              type="button"
-              pButton
-              label="Guardar"
-              [rounded]="true"
-              icon="pi pi-check"
-              (click)="displaySearchDialog = false"
-            ></button>
-          </div>
-        </div>
-      </p-footer>
-    </form>
-  </p-dialog>
-
-  <!-- Modal para el uploadFile -->
-   <!-- [width]="400" -->
-  <p-dialog
-    header="Subir Archivo"
-    [(visible)]="displayUploadDialog"
-    [modal]="true"
-    [closable]="true"
-    [resizable]="false"
-    [style]="{ width: '30vw'}"
-    [draggable]="false"
-    [responsive]="true"
-    [baseZIndex]="10000"
-    (onHide)="onDialogHide()"
-  >
-  <div class="mt-4">
-    <p-fileUpload
-      mode="basic"
-      name="file"
-      url="your-backend-api-url/upload"
-      accept="image/*"
-      maxFileSize="1000000"
-      (onUpload)="onUpload($event)"
-      chooseLabel="Seleccionar archivo"
-      class="upload-button"
-      ></p-fileUpload>
-  </div>
-  
-  <p-footer>
-    <button
-      type="button"
-      pButton
-      label="Cerrar"
-      icon="pi pi-times"
-      (click)="displayUploadDialog = false"
-    ></button>
-  </p-footer>
-
-  </p-dialog>
-
-
-  <!-- Dialogo para agregar una sede -->
-  <p-dialog
-    [(visible)]="addSedeDialog"
-    [style]="{width: '600px'}"
-    header="Agregar una nueva sede"
-    [modal]="true"
-    styleClass="p-fluid">
-    <ng-template pTemplate="content">
-      <!-- [formGroup]="addSedesForm" -->
-      <form >
-        <div class="formgrid grid col-12 mt-4">
-
-          <div class="field col-6">
-            <p-floatLabel>
-              <input
-                pInputText
-                id="sede"
-                formControlName="sede"
-              />
-              <label htmlFor="sede" id="custom-pfloatLabel" class="w-10"
-                >Nombre</label
-              >
-            </p-floatLabel>
-            <!-- <small class="p-error" *ngIf="submitted && proveedorsForm.controls['typePerson'].invalid">
-            Nombre/Razon social es requerido
-            </small> -->
-          </div>
-
-          <div class="field col-6">
-            <p-floatLabel>
-              <input
-                pInputText
-                id="address"
-                formControlName="address"
+      <!-- Row 2 -->
+      <div class="formgrid grid col-12">
+        <div class="field col-6">
+          <p-floatLabel>
+            <input
+              pInputText
+              id="name"
+              formControlName="name"
+              [disabled]="true"
               />
               <label htmlFor="name" id="custom-pfloatLabel" class="w-10"
-                >Direcci&oacute;n</label
-                >
-            </p-floatLabel>
-            <!-- <small class="p-error" *ngIf="submitted && proveedorsForm.controls['numberDocument'].invalid">
-              Direccion es requerido
-            </small> -->
-          </div>
+              >Nombre/Raz&oacute;n Social</label
+            >
+          </p-floatLabel>
         </div>
-
-        <div class="formgrid grid col-12">
-
-          <div class="field col-6">
+        <div class="field col-6">
             <p-dropdown
-            [options]="active"
-            formControlName="active"
-            optionLabel="name"
-              placeholder="Activo"
+              [options]="typePerson"
+              formControlName="typePerson"
+              optionLabel="typePerson"
+              placeholder="Tipo de persona"
             />
-            <!-- <small class="p-error" *ngIf="submitted && proveedorsForm.controls['city'].invalid">
-              Activa es requerida
-            </small> -->
-          </div>
-
-          <div class="field col-6">
-            <p-dropdown
-              [options]="departaments"
-              formControlName="departament"
-              optionLabel="name"
-              placeholder="Departamento"
-            />
-            <!-- <small class="p-error" *ngIf="submitted && proveedorsForm.controls['departament'].invalid">
-            Departamento es requerido
-          </small> -->
-        </div>
-
-      </div>
-        <!-- Row 3 -->
-        <div class="formgrid grid col-12">
-
-          <div class="field col-6">
-            <p-dropdown
-              [options]="cities"
-              formControlName="city"
-              optionLabel="city"
-              placeholder="Ciudad"
-            />
-          </div>
-        </div>
-      </form>
-    </ng-template>
-
-    <ng-template pTemplate="footer">
-      <div class="formgrid grid flex justify-content-between">
-        <div class="field-col ml-4">
-          <p-button
-            severity="danger"
-            label="Cancelar"
-            [raised]="true"
-            icon="pi pi-times"
-            [rounded]="true"
-            (onClick)="onSedeHide()"
-          />
-        </div>
-        <div class="field-col mr-5">
-          <p-button
-            label="Agregar"
-            icon="pi pi-check"
-            [raised]="true"
-            [rounded]="true"
-          />
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- Table -->
+  <p-table
+    styleClass="p-datatable-gridlines"
+    [tableStyle]="{ 'min-width': '50rem' }"
+    [globalFilterFields]="[
+      'typeDocument',
+      'numberDocument',
+      'name',
+      'typePerson',
+    ]"
+    [rowHover]="true"
+    dataKey="id"
+    [showCurrentPageReport]="true"
+    emptyMessage = "No hay datos"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th class="text-center">
+          Sel
+        </th>
+        <th class="text-center">
+          Tipo de identificaci&oacute;n
+        </th>
+        <th class="text-center">
+          N&uacute;mero de identificaci&oacute;n
+        </th>
+        <th class="text-center">
+          Raz&oacute;n Social
+        </th>
+        <th class="text-center">
+          Tipo de Persona
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-proveedor>
+      <tr>
+        <td><p-tableCheckbox/></td>
+        <td>Cedula de ciudadania</td>
+        <td>12326454647483485636374</td>
+        <td>Ejecutivo del Cafe enfocado en el desarrollo sustentable para las familias de bajo recurso en todo el corregimiento del Valle</td>
+      </tr>
     </ng-template>
 
-  </p-dialog>
-  <p-confirmDialog [style]="{ width: '450px' }"  />
+  </p-table>
 
-  <!-- Dialogo para agregar una especialidad -->
-  <p-dialog
-    [(visible)]="addSpecialDialog"
-    [style]="{width: '600px'}"
-    header="Agregar una nueva sede"
-    [modal]="true"
-    styleClass="p-fluid">
-    <ng-template pTemplate="content">
-      <!-- [formGroup]="addSedesForm" -->
-      <form >
-        <div class="formgrid grid col-12 mt-4">
-
-          <div class="field col-6">
-            <p-floatLabel>
-              <input
-                pInputText
-                type="number"
-                id="code"
-                formControlName="code"
-              />
-              <label htmlFor="code" id="custom-pfloatLabel" class="w-10"
-                >Codigo</label
-              >
-            </p-floatLabel>
-            <!-- <small class="p-error" *ngIf="submitted && proveedorsForm.controls['typePerson'].invalid">
-            Codigo es requerido
-            </small> -->
-          </div>
-
-          <div class="field col-6">
-            <p-floatLabel>
-              <input
-                pInputText
-                id="specialidad"
-                formControlName="specialidad"
-              />
-              <label htmlFor="specialidad" id="custom-pfloatLabel" class="w-10"
-                >Especialidad</label
-              >
-            </p-floatLabel>
-            <!-- <small class="p-error" *ngIf="submitted && proveedorsForm.controls['numberDocument'].invalid">
-            Direccion es requerido
-            </small> -->
-          </div>
-        </div>
-      </form>
-    </ng-template>
-
-    <ng-template pTemplate="footer">
-      <div class="formgrid grid flex justify-content-between">
-        <div class="field-col ml-4">
-          <p-button
-            severity="danger"
-            label="Cancelar"
-            [raised]="true"
-            icon="pi pi-times"
-            [rounded]="true"
-            (onClick)="onSpecialHide()"
-          />
-        </div>
-        <div class="field-col mr-5">
-          <p-button
-            label="Agregar"
-            icon="pi pi-check"
-            [raised]="true"
-            [rounded]="true"
-          />
-        </div>
+  <p-footer>
+    <div class="mt-4 flex justify-content-between w-full">
+      <div>
+        <button
+          type="button"
+          pButton
+          label="Cerrar"
+          [rounded]="true"
+          icon="pi pi-times"
+          class="p-button-danger"
+          (click)="displaySearchDialog = false"
+        ></button>
       </div>
-    </ng-template>
+      <div>
+        <button
+          type="button"
+          pButton
+          label="Guardar"
+          [rounded]="true"
+          icon="pi pi-check"
+          (click)="displaySearchDialog = false"
+        ></button>
+      </div>
+    </div>
+  </p-footer>
+</form>
+</p-dialog>
 
-  </p-dialog>
-  <p-confirmDialog [style]="{ width: '450px' }"  />
+<!-- Modal para el uploadFile -->
+<!-- [width]="400" -->
+<p-dialog
+header="Subir Archivo"
+[(visible)]="displayUploadDialog"
+[modal]="true"
+[closable]="true"
+[resizable]="false"
+[style]="{ width: '30vw'}"
+[draggable]="false"
+[responsive]="true"
+[baseZIndex]="10000"
+(onHide)="onDialogHide()"
+>
+<div class="mt-4">
+<p-fileUpload
+  mode="basic"
+  name="file"
+  url="your-backend-api-url/upload"
+  accept="image/*"
+  maxFileSize="1000000"
+  (onUpload)="onUpload($event)"
+  chooseLabel="Seleccionar archivo"
+  class="upload-button"
+  ></p-fileUpload>
 </div>
+
+<p-footer>
+<button
+  type="button"
+  pButton
+  label="Cerrar"
+  icon="pi pi-times"
+  (click)="displayUploadDialog = false"
+></button>
+</p-footer>
+
+</p-dialog>
+
+
+<!-- Dialogo para agregar una sede -->
+<p-dialog
+[(visible)]="addSedeDialog"
+[style]="{width: '600px'}"
+header="Agregar una nueva sede"
+[modal]="true"
+styleClass="p-fluid">
+<ng-template pTemplate="content">
+  <!-- [formGroup]="addSedesForm" -->
+  <form >
+    <div class="formgrid grid col-12 mt-4">
+
+      <div class="field col-6">
+        <p-floatLabel>
+          <input
+            pInputText
+            id="sede"
+            formControlName="sede"
+          />
+          <label htmlFor="sede" id="custom-pfloatLabel" class="w-10"
+            >Nombre</label
+          >
+        </p-floatLabel>
+        <!-- <small class="p-error" *ngIf="submitted && proveedorsForm.controls['typePerson'].invalid">
+        Nombre/Razon social es requerido
+        </small> -->
+      </div>
+
+      <div class="field col-6">
+        <p-floatLabel>
+          <input
+            pInputText
+            id="address"
+            formControlName="address"
+          />
+          <label htmlFor="name" id="custom-pfloatLabel" class="w-10"
+            >Direcci&oacute;n</label
+            >
+        </p-floatLabel>
+        <!-- <small class="p-error" *ngIf="submitted && proveedorsForm.controls['numberDocument'].invalid">
+          Direccion es requerido
+        </small> -->
+      </div>
+    </div>
+
+    <div class="formgrid grid col-12">
+
+      <div class="field col-6">
+        <p-dropdown
+        [options]="active"
+        formControlName="active"
+        optionLabel="name"
+          placeholder="Activo"
+        />
+        <!-- <small class="p-error" *ngIf="submitted && proveedorsForm.controls['city'].invalid">
+          Activa es requerida
+        </small> -->
+      </div>
+
+      <div class="field col-6">
+        <p-dropdown
+          [options]="departaments"
+          formControlName="departament"
+          optionLabel="name"
+          placeholder="Departamento"
+        />
+        <!-- <small class="p-error" *ngIf="submitted && proveedorsForm.controls['departament'].invalid">
+        Departamento es requerido
+      </small> -->
+    </div>
+
+  </div>
+    <!-- Row 3 -->
+    <div class="formgrid grid col-12">
+
+      <div class="field col-6">
+        <p-dropdown
+          [options]="cities"
+          formControlName="city"
+          optionLabel="city"
+          placeholder="Ciudad"
+        />
+      </div>
+    </div>
+  </form>
+</ng-template>
+
+<ng-template pTemplate="footer">
+  <div class="formgrid grid flex justify-content-between">
+    <div class="field-col ml-4">
+      <p-button
+        label="Cancelar"
+        [raised]="true"
+        icon="pi pi-times"
+        [rounded]="true"
+        (onClick)="onSedeHide()"
+      />
+    </div>
+    <div class="field-col mr-5">
+      <p-button
+        label="Agregar"
+        icon="pi pi-check"
+        [raised]="true"
+        [rounded]="true"
+      />
+    </div>
+  </div>
+</ng-template>
+
+</p-dialog>
+
+<!-- Dialogo para agregar una especialidad -->
+<p-dialog
+[(visible)]="addSpecialDialog"
+[style]="{width: '600px'}"
+header="Agregar una nueva sede"
+[modal]="true"
+styleClass="p-fluid">
+<ng-template pTemplate="content">
+  <!-- [formGroup]="addSedesForm" -->
+  <form >
+    <div class="formgrid grid col-12 mt-4">
+
+      <div class="field col-6">
+        <p-floatLabel>
+          <input
+            pInputText
+            type="number"
+            id="code"
+            formControlName="code"
+          />
+          <label htmlFor="code" id="custom-pfloatLabel" class="w-10"
+            >Codigo</label
+          >
+        </p-floatLabel>
+        <!-- <small class="p-error" *ngIf="submitted && proveedorsForm.controls['typePerson'].invalid">
+        Codigo es requerido
+        </small> -->
+      </div>
+
+      <div class="field col-6">
+        <p-floatLabel>
+          <input
+            pInputText
+            id="specialidad"
+            formControlName="specialidad"
+          />
+          <label htmlFor="specialidad" id="custom-pfloatLabel" class="w-10"
+            >Especialidad</label
+          >
+        </p-floatLabel>
+        <!-- <small class="p-error" *ngIf="submitted && proveedorsForm.controls['numberDocument'].invalid">
+        Direccion es requerido
+        </small> -->
+      </div>
+    </div>
+  </form>
+</ng-template>
+
+<ng-template pTemplate="footer">
+  <div class="formgrid grid flex justify-content-between">
+    <div class="field-col ml-4">
+      <p-button
+        label="Cancelar"
+        [raised]="true"
+        icon="pi pi-times"
+        [rounded]="true"
+        (onClick)="onSpecialHide()"
+      />
+    </div>
+    <div class="field-col mr-5">
+      <p-button
+        label="Agregar"
+        icon="pi pi-check"
+        [raised]="true"
+        [rounded]="true"
+      />
+    </div>
+  </div>
+</ng-template>
+
+</p-dialog>
+
+
+<p-confirmDialog
+  [style]="{ width: '450px' }"
+  [acceptLabel]="'Sí'"
+  [rejectLabel]="'No'"
+></p-confirmDialog>
+
+
+
+<!-- Dialogo para Cancelar -->
+<!-- <p-confirmDialog
+  header="Confirmación"
+  icon="pi pi-exclamation-triangle"
+  [acceptLabel]="'Aceptar'"
+  [rejectLabel]="'Cancelar'"
+  (onAccept)="onAcceptCancelar()"
+  (onReject)="onRejectCancelar()"
+></p-confirmDialog> -->

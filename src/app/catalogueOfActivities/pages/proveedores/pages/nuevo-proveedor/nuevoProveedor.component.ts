@@ -5,6 +5,8 @@ import {TableLocationService} from '../../../../../service/table-location(sedes)
 import {TableSpecialService} from '../../../../../service/table-special(especialidades)/table-special.service';
 import { City, TypeDocument, TypePerson, NumberDocument, TypeProviders, Status, Active, PrincipalSede, Departament, Special } from '../../../../models/interface/proveedores.interface'
 import { Location } from '../../../../models/interface/location.interface';
+import { Router } from '@angular/router';
+import { ConfirmationService } from 'primeng/api';
 
 
 @Component({
@@ -29,7 +31,9 @@ export class NuevoProveedorComponent {
   constructor(
     private tableLocationService: TableLocationService,
     private tableSpecialService: TableSpecialService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private confirmationService: ConfirmationService,
   ) {
     this.nuevoProveedorForm = this.formBuilder.group({
       id: [''],
@@ -182,6 +186,18 @@ export class NuevoProveedorComponent {
       { name: 'Si'},
       { name: 'No'},
     ];
+  }
+
+  // Modal de Cancelar
+  showConfirmCancelar(){
+    this.confirmationService.confirm({
+      message: 'Estas seguro de salir ?',
+      header: 'Confirmar',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        this.router.navigate(['/proveedores']);
+      }
+    });
   }
 
   showNumberDocumentDialog(){
