@@ -56,6 +56,15 @@
       </div>
     </div>
 
+    <div class="card flex justify-content-center loading-indicator" *ngIf="loading">
+      <p-progressSpinner
+      styleClass="w-4rem h-4rem"
+      strokeWidth="8"
+      fill="transparent"
+      animationDuration=".3s"
+      />
+    </div>
+
     <div class="flex col-4 text-center">
       <div class="card p-fluid align-items-center" id="home-card">
         <div class="mt-4 mb-5">
