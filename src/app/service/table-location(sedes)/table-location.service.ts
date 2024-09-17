@@ -17,8 +17,8 @@ export class TableLocationService {
         principalSede: 'Si',
         city: 'Cali',
         departament: 'Valle del Cauca',
-        active: 'Si',
-        locationMain: 'Principal',
+        activo: 'Si',
+        locationMain:'Principal'
       },
       // {
       //   id: 2,
