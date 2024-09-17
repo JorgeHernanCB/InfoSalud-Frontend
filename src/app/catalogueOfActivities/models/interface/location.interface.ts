@@ -1,11 +1,12 @@
 export interface Location {
   id?: number;
-  code: string | number;
-  name?: string | number;
-  address?: string | number;
-  city?: string | number;
-  departament?: string | number;
+  code?: number;
+  name?: string;
+  address?: string;
+  city?: string;
+  principalSede?: string;
+  departament?: string;
   active?: string;
-  locationMain?: string | number;
+  locationMain?: string;
 
 }

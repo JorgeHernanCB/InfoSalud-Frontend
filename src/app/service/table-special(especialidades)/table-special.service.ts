@@ -10,18 +10,22 @@ export class TableSpecialService {
   getDataTable() {
     return [
       {
+        id: 1,
         code: 111,
         name: 'Especialidad 1'
       },
       {
+        id: 2,
         code: 112,
         name: 'Especialidad 2'
       },
       {
+        id: 3,
         code: 113,
         name: 'Especialidad 3'
       },
       {
+        id: 4,
         code: 114,
         name: 'Especialidad 4'
       },

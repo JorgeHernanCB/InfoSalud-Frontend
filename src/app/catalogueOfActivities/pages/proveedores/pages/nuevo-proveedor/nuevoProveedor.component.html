@@ -321,7 +321,7 @@
     [(visible)]="displaySearchDialog"
     header="Filtro B&uacute;squeda Proveedores"
     [modal]="true"
-    [style]="{ width: '50vw' }"
+    [style]="{ width: '70vw' }"
     [closable]="true"
     [draggable]="false"
     [resizable]="false"
@@ -466,23 +466,25 @@
     [modal]="true"
     [closable]="true"
     [resizable]="false"
-    [style]="{ width: '50vw' }"
+    [style]="{ width: '30vw'}"
     [draggable]="false"
     [responsive]="true"
     [baseZIndex]="10000"
     (onHide)="onDialogHide()"
   >
-  <p-fileUpload
-  mode="basic"
-  name="file"
-  url="your-backend-api-url/upload"
-    accept="image/*"
-    maxFileSize="1000000"
-    (onUpload)="onUpload($event)"
-    chooseLabel="Seleccionar archivo"
-    class="upload-button"
-  ></p-fileUpload>
-
+  <div class="mt-4">
+    <p-fileUpload
+      mode="basic"
+      name="file"
+      url="your-backend-api-url/upload"
+      accept="image/*"
+      maxFileSize="1000000"
+      (onUpload)="onUpload($event)"
+      chooseLabel="Seleccionar archivo"
+      class="upload-button"
+      ></p-fileUpload>
+  </div>
+  
   <p-footer>
     <button
       type="button"

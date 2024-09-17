@@ -1,247 +1,503 @@
-<p-panel header="PROVEEDOR" [toggleable]="true">
-  <!-- Formulario de edición -->
-  <form [formGroup]="editForm" (ngSubmit)="onSubmit()" *ngIf="!isViewMode">
-    <h2>Editar Proveedor</h2>
-    <!-- Botones de acción -->
-    <div class="formgrid grid flex justify-content-between">
-      <div class="field-col ml-4">
-        <p-button
-          label="Regresar"
-          [raised]="true"
-          [rounded]="true"
-          [routerLink]="['/proveedores']"
-        />
-      </div>
-      <div class="field-col mr-5">
-        <p-button
-          label="Guardar"
-          [raised]="true"
-          [rounded]="true"
-          type="submit"
-        />
-      </div>
-    </div>
-
-    <!-- Fila 1 -->
-    <div class="formgrid grid mt-4 col-12">
-
-      <div class="field col-3">
-        <p-dropdown
-          [options]="typeDocument"
-          formControlName="typeDocument"
-          optionLabel="identification"
-          placeholder="Tipo de identificacion"
-        />
-        <small class="p-error" *ngIf="submitted && editForm.controls['typeDocument'].invalid">
-          Tipo de documento es requerido
-        </small>
-      </div>
-
-      <div class="field col-3">
-        <p-floatLabel>
-          <input
-            pInputText
-            id="numberDocument"
-            type="number"
-            formControlName="numberDocument"
-        />
-        <label htmlFor="numberDocument" id="custom-pfloatLabel" class="w-10">
-          Número de identificación
-        </label>
-        <small class="p-error" *ngIf="submitted && editForm.controls['numberDocument'].invalid">
-          Número de documento es requerido
-        </small>
-      </p-floatLabel>
-      </div>
-
-      <div class="field col-3">
-        <p-floatLabel>
-          <input
-            pInputText
-            class="ipt-required"
-            id="name"
-            formControlName="name"
-            required
+<!-- Editar Proveedores -->
+<div *ngIf="!isViewMode" class="card p-fluid">
+  <p-panel header="Editar Proveedor" [toggleable]="true">
+    <!-- Formulario de edición -->
+    <form [formGroup]="editForm" (ngSubmit)="onSubmit()" >
+      <!-- Botones de acción -->
+      <!-- <div class="formgrid grid flex justify-content-between">
+        <div class="field-col ml-4">
+          <p-button
+            label="Regresar"
+            [raised]="true"
+            [rounded]="true"
+            [routerLink]="['/proveedores']"
           />
-          <label htmlFor="name" id="custom-pfloatLabel" class="w-10">
-            Nombre/Raz&oacute;n Social
-          </label>
-          <small class="p-error" *ngIf="submitted && editForm.controls['name'].invalid">
-            Nombre es requerido
-          </small>
-        </p-floatLabel>
-      </div>
-
-      <div class="field col-3">
-        <p-dropdown
-          [options]="typePerson"
-          formControlName="typePerson"
-          optionLabel="typePerson"
-          placeholder="Tipo de persona"
-        />
-      </div>
-    </div>
-
-    <!-- Fila 2 -->
-    <div class="formgrid grid col-12">
-
-      <div class="field col-3">
-        <p-dropdown
-          [options]="typeProviders"
-          formControlName="typeProviders"
-          optionLabel="name"
-          placeholder="Tipo de proveedor"
-        />
-      </div>
-
-
-      <div class="field col-3">
-        <p-dropdown
-          [options]="departament"
-          formControlName="departament"
-          optionLabel="name"
-          placeholder="Departamento / provincia"
-        />
-        <small class="p-error" *ngIf="submitted && editForm.controls['departament'].invalid">
-          Departamento es requerido
-        </small>
-      </div>
-
-      <div class="field col-3 input-with-button">
-
-        <p-floatLabel>
-          <input
-            pInputText
-            type="number"
-            class="ipt-required"
-            id="status"
-            formControlName="status"
-            [disabled]="true"          
+        </div>
+        <div class="field-col mr-5">
+          <p-button
+            label="Guardar"
+            [raised]="true"
+            [rounded]="true"
+            type="submit"
           />
-          <label htmlFor="status" id="custom-pfloatLabel" class="w-10">Estado</label>
-        </p-floatLabel>
-        <p-button
-            icon="pi pi-search"
-            class="p-button-rounded p-button-text search-btn"
-            (click)="showStatusDialog()"
-          ></p-button>
-      </div>
-      <!-- <div class="field col-3">
-        <p-dropdown
-          [options]="cities"
-          formControlName="city"
-          optionLabel="city"
-          placeholder="Seleccione una ciudad"
-        />
-        <small class="p-error" *ngIf="submitted && editForm.controls['city'].invalid">
-          Ciudad es requerida
-        </small>
+        </div>
       </div> -->
-    </div>
-  </form>
-
-  <!-- Formulario de visualización -->
-  <form [formGroup]="viewForm" *ngIf="isViewMode">
-    <h2>Ver Proveedor</h2>
-    <!-- Botones de acción -->
-    <div class="ml-4">
-      <div class="field-col">
-        <p-button
-          label="Regresar"
-          [raised]="true"
-          [rounded]="true"
-          [routerLink]="['/proveedores']"
-        />
-      </div>
-    </div>
-
-    <!-- Fila 1 -->
-    <div class="formgrid grid mt-4 col-12">
-      <div class="field col-3">
-        <p-dropdown
-          [options]="typeDocument"
-          formControlName="typeDocument"
-          optionLabel="identification"
-          placeholder="Tipo de documento"
-        />
-      </div>
-
-      <div class="field col-3">
-        <p-floatLabel>
-          <input
-            pInputText
-            id="numberDocument"
-            type="number"
-            formControlName="numberDocument"
+  
+      <!-- Fila 1 -->
+      <div class="formgrid grid mt-4 col-12">
+  
+        <div class="field col-3">
+          <p-dropdown
+            [options]="typeDocument"
+            formControlName="typeDocument"
+            optionLabel="identification"
+            placeholder="Tipo de identificacion"
+          />
+          <small class="p-error" *ngIf="submitted && editForm.controls['typeDocument'].invalid">
+            Tipo de documento es requerido
+          </small>
+        </div>
+  
+        <div class="field col-3">
+          <p-floatLabel>
+            <input
+              pInputText
+              id="numberDocument"
+              type="number"
+              formControlName="numberDocument"
           />
           <label htmlFor="numberDocument" id="custom-pfloatLabel" class="w-10">
             Número de identificación
           </label>
+          <small class="p-error" *ngIf="submitted && editForm.controls['numberDocument'].invalid">
+            Número de documento es requerido
+          </small>
         </p-floatLabel>
-      </div>
-
-      <div class="field col-3">
-        <p-floatLabel>
-          <input
-            pInputText
-            class="ipt-required"
-            id="name"
-            formControlName="name"
+        </div>
+  
+        <div class="field col-3">
+          <p-floatLabel>
+            <input
+              pInputText
+              class="ipt-required"
+              id="name"
+              formControlName="name"
+              required
+            />
+            <label htmlFor="name" id="custom-pfloatLabel" class="w-10">
+              Nombre/Raz&oacute;n Social
+            </label>
+            <small class="p-error" *ngIf="submitted && editForm.controls['name'].invalid">
+              Nombre es requerido
+            </small>
+          </p-floatLabel>
+        </div>
+  
+        <div class="field col-3">
+          <p-dropdown
+            [options]="typePerson"
+            formControlName="typePerson"
+            optionLabel="typePerson"
+            placeholder="Tipo de persona"
           />
-          <label htmlFor="name" id="custom-pfloatLabel" class="w-10">
-            Razón social / Nombre
-          </label>
-        </p-floatLabel>
+        </div>
       </div>
+  
+      <!-- Fila 2 -->
+      <div class="formgrid grid col-12">
+  
+        <div class="field col-3">
+          <p-dropdown
+            [options]="typeProviders"
+            formControlName="typeProviders"
+            optionLabel="name"
+            placeholder="Tipo de proveedor"
+          />
+        </div>
+  
+  
+        <div class="field col-3">
+          <p-dropdown
+            [options]="departament"
+            formControlName="departament"
+            optionLabel="name"
+            placeholder="Departamento / provincia"
+          />
+          <small class="p-error" *ngIf="submitted && editForm.controls['departament'].invalid">
+            Departamento es requerido
+          </small>
+        </div>
+  
+        <div class="field col-3 input-with-button">
+  
+          <p-floatLabel>
+            <input
+              pInputText
+              type="number"
+              class="ipt-required"
+              id="status"
+              formControlName="status"
+              [disabled]="true"          
+            />
+            <label htmlFor="status" id="custom-pfloatLabel" class="w-10">Estado</label>
+          </p-floatLabel>
+          <p-button
+              icon="pi pi-search"
+              class="p-button-rounded p-button-text search-btn"
+              (click)="showStatusDialog()"
+            ></p-button>
+        </div>
+        <!-- <div class="field col-3">
+          <p-dropdown
+            [options]="cities"
+            formControlName="city"
+            optionLabel="city"
+            placeholder="Seleccione una ciudad"
+          />
+          <small class="p-error" *ngIf="submitted && editForm.controls['city'].invalid">
+            Ciudad es requerida
+          </small>
+        </div> -->
+      </div>
+    </form>
+  </p-panel>
 
-      <div class="field col-3">
-        <p-dropdown
-          [options]="typeProviders"
-          formControlName="typeProviders"
-          optionLabel="name"
-          placeholder="Tipo de proveedor"
+  <!-- Sede -->
+  <!-- Sección de Edición de Sedes -->
+  <div class="mt-4">
+    <p-panel header="Editar Sedes" [collapsed]="true" [toggleable]="true">
+      <p-toolbar styleClass="mb-4 gap-2">
+        <ng-template pTemplate="left">
+          <p-button
+            severity="success"
+            label="Agregar"
+            icon="pi pi-plus"
+            class="mr-2"
+            [rounded]="true"
+            [raised]="true"
+            (onClick)="openNewSede()"
+          />
+          <p-button
+            severity="danger"
+            label="Eliminar"
+            icon="pi pi-trash"
+            [rounded]="true"
+            [raised]="true"
+            (onClick)="deleteSelectedSedes()"
+            [disabled]="!SelectedLocations || !SelectedLocations.length"
+          />
+        </ng-template>
+      </p-toolbar>
+      <p-table
+        #dt4
+        [value]="locations"
+        [paginator]="true"
+        [rows]="10"
+        [rowsPerPageOptions]="[5, 10, 20, 100]"
+        styleClass="p-datatable-gridlines"
+        [tableStyle]="{ 'min-width': '50rem' }"
+        [globalFilterFields]="[
+          'code',
+          'name',
+          'address',
+          'activo',
+          'principalSede',
+          'departament',
+          'city'
+        ]"
+        [(selection)]="SelectedLocations"
+        [rowHover]="true"
+        dataKey="id"
+        currentPageReportTemplate="Mostrando del {first} al {last} de {totalRecords} datos"
+        [showCurrentPageReport]="true"
+      >
+        <ng-template pTemplate="header">
+          <tr>
+            <th style="width: 4rem;">
+              <p-tableHeaderCheckbox />
+            </th>
+            <th pSortableColumn="code" class="text-center">
+              Código<p-sortIcon field="code"></p-sortIcon>
+            </th>
+            <th pSortableColumn="name" class="text-center">
+              Nombre <p-sortIcon field="name"></p-sortIcon>
+            </th>
+            <th pSortableColumn="address" class="text-center">
+              Dirección<p-sortIcon field="address"></p-sortIcon>
+            </th>
+            <th pSortableColumn="activo" class="text-center">
+              Activo<p-sortIcon field="activo"></p-sortIcon>
+            </th>
+            <th pSortableColumn="principalSede" class="text-center">
+              Sede Principal<p-sortIcon field="principalSede"></p-sortIcon>
+            </th>
+            <th pSortableColumn="departament" class="text-center">
+              Departamento<p-sortIcon field="departament"></p-sortIcon>
+            </th>
+            <th pSortableColumn="city" class="text-center">
+              Ciudad<p-sortIcon field="city"></p-sortIcon>
+            </th>
+            <th class="text-center">Mod</th>
+            <th class="text-center">Eli</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-location>
+          <tr>
+            <td>
+              <p-tableCheckbox [value]="location" />
+            </td>
+            <td class="text-center">{{ location.code }}</td>
+            <td class="text-center">{{ location.name }}</td>
+            <td class="text-center">{{ location.address }}</td>
+            <td class="text-center">{{ location.activo }}</td>
+            <td class="text-center">{{ location.principalSede }}</td>
+            <td class="text-center">{{ location.departament }}</td>
+            <td class="text-center">{{ location.city }}</td>
+            <!-- <td>
+              <div class="flex justify-content-center align-items-center">
+                <p-button
+                  icon="pi pi-pencil"
+                  severity="warning"
+                  class="p-button-rounded p-button-text ml-2 flex-1"
+                  (click)="editSede(location)"
+                />
+                <p-button
+                  icon="pi pi-trash"
+                  class="p-button-rounded p-button-text ml-2 flex-1"
+                  (click)="deleteSede(location)"
+                />
+              </div>
+            </td> -->
+            <td>
+              <p-button
+                  icon="pi pi-pencil"
+                  severity="warning"
+                  class="p-button-rounded p-button-text ml-2 flex-1"
+                  (click)="editSede(location)"
+              />
+            </td>
+            <td>
+              <p-button
+                  icon="pi pi-trash"
+                  class="p-button-rounded p-button-text ml-2 flex-1"
+                  (click)="deleteSede(location)"
+                />
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </p-panel>
+  </div>
+
+  <!-- Seccion de especialidades -->
+  <div class="mt-4">
+    <p-panel header="Editar Especialidades" [collapsed]="true" [toggleable]="true">
+      <p-toolbar styleClass="mb-4 gap-2">
+        <ng-template pTemplate="left">
+          <p-button
+            severity="success"
+            label="Agregar"
+            icon="pi pi-plus"
+            class="mr-2"
+            [rounded]="true"
+            [raised]="true"
+            (onClick)="openNewSpecial()"
+          />
+          <p-button
+            severity="danger"
+            label="Eliminar"
+            icon="pi pi-trash"
+            [rounded]="true"
+            [raised]="true"
+            (onClick)="deleteSelectedSpecial()"
+            [disabled]="!SelectedSpecials || !SelectedSpecials.length"
+          />
+        </ng-template>
+      </p-toolbar>
+      <p-table
+        #dt5
+        [value]="specials"
+        [paginator]="true"
+        [rows]="10"
+        [rowsPerPageOptions]="[5, 10, 20, 100]"
+        styleClass="p-datatable-gridlines"
+        [tableStyle]="{ 'min-width': '50rem' }"
+        [globalFilterFields]="[
+          'code',
+          'special',
+        ]"
+        [(selection)]="SelectedSpecials"
+        [rowHover]="true"
+        dataKey="id"
+        currentPageReportTemplate="Mostrando del {first} al {last} de {totalRecords} datos"
+        [showCurrentPageReport]="true"
+      >
+        <ng-template pTemplate="header">
+          <tr>
+            <th style="width: 4rem;">
+              <p-tableHeaderCheckbox />
+            </th>
+            <th pSortableColumn="code" class="text-center">
+              C&oacute;digo<p-sortIcon field="code"></p-sortIcon>
+            </th>
+            <th pSortableColumn="name" class="text-center">
+              Nombre <p-sortIcon field="name"></p-sortIcon>
+            <th class="text-center">Mod</th>
+            <th class="text-center">Eli</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-special>
+          <tr>
+            <td>
+              <p-tableCheckbox [value]="special" />
+            </td>
+            <td class="text-center">{{ special.code }}</td>
+            <td class="text-center">{{ special.name }}</td>
+            <!-- <td>
+              <div class="flex justify-content-center align-items-center">
+                <p-button
+                  icon="pi pi-pencil"
+                  severity="warning"
+                  class="p-button-rounded p-button-text ml-2 flex-1"
+                  (click)="editSede(location)"
+                />
+                <p-button
+                  icon="pi pi-trash"
+                  class="p-button-rounded p-button-text ml-2 flex-1"
+                  (click)="deleteSede(location)"
+                />
+              </div>
+            </td> -->
+            <td class="text-center">
+              <p-button
+                  icon="pi pi-pencil"
+                  severity="warning"
+                  class="p-button-rounded p-button-text ml-2 flex-1"
+                  (click)="editSpecial(special)"
+              />
+            </td>
+            <td class="text-center">
+              <p-button
+                  icon="pi pi-trash"
+                  class="p-button-rounded p-button-text ml-2 flex-1"
+                  (click)="deleteSpecial(special)"
+                />
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </p-panel>
+  </div>
+
+  <!-- Seccion de servicios habilitados -->
+
+  <!-- Botones -->
+  <div class="formgrid grid flex justify-content-between mt-4">
+    <div class="field-col ml-4">
+      <p-button
+        label="Regresar"
+        [raised]="true"
+        [rounded]="true"
+        [routerLink]="['/proveedores']"
         />
       </div>
+    <div class="field-col mr-5">
+      <p-button
+      label="Guardar"
+        [raised]="true"
+        [rounded]="true"
+      />
     </div>
+  </div>
+</div>
 
-    <!-- Fila 2 -->
-    <div class="formgrid grid col-12">
-      <div class="field col-3">
-        <p-dropdown
-          [options]="departament"
-          formControlName="departament"
-          optionLabel="name"
-          placeholder="Departamento / provincia"
-        />
+<!-- Sección de Visualización de Proveedores -->
+<div *ngIf="isViewMode" class="card p-fluid">
+  <p-panel header="Ver Proveedor" [toggleable]="true">
+    <!-- Formulario de visualización -->
+    <form [formGroup]="viewForm" *ngIf="isViewMode">
+      <!-- Botones de acción -->
+      <div class="formgrid grid flex justify-content-between">
+        <div class="field-col ml-4">
+          <p-button
+            label="Regresar"
+            [raised]="true"
+            [rounded]="true"
+            [routerLink]="['/proveedores']"
+          />
+        </div>
       </div>
 
-      <div class="field col-3">
-        <p-dropdown
-          [options]="status"
-          formControlName="status"
-          optionLabel="status"
-          placeholder="Estado"
-        />
+      <!-- Fila 1 -->
+      <div class="formgrid grid mt-4 col-12">
+        <div class="field col-3">
+          <p-dropdown
+            [options]="typeDocument"
+            formControlName="typeDocument"
+            optionLabel="identification"
+            placeholder="Tipo de documento"
+          />
+        </div>
+
+        <div class="field col-3">
+          <p-floatLabel>
+            <input
+              pInputText
+              id="numberDocument"
+              type="number"
+              formControlName="numberDocument"
+            />
+            <label htmlFor="numberDocument" id="custom-pfloatLabel" class="w-10">
+              Número de identificación
+            </label>
+          </p-floatLabel>
+        </div>
+
+        <div class="field col-3">
+          <p-floatLabel>
+            <input
+              pInputText
+              class="ipt-required"
+              id="name"
+              formControlName="name"
+            />
+            <label htmlFor="name" id="custom-pfloatLabel" class="w-10">
+              Razón social / Nombre
+            </label>
+          </p-floatLabel>
+        </div>
+
+        <div class="field col-3">
+          <p-dropdown
+            [options]="typeProviders"
+            formControlName="typeProviders"
+            optionLabel="name"
+            placeholder="Tipo de proveedor"
+          />
+        </div>
       </div>
 
-      <div class="field col-3">
-        <p-dropdown
-          [options]="cities"
-          formControlName="city"
-          optionLabel="city"
-          placeholder="Seleccione una ciudad"
-        />
+      <!-- Fila 2 -->
+      <div class="formgrid grid col-12">
+        <div class="field col-3">
+          <p-dropdown
+            [options]="departament"
+            formControlName="departament"
+            optionLabel="name"
+            placeholder="Departamento / provincia"
+          />
+        </div>
+
+        <div class="field col-3">
+          <p-dropdown
+            [options]="status"
+            formControlName="status"
+            optionLabel="status"
+            placeholder="Estado"
+          />
+        </div>
+
+        <div class="field col-3">
+          <p-dropdown
+            [options]="cities"
+            formControlName="city"
+            optionLabel="city"
+            placeholder="Seleccione una ciudad"
+          />
+        </div>
       </div>
-    </div>
-  </form>
-</p-panel>
+    </form>
+  </p-panel>
+</div>
+
+<!-- Dialogo para la modal de estatus -->
 <p-dialog
   header="Cambiar Estado"
   [(visible)]="displayStatusDialog"
   [modal]="true"
   [closable]="true"
   [resizable]="false"
-  [style]="{ width: '50vw' }"
+  [style]="{ width: '30vw' }"
   [draggable]="false"
   [responsive]="true"
   [baseZIndex]="10000"
@@ -251,29 +507,246 @@
     <!-- Contenido del modal -->
     <div class="p-fluid">
       <div class="p-field">
-
         <!-- Row 1 -->
         <div class="formgrid grid col-12">
-
           <div class="field col-6">
             <p-dropdown
               [options]="status"
               formControlName="status"
               optionLabel="status"
               placeholder="Estado"
-              />
+            />
           </div>
         </div>
       </div>
     </div>
     <p-footer>
-      <button
-        type="button"
-        pButton
-        label="Cerrar"
-        icon="pi pi-times"
-        (click)="displayStatusDialog = false"
-      ></button>
+      <div class="formgrid grid flex justify-content-between mt-4">
+        <div class="field-col ml-4">
+          <button
+          type="button"
+          pButton
+          label="Cerrar"
+          [raised]="true"
+          [rounded]="true"
+          icon="pi pi-times"
+          (click)="displayStatusDialog = false"
+        ></button>
+        </div>
+        <div class="field-col mr-5">
+          <p-button
+            label="Guardar"
+            [raised]="true"
+            [rounded]="true"
+            icon="pi pi-check"
+          />
+        </div>
+      </div>
     </p-footer>
+  </form>
+</p-dialog>
+
+<!-- Dialogo para agregar o editar Sedes -->
+<p-dialog
+  [(visible)]="sedesAddEdit"
+  [style]="{width: '450px'}"
+  header="Editar la Sede"
+  [modal]="true"
+  styleClass="p-fluid"
+>
+  <ng-template pTemplate="content">
+    <form [formGroup]="sedesForm">
+      <!-- Código -->
+      <div class="field">
+        <label for="viewCode">C&oacute;digo</label>
+        <input
+          pInputText
+          id="code"
+          type="number"
+          formControlName="code"
+        />
+        <small class="p-error" *ngIf="submittedSedeAddEdit && sedesForm.controls['code'].invalid">
+          Código es requerido
+        </small>
+      </div>
+
+      <!-- Nombre -->
+      <div class="field">
+        <label for="viewName">Nombre</label>
+        <input
+          pInputText
+          id="name"
+          type="text"
+          formControlName="name"
+        />
+        <small class="p-error" *ngIf="submittedSedeAddEdit && sedesForm.controls['name'].invalid">
+          Nombre es requerido
+        </small>
+      </div>
+
+      <!-- Dirección -->
+      <div class="field">
+        <label for="viewName">Direcci&oacute;n</label>
+        <input
+          pInputText
+          id="address"
+          type="text"
+          formControlName="address"
+        />
+        <small class="p-error" *ngIf="submittedSedeAddEdit && sedesForm.controls['address'].invalid">
+          Dirección es requerida
+        </small>
+      </div>
+
+      <!-- Activo -->
+      <div class="field">
+        <p-dropdown
+          [options]="activo"
+          formControlName="activo"
+          optionLabel="name"
+          placeholder="Activo"
+        />
+        <small class="p-error" *ngIf="submittedSedeAddEdit && sedesForm.controls['active'].invalid">
+          Activo es requerido
+        </small>
+      </div>
+
+      <!-- Sede Principal -->
+      <div class="field">
+        <p-dropdown
+          [options]="principalSede"
+          formControlName="principalSede"
+          optionLabel="name"
+          placeholder="Sede Principal"
+        />
+        <small class="p-error" *ngIf="submittedSedeAddEdit && sedesForm.controls['principalSede'].invalid">
+          Sede Principal es requerida
+        </small>
+      </div>
+
+      <!-- Departamento -->
+      <div class="field">
+        <p-dropdown
+          [options]="departament"
+          formControlName="departament"
+          optionLabel="name"
+          placeholder="Departamento"
+        />
+        <small class="p-error" *ngIf="submittedSedeAddEdit && sedesForm.controls['departament'].invalid">
+          Departamento es requerido
+        </small>
+      </div>
+
+      <!-- Ciudad -->
+      <div class="field">
+        <p-dropdown
+          [options]="cities"
+          formControlName="city"
+          optionLabel="city"
+          placeholder="Ciudad"
+        />
+        <small class="p-error" *ngIf="submittedSedeAddEdit && sedesForm.controls['city'].invalid">
+          Ciudad es requerida
+        </small>
+      </div>
+    </form>
+  </ng-template>
+  
+  <ng-template pTemplate="footer">
+    <div class="formgrid grid flex justify-content-between">
+      <div class="field-col ml-4">
+        <p-button
+          label="Cancelar"
+          icon="pi pi-times"
+          [raised]="true"
+          [rounded]="true"
+          (onClick)="hideSedeDialogAddEdit()"
+        />
+      </div>
+
+      <div class="field-col mr-5">
+        <p-button
+          label="Guardar"
+          icon="pi pi-check"
+          [raised]="true"
+          [rounded]="true"
+          (onClick)="saveSede()"
+        />
+      </div>
+    </div>
+  </ng-template>
+</p-dialog>
+<p-confirmDialog [style]="{ width: '450px' }" />
+
+<!-- Dialogo para agregar o editar Especialidades -->
+<p-dialog
+  header="Cambiar Estado"
+  [(visible)]="specialAddEdit"
+  [modal]="true"
+  [closable]="true"
+  [resizable]="false"
+  [style]="{ width: '50vw' }"
+  [draggable]="false"
+  [responsive]="true"
+  [baseZIndex]="10000"
+  (onHide)="onSpecialsHide()"
+>
+  <form [formGroup]="specialForm">
+    <!-- Contenido del modal -->
+    <div class="p-fluid">
+      <div class="p-field">
+        <!-- Row 1 -->
+        <div class="formgrid grid col-12">
+          <div class="field col-6">
+            <label for="code">C&oacute;digo</label>
+            <input
+              pInputText
+              id="code"
+              type="number"
+              formControlName="code"
+              [attr.disabled]="specialForm.get('code')?.disabled ? true : null"
+            />
+            <small class="p-error" *ngIf="submittedSpecials && specialForm.controls['code'].invalid">
+            Código es requerido
+            </small>
+          </div>
+
+          <div class="field col-6 mt-4">
+            <p-dropdown
+                [options]="especial"
+                formControlName="name"
+                optionLabel="name"
+                placeholder="Estado"
+              />
+            <small class="p-error" *ngIf="submittedSpecials && specialForm.controls['name'].invalid">
+              Especialidad es requerido
+            </small>
+          </div>
+        </div>
+      </div>
+      <p-footer>
+        <div class="formgrid grid flex justify-content-between">
+          <div class="field-col ml-4">
+          <p-button
+            label="Cancelar"
+            icon="pi pi-times"
+            [raised]="true"
+            [rounded]="true"
+            (onClick)="hideSpecialDialogAddEdit()"
+          />
+          </div>
+  
+          <div class="field-col mr-5">
+          <p-button
+            label="Guardar"
+            icon="pi pi-check"
+            [raised]="true"
+            [rounded]="true"
+            (onClick)="saveSpecial()"
+          />
+          </div>
+        </div>
+      </p-footer>
+    </div>
   </form>
 </p-dialog>

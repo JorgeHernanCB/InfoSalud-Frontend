@@ -11,14 +11,14 @@ export class TableLocationService {
   getDataTable() {
     return [
       {
-        id: 2,
+        id: 1,
         code: '123',
         name: 'San Juan De Dios',
         address: 'Calle 10 # 12-34',
-        sedePrincipal: 'No',
+        principalSede: 'No',
         city:'Cali',
         departament: 'Valle del Cauca',
-        active: 'Si',
+        activo: 'Si',
         locationMain:'Principal'
       },
       {
@@ -26,21 +26,21 @@ export class TableLocationService {
         code: '123',
         name: 'San Juan De Dios',
         address: 'Calle 10 # 12-34',
-        sedePrincipal: 'Si',
+        principalSede: 'Si',
         city:'Pereira',
         departament: 'Risaralda',
-        active: 'Si',
+        activo: 'Si',
         locationMain:'Principal'
       },
       {
-        id: 2,
+        id: 3,
         code: '123',
         name: 'San Juan De Dios',
         address: 'Calle 10 # 12-34',
-        sedePrincipal: 'No',
+        principalSede: 'No',
         city:'Bogota',
         departament: 'Cundinamarca',
-        active: 'No',
+        activo: 'No',
         locationMain:'Principal'
       },
     ]

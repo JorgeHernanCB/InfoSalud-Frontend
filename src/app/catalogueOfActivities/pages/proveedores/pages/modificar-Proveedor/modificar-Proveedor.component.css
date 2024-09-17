@@ -1,1 +1,28 @@
+:host ::ng-deep .input-with-button {
+    position: relative;
+  }
+
+  :host ::ng-deep .input-with-button input {
+    padding-right: 50px; /* Espacio para el botón dentro del input */
+  }
+
+  :host ::ng-deep .search-btn {
+    position: absolute;
+    top: 50%;
+    right: 5px; /* Ajusta la posición horizontal del botón */
+    transform: translateY(-50%);
+    z-index: 1;
+    padding: 0; /* Elimina el padding predeterminado */
+    font-size: 1rem; /* Tamaño del icono */
+    background: none; /* Fondo transparente para que no sobresalga */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  }
+
+:host ::ng-deep .ipt-required{
+  background-color: rgba(255, 226, 226, 0.762); /* Borde rojo si es inválido */
+}
+
+:host ::ng-deep .ipt-disabled{
+  background-color: #d6d6d6;
+}
 

@@ -9,10 +9,18 @@ import {
   Proveedores,
   TypeDocument,
   NumberDocument,
+  PrincipalSede, 
+  Active,
+  Special
 } from '../../../../models/interface/proveedores.interface';
 import { ProveedoresService } from '../../../../../service/proveedores/proveedores.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { TableLocationService } from '../../../../../service/table-location(sedes)/table-location.service';
+import { ConfirmationService, MessageService } from 'primeng/api';
+import { Location } from '../../../../models/interface/location.interface';
+import { TableSpecialService } from '../../../../../service/table-special(especialidades)/table-special.service';
+
 
 @Component({
   selector: 'infoSalud-modificar-Proveedor',
@@ -27,6 +35,24 @@ export class ModificarProveedorComponent implements OnInit {
   //Mostrar modales
   //Sede
   displayStatusDialog: boolean = false;
+  public locations!: Location[];
+  SelectedLocations!: Location[] | null;
+  sedesDialog: boolean = false;
+  submittedSede: boolean = false;
+
+  sedesAddEdit: boolean = false;
+  submittedSedeAddEdit: boolean = false;
+  location!: Location;
+
+  //Specials
+  displaySpecialsDialog: boolean = false
+  specials!: Special[];
+  specialDialog: boolean = false;
+  SelectedSpecials!: Special[] | null;
+  specialAddEdit: boolean = false;
+  submittedSpecials: boolean = false;
+  special!: Special;
+
 
 
   // Formularios para ver
@@ -53,6 +79,26 @@ export class ModificarProveedorComponent implements OnInit {
     typePerson: new FormControl({ value: '', disabled: true }),
   });
 
+  // Sedes
+  public sedesForm = new FormGroup({
+    id: new FormControl<number>(0, { nonNullable: true }),
+    code: new FormControl<number>(0, [Validators.required]), // Código como número no nulo
+    name: new FormControl<string>(''),
+    address: new FormControl<string>(''),
+    active: new FormControl<string>(''),
+    principalSede: new FormControl<string>('', [Validators.required]),
+    departament: new FormControl<string>('', [Validators.required]),
+    city: new FormControl<string>('', [Validators.required]),  
+  });
+
+  // Specials
+  public specialForm = new FormGroup({
+    id: new FormControl<number>(0, { nonNullable: true }),
+    code: new FormControl<number>(0, [Validators.required]),
+    name: new FormControl<string>(''),
+  })
+
+
   //Dropdowns
   public typeDocument: TypeDocument[] | undefined = [];
   public typePerson: TypePerson[] | undefined = [];
@@ -60,14 +106,41 @@ export class ModificarProveedorComponent implements OnInit {
   public cities: City[] | undefined = [];
   public typeProviders: TypeProviders[] | undefined = [];
   public status: Status[] | undefined = [];
+  public principalSede: PrincipalSede[] | undefined = [];
+  public activo: Active[] | undefined = [];
+  public especial: Special[] | undefined = [];
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private proveedoresService: ProveedoresService
-  ) {}
+    private proveedoresService: ProveedoresService,
+    private tableLocationService: TableLocationService,
+    private tableSpecialService: TableSpecialService,
+    private messageService: MessageService,
+    private confirmationService: ConfirmationService,
+  ) {
+    this.specialForm.get('code')?.disable();
+  }
 
   ngOnInit(): void {
+
+    //Tabla de sedes
+    this.tableLocationService.getData().then((data) => {
+      this.locations = data.map((item: any) => ({
+        ...item,
+        active: item.active === 'true' || item.active === 'true' || item.active === '1' ? true : false
+      }));
+
+    });
+
+    //Tabla de especialidades
+    this.tableSpecialService.getData().then((data) =>{
+      this.specials = data.map((item: any) => ({
+        ...item,
+        active: item.active === 'true' || item.active === 'true' || item.active === '1' ? true : false
+      }))
+    })
+
     this.initializeDropdowns();
 
     // Obtener el ID de los parámetros de la ruta
@@ -153,6 +226,20 @@ export class ModificarProveedorComponent implements OnInit {
       { name: 'Quindío' },
       { name: 'Risaralda' },
     ];
+    this.principalSede = [
+      { name: 'Si'},
+      { name: 'No'}
+    ];
+    this.activo = [
+      { name: 'Si'},
+      { name: 'No'}
+    ];
+
+    this.especial = [
+      { code: 123 , name:'Especialidad 1'},
+      { code: 134 , name: 'Especialidad 2'},
+      { code: 142 , name: 'Especialidad 3'},
+    ];
   }
 
   updateForms() {
@@ -211,6 +298,8 @@ export class ModificarProveedorComponent implements OnInit {
       console.log('Formulario no válido');
     }
   }
+
+
   //Abrir modal de estado
   showStatusDialog(){
     this.displayStatusDialog = true;
@@ -220,5 +309,182 @@ export class ModificarProveedorComponent implements OnInit {
   onStatusHide(){
     this.displayStatusDialog = false;
   }
+
+  /* SECCION DE ESTADOS */
+  // -------------------------------------------------------------------
+
+  //Agregar nueva sede
+  openNewSede(){
+    this.sedesForm.reset();
+    this.submittedSedeAddEdit = false;
+    this.sedesAddEdit = true;
+  }
+
+  //Cierra el dialogo de edicion
+  hideSedesDialog(){
+    this.sedesDialog = false;
+    this.submittedSede = false;
+  }
+
+  //Cierra el dialogo de editar
+  hideSedeDialogAddEdit(){
+    this.sedesAddEdit = false;
+    this.submittedSedeAddEdit = false;
+  }
+
+  //Guardar sede
+  saveSede(){
+    this.submittedSedeAddEdit = true;
+    if(this.sedesForm.valid){
+      const formValue = this.sedesForm.value;
+
+      const sedeActualizado: Location = {
+        id: formValue.id !== null ? formValue.id: undefined,
+        code: formValue.code ?? undefined,
+        name: formValue.name ?? undefined,
+        address: formValue.address ?? undefined,
+        active: formValue.active ?? undefined,
+        principalSede: formValue.principalSede ?? undefined,
+        departament: formValue.departament ?? undefined,
+        city: formValue.city ?? undefined,
+      };
+
+      console.log('Sede actualizada', sedeActualizado)
+
+      this.messageService.add({ severity: 'success', summary: 'Exito', detail: 'Sede guardada exitosamente', life: 3000});
+      this.hideSedeDialogAddEdit();      
+    }
+  }
+
+  // Editar Sede
+  editSede(location: Location){
+    this.sedesForm.patchValue({ ...location });
+    this.sedesAddEdit = true;
+  }
+
+
+  // Eliminar Sedes
+  deleteSelectedSedes() {
+    if (this.SelectedLocations && this.SelectedLocations.length > 0) {
+      this.confirmationService.confirm({
+        message: '¿Estás seguro de eliminar las sedes seleccionados?',
+        header: 'Confirmar',
+        icon: 'pi pi-exclamation-triangle',
+        accept: () => {
+          this.locations = this.locations.filter(val => !this.SelectedLocations?.includes(val));
+          this.SelectedLocations = [];
+          this.messageService.add({ severity: 'success', summary: 'Éxito', detail: 'Proveedores eliminados', life: 3000 });
+        }
+      });
+    }
+  }
+
+  //Eliminar sede
+  
+  deleteSede(location: Location){
+    this.confirmationService.confirm({
+      message: 'Estas seguro de eliminar ' + location.name + '?',
+      header: 'Confirmar',
+      icon: 'pi pi-exclamation-traingle',
+      accept: () => {
+        this.locations = this.locations.filter((val) => val.id !== location.id)
+        this.SelectedLocations = [];
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Succesful',
+          detail: 'Proveedor eliminado',
+          life: 3000
+        });
+      }
+    });
+  }
+
+  /* SECCION DE SPECIALS */
+  // --------------------------------------------------
+
+  openNewSpecial(){
+    this.specialForm.reset();
+    this.submittedSpecials = false;
+    this.specialAddEdit = true;
+  }
+
+  onSpecialsHide(){
+    this.displaySpecialsDialog = false;
+  }
+
+  //Cierra el dialogo de edicion
+  hideSpecialDialog(){
+    this.specialDialog = false;
+    this.submittedSpecials = false;
+  }
+
+  //Cierra el dialogo de editar
+  hideSpecialDialogAddEdit(){
+    this.specialAddEdit = false;
+    this.submittedSpecials = false;
+  }
+
+  //Guardar sede
+  saveSpecial(){
+    this.submittedSpecials = true;
+    if(this.specialForm.valid){
+      const formValue = this.specialForm.value;
+
+      const specialActualizado: Special = {
+        code: formValue.code ?? undefined,
+        name: formValue.name ?? undefined,
+      };
+
+      console.log('Sede actualizada', specialActualizado)
+
+      this.messageService.add({ severity: 'success', summary: 'Exito', detail: 'Sede guardada exitosamente', life: 3000});
+      this.hideSedeDialogAddEdit();      
+    }
+  }
+
+  // Editar Sede
+  editSpecial(special: Special){
+    this.specialForm.patchValue({ ...special });
+    this.specialAddEdit = true;
+  }
+
+
+  // Eliminar Sedes
+  deleteSelectedSpecial() {
+    if (this.SelectedSpecials && this.SelectedSpecials.length > 0) {
+      this.confirmationService.confirm({
+        message: '¿Estás seguro de eliminar las sedes seleccionados?',
+        header: 'Confirmar',
+        icon: 'pi pi-exclamation-triangle',
+        accept: () => {
+          this.specials = this.specials.filter(val => !this.SelectedSpecials?.includes(val));
+          this.SelectedSpecials = [];
+          this.messageService.add({ severity: 'success', summary: 'Éxito', detail: 'Proveedores eliminados', life: 3000 });
+        }
+      });
+    }
+  }
+
+  //Eliminar special
+  
+  deleteSpecial(special: Special){
+    this.confirmationService.confirm({
+      message: 'Estas seguro de eliminar ' + special.name + '?',
+      header: 'Confirmar',
+      icon: 'pi pi-exclamation-traingle',
+      accept: () => {
+        this.specials = this.specials.filter((val) => val.id !== special.id)
+        this.SelectedSpecials = [];
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Succesful',
+          detail: 'Proveedor eliminado',
+          life: 3000
+        });
+      }
+    });
+  }
+
+
 
 }
