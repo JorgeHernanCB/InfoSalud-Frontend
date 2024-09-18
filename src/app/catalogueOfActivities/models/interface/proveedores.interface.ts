@@ -14,7 +14,7 @@ export interface Proveedores {
   date_start?: Date_start;
   date_finish?: Date_finish;
   code?: string | number;
-  active?: Active;
+  activo?: Active;
   sedePrincipal ?: PrincipalSede;
 }
 

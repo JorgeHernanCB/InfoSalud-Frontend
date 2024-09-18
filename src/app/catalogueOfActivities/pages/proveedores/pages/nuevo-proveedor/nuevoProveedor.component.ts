@@ -61,7 +61,7 @@ export class NuevoProveedorComponent {
       city: ['', Validators.required],
       departament: ['', Validators.required],
       selectPlaces: ['', Validators.required],
-      active: ['', Validators.required],
+      activo: ['', Validators.required],
       sedePrincipal: ['', Validators.required],
     });
   }
@@ -211,7 +211,7 @@ export class NuevoProveedorComponent {
       { name: 'Hospital' },
     ];
 
-    this.active = [{ name: 'Si' }, { name: 'No' }];
+    this.activo = [{ name: 'Si' }, { name: 'No' }];
 
     this.sedePrincipal = [{ name: 'Si' }, { name: 'No' }];
   }

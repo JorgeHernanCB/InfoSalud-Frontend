@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormGroup, FormControl } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import {
   TypePerson,
   Departament,
@@ -9,13 +10,12 @@ import {
   Proveedores,
   TypeDocument,
   NumberDocument,
-  PrincipalSede, 
+  PrincipalSede,
   Active,
   Special,
   serviceHabilitado
 } from '../../../../models/interface/proveedores.interface';
 import { ProveedoresService } from '../../../../../service/proveedores/proveedores.service';
-import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { TableLocationService } from '../../../../../service/table-location(sedes)/table-location.service';
 import { ConfirmationService, MessageService } from 'primeng/api';
@@ -73,8 +73,8 @@ export class ModificarProveedorComponent implements OnInit {
     city: new FormControl({ value: '', disabled: true }),
     typePerson: new FormControl({ value: '', disabled: true }),
   });
-  
 
+  //Editar formulario
   public editForm = new FormGroup({
     name: new FormControl({ value: '', disabled: true }),
     typeDocument: new FormControl({ value: '', disabled: true }),
@@ -95,7 +95,7 @@ export class ModificarProveedorComponent implements OnInit {
     active: new FormControl<string>(''),
     principalSede: new FormControl<string>('', [Validators.required]),
     departament: new FormControl<string>('', [Validators.required]),
-    city: new FormControl<string>('', [Validators.required]),  
+    city: new FormControl<string>('', [Validators.required]),
   });
 
   // Specials
@@ -303,10 +303,10 @@ export class ModificarProveedorComponent implements OnInit {
 
   getTypeDocumentValue(typeDocument?: TypeDocument): string {
     if (!typeDocument) return '';
-    return typeDocument.identification?.toString() || 
-           typeDocument.cc?.toString() || 
-           typeDocument.nit?.toString() || 
-           typeDocument.passport?.toString() || 
+    return typeDocument.identification?.toString() ||
+           typeDocument.cc?.toString() ||
+           typeDocument.nit?.toString() ||
+           typeDocument.passport?.toString() ||
            '';
   }
 
@@ -371,7 +371,7 @@ export class ModificarProveedorComponent implements OnInit {
       console.log('Sede actualizada', sedeActualizado)
 
       this.messageService.add({ severity: 'success', summary: 'Exito', detail: 'Sede guardada exitosamente', life: 3000});
-      this.hideSedeDialogAddEdit();      
+      this.hideSedeDialogAddEdit();
     }
   }
 
@@ -399,7 +399,7 @@ export class ModificarProveedorComponent implements OnInit {
   }
 
   //Eliminar sede
-  
+
   deleteSede(location: Location){
     this.confirmationService.confirm({
       message: 'Estas seguro de eliminar ' + location.name + '?',
@@ -457,7 +457,7 @@ export class ModificarProveedorComponent implements OnInit {
       console.log('Sede actualizada', specialActualizado)
 
       this.messageService.add({ severity: 'success', summary: 'Exito', detail: 'Sede guardada exitosamente', life: 3000});
-      this.hideSedeDialogAddEdit();      
+      this.hideSedeDialogAddEdit();
     }
   }
 
@@ -485,7 +485,7 @@ export class ModificarProveedorComponent implements OnInit {
   }
 
   //Eliminar special
-  
+
   deleteSpecial(special: Special){
     this.confirmationService.confirm({
       message: 'Estas seguro de eliminar ' + special.name + '?',

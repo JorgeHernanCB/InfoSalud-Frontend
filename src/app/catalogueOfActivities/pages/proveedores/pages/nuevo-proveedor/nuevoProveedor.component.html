@@ -150,14 +150,14 @@
           [value]="locations"
           [paginator]="true"
           [rows]="10"
-          [rowsPerPageOptions]="[5, 10, 20, 100]"
+          [rowsPerPageOptions]="[1, 5, 10, 20]"
           styleClass="p-datatable-gridlines"
           [tableStyle]="{ 'min-width': '50rem' }"
           [globalFilterFields]="[
             'code',
             'name',
             'address',
-            'active',
+            'activo',
             'principalSede',
             'city',
             'departament',
@@ -183,8 +183,8 @@
               <th pSortableColumn="address" class="text-center">
                 Direcci&oacute;n<p-sortIcon field="address"></p-sortIcon>
               </th>
-              <th pSortableColumn="active" class="text-center">
-                Activo<p-sortIcon field="active"></p-sortIcon>
+              <th pSortableColumn="activo" class="text-center">
+                Activo<p-sortIcon field="activo"></p-sortIcon>
               </th>
               <th pSortableColumn="principalSede" class="text-center">
                 Sede Principal<p-sortIcon field="sedePrincipal"></p-sortIcon>
@@ -206,7 +206,7 @@
               <td class="text-center">{{ locations.code }}</td>
               <td class="text-center">{{ locations.name }}</td>
               <td class="text-center">{{ locations.address }}</td>
-              <td class="text-center">{{ locations.active}}</td>
+              <td class="text-center">{{ locations.activo }}</td>
               <td class="text-center">{{ locations.principalSede }}</td>
               <td class="text-center">{{ locations.city }}</td>
               <td class="text-center">{{ locations.departament }}</td>
@@ -490,25 +490,8 @@
     styleClass="p-fluid"
   >
     <ng-template pTemplate="content">
-      <!-- [formGroup]="addSedesForm" -->
-      <form [formGroup]="sedesForm" >
+      <form [formGroup]="sedesForm">
         <div class="formgrid grid col-12 mt-4">
-
-      <div class="field col-6">
-        <p-floatLabel>
-          <input
-            pInputText
-            id="sede"
-            formControlName="sede"
-          />
-          <label htmlFor="sede" id="custom-pfloatLabel" class="w-10"
-            >Nombre</label
-          >
-        </p-floatLabel>
-        <!-- <small class="p-error" *ngIf="submitted && proveedorsForm.controls['typePerson'].invalid">
-        Nombre/Razon social es requerido
-        </small> -->
-      </div>
           <div class="field col-6">
             <p-floatLabel>
               <input pInputText id="sede" formControlName="sede" />
@@ -518,45 +501,22 @@
             </p-floatLabel>
           </div>
 
-
-      <div class="field col-6">
-        <p-floatLabel>
-          <input
-            pInputText
-            id="address"
-            formControlName="address"
-          />
-          <label htmlFor="name" id="custom-pfloatLabel" class="w-10"
-            >Direcci&oacute;n</label
-            >
-        </p-floatLabel>
-        <!-- <small class="p-error" *ngIf="submitted && proveedorsForm.controls['numberDocument'].invalid">
-          Direccion es requerido
-        </small> -->
-      </div>
-    </div>
           <div class="field col-6">
             <p-floatLabel>
-              <input
-                pInputText
-                id="address"
-                formControlName="address"
-              />
+              <input pInputText id="address" formControlName="address" />
               <label htmlFor="name" id="custom-pfloatLabel" class="w-10"
                 >Direcci&oacute;n</label
-                >
+              >
             </p-floatLabel>
-
           </div>
         </div>
-
 
         <div class="formgrid grid col-12">
           <div class="field col-6">
             <p-dropdown
-            [options]="active"
-            formControlName="active"
-            optionLabel="name"
+              [options]="activo"
+              formControlName="activo"
+              optionLabel="name"
               placeholder="Activo"
             />
             <!-- <small class="p-error" *ngIf="submitted && proveedorsForm.controls['city'].invalid">
@@ -571,23 +531,21 @@
               optionLabel="name"
               placeholder="Departamento"
             />
+          </div>
         </div>
-
-  </div>
-    <!-- Row 3 -->
-    <div class="formgrid grid col-12">
-
-      <div class="field col-6">
-        <p-dropdown
-          [options]="cities"
-          formControlName="city"
-          optionLabel="city"
-          placeholder="Ciudad"
-        />
-      </div>
-    </div>
-  </form>
-</ng-template>
+        <!-- Row 3 -->
+        <div class="formgrid grid col-12">
+          <div class="field col-6">
+            <p-dropdown
+              [options]="cities"
+              formControlName="city"
+              optionLabel="city"
+              placeholder="Ciudad"
+            />
+          </div>
+        </div>
+      </form>
+    </ng-template>
 
     <ng-template pTemplate="footer">
       <div class="formgrid grid flex justify-content-between">
@@ -612,17 +570,6 @@
     </ng-template>
   </p-dialog>
 
-<!-- Dialogo para agregar una especialidad -->
-<p-dialog
-[(visible)]="addSpecialDialog"
-[style]="{width: '600px'}"
-header="Agregar una nueva sede"
-[modal]="true"
-styleClass="p-fluid">
-<ng-template pTemplate="content">
-  <!-- [formGroup]="addSedesForm" -->
-  <form >
-    <div class="formgrid grid col-12 mt-4">
   <!-- Dialogo para agregar una especialidad -->
   <p-dialog
     [(visible)]="addSpecialDialog"
@@ -632,6 +579,7 @@ styleClass="p-fluid">
     styleClass="p-fluid"
   >
     <ng-template pTemplate="content">
+      <!-- [formGroup]="addSedesForm" -->
       <form [formGroup]="specialForm">
         <div class="formgrid grid col-12 mt-4">
           <div class="field col-6">
@@ -646,39 +594,20 @@ styleClass="p-fluid">
                 >Codigo</label
               >
             </p-floatLabel>
-            <!-- <small class="p-error" *ngIf="submitted && proveedorsForm.controls['typePerson'].invalid">
-        Codigo es requerido
-        </small> -->
-      </div>
+          </div>
+
           <div class="field col-6">
             <p-floatLabel>
               <input
                 pInputText
-                type="number"
+                type="specialidad"
                 id="code"
-                formControlName="code"
+                formControlName="specialidad"
               />
               <label htmlFor="code" id="custom-pfloatLabel" class="w-10"
-                >Codigo</label
+                >Especialidad</label
               >
             </p-floatLabel>
-
-          </div>
-
-      <div class="field col-6">
-        <p-floatLabel>
-          <input
-            pInputText
-            id="specialidad"
-            formControlName="specialidad"
-          />
-          <label htmlFor="specialidad" id="custom-pfloatLabel" class="w-10"
-            >Especialidad</label
-          >
-        </p-floatLabel>
-        <!-- <small class="p-error" *ngIf="submitted && proveedorsForm.controls['numberDocument'].invalid">
-        Direccion es requerido
-        </small> -->
           </div>
         </div>
       </form>
@@ -711,15 +640,6 @@ styleClass="p-fluid">
     [style]="{ width: '450px' }"
     [acceptLabel]="'Sí'"
     [rejectLabel]="'No'"
-  ></p-confirmDialog>
-
-  <!-- Dialogo para Cancelar -->
-  <!-- <p-confirmDialog
-  header="Confirmación"
-  icon="pi pi-exclamation-triangle"
-  [acceptLabel]="'Aceptar'"
-  [rejectLabel]="'Cancelar'"
-  (onAccept)="onAcceptCancelar()"
-  (onReject)="onRejectCancelar()"
-></p-confirmDialog> -->
+  >
+  </p-confirmDialog>
 </div>
