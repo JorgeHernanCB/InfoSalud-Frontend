@@ -578,23 +578,121 @@
           />
         </div>
       </div>
+      <!-- Tabla  -->
+    </form>
+  </p-panel>
 
-      <!-- Tabla sede -->
-      <h4>Tabla de sede</h4>
+  <!-- Tabla de sedes -->
+  <div class="mt-4">
+    <p-panel header="Ver Sedes" [toggleable]="true" [collapsed]="true">
       <p-table
-        #dt1
-        [value]="locations"
+          #dt1
+          [value]="locations"
+          styleClass="p-datatable-gridlines"
+          [tableStyle]="{ 'min-width': '50rem' }"
+          [globalFilterFields]="[
+            'code',
+            'name',
+            'address',
+            'active',
+            'principalSede',
+            'city',
+            'departament',
+            'locationMain'
+          ]"
+          [rowHover]="true"
+          dataKey="id"
+          currentPageReportTemplate="Mostrando del {first} al {last} de {totalRecords} datos"
+          [showCurrentPageReport]="true"
+        >
+          <ng-template pTemplate="header">
+            <tr>
+              <th pSortableColumn="code" class="text-center">
+                Codigo<p-sortIcon field="code"></p-sortIcon>
+              </th>
+              <th pSortableColumn="name" class="text-center">
+                Nombre <p-sortIcon field="name"></p-sortIcon>
+              </th>
+              <th pSortableColumn="address" class="text-center">
+                Direcci&oacute;n<p-sortIcon field="address"></p-sortIcon>
+              </th>
+              <th pSortableColumn="active" class="text-center">
+                Activo<p-sortIcon field="active"></p-sortIcon>
+              </th>
+              <th pSortableColumn="principalSede" class="text-center">
+                Sede Principal<p-sortIcon field="sedePrincipal"></p-sortIcon>
+              </th>
+              <th pSortableColumn="city" class="text-center">
+                Ciudad<p-sortIcon field="city"></p-sortIcon>
+              </th>
+              <th pSortableColumn="departament" class="text-center">
+                Departamento<p-sortIcon field="departament"></p-sortIcon>
+              </th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-locations>
+            <tr>
+              <td class="text-center">{{ locations.code }}</td>
+              <td class="text-center">{{ locations.name }}</td>
+              <td class="text-center">{{ locations.address }}</td>
+              <td class="text-center">{{ locations.activo }}</td>
+              <td class="text-center">{{ locations.principalSede }}</td>
+              <td class="text-center">{{ locations.city }}</td>
+              <td class="text-center">{{ locations.departament }}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+    </p-panel>
+  </div>
+  
+
+  <!-- Tabla de especialidad -->
+  <div class="mt-4">
+    <p-panel header="Ver Especialidad" [toggleable]="true" [collapsed]="true">
+      <p-table
+          #dt8
+          [value]="specials"
+          styleClass="p-datatable-gridlines"
+          [tableStyle]="{ 'min-width': '50rem' }"
+          [globalFilterFields]="['code', 'name']"
+          [rowHover]="true"
+          dataKey="id"
+          currentPageReportTemplate="Mostrando del {first} al {last} de {totalRecords} datos"
+          [showCurrentPageReport]="true"
+        >
+          <ng-template pTemplate="header">
+            <tr>
+              <th pSortableColumn="code" class="text-center">
+                Codigo<p-sortIcon field="code"></p-sortIcon>
+              </th>
+              <th pSortableColumn="name" class="text-center">
+                Especialidad <p-sortIcon field="name"></p-sortIcon>
+              </th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-specials>
+            <tr>
+              <td class="text-center">{{ specials.code }}</td>
+              <td class="text-center">{{ specials.name }}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+    </p-panel>
+  </div>
+  
+  <!-- Tabla de servicios -->
+  <div class="mt-4">
+    <p-panel header="Ver Especialidad" [toggleable]="true" [collapsed]="true">
+      <p-table
+        #dt5
+        [value]="serviceHabilitado"
         styleClass="p-datatable-gridlines"
         [tableStyle]="{ 'min-width': '50rem' }"
         [globalFilterFields]="[
           'code',
           'name',
-          'address',
-          'active',
-          'principalSede',
-          'city',
           'departament',
-          'locationMain'
+          'city'
         ]"
         [rowHover]="true"
         dataKey="id"
@@ -604,119 +702,30 @@
         <ng-template pTemplate="header">
           <tr>
             <th pSortableColumn="code" class="text-center">
-              Codigo<p-sortIcon field="code"></p-sortIcon>
+              C&oacute;digo Servicio<p-sortIcon field="code"></p-sortIcon>
             </th>
             <th pSortableColumn="name" class="text-center">
-              Nombre <p-sortIcon field="name"></p-sortIcon>
-            </th>
-            <th pSortableColumn="address" class="text-center">
-              Direcci&oacute;n<p-sortIcon field="address"></p-sortIcon>
-            </th>
-            <th pSortableColumn="active" class="text-center">
-              Activo<p-sortIcon field="active"></p-sortIcon>
-            </th>
-            <th pSortableColumn="principalSede" class="text-center">
-              Sede Principal<p-sortIcon field="sedePrincipal"></p-sortIcon>
-            </th>
-            <th pSortableColumn="city" class="text-center">
-              Ciudad<p-sortIcon field="city"></p-sortIcon>
-            </th>
-            <th pSortableColumn="departament" class="text-center">
-              Departamento<p-sortIcon field="departament"></p-sortIcon>
-            </th>
+              Nombre Servicio<p-sortIcon field="name"></p-sortIcon>
+            <th pSortableColumn="departament" class="text-center">Departamento / Provincia</th>
+            <th pSortableColumn="city" class="text-center">Ciudad / Municipio</th>
+            <!-- <th class="text-center">Mod</th>
+            <th class="text-center">Eli</th> -->
           </tr>
         </ng-template>
-        <ng-template pTemplate="body" let-locations>
+        <ng-template pTemplate="body" let-servicio_habilitado>
           <tr>
-            <td class="text-center">{{ locations.code }}</td>
-            <td class="text-center">{{ locations.name }}</td>
-            <td class="text-center">{{ locations.address }}</td>
-            <td class="text-center">{{ locations.activo }}</td>
-            <td class="text-center">{{ locations.principalSede }}</td>
-            <td class="text-center">{{ locations.city }}</td>
-            <td class="text-center">{{ locations.departament }}</td>
+            <!-- <td>
+              <p-tableCheckbox [value]="special" />
+            </td> -->
+            <td class="text-center">{{ servicio_habilitado.code }}</td>
+            <td class="text-center">{{ servicio_habilitado.name }}</td>
+            <td class="text-center">{{ servicio_habilitado.departament}}</td>
+            <td class="text-center">{{ servicio_habilitado.city}}</td>
           </tr>
         </ng-template>
       </p-table>
-
-      <!-- Tabla especialidades -->
-      <h4>Tabla de especialidades</h4>
-      <p-table
-        #dt8
-        [value]="specials"
-        styleClass="p-datatable-gridlines"
-        [tableStyle]="{ 'min-width': '50rem' }"
-        [globalFilterFields]="['code', 'name']"
-        [rowHover]="true"
-        dataKey="id"
-        currentPageReportTemplate="Mostrando del {first} al {last} de {totalRecords} datos"
-        [showCurrentPageReport]="true"
-      >
-        <ng-template pTemplate="header">
-          <tr>
-            <th pSortableColumn="code" class="text-center">
-              Codigo<p-sortIcon field="code"></p-sortIcon>
-            </th>
-            <th pSortableColumn="name" class="text-center">
-              Especialidad <p-sortIcon field="name"></p-sortIcon>
-            </th>
-          </tr>
-        </ng-template>
-        <ng-template pTemplate="body" let-specials>
-          <tr>
-            <td class="text-center">{{ specials.code }}</td>
-            <td class="text-center">{{ specials.name }}</td>
-          </tr>
-        </ng-template>
-      </p-table>
-
-      <!-- Tabla de servicios habilitados -->
-      <h4>Tabla de servicios habilitados</h4>
-      <p-table
-      #dt5
-      [value]="serviceHabilitado"
-      styleClass="p-datatable-gridlines"
-      [tableStyle]="{ 'min-width': '50rem' }"
-      [globalFilterFields]="[
-        'code',
-        'name',
-        'departament',
-        'city'
-      ]"
-      [rowHover]="true"
-      dataKey="id"
-      currentPageReportTemplate="Mostrando del {first} al {last} de {totalRecords} datos"
-      [showCurrentPageReport]="true"
-    >
-      <ng-template pTemplate="header">
-        <tr>
-          <th pSortableColumn="code" class="text-center">
-            C&oacute;digo Servicio<p-sortIcon field="code"></p-sortIcon>
-          </th>
-          <th pSortableColumn="name" class="text-center">
-            Nombre Servicio<p-sortIcon field="name"></p-sortIcon>
-          <th pSortableColumn="departament" class="text-center">Departamento / Provincia</th>
-          <th pSortableColumn="city" class="text-center">Ciudad / Municipio</th>
-          <!-- <th class="text-center">Mod</th>
-          <th class="text-center">Eli</th> -->
-        </tr>
-      </ng-template>
-      <ng-template pTemplate="body" let-servicio_habilitado>
-        <tr>
-          <!-- <td>
-            <p-tableCheckbox [value]="special" />
-          </td> -->
-          <td class="text-center">{{ servicio_habilitado.code }}</td>
-          <td class="text-center">{{ servicio_habilitado.name }}</td>
-          <td class="text-center">{{ servicio_habilitado.departament}}</td>
-          <td class="text-center">{{ servicio_habilitado.city}}</td>
-        </tr>
-      </ng-template>
-    </p-table>
-
-      <!-- Tabla  -->
-    </form>
-  </p-panel>
+    </p-panel>
+  </div>
 </div>
 
 <!-- Dialogo para la modal de estatus -->
