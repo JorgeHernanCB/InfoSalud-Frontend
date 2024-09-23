@@ -40,7 +40,7 @@ export class NuevoProveedorComponent {
       name: [{value:'', disabled: true}, Validators.required],
       code: ['', Validators.required],
       address: ['', Validators.required],
-      typeDocument: [{value:''}, Validators.required],
+      typeDocument: ['', Validators.required],
       typePerson: ['', Validators.required],
       typeProviders: ['', Validators.required],
       numberDocument: ['', Validators.required],

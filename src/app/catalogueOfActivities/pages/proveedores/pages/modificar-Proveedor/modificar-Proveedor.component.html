@@ -784,14 +784,19 @@
     <div class="p-fluid">
       <div class="p-field">
         <!-- Row 1 -->
-        <div class="formgrid grid col-12">
+        <div class="formgrid grid col-12 mt-3">
           <div class="field col-6">
+            <p-floatLabel>
             <p-dropdown
               [options]="status"
               formControlName="status"
+              appendTo="body"
               optionLabel="status"
+              appendTo="body"
               placeholder="Estado"
             />
+            <label htmlFor="float-label" id="custom-pfloatLabel" class="w-10">Estado</label>
+          </p-floatLabel>
           </div>
         </div>
       </div>
@@ -976,7 +981,7 @@
     <div class="p-fluid">
       <div class="p-field">
         <!-- Row 1 -->
-        <div class="formgrid grid col-12">
+        <div class="formgrid grid col-12 mt-3">
           <div class="field col-6">
             <label for="code">C&oacute;digo</label>
             <input
@@ -992,15 +997,20 @@
           </div>
 
           <div class="field col-6 mt-4">
+            <p-floatLabel>
             <p-dropdown
                 [options]="especial"
                 formControlName="name"
+                appendTo="body"
                 optionLabel="name"
                 placeholder="Especialidad"
               />
             <small class="p-error" *ngIf="submittedSpecials && specialForm.controls['name'].invalid">
               Especialidad es requerido
             </small>
+            <label htmlFor="float-label" id="custom-pfloatLabel" class="w-10">Especialidad</label>
+
+          </p-floatLabel>
           </div>
         </div>
       </div>
