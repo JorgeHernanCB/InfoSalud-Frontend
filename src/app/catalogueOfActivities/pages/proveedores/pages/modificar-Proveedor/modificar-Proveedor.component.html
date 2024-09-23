@@ -1,5 +1,5 @@
 <!-- Editar Proveedores -->
-<div *ngIf="!isViewMode" class="card p-fluid">
+<div *ngIf="!isViewMode" class="mt-3">
   <p-panel header="Editar Proveedor" [toggleable]="true">
     <!-- Formulario de edición -->
     <form [formGroup]="editForm" (ngSubmit)="onSubmit()" >
@@ -127,6 +127,7 @@
           </p-floatLabel>
           <p-button
               icon="pi pi-search"
+              [text]="true"
               class="p-button-rounded p-button-text search-btn"
               (click)="showStatusDialog()"
             ></p-button>
@@ -153,18 +154,22 @@
       <p-toolbar styleClass="mb-4 gap-2">
         <ng-template pTemplate="left">
           <p-button
-            label="Agregar"
             icon="pi pi-plus"
             class="mr-2"
             [rounded]="true"
             [raised]="true"
+            [text]="true"
+            pTooltip="Agregar Sede"
+            tooltipPosition="top"
             (onClick)="openNewSede()"
           />
           <p-button
-            label="Eliminar"
             icon="pi pi-trash"
             [rounded]="true"
             [raised]="true"
+            [text]="true"
+            pTooltip="Eliminar Sede"
+            tooltipPosition="top"
             (onClick)="deleteSelectedSedes()"
             [disabled]="!SelectedLocations || !SelectedLocations.length"
           />
@@ -253,6 +258,11 @@
             <td>
               <p-button
                   icon="pi pi-pencil"
+                  [rounded]="true"
+                  [raised]="true"
+                  [text]="true"
+                  pTooltip="Editar"
+                  tooltipPosition="left"
                   class="p-button-rounded p-button-text ml-2 flex-1"
                   (click)="editSede(location)"
               />
@@ -260,6 +270,11 @@
             <td>
               <p-button
                   icon="pi pi-trash"
+                  [rounded]="true"
+                  [raised]="true"
+                  [text]="true"
+                  pTooltip="Eliminar"
+                  tooltipPosition="left"
                   class="p-button-rounded p-button-text ml-2 flex-1"
                   (click)="deleteSede(location)"
                 />
@@ -276,18 +291,22 @@
       <p-toolbar styleClass="mb-4 gap-2">
         <ng-template pTemplate="left">
           <p-button
-            label="Agregar"
             icon="pi pi-plus"
-            class="mr-2"
             [rounded]="true"
             [raised]="true"
+            [text]="true"
+            pTooltip="Agregar Especialidad"
+            tooltipPosition="top"
+            class="mr-2"
             (onClick)="openNewSpecial()"
           />
           <p-button
-            label="Eliminar"
             icon="pi pi-trash"
             [rounded]="true"
             [raised]="true"
+            [text]="true"
+            pTooltip="Eliminar Especialidad"
+            tooltipPosition="bottom"
             (onClick)="deleteSelectedSpecial()"
             [disabled]="!SelectedSpecials || !SelectedSpecials.length"
           />
@@ -299,7 +318,7 @@
         [paginator]="true"
         [rows]="10"
         [rowsPerPageOptions]="[5, 10, 20, 100]"
-        styleClass="p-datatable-gridlines"
+        styleClass="p-datatable-gridlines p-datatable-sm"
         [tableStyle]="{ 'min-width': '50rem' }"
         [globalFilterFields]="[
           'code',
@@ -350,6 +369,11 @@
             <td class="text-center">
               <p-button
                   icon="pi pi-pencil"
+                  [rounded]="true"
+                  [raised]="true"
+                  [text]="true"
+                  pTooltip="Editar"
+                  tooltipPosition="left"
                   class="p-button-rounded p-button-text ml-2 flex-1"
                   (click)="editSpecial(special)"
               />
@@ -357,6 +381,11 @@
             <td class="text-center">
               <p-button
                   icon="pi pi-trash"
+                  [rounded]="true"
+                  [raised]="true"
+                  [text]="true"
+                  pTooltip="Eliminar"
+                  tooltipPosition="left"
                   class="p-button-rounded p-button-text ml-2 flex-1"
                   (click)="deleteSpecial(special)"
                 />
@@ -374,10 +403,12 @@
         <ng-template pTemplate="left">
           <!-- icon="pi pi-plus" -->
           <p-button
-            label="Servicios Habilitados"
-            class="mr-2"
+            icon="pi pi-arrow-circle-up"
             [rounded]="true"
             [raised]="true"
+            [text]="true"
+            pTooltip="Servicios Habilitados"
+            class="mr-2"
             (onClick)="openNewServiceHabilitado()"
           />
           <!-- <p-button
@@ -398,7 +429,7 @@
         [paginator]="true"
         [rows]="10"
         [rowsPerPageOptions]="[5, 10, 20, 100]"
-        styleClass="p-datatable-gridlines"
+        styleClass="p-datatable-gridlines p-datatable-sm"
         [tableStyle]="{ 'min-width': '50rem' }"
         [globalFilterFields]="[
           'code',
@@ -461,15 +492,18 @@
   <div class="formgrid grid flex justify-content-between mt-4">
     <div class="field-col ml-4">
       <p-button
-        label="Regresar"
+        icon="pi pi-step-backward"
         [raised]="true"
         [rounded]="true"
+        [text]="true"
+        pTooltip="Regresar"
+        tooltipPosition="top"
         [routerLink]="['/proveedores']"
         />
       </div>
     <div class="field-col mr-5">
       <p-button
-      label="Guardar"
+        icon="pi pi-save"
         [raised]="true"
         [rounded]="true"
       />
@@ -486,9 +520,12 @@
       <div class="formgrid grid flex justify-content-between">
         <div class="field-col ml-4">
           <p-button
-            label="Regresar"
+            icon="pi pi-step-backward"
+            [text]="true"
             [raised]="true"
             [rounded]="true"
+            pTooltip="Regresar"
+            tooltipPosition="bottom"
             [routerLink]="['/proveedores']"
           />
         </div>
@@ -588,8 +625,8 @@
       <p-table
           #dt1
           [value]="locations"
-          styleClass="p-datatable-gridlines"
-          [tableStyle]="{ 'min-width': '50rem' }"
+          styleClass="p-datatable-gridlines p-datatable-sm"
+          [tableStyle]="{ 'min-width': '50rem'  }"
           [globalFilterFields]="[
             'code',
             'name',
@@ -652,7 +689,7 @@
       <p-table
           #dt8
           [value]="specials"
-          styleClass="p-datatable-gridlines"
+          styleClass="p-datatable-gridlines p-datatable-sm"
           [tableStyle]="{ 'min-width': '50rem' }"
           [globalFilterFields]="['code', 'name']"
           [rowHover]="true"
@@ -686,7 +723,7 @@
       <p-table
         #dt5
         [value]="serviceHabilitado"
-        styleClass="p-datatable-gridlines"
+        styleClass="p-datatable-gridlines p-datatable-sm"
         [tableStyle]="{ 'min-width': '50rem' }"
         [globalFilterFields]="[
           'code',
@@ -732,6 +769,7 @@
 <p-dialog
   header="Cambiar Estado"
   [(visible)]="displayStatusDialog"
+  dismissableMask="true"
   [modal]="true"
   [closable]="true"
   [resizable]="false"
@@ -762,21 +800,25 @@
       <div class="formgrid grid flex justify-content-between mt-4">
         <div class="field-col ml-4">
           <button
+          icon="pi pi-times-circle"
+          [rounded]="true"
+          [raised]="true"
+          [text]="true"
+          pTooltip="Cancelar"
+          tooltipPosition="left"
           type="button"
           pButton
-          label="Cerrar"
-          [raised]="true"
-          [rounded]="true"
-          icon="pi pi-times"
           (click)="displayStatusDialog = false"
         ></button>
         </div>
         <div class="field-col mr-5">
           <p-button
-            label="Aceptar"
+            icon="pi pi-check-circle"
+            [text]="true"
             [raised]="true"
             [rounded]="true"
-            icon="pi pi-check"
+            pTooltip="Aceptar"
+            tooltipPosition="left"
           />
         </div>
       </div>

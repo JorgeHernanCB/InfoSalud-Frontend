@@ -3,7 +3,10 @@
     <!--Logo producto Infocol-->
     <div class="flex-1 md:flex-auto flex align-items-center justify-content-center py-3 ml-6">
         <a href="/home">
-            <img id="logo" src="/assets/images/LogoINFORCOL.png" alt="Logo inforcol" style="width: 250px;" />
+            <img id="logo"
+            src="/assets/images/LogoINFORCOL.png"
+            alt="Logo inforcol"
+            style="width: 250px;" />
         </a>
     </div>
 
@@ -13,8 +16,11 @@
 
     <!-- logo aseguradora -->
     <div class="flex-1 md:flex-auto flex align-items-left py-5">
-        <!-- <img src="../../../../assets/icons/liberty.ico" alt="" style="width: 70px; height: 70px;"> -->
-         <img *ngIf="imageUrl" [src]="imageUrl" alt="Imagen subida" class="uploaded-image" style="width: 70px; height: 70px;">
+         <img *ngIf="imageUrl"
+         [src]="imageUrl"
+         alt="Imagen subida"
+         class="uploaded-image"
+         style="width: 70px; height: 70px;">
     </div>
 
     <div class="flex-1 md:flex-auto flex align-items-center py-3">
@@ -50,13 +56,3 @@
     </div>
  </div>
 
-
-<!-- script para Fecha actual en el header
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-<script>
-    var app = angular.module('headerApp', []);
-
-    app.controller('fechaController', function($scope){
-      $scope.fechaActual = new Date();
-    });
-</script> -->

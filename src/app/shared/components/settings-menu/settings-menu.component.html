@@ -3,8 +3,9 @@
   <div>
     <p-sidebar
     [(visible)]="settingSidebar"
+    dismissableMark="true"
     position="right"
-    [modal]="false"
+    [modal]="true"
     class = "adaptive-sidebar-right"
     >
     <!-- <h3 class="mb-5">Temas</h3> -->
@@ -31,13 +32,16 @@
   </div>
 
   <p-button
+  icon="pi pi-cog"
     id="settingButton"
+    severity="contrast"
+    [rounded]="true"
+
+    label=""
+    pTooltip="Configuraciones"
+    tooltipPosition="left"
     type="button"
     (click)="settingSidebar = true"
-    label=""
-    severity="contrast"
-    icon="pi pi-cog"
-    [rounded]="true"
   >
   </p-button>
 

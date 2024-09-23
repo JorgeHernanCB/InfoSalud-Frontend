@@ -1,22 +1,77 @@
 <p-buttonGroup>
   <div class="button-container">
     <!-- Boton salir a la izquierda -->
-    <p-button label="Salir" [raised]="true" [rounded]="true" styleClass="left-button" [routerLink]="['/home']"
+
+    <!-- 🚪 Boton de salir -->
+    <p-button
+      icon="pi pi-sign-out"
+      [rounded]="true"
+      [text]="true"
+      [raised]="true"
+      styleClass="left-button"
+      pTooltip="Salir"
+      [routerLink]="['/home']"
     />
 
     <!-- Botones hacia la derecha -->
+
+    <!-- 📤 Boton de carga masiva -->
     <div class="right-buttons">
-      <p-button label="Masivo" [raised]="true" [rounded]="true" styleClass="right-button" />
-
-      <p-button label="Descargar" [raised]="true" [rounded]="true" styleClass="right-button"/>
-
-      <p-button label="Limpiar" [raised]="true" [rounded]="true" styleClass="right-button" (click)="onClearClick()" />
-
-      <p-button label="Nuevo" [raised]="true" [rounded]="true" styleClass="right-button" [routerLink]="['/proveedores/nuevo-proveedor']"
+      <p-button
+        icon="pi pi-upload"
+        [rounded]="true"
+        [text]="true"
+        [raised]="true"
+        pTooltip="Carga masiva"
+        tooltipPosition="top"
+        styleClass="right-button"
       />
 
-      <p-button type="submit" label="Buscar" [raised]="true" [rounded]="true" styleClass="right-button" (click)="onSearchClick()"/>
+      <!-- 📥 Boton de descargar -->
+      <p-button
+        icon="pi pi-download"
+        [rounded]="true"
+        [text]="true"
+        [raised]="true"
+        styleClass="right-button"
+        pTooltip="Descargar"
+        tooltipPosition="top"
+      />
+      <!-- 🧹 Boton de limpiar -->
+      <p-button
+        icon="pi pi-eraser"
+        [rounded]="true"
+        [text]="true"
+        [raised]="true"
+        styleClass="right-button"
+        pTooltip="Limpiar"
+        tooltipPosition="top"
+        (click)="onClearClick()"
+      />
+      <!-- + Boton de nuevo proveedor -->
+      <p-button
+        icon="pi pi-plus"
+        [rounded]="true"
+        [text]="true"
+        [raised]="true"
+        styleClass="right-button"
+        pTooltip="Agregar proveedor"
+        tooltipPosition="top"
+        [routerLink]="['/proveedores/nuevo-proveedor']"
+      />
 
+      <p-button
+        icon="pi pi-search"
+        [rounded]="true"
+        [text]="true"
+        [raised]="true"
+        styleClass="right-button"
+        tooltipPosition="bottom"
+        pTooltip="Buscar"
+        tooltipPosition="top"
+        type="submit"
+        (click)="onSearchClick()"
+      />
     </div>
   </div>
 </p-buttonGroup>

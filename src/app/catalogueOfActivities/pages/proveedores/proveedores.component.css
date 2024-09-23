@@ -1,3 +1,6 @@
 .custom-button .ui-button{
     background-color: #85B2F9 !important;
 }
+.p-table-title{
+  font-size: 12px;
+}
