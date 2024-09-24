@@ -67,22 +67,12 @@
   background-color: #d6d6d6;
 }
 
-<<<<<<< HEAD
-=======
 /* Estilo para el tamaño de los input */
->>>>>>> c6073b2f415a8d910d940e404982e5a1ced21903
 input,
 .p-dropdown {
   width: 100%;
 }
 
-<<<<<<< HEAD
-.custom-col-3 {
-  width: 25%;
-}
-
-.p-button-custom .p-button {
-=======
 /* ESTILOS PARA EL MANEJO DE LOS COL */
 /* Estilo para el tamaño total de la fila */
 /* Se esta manejando con 4 inputs por fila */
@@ -109,7 +99,6 @@ input,
 /* ----------------------------------- */
 
 .p-button-custom .p-button{
->>>>>>> c6073b2f415a8d910d940e404982e5a1ced21903
   /* display: inline-block; */
   height: 35px;
   width: 45px;
