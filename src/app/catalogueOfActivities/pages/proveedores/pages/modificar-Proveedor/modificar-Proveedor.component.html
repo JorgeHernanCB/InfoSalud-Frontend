@@ -24,13 +24,14 @@
       </div> -->
 
       <!-- Fila 1 -->
-      <div class="formgrid grid mt-4 col-12">
+      <div class="formgrid grid mt-4 custom-col-extend">
 
-        <div class="field col-3">
+        <div class="field custom-col">
           <p-dropdown
             [options]="typeDocument"
             formControlName="typeDocument"
             optionLabel="identification"
+            class="ipt-disabled"
             placeholder="Tipo de identificación"
           />
           <small class="p-error" *ngIf="submitted && editForm.controls['typeDocument'].invalid">
@@ -38,7 +39,7 @@
           </small>
         </div>
 
-        <div class="field col-3">
+        <div class="field custom-col">
           <p-floatLabel>
             <input
               pInputText
@@ -56,7 +57,7 @@
         </p-floatLabel>
         </div>
 
-        <div class="field col-3">
+        <div class="field custom-col">
           <p-floatLabel>
             <input
               pInputText
@@ -74,7 +75,7 @@
           </p-floatLabel>
         </div>
 
-        <div class="field col-3">
+        <div class="field custom-col">
           <p-dropdown
             [options]="typePerson"
             formControlName="typePerson"
@@ -86,9 +87,9 @@
       </div>
 
       <!-- Fila 2 -->
-      <div class="formgrid grid col-12">
+      <div class="formgrid grid custom-col-extend mt-3">
 
-        <div class="field col-3">
+        <div class="field custom-col">
           <p-dropdown
             [options]="typeProviders"
             formControlName="typeProviders"
@@ -99,7 +100,7 @@
         </div>
 
 
-        <div class="field col-3">
+        <div class="field custom-col">
           <p-dropdown
             [options]="departament"
             formControlName="departament"
@@ -112,7 +113,7 @@
           </small>
         </div>
 
-        <div class="field col-3 input-with-button">
+        <div class="field custom-col input-with-button">
 
           <p-floatLabel>
             <input
@@ -123,7 +124,7 @@
               formControlName="status"
               [disabled]="true"
             />
-            <label htmlFor="status" id="custom-pfloatLabel" class="w-10">Estado</label>
+            <label htmlFor="status" id="custom-pfloatLabel" class="custom-w">Estado</label>
           </p-floatLabel>
           <p-button
               icon="pi pi-search"
@@ -255,7 +256,7 @@
                 />
               </div>
             </td> -->
-            <td>
+            <td class="text-center">
               <p-button
                   icon="pi pi-pencil"
                   [rounded]="true"
@@ -267,7 +268,7 @@
                   (click)="editSede(location)"
               />
             </td>
-            <td>
+            <td class="text-center">
               <p-button
                   icon="pi pi-trash"
                   [rounded]="true"
@@ -532,8 +533,8 @@
       </div>
 
       <!-- Fila 1 -->
-      <div class="formgrid grid mt-4 col-12">
-        <div class="field col-3">
+      <div class="formgrid grid mt-4 custom-col-extend">
+        <div class="field custom-col">
           <p-dropdown
             [options]="typeDocument"
             formControlName="typeDocument"
@@ -543,7 +544,7 @@
           />
         </div>
 
-        <div class="field col-3">
+        <div class="field custom-col">
           <p-floatLabel>
             <input
               pInputText
@@ -552,13 +553,13 @@
               class="ipt-disabled"
               formControlName="numberDocument"
             />
-            <label htmlFor="numberDocument" id="custom-pfloatLabel" class="w-10">
+            <label htmlFor="numberDocument" id="custom-pfloatLabel" class="custom-w">
               Número de identificación
             </label>
           </p-floatLabel>
         </div>
 
-        <div class="field col-3">
+        <div class="field custom-col">
           <p-floatLabel>
             <input
               pInputText
@@ -566,13 +567,13 @@
               formControlName="name"
               class="ipt-disabled"
             />
-            <label htmlFor="name" id="custom-pfloatLabel" class="w-10">
+            <label htmlFor="name" id="custom-pfloatLabel" class="custom-w">
               Razón social / Nombre
             </label>
           </p-floatLabel>
         </div>
 
-        <div class="field col-3">
+        <div class="field custom-col">
           <p-dropdown
             [options]="typeProviders"
             formControlName="typeProviders"
@@ -584,8 +585,8 @@
       </div>
 
       <!-- Fila 2 -->
-      <div class="formgrid grid col-12">
-        <div class="field col-3">
+      <div class="formgrid grid custom-col-extend">
+        <div class="field custom-col">
           <p-dropdown
             [options]="departament"
             formControlName="departament"
@@ -595,7 +596,7 @@
           />
         </div>
 
-        <div class="field col-3">
+        <div class="field custom-col">
           <p-dropdown
             [options]="status"
             formControlName="status"
@@ -605,7 +606,7 @@
           />
         </div>
 
-        <div class="field col-3">
+        <div class="field custom-col">
           <p-dropdown
             [options]="cities"
             formControlName="city"
@@ -784,7 +785,7 @@
     <div class="p-fluid">
       <div class="p-field">
         <!-- Row 1 -->
-        <div class="formgrid grid col-12 mt-3">
+        <div class="formgrid grid custom-col-extend mt-5">
           <div class="field col-6">
             <p-floatLabel>
             <p-dropdown
@@ -795,7 +796,7 @@
               appendTo="body"
               placeholder="Estado"
             />
-            <label htmlFor="float-label" id="custom-pfloatLabel" class="w-10">Estado</label>
+            <label htmlFor="float-label" id="custom-pfloatLabel" class="custom-w">Estado</label>
           </p-floatLabel>
           </div>
         </div>
@@ -842,94 +843,119 @@
   <ng-template pTemplate="content">
     <form [formGroup]="sedesForm">
       <!-- Código -->
-      <div class="field">
-        <label for="viewCode">C&oacute;digo</label>
-        <input
-          pInputText
-          id="code"
-          type="number"
-          formControlName="code"
-        />
+      <div class="field mt-5">
+        <p-floatLabel>
+          <input
+            pInputText
+            id="code"
+            type="number"
+            formControlName="code"
+          />
+          <label for="float-label" id="custom-pfloatLabel" class="custom-w">C&oacute;digo</label>
+        </p-floatLabel>
+        
         <small class="p-error" *ngIf="submittedSedeAddEdit && sedesForm.controls['code'].invalid">
           Código es requerido
         </small>
       </div>
 
       <!-- Nombre -->
-      <div class="field">
-        <label for="viewName">Nombre</label>
-        <input
-          pInputText
-          id="name"
-          type="text"
-          formControlName="name"
-        />
+      <div class="field mt-5">
+        <p-floatLabel>
+          <input
+            pInputText
+            id="name"
+            type="text"
+            formControlName="name"
+          />
+          <label for="float-label" id="custom-pfloatLabel" class="custom-w">Nombre</label>
+        </p-floatLabel>
         <small class="p-error" *ngIf="submittedSedeAddEdit && sedesForm.controls['name'].invalid">
           Nombre es requerido
         </small>
       </div>
 
       <!-- Dirección -->
-      <div class="field">
-        <label for="viewName">Direcci&oacute;n</label>
-        <input
-          pInputText
-          id="address"
-          type="text"
-          formControlName="address"
-        />
+      <div class="field mt-5">
+        <p-floatLabel>
+          <input
+            pInputText
+            id="address"
+            type="text"
+            formControlName="address"
+          />
+          <label for="float-label" id="custom-pfloatLabel" class="custom-w">Direcci&oacute;n</label>
+        </p-floatLabel>
         <small class="p-error" *ngIf="submittedSedeAddEdit && sedesForm.controls['address'].invalid">
           Dirección es requerida
         </small>
       </div>
 
       <!-- Activo -->
-      <div class="field">
-        <p-dropdown
-          [options]="activo"
-          formControlName="activo"
-          optionLabel="name"
-          placeholder="Activo"
-        />
+      <div class="field mt-5">
+        <p-floatLabel>
+          <p-dropdown
+            [options]="activo"
+            appendTo="body"
+            formControlName="activo"
+            optionLabel="name"
+            placeholder="Activo"
+          />
+          <label for="float-label" id="custom-pfloatLabel" class="custom-w">Activo</label>
+        </p-floatLabel>
+        
         <small class="p-error" *ngIf="submittedSedeAddEdit && sedesForm.controls['active'].invalid">
           Activo es requerido
         </small>
       </div>
 
       <!-- Sede Principal -->
-      <div class="field">
-        <p-dropdown
-          [options]="principalSede"
-          formControlName="principalSede"
-          optionLabel="name"
-          placeholder="Sede Principal"
-        />
+      <div class="field mt-5">
+        <p-floatLabel>
+          <p-dropdown
+            [options]="principalSede"
+            appendTo="body"
+            formControlName="principalSede"
+            optionLabel="name"
+            placeholder="Sede Principal"
+          />
+          <label for="float-label" id="custom-pfloatLabel" class="custom-w">Sede Principal</label>
+        </p-floatLabel>
+        
         <small class="p-error" *ngIf="submittedSedeAddEdit && sedesForm.controls['principalSede'].invalid">
           Sede Principal es requerida
         </small>
       </div>
 
       <!-- Departamento -->
-      <div class="field">
-        <p-dropdown
-          [options]="departament"
-          formControlName="departament"
-          optionLabel="name"
-          placeholder="Departamento"
-        />
+      <div class="field mt-5">
+        <p-floatLabel>
+          <p-dropdown
+            [options]="departament"
+            appendTo="body"
+            formControlName="departament"
+            optionLabel="name"
+            placeholder="Departamento"
+          />
+          <label for="float-label" id="custom-pfloatLabel" class="custom-w">Departamento</label>
+        </p-floatLabel>
         <small class="p-error" *ngIf="submittedSedeAddEdit && sedesForm.controls['departament'].invalid">
           Departamento es requerido
         </small>
       </div>
 
       <!-- Ciudad -->
-      <div class="field">
-        <p-dropdown
-          [options]="cities"
-          formControlName="city"
-          optionLabel="city"
-          placeholder="Ciudad"
-        />
+      <div class="field mt-5">
+        <p-floatLabel>
+          <p-dropdown
+            [options]="cities"
+            appendTo="body"
+            formControlName="city"
+            optionLabel="city"
+            placeholder="Ciudad"
+          />
+          <label for="float-label" id="custom-pfloatLabel" class="custom-w">Ciudad</label>
+        </p-floatLabel>
         <small class="p-error" *ngIf="submittedSedeAddEdit && sedesForm.controls['city'].invalid">
           Ciudad es requerida
         </small>

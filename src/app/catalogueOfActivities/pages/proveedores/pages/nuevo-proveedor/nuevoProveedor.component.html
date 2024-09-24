@@ -29,7 +29,8 @@
       </div>
 
       <!-- Row 1 -->
-      <div class="formgrid grid mt-4 col-12">
+      <div class="formgrid grid mt-4 custom-col-extend">
+
         <div class="field col-3">
           <p-floatLabel>
             <p-dropdown
@@ -39,13 +40,13 @@
               class="ipt-required"
               placeholder="Tipo de Identificación"
             />
-            <label htmlFor="float-label">Tipo de Identificación</label>
+            <label htmlFor="float-label" id="custom-pfloatLabel" class="custom-w">Tipo de Identificación</label>
           </p-floatLabel>
         </div>
         <!-- required -->
         <!-- class="ipt-required" -->
 
-        <div class="field col-3 input-with-button">
+        <div class="field custom-col input-with-button">
           <p-floatLabel>
             <input
               pInputText
@@ -54,7 +55,7 @@
               id="numberDocument"
               formControlName="numberDocument"
             />
-            <label htmlFor="numberDocument" id="custom-pfloatLabel" class="w-10"
+            <label htmlFor="numberDocument" id="custom-pfloatLabel" class="custom-w"
               >N&uacute;mero de identificaci&oacute;n</label
             >
           </p-floatLabel>
@@ -79,7 +80,7 @@
               class="ipt-disabled"
               formControlName="name"
             />
-            <label htmlFor="name" id="custom-pfloatLabel" class="w-10"
+            <label htmlFor="name" id="custom-pfloatLabel" class="custom-w"
               >Raz&oacute;n social / Nombre</label
             >
           </p-floatLabel>
@@ -129,9 +130,10 @@
         </div>
       </div>
     </form>
-    <div class="col-3"></div>
+
   </p-panel>
 
+  <!-- Progress Spinner -->
   <div
     class="card flex justify-content-center loading-indicator"
     *ngIf="loading"

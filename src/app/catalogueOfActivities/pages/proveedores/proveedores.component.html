@@ -8,9 +8,9 @@
       ></app-filtered-button>
 
       <!-- Row 1 -->
-      <div class="formgrid grid mt-3 col-12">
+      <div class="formgrid mt-3 grid custom-col-extend">
 
-        <div class="field col-3">
+        <div class="field custom-col">
           <p-floatLabel>
             <p-dropdown
               [options]="typeProviders"
@@ -19,11 +19,11 @@
               inputId="float-label"
               placeholder="Tipo de proveedor"
             />
-            <label for="float-label">Tipo de proveedor</label>
+            <label for="float-label" id="custom-pfloatLabel" class="custom-w">Tipo de proveedor</label>
           </p-floatLabel>
         </div>
 
-        <div class="field col-3">
+        <div class="field custom-col">
           <p-floatLabel>
           <p-dropdown
             [options]="status"
@@ -32,11 +32,11 @@
             inputId="float-label"
             placeholder="Estado"
           />
-          <label for="float-label">Estado</label>
+          <label for="float-label" id="custom-pfloatLabel" class="custom-w">Estado</label>
         </p-floatLabel>
         </div>
 
-        <div class="field col-3">
+        <div class="field custom-col">
           <p-floatLabel>
           <p-dropdown
             [options]="deparments"
@@ -45,11 +45,11 @@
             inputId="float-label"
             placeholder="Departamento / provincia"
           />
-          <label for="float-label">Departamento</label>
+          <label for="float-label" id="custom-pfloatLabel" class="custom-w">Departamento</label>
           </p-floatLabel>
         </div>
 
-        <div class="field col-3">
+        <div class="field custom-col">
           <div class="flex-auto">
             <p-floatLabel>
             <p-dropdown
@@ -59,18 +59,17 @@
               inputId="float-label"
               placeholder="Ciudad / Municipio"
             />
-            <label htmlFor="float-label" id="custom-pfloatLabel" class="w-10">Ciudad / Municipio</label>
+            <label htmlFor="float-label" id="custom-pfloatLabel" class="custom-w">Ciudad / Municipio</label>
             </p-floatLabel>
           </div>
         </div>
 
       </div>
 
-
       <!-- Row 2 -->
-      <div class="formgrid grid col-12">
+      <div class="formgrid grid mt-3 custom-col-extend">
 
-        <div class="field col-3">
+        <div class="field custom-col">
           <div class="flex-auto">
             <p-floatLabel>
             <p-dropdown
@@ -79,12 +78,12 @@
               optionLabel="typePerson"
               placeholder="Tipo de persona"
             />
-            <label htmlFor="float-label" id="custom-pfloatLabel" class="w-10">Tipo de persona</label>
+            <label htmlFor="float-label" id="custom-pfloatLabel" class="custom-w">Tipo de persona</label>
             </p-floatLabel>
           </div>
         </div>
 
-        <div class="field col-3">
+        <div class="field custom-col">
           <p-floatLabel>
           <p-dropdown
             [options]="typeDocument"
@@ -92,12 +91,12 @@
             optionLabel="identification"
             placeholder="Tipo de identificación"
           />
-          <label htmlFor="float-label" id="custom-pfloatLabel" class="w-10">Tipo de Documento</label>
+          <label htmlFor="float-label" id="custom-pfloatLabel" class="custom-w">Tipo de Documento</label>
           </p-floatLabel>
         </div>
 
 
-        <div class="field col-3">
+        <div class="field custom-col">
           <p-floatLabel>
             <input
               pInputText
@@ -105,19 +104,19 @@
               type="number"
               formControlName="numberDocument"
             />
-            <label htmlFor="float-label" id="custom-pfloatLabel" class="w-10"
+            <label htmlFor="float-label" id="custom-pfloatLabel" class="custom-w"
               >N&uacute;mero de identificaci&oacute;n
             </label>
           </p-floatLabel>
         </div>
 
-        <div class="field col-3">
+        <div class="field custom-col">
           <p-floatLabel>
             <input pInputText
               id="name"
               type="text"
               formControlName="name" />
-            <label htmlFor="float-label" id="custom-pfloatLabel" class="w-10"
+            <label htmlFor="float-label" id="custom-pfloatLabel" class="custom-w"
               >Nombre / Raz&oacute;n social
             </label>
           </p-floatLabel>
@@ -125,8 +124,9 @@
 
       </div>
 
-      <div class="formgrid grid col-12">
-        <div class="field col-3">
+      <div class="formgrid grid mt-3 custom-col-extend">
+        <!-- Especialidad -->
+        <div class="field custom-col">
           <p-floatLabel>
             <p-dropdown
               [options]="special"
@@ -135,12 +135,10 @@
               placeholder="Tipo de especialidad"
             />
             <label htmlFor="float-label" id="custom-pfloatLabel"
-            class="w-10">Tipo de especialidad</label>
+            class="custom-w">Tipo de especialidad</label>
           </p-floatLabel>
         </div>
       </div>
-
-
 
     </form>
   </p-panel>
@@ -192,7 +190,7 @@
             <th
               pSortableColumn="name"
               class="text-center p-table-title"
-              style="width: 200px;">
+              style="width: 250px;">
               Nombre / Raz&oacute;n Social
               <p-sortIcon field="name"></p-sortIcon>
             </th>
@@ -221,8 +219,8 @@
               style="width: 150px;">
               Ciudad / Municipio <p-sortIcon field="city"></p-sortIcon>
             </th>
-            <th class="text-center"
-              style="width:100px">Acciones</th>
+            <th class="text-center p-table-title"
+              style="width:50px">Acciones</th>
           </tr>
         </ng-template>
         <ng-template pTemplate="body" let-proveedor>
@@ -237,7 +235,7 @@
             <td class="text-center">{{ proveedor.status }}</td>
             <td class="text-center">{{ proveedor.departament }}</td>
             <td class="text-center">{{ proveedor.city }}</td>
-            <td>
+            <td class="text-center">
               <div class="flex justify-content-center align-items-center">
                 <!-- (click)="editProveedor(proveedor)" -->
                 <!-- (click)="showProveedor(proveedor)" -->
