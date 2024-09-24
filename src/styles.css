@@ -9,6 +9,14 @@
 @import "../node_modules/primeflex/primeflex.css";
 
 
+/* Variable gutter */
+:root{
+  --gutter: 0 0.5rem;
+}
+
+
+/* Estilos p-floatLabel */
+/* -------------------------------- */
 /* p-floatLabel */
 #custom-pfloatLabel{
     display: block;
@@ -16,6 +24,12 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+/* Clase para las clases de los label en los pFloatLabel */
+.custom-w{
+  width: 70%;
+}
+
+/* --------------------------------------------- */
 
 
 /* Estilos para los botones requeridos y disabled globales */
@@ -24,6 +38,29 @@
   background-color: rgba(255, 226, 226, 0.762); /* Borde rojo si es inválido */
 }
 
+/* ESTILOS DE TABLAS */
+/* ------------------------------------------------- */
+/* Tamaño de la fuente titulo */
+.p-table-title{
+  font-size: 12px;
+}
+
+/* Estilos para los iconos dentro de la tabla */
+.p-datatable .p-button.p-button-icon-only{
+  width: 2rem;
+  padding: 0.15rem 0;
+}
+
+/* Quitar padding de todas las tablas */
+.p-datatable .p-datatable-tbody > tr > td {
+  padding: 5px;
+}
+
+/* ------------------------------------------------- */
+
+
+/* BOTONES */
+/* Estilo para los botones disabled */
 .ipt-disabled,
 .ipt-disabled .p-dropdown {
     opacity: 1 !important;
@@ -31,15 +68,36 @@
     background-color: #d6d6d6;
 }
 
-
+/* Estilo para el tamaño de los input */
 input,
 .p-dropdown{
   width: 100%;
 }
 
-.custom-col-3{
-  width: 25%;
+/* ESTILOS PARA EL MANEJO DE LOS COL */
+/* Estilo para el tamaño total de la fila */
+/* Se esta manejando con 4 inputs por fila */
+/* Margin top entre filas */
+.mt-custom{
+  /* mt-3 */
+  margin-top: 1rem; 
+  /* mt-4 */
+  /* margin-top: 1.5rem */
 }
+
+
+.custom-col-extend{
+  flex: 0 0 auto;
+  width: 100%;
+  padding: var(--gutter);
+}
+/* Estilo para sustituir el col en las secciones de los Row */
+.custom-col{
+  flex: 0 0 auto;
+  width: 25%;
+  padding: var(--gutter);
+}
+/* ----------------------------------- */
 
 .p-button-custom .p-button{
   /* display: inline-block; */
