@@ -9,12 +9,64 @@
 @import "../node_modules/primeflex/primeflex.css";
 
 
+/* Tamaño de los inputs y dropdowns*/
+input,
+.p-dropdown{
+  width: 100%;
+}
+
+/* Tamaño de los p-buttons */
+.p-button-custom .p-button{
+  /* display: inline-block; */
+  height: 30px;
+  width: 120px;
+}
+
+/* TABLAS */
+/* --------------------------- */
+/* Filas de las tablas */
+.custom-row{
+  height: 30px;
+}
+
+/* Estilos para los iconos dentro de la tabla */
+.p-datatable .p-button.p-button-icon-only{
+  width: 2rem;
+  padding: 0.15rem 0;
+}
+
+/* .custom-column{
+  height: 100px;
+} */
+
+/* Tamaño de la fuente titulo */
+.p-table-title{
+  font-size: 12px;
+}
+
+/* Quitar padding de todas las tablas */
+.p-datatable .p-datatable-tbody > tr > td {
+  padding: 5px;
+}
+
+/* .p-button.p-button-icon-only{
+  padding: 0.25rem 0;
+} */
+
+
+
 /* p-floatLabel */
 #custom-pfloatLabel{
     display: block;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+/* Tamaño de los p-floatLabel */
+/* Depende del tamaño del col que lo contiene */
+.custom-width{
+  width: 10rem;
 }
 
 
@@ -26,8 +78,11 @@
 
 .ipt-disabled,
 .ipt-disabled .p-dropdown {
-    background-color: #d6d6d6;
+  opacity: 1 !important;
+  background-color: #e5e3e3;
+  pointer-events: none;
 }
+
 
 
 

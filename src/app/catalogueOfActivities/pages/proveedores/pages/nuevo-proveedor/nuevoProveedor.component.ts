@@ -40,11 +40,11 @@ export class NuevoProveedorComponent {
       name: [{value:'', disabled: true}, Validators.required],
       code: ['', Validators.required],
       address: ['', Validators.required],
-      typeDocument: [{value:''}, Validators.required],
+      typeDocument: ['', Validators.required],
       typePerson: ['', Validators.required],
       typeProviders: ['', Validators.required],
       numberDocument: ['', Validators.required],
-      status: [{value:'', disabled: true}, Validators.required],
+      status: ['', Validators.required],
       city: ['', Validators.required],
       departament: ['', Validators.required],
       selectPlaces: ['', Validators.required],
@@ -207,7 +207,7 @@ export class NuevoProveedorComponent {
   // Modal de Cancelar
   showConfirmCancelar(){
     this.confirmationService.confirm({
-      message: 'Estas seguro de salir ?',
+      message: 'Estas seguro de volver ?',
       header: 'Confirmar',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {

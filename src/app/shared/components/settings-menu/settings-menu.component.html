@@ -3,8 +3,9 @@
   <div>
     <p-sidebar
     [(visible)]="settingSidebar"
+    dismissableMark="true"
     position="right"
-    [modal]="false"
+    [modal]="true"
     class = "adaptive-sidebar-right"
     >
     <!-- <h3 class="mb-5">Temas</h3> -->
@@ -16,11 +17,12 @@
     <!-- <div>
       <p-fileUpload class="w-5" name="file" url="./upload.php" (onUpload)="onUpload($event)"></p-fileUpload>
     </div> -->
+    <!-- class="p-button-custom" -->
     <div class="mt-4">
       <div class="field-col">
         <p-button
         label="Configuraciones principales"
-        [raised]="true" [rounded]="true"
+        [raised]="true"
         [routerLink]="['/administracion/parametros']"
         />
       </div>

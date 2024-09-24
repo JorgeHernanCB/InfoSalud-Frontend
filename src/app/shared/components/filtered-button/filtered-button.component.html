@@ -1,22 +1,25 @@
 <p-buttonGroup>
-  <div class="button-container">
-    <!-- Boton salir a la izquierda -->
-    <p-button label="Salir" [raised]="true" [rounded]="true" styleClass="left-button" [routerLink]="['/home']"
-    />
+  <div class="flex justify-content-between w-full ml-2">
+    <!-- Botón salir a la izquierda -->
+    <p-button label="Salir" [raised]="true" class="p-button-custom" [routerLink]="['/home']"></p-button>
 
     <!-- Botones hacia la derecha -->
-    <div class="right-buttons">
-      <p-button label="Masivo" [raised]="true" [rounded]="true" styleClass="right-button" />
-
-      <p-button label="Descargar" [raised]="true" [rounded]="true" styleClass="right-button"/>
-
-      <p-button label="Limpiar" [raised]="true" [rounded]="true" styleClass="right-button" (click)="onClearClick()" />
-
-      <p-button label="Nuevo" [raised]="true" [rounded]="true" styleClass="right-button" [routerLink]="['/proveedores/nuevo-proveedor']"
-      />
-
-      <p-button type="submit" label="Buscar" [raised]="true" [rounded]="true" styleClass="right-button" (click)="onSearchClick()"/>
-
+    <div class="flex flex-wrap align-items-center button-group">
+      <div class="mx-1">
+        <p-button label="Masivo" [raised]="true" class="p-button-custom"></p-button>
+      </div>
+      <div class="mx-1">
+        <p-button label="Descargar" [raised]="true" class="p-button-custom"></p-button>
+      </div>
+      <div class="mx-1">
+        <p-button label="Limpiar" [raised]="true" class="p-button-custom" (click)="onClearClick()"></p-button>
+      </div>
+      <div class="mx-1">
+        <p-button label="Nuevo" [raised]="true" class="p-button-custom" [routerLink]="['/proveedores/nuevo-proveedor']"></p-button>
+      </div>
+      <div class="mx-1">
+        <p-button type="submit" label="Buscar" class="p-button-custom" [raised]="true" (click)="onSearchClick()"></p-button>
+      </div>
     </div>
   </div>
 </p-buttonGroup>

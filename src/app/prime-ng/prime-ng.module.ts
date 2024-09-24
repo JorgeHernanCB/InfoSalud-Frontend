@@ -21,7 +21,7 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { DialogModule } from 'primeng/dialog';
 import { ToolbarModule } from 'primeng/toolbar';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
-
+import { TooltipModule } from 'primeng/tooltip';
 
 
 @NgModule({
@@ -45,7 +45,8 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
     DialogModule,
     ToolbarModule,
     ConfirmDialogModule,
-    ProgressSpinnerModule
+    ProgressSpinnerModule,
+    TooltipModule
   ]
 })
 export class PrimeNgModule { }

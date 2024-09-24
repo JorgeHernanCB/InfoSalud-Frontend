@@ -243,6 +243,17 @@ export class ModificarProveedorComponent implements OnInit {
       { name: 'Quindío' },
       { name: 'Risaralda' },
     ];
+    //Dropdown list of cities
+    this.cities = [
+      { city: 'Pereira', deparment: 'Risaralda' },
+      { city: 'Bogota', deparment: 'Cundinamarca' },
+      { city: 'Medellin', deparment: 'Antioquia' },
+      { city: 'Cali ', deparment: 'Valle' },
+      { city: 'Pasto', deparment: 'Nariño' },
+      { city: 'Bucaramanga', deparment: 'Santander' },
+      { city: 'Cartagena', deparment: 'Bolivar' },
+      { city: 'Monteria', deparment: 'Cordoba' },
+    ];
     this.principalSede = [
       { name: 'Si'},
       { name: 'No'}
