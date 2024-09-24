@@ -201,7 +201,7 @@
       >
         <ng-template pTemplate="header">
           <tr>
-            <th style="width: 4rem;">
+            <th style="width: 4rem;" class="text-center">
               <p-tableHeaderCheckbox />
             </th>
             <th pSortableColumn="code" class="text-center">
@@ -333,7 +333,7 @@
       >
         <ng-template pTemplate="header">
           <tr>
-            <th style="width: 4rem;">
+            <th style="width: 4rem;" class="text-center">
               <p-tableHeaderCheckbox />
             </th>
             <th pSortableColumn="code" class="text-center">
@@ -347,7 +347,7 @@
         </ng-template>
         <ng-template pTemplate="body" let-special>
           <tr>
-            <td>
+            <td class="text-center">
               <p-tableCheckbox [value]="special" />
             </td>
             <td class="text-center">{{ special.code }}</td>
