@@ -17,8 +17,11 @@ export class FilteredButtonComponent implements OnInit {
   //TODO 1: Crear la conexion con el servicio de proveedores
   //constructor(private proveedoresService: ProveedoresService) {}
 
+  //Dialogo del Upload
+  displayUploadDialog: boolean = false;
+
   ngOnInit(){
-    
+
   }
 
   //Search
@@ -29,6 +32,19 @@ export class FilteredButtonComponent implements OnInit {
   //Clear
   onClearClick() {
     this.onClear.emit()
+  }
+
+  //Metodo para abrir el dialogo del Upload
+  openUploadDialog() {
+    this.displayUploadDialog = true;
+  }
+  //Metodo para el evento de Upload
+  onUpload(event: any) {
+    console.log('Archivo Subido',event.files);
+  }
+  //Metodo para cerrar el dialogo
+  onDialogHide(){
+    this.displayUploadDialog = false;
   }
 
 }

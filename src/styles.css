@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
- @import "./assets/layout/styles/layout/layout.scss" ;
+@import "./assets/layout/styles/layout/layout.scss";
 
 /* PrimeNG */
 @import "../node_modules/primeng/resources/primeng.min.css";
@@ -8,46 +8,38 @@
 
 @import "../node_modules/primeflex/primeflex.css";
 
-
 /* p-floatLabel */
-#custom-pfloatLabel{
-    display: block;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+#custom-pfloatLabel {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-
 
 /* Estilos para los botones requeridos y disabled globales */
 .ipt-required,
-.ipt-required .p-dropdown{
+.ipt-required .p-dropdown {
   background-color: rgba(255, 226, 226, 0.762); /* Borde rojo si es inválido */
 }
 
 .ipt-disabled,
 .ipt-disabled .p-dropdown {
-    opacity: 1 !important;
-    pointer-events: none;
-    background-color: #d6d6d6;
+  opacity: 1 !important;
+  pointer-events: none;
+  background-color: #d6d6d6;
 }
 
-
 input,
-.p-dropdown{
+.p-dropdown {
   width: 100%;
 }
 
-.custom-col-3{
+.custom-col-3 {
   width: 25%;
 }
 
-.p-button-custom .p-button{
+.p-button-custom .p-button {
   /* display: inline-block; */
   height: 35px;
   width: 45px;
 }
-
-
-
-
-

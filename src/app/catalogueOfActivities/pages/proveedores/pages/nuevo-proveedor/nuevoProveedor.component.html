@@ -310,11 +310,10 @@
         </ng-template>
       </p-table>
     </p-panel>
-
-    <!-- Botones del servicio -->
   </div>
 </div>
 
+<!-- Botones del servicio -->
 <div class="w-full">
   <div
     class="formgrid grid flex justify-content-between items-center mt-4 w-full"
@@ -322,9 +321,11 @@
     <div class="field-col ml-4 p-1">
       <p-button
         icon="pi pi-times"
-        label="Cancelar"
+        [text]="true"
         [raised]="true"
         [rounded]="true"
+        pTooltip="Cancelar"
+        tooltipPosition="right"
         (click)="showConfirmCancelar()"
       />
     </div>
@@ -336,16 +337,18 @@
         [text]="true"
         [raised]="true"
         pTooltip="Servicios Habilitados"
-        tooltipPosition="top"
+        tooltipPosition="left"
         (click)="openUploadDialog()"
       >
       </p-button>
 
       <p-button
         icon="pi pi-save"
-        label="Guardar"
+        [text]="true"
         [raised]="true"
         [rounded]="true"
+        pTooltip="Guardar Proveedor"
+        tooltipPosition="left"
       />
     </div>
   </div>
@@ -471,7 +474,7 @@
         </div>
         <div>
           <button
-            icon="pi pi-check-circle"
+            icon="pi pi-check"
             pButton
             [rounded]="true"
             [raised]="true"
@@ -488,18 +491,18 @@
 
 <!-- Modal para el uploadFile -->
 <!-- [width]="400" -->
-<p-dialog
-  header="Subir Archivo"
-  [(visible)]="displayUploadDialog"
-  [modal]="true"
-  [closable]="true"
-  [resizable]="false"
-  [style]="{ width: '30vw' }"
-  [draggable]="false"
-  [responsive]="true"
-  [baseZIndex]="10000"
-  (onHide)="onDialogHide()"
->
+  <p-dialog
+    header="Subir Archivo"
+    [(visible)]="displayUploadDialog"
+    [modal]="true"
+    [closable]="true"
+    [resizable]="false"
+    [style]="{ width: '30vw' }"
+    [draggable]="false"
+    [responsive]="true"
+    [baseZIndex]="10000"
+    (onHide)="onDialogHide()"
+  >
   <div class="mt-4">
     <p-fileUpload
       mode="basic"
@@ -570,37 +573,42 @@
               optionLabel="name"
               placeholder="Activo"
             />
-            <label htmlFor="float-label" id="custom-pfloatLabel" class="w-10">Activo</label>
+            <label htmlFor="float-label" id="custom-pfloatLabel" class="w-10"
+              >Activo</label
+            >
           </p-floatLabel>
         </div>
 
         <div class="field col-6">
           <p-floatLabel>
-          <p-dropdown
-            [options]="departaments"
-            formControlName="departament"
-            appendTo="body"
-            optionLabel="name"
-            placeholder="Departamento"
-          />
-          <label htmlFor="float-label" id="custom-pfloatLabel" class="w-10">Departamento</label>
-        </p-floatLabel>
+            <p-dropdown
+              [options]="departaments"
+              formControlName="departament"
+              appendTo="body"
+              optionLabel="name"
+              placeholder="Departamento"
+            />
+            <label htmlFor="float-label" id="custom-pfloatLabel" class="w-10"
+              >Departamento</label
+            >
+          </p-floatLabel>
         </div>
       </div>
       <!-- Row 3 -->
       <div class="formgrid grid col-12">
         <div class="field col-6">
           <p-floatLabel>
-          <p-dropdown
-            [options]="cities"
-            appendTo="body"
-            formControlName="city"
-            optionLabel="city"
-            placeholder="Ciudad"
-          />
-          <label htmlFor="float-label" id="custom-pfloatLabel" class="w-10">Ciudad</label>
-
-        </p-floatLabel>
+            <p-dropdown
+              [options]="cities"
+              appendTo="body"
+              formControlName="city"
+              optionLabel="city"
+              placeholder="Ciudad"
+            />
+            <label htmlFor="float-label" id="custom-pfloatLabel" class="w-10"
+              >Ciudad</label
+            >
+          </p-floatLabel>
         </div>
       </div>
     </form>
@@ -640,7 +648,7 @@
   [(visible)]="addSpecialDialog"
   [style]="{ width: '600px' }"
   dismissableMask="true"
-  header="Agregar una nueva sede"
+  header="Agregar una nueva especialidad"
   [modal]="true"
   styleClass="p-fluid"
 >
@@ -690,7 +698,7 @@
       </div>
       <div class="field-col mr-5">
         <p-button
-          icon="pi pi-check-circle"
+          icon="pi pi-check"
           [text]="true"
           [raised]="true"
           [rounded]="true"
