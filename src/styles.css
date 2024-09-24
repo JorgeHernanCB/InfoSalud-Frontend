@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
- @import "./assets/layout/styles/layout/layout.scss" ;
+@import "./assets/layout/styles/layout/layout.scss";
 
 /* PrimeNG */
 @import "../node_modules/primeng/resources/primeng.min.css";
@@ -18,11 +18,11 @@
 /* Estilos p-floatLabel */
 /* -------------------------------- */
 /* p-floatLabel */
-#custom-pfloatLabel{
-    display: block;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+#custom-pfloatLabel {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 /* Clase para las clases de los label en los pFloatLabel */
 .custom-w{
@@ -31,10 +31,9 @@
 
 /* --------------------------------------------- */
 
-
 /* Estilos para los botones requeridos y disabled globales */
 .ipt-required,
-.ipt-required .p-dropdown{
+.ipt-required .p-dropdown {
   background-color: rgba(255, 226, 226, 0.762); /* Borde rojo si es inválido */
 }
 
@@ -63,24 +62,34 @@
 /* Estilo para los botones disabled */
 .ipt-disabled,
 .ipt-disabled .p-dropdown {
-    opacity: 1 !important;
-    pointer-events: none;
-    background-color: #d6d6d6;
+  opacity: 1 !important;
+  pointer-events: none;
+  background-color: #d6d6d6;
 }
 
+<<<<<<< HEAD
+=======
 /* Estilo para el tamaño de los input */
+>>>>>>> c6073b2f415a8d910d940e404982e5a1ced21903
 input,
-.p-dropdown{
+.p-dropdown {
   width: 100%;
 }
 
+<<<<<<< HEAD
+.custom-col-3 {
+  width: 25%;
+}
+
+.p-button-custom .p-button {
+=======
 /* ESTILOS PARA EL MANEJO DE LOS COL */
 /* Estilo para el tamaño total de la fila */
 /* Se esta manejando con 4 inputs por fila */
 /* Margin top entre filas */
 .mt-custom{
   /* mt-3 */
-  margin-top: 1rem; 
+  margin-top: 1rem;
   /* mt-4 */
   /* margin-top: 1.5rem */
 }
@@ -100,12 +109,8 @@ input,
 /* ----------------------------------- */
 
 .p-button-custom .p-button{
+>>>>>>> c6073b2f415a8d910d940e404982e5a1ced21903
   /* display: inline-block; */
   height: 35px;
   width: 45px;
 }
-
-
-
-
-

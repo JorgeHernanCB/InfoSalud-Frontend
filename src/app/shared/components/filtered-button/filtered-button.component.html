@@ -25,6 +25,7 @@
         pTooltip="Carga masiva"
         tooltipPosition="top"
         styleClass="right-button"
+        (click)="openUploadDialog()"
       />
 
       <!-- 📥 Boton de descargar -->
@@ -75,3 +76,45 @@
     </div>
   </div>
 </p-buttonGroup>
+
+
+<!-- Modal para el uploadFile -->
+
+  <p-dialog
+    header="Subir Archivo"
+    [(visible)]="displayUploadDialog"
+    [modal]="true"
+    [closable]="true"
+    [resizable]="false"
+    [style]="{ width: '30vw' }"
+    [draggable]="false"
+    [responsive]="true"
+    [baseZIndex]="10000"
+    (onHide)="onDialogHide()"
+  >
+  <div class="mt-4">
+    <p-fileUpload
+      mode="basic"
+      name="file"
+      url="your-backend-api-url/upload"
+      accept=".xls,.xlsx"
+      maxFileSize="1000000"
+      (onUpload)="onUpload($event)"
+      chooseLabel="Seleccionar archivo"
+      class="upload-button"
+    ></p-fileUpload>
+  </div>
+  <p-footer>
+    <button
+      icon="pi pi-times"
+      [raised]="true"
+      [rounded]="true"
+      type="button"
+      pButton
+      label="Cerrar"
+      pTooltip="Cerrar"
+      tooltipPosition="top"
+      (click)="displayUploadDialog = false"
+    ></button>
+  </p-footer>
+</p-dialog>
