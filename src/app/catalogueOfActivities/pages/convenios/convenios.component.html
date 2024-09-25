@@ -287,7 +287,35 @@
 
   <!--Table-->
   <div class="mt-4">
-   <p-panel header="Convenios Encontrados" toggleable="true">
+   <p-panel header="CONVENIOS ENCONTRADOS" toggleable="true">
+    <p-table
+    #dt1
+        [value]="convenios"
+        [paginator]="true"
+        [rows]="10"
+        [rowsPerPageOptions]="[5, 10, 20, 100]"
+        styleClass="p-datatable-gridlines p-datatable-sm"
+        [tableStyle]="{ 'min-width': '45rem' }"
+        [globalFilterFields]="[
+          'numberAgreement',
+          'typeAgreement',
+          'nameAgreement',
+          'product',
+          'dateStart',
+          'dateFinish ',
+          'dateStart',
+          'statusAgreement',
+          'active rate',
+        ]"
+        [rowHover]="true"
+        dataKey="id"
+        currentPageReportTemplate="Mostrando del {first} al {last} de {totalRecords} datos"
+        [showCurrentPageReport]="true"
+        emptyMessage="No hay datos"
+
+    >
+
+    </p-table>
 
    </p-panel>
 
