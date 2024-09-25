@@ -31,12 +31,6 @@
 
 /* --------------------------------------------- */
 
-/* Estilos para los botones requeridos y disabled globales */
-.ipt-required,
-.ipt-required .p-dropdown {
-  background-color: rgba(255, 226, 226, 0.762); /* Borde rojo si es inválido */
-}
-
 /* ESTILOS DE TABLAS */
 /* ------------------------------------------------- */
 /* Tamaño de la fuente titulo */
@@ -61,8 +55,18 @@
 
 /* BOTONES */
 /* Estilo para los botones disabled */
+
+
+/* Estilos para los botones requeridos y disabled globales */
+.ipt-required,
+.ipt-required .p-dropdown,
+.ipt-required .p-calendar{
+  background-color: rgba(255, 226, 226, 0.762); /* Borde rojo si es inválido */
+}
+
 .ipt-disabled,
-.ipt-disabled .p-dropdown {
+.ipt-disabled .p-dropdown,
+.ipt-required .p-calendar{
   opacity: 1 !important;
   pointer-events: none;
   background-color: #d6d6d6;
@@ -70,7 +74,8 @@
 
 /* Estilo para el tamaño de los input */
 input,
-.p-dropdown {
+.p-dropdown,
+.p-calendar{
   width: 100%;
 }
 
