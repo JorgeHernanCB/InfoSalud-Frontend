@@ -46,8 +46,9 @@
 
 /* Estilos para los iconos dentro de la tabla */
 .p-datatable .p-button.p-button-icon-only{
-  width: 2.5rem;
+  width: 1.5rem;
   padding: 0.5rem 0;
+  height: 1.5rem;
 }
 
 /* Quitar padding de todas las tablas */
@@ -73,6 +74,17 @@ input,
   width: 100%;
 }
 
+/* Tamaño de los botones de forma global */
+.p-button-custom .p-button{
+  /* display: inline-block; */
+  height: 45px;
+  width: 45px;
+}
+
+
+/* --------------------------- */
+
+
 /* ESTILOS PARA EL MANEJO DE LOS COL */
 /* Estilo para el tamaño total de la fila */
 /* Se esta manejando con 4 inputs por fila */
@@ -84,13 +96,13 @@ input,
   /* margin-top: 1.5rem */
 }
 
-
+/* Estilo para el ancho de la fila */
 .custom-col-extend{
   flex: 0 0 auto;
   width: 100%;
   padding: var(--gutter);
 }
-/* Estilo para sustituir el col en las secciones de los Row */
+/* Estilo para el espacio de componente por fila */
 .custom-col{
   flex: 0 0 auto;
   width: 25%;
@@ -98,8 +110,4 @@ input,
 }
 /* ----------------------------------- */
 
-.p-button-custom .p-button{
-  /* display: inline-block; */
-  height: 35px;
-  width: 45px;
-}
+
