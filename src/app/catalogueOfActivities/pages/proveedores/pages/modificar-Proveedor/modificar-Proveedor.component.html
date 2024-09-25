@@ -245,7 +245,7 @@
         </ng-template>
         <ng-template pTemplate="body" let-location>
           <tr>
-            <td>
+            <td class="text-center">
               <p-tableCheckbox [value]="location" />
             </td>
             <td class="text-center">{{ location.code }}</td>
@@ -425,7 +425,7 @@
             [rounded]="true"
             [raised]="true"
             [text]="true"
-            pTooltip="Servicios Habilitados"
+            pTooltip="Agregar Servicios Habilitados"
             class="mr-2"
             (onClick)="openNewServiceHabilitado()"
           />
@@ -870,7 +870,7 @@
 <p-dialog
   [(visible)]="sedesAddEdit"
   [style]="{ width: '450px' }"
-  header="Editar la Sede"
+  [header]="dialogTitleSede"
   [modal]="true"
   styleClass="p-fluid"
 >
@@ -1027,7 +1027,7 @@
   </ng-template>
 
   <ng-template pTemplate="footer">
-    <div class="formgrid grid flex justify-content-between">
+    <div class="formgrid grid flex justify-content-between mt-4">
       <div class="field-col ml-4">
         <p-button
           icon="pi pi-times-circle"
@@ -1058,7 +1058,7 @@
 
 <!-- Dialogo para agregar o editar Especialidades -->
 <p-dialog
-  header="Cambiar Estado"
+  [header]="dialogTitleSpecials"
   [(visible)]="specialAddEdit"
   [modal]="true"
   [closable]="true"
@@ -1149,7 +1149,7 @@
 
 <!-- UploadFile -->
 <p-dialog
-  header="Subir Archivo"
+  [header]="dialogTitleServices"
   [(visible)]="serviceUpload"
   [modal]="true"
   [closable]="true"
