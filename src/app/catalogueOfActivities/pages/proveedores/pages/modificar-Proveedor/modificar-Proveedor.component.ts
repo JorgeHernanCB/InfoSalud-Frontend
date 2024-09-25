@@ -42,10 +42,11 @@ export class ModificarProveedorComponent implements OnInit {
   SelectedLocations!: Location[] | null;
   sedesDialog: boolean = false;
   submittedSede: boolean = false;
-
   sedesAddEdit: boolean = false;
   submittedSedeAddEdit: boolean = false;
   location!: Location;
+
+  dialogTitleSede!: string; //Titulo del dialogo
 
   //Specials
   displaySpecialsDialog: boolean = false
@@ -56,9 +57,13 @@ export class ModificarProveedorComponent implements OnInit {
   submittedSpecials: boolean = false;
   special!: Special;
 
+  dialogTitleSpecials!: string; //Titulo del dialogo
+
   // Servicios habilitados
   serviceUpload: boolean = false;
-  serviceHabilitado!: serviceHabilitado[]
+  serviceHabilitado!: serviceHabilitado[];
+
+  dialogTitleServices! : string;
 
 
 
@@ -337,6 +342,7 @@ export class ModificarProveedorComponent implements OnInit {
     this.sedesForm.reset();
     this.submittedSedeAddEdit = false;
     this.sedesAddEdit = true;
+    this.dialogTitleSede = 'Agregar Sede';
   }
 
   //Cierra el dialogo de edicion
@@ -379,6 +385,7 @@ export class ModificarProveedorComponent implements OnInit {
   editSede(location: Location){
     this.sedesForm.patchValue({ ...location });
     this.sedesAddEdit = true;
+    this.dialogTitleSede = 'Editar la Sede';
   }
 
 
@@ -425,6 +432,7 @@ export class ModificarProveedorComponent implements OnInit {
     this.specialForm.reset();
     this.submittedSpecials = false;
     this.specialAddEdit = true;
+    this.dialogTitleSpecials = 'Agregar Especialidad';
   }
 
   onSpecialsHide(){
@@ -465,6 +473,7 @@ export class ModificarProveedorComponent implements OnInit {
   editSpecial(special: Special){
     this.specialForm.patchValue({ ...special });
     this.specialAddEdit = true;
+    this.dialogTitleSpecials = 'Editar Especialidad';
   }
 
 
@@ -511,6 +520,7 @@ export class ModificarProveedorComponent implements OnInit {
     // this.sedesForm.reset();
     // this.submittedSedeAddEdit = false;
     this.serviceUpload = true;
+    this.dialogTitleServices = 'Agregar Servicios Habilitados';
   }
 
   //Cerrar modal Upload
