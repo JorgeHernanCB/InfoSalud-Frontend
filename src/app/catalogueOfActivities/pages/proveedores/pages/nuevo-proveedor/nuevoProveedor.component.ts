@@ -210,10 +210,18 @@ export class NuevoProveedorComponent {
       message: 'Estas seguro de salir ?',
       header: 'Confirmar',
       icon: 'pi pi-exclamation-triangle',
-      accept: () => {
-        this.router.navigate(['/proveedores']);
-      }
+      accept: () => this.onConfirm(),
+      reject: () => this.onReject(),
     });
+  }
+
+  onConfirm(){
+    this.router.navigate(['/proveedores']);
+  }
+
+  onReject(){
+    this.confirmationService.close();
+    console.log('Cancelado');
   }
 
   showNumberDocumentDialog(){

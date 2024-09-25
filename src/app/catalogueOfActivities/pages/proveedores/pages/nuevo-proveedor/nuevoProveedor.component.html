@@ -493,7 +493,7 @@
 
 <!-- Modal para el uploadFile -->
 <!-- [width]="400" -->
-  <p-dialog
+<p-dialog
     header="Subir Archivo"
     [(visible)]="displayUploadDialog"
     [modal]="true"
@@ -519,17 +519,15 @@
   </div>
 
   <p-footer>
-    <button
+    <p-button
       icon="pi pi-times"
+      [text]="true"
       [raised]="true"
       [rounded]="true"
-      type="button"
-      pButton
-      label="Cerrar"
       pTooltip="Cerrar"
       tooltipPosition="top"
       (click)="displayUploadDialog = false"
-    ></button>
+    />
   </p-footer>
 </p-dialog>
 
@@ -713,10 +711,36 @@
 </p-dialog>
 
 <p-confirmDialog
-  [style]="{ width: '450px' }"
-  [acceptLabel]="'Sí'"
-  [rejectLabel]="'No'"
-></p-confirmDialog>
+  [style]="{ width: '400px' }"
+  (onConfirm)="onConfirm()"
+  (onReject)="onReject()"
+>
+  <ng-template pTemplate="footer">
+
+    <p-button
+      icon = "pi pi-check"
+      [text]="true"
+      [raised]="true"
+      [rounded]="true"
+      pTooltip="Si"
+      tooltipPosition="right"
+      (click)="onConfirm()"
+    />
+
+    <p-button
+      icon = "pi pi-times-circle"
+      [text]="true"
+      [raised]="true"
+      [rounded]="true"
+      pTooltip="No"
+      tooltipPosition="right"
+      (click)="onReject()"
+    />
+  </ng-template>
+</p-confirmDialog>
+<!-- [acceptLabel]="'Sí'"
+[rejectLabel]="'No'" -->
+
 
 <!-- Dialogo para Cancelar -->
 <!-- <p-confirmDialog

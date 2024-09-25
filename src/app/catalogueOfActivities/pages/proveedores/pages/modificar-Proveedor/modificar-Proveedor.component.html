@@ -1174,14 +1174,14 @@
   </div>
 
   <p-footer>
-    <button
-      type="button"
-      pButton
-      label="Cerrar"
-      icon="pi pi-times"
+    <p-button
+      icon="pi pi-times-circle"
+      [text]="true"
       [rounded]="true"
       [raised]="true"
+      pTooltip="Cancelar"
+      tooltipPosition="right"
       (click)="serviceUpload = false"
-    ></button>
+    />
   </p-footer>
 </p-dialog>
