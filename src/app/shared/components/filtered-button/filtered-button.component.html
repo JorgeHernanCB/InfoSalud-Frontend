@@ -94,18 +94,18 @@
 
 <!-- Modal para el uploadFile -->
 
-  <p-dialog
-    header="Subir Archivo"
-    [(visible)]="displayUploadDialog"
-    [modal]="true"
-    [closable]="true"
-    [resizable]="false"
-    [style]="{ width: '30vw' }"
-    [draggable]="false"
-    [responsive]="true"
-    [baseZIndex]="10000"
-    (onHide)="onDialogHide()"
-  >
+<p-dialog
+  header="Subir Archivo"
+  [(visible)]="displayUploadDialog"
+  [modal]="true"
+  [closable]="true"
+  [resizable]="false"
+  [style]="{ width: '30vw' }"
+  [draggable]="false"
+  [responsive]="true"
+  [baseZIndex]="10000"
+  (onHide)="onDialogHide()"
+>
   <div class="mt-4">
     <p-fileUpload
       mode="basic"
@@ -119,16 +119,14 @@
     ></p-fileUpload>
   </div>
   <p-footer>
-    <button
-      icon="pi pi-times"
+    <p-button
+      icon="pi pi-times-circle"
+      [text]="true"
       [raised]="true"
       [rounded]="true"
-      type="button"
-      pButton
-      label="Cerrar"
       pTooltip="Cerrar"
       tooltipPosition="top"
       (click)="displayUploadDialog = false"
-    ></button>
+    />
   </p-footer>
 </p-dialog>

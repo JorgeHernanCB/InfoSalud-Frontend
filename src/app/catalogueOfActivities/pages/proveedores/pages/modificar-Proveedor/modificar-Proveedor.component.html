@@ -534,7 +534,7 @@
 </div>
 
 <!-- Sección de Visualización de Proveedores -->
-<div *ngIf="isViewMode" class="card p-fluid">
+<div *ngIf="isViewMode" class="mt-3">
   <p-panel header="Ver Proveedor" [toggleable]="true">
     <!-- Formulario de visualización -->
     <form [formGroup]="viewForm" *ngIf="isViewMode">
@@ -1174,14 +1174,14 @@
   </div>
 
   <p-footer>
-    <button
-      type="button"
-      pButton
-      label="Cerrar"
-      icon="pi pi-times"
+    <p-button
+      icon="pi pi-times-circle"
+      [text]="true"
       [rounded]="true"
       [raised]="true"
+      pTooltip="Cancelar"
+      tooltipPosition="right"
       (click)="serviceUpload = false"
-    ></button>
+    />
   </p-footer>
 </p-dialog>
