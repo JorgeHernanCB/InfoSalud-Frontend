@@ -1,5 +1,5 @@
 <div class="mt-3">
-  <p-panel header="Buscar convenio" toggleable="true">
+  <p-panel header="BUSCAR CONVENIO" toggleable="true">
     <form [formGroup]="conveniosForm" (ngSubmit)="onSubmit()">
       <app-filtered-button
         (onSearch)="onSearch()"
@@ -7,7 +7,8 @@
       ></app-filtered-button>
 
       <!-- Row 1 -->
-      <div class="formgrid mt-3 grid custom-col-extend">
+      <div class="formgrid mt-5 grid custom-col-extend">
+        <!-- Numero de convenio -->
         <div class="field custom-col">
           <p-floatLabel>
             <input
@@ -25,6 +26,7 @@
           </p-floatLabel>
         </div>
 
+        <!-- Tipo de convenio -->
         <div class="field custom-col">
           <p-floatLabel>
             <p-dropdown
@@ -40,6 +42,7 @@
           </p-floatLabel>
         </div>
 
+        <!-- Estado del convenio -->
         <div class="field custom-col">
           <p-floatLabel>
             <p-dropdown
@@ -55,6 +58,7 @@
           </p-floatLabel>
         </div>
 
+        <!-- Nombre del convenio -->
         <div class="field custom-col">
           <p-floatLabel>
             <input
@@ -71,7 +75,11 @@
             </label>
           </p-floatLabel>
         </div>
+      </div>
 
+      <!-- Row 2 -->
+      <div class="formgrid mt-3 grid custom-col-extend">
+        <!-- NIT de proveedores -->
         <div class="field custom-col">
           <p-floatLabel>
             <input
@@ -89,6 +97,7 @@
           </p-floatLabel>
         </div>
 
+        <!-- Razon social proveedor -->
         <div class="field custom-col">
           <p-floatLabel>
             <input
@@ -106,6 +115,7 @@
           </p-floatLabel>
         </div>
 
+        <!-- Razon comercial proveedor -->
         <div class="field custom-col">
           <p-floatLabel>
             <input
@@ -123,6 +133,7 @@
           </p-floatLabel>
         </div>
 
+        <!-- Codigo de proveedor -->
         <div class="field custom-col">
           <p-floatLabel>
             <input
@@ -141,8 +152,9 @@
         </div>
       </div>
 
-      <!-- Row 2 -->
+      <!-- Row 3 -->
       <div class="formgrid grid mt-3 custom-col-extend">
+        <!-- Fecha inicio -->
         <div class="field custom-col">
           <p-floatLabel>
             <p-calendar
@@ -160,6 +172,7 @@
           </p-floatLabel>
         </div>
 
+        <!-- Fecha vigencia final -->
         <div class="field custom-col">
           <div class="flex-auto">
             <p-floatLabel>
@@ -179,6 +192,7 @@
           </div>
         </div>
 
+        <!-- Ramo -->
         <div class="field custom-col">
           <div class="flex-auto">
             <p-floatLabel>
@@ -198,6 +212,7 @@
           </div>
         </div>
 
+        <!-- Productos -->
         <div class="field custom-col">
           <p-floatLabel>
             <p-dropdown
@@ -212,7 +227,12 @@
             >
           </p-floatLabel>
         </div>
+      </div>
 
+      <!-- Row 4 -->
+      <div class="formgrid grid mt-3 custom-col-extend">
+
+        <!-- Renovacion automatica -->
         <div class="field custom-col">
           <p-floatLabel>
             <p-dropdown
@@ -230,6 +250,7 @@
           </p-floatLabel>
         </div>
 
+        <!-- Departamento -->
         <div class="field custom-col">
           <div class="flex-auto">
             <p-floatLabel>
@@ -250,6 +271,7 @@
           </div>
         </div>
 
+        <!-- Ciudad/Municipio -->
         <div class="field custom-col">
           <div class="flex-auto">
             <p-floatLabel>
@@ -270,9 +292,10 @@
           </div>
         </div>
 
+        <!-- Usuario -->
         <div class="field custom-col">
           <p-floatLabel>
-            <input formControlName="user" pInputText id="user" type="text" />
+            <input formControlName="user" pInputText id="user" class="ipt-disabled" type="text" />
             <label
               htmlFor="float-label"
               id="custom-pfloatLabel"
