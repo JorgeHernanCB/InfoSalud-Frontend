@@ -260,7 +260,6 @@
               <p-button
                   icon="pi pi-pencil"
                   [rounded]="true"
-                  [raised]="true"
                   [text]="true"
                   pTooltip="Editar"
                   tooltipPosition="left"
@@ -272,7 +271,6 @@
               <p-button
                   icon="pi pi-trash"
                   [rounded]="true"
-                  [raised]="true"
                   [text]="true"
                   pTooltip="Eliminar"
                   tooltipPosition="left"
@@ -371,7 +369,6 @@
               <p-button
                   icon="pi pi-pencil"
                   [rounded]="true"
-                  [raised]="true"
                   [text]="true"
                   pTooltip="Editar"
                   tooltipPosition="left"
@@ -383,7 +380,6 @@
               <p-button
                   icon="pi pi-trash"
                   [rounded]="true"
-                  [raised]="true"
                   [text]="true"
                   pTooltip="Eliminar"
                   tooltipPosition="left"
@@ -505,8 +501,11 @@
     <div class="field-col mr-5">
       <p-button
         icon="pi pi-save"
+        [text]="true"
         [raised]="true"
         [rounded]="true"
+        pTooltip="Guardar"
+        tooltipPosition="left"
       />
     </div>
   </div>
@@ -853,7 +852,7 @@
           />
           <label for="float-label" id="custom-pfloatLabel" class="custom-w">C&oacute;digo</label>
         </p-floatLabel>
-        
+
         <small class="p-error" *ngIf="submittedSedeAddEdit && sedesForm.controls['code'].invalid">
           Código es requerido
         </small>
@@ -903,7 +902,7 @@
           />
           <label for="float-label" id="custom-pfloatLabel" class="custom-w">Activo</label>
         </p-floatLabel>
-        
+
         <small class="p-error" *ngIf="submittedSedeAddEdit && sedesForm.controls['active'].invalid">
           Activo es requerido
         </small>
@@ -921,7 +920,7 @@
           />
           <label for="float-label" id="custom-pfloatLabel" class="custom-w">Sede Principal</label>
         </p-floatLabel>
-        
+
         <small class="p-error" *ngIf="submittedSedeAddEdit && sedesForm.controls['principalSede'].invalid">
           Sede Principal es requerida
         </small>
@@ -1054,10 +1053,12 @@
 
           <div class="field-col mr-5">
           <p-button
-            label="Guardar"
             icon="pi pi-check"
+            label="Guardar"
             [raised]="true"
             [rounded]="true"
+            pTooltip="Guardar"
+            tooltipPosition="left"
             (onClick)="saveSpecial()"
           />
           </div>
