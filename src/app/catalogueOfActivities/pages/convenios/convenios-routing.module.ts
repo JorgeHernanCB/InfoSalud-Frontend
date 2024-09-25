@@ -18,8 +18,14 @@ const routes: Routes = [
         component: NuevoConveniosComponent
       },
       {
-        path: 'modificar-convenios',
-        component: ModificarConveniosComponent
+        path: 'mostrar/:id',
+        component: ModificarConveniosComponent,
+        data: { isViewMode: true}
+      },
+      {
+        path: 'editar/:id',
+        component: ModificarConveniosComponent,
+        data: { isViewMode: false}
       },
       {
         path: '**',
@@ -33,7 +39,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule ],
+  exports: [RouterModule],
 
 })
 export class ConveniosRoutingModule { }
