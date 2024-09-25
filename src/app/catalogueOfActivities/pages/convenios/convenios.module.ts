@@ -20,8 +20,8 @@ import { ModificarConveniosComponent } from './pages/modificar-convenios/modific
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
-    ConveniosRoutingModule,
     //modulos propios de la aplicacion
+    ConveniosRoutingModule,
     PrimeNgModule,
     SharedModule,
   ],
