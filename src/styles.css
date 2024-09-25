@@ -110,4 +110,8 @@ input,
 }
 /* ----------------------------------- */
 
-
+/* ESTILOS MODALES */
+/* Estilo botones modales */
+.p-fluid .p-dialog-footer .p-button {
+  width: 40px;
+}
