@@ -1,6 +1,8 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { state } from '@angular/animations';
+import { TypeProviders } from '../../models/interface/proveedores.interface';
 import {
   AutomaticRenewal,
   City,
@@ -11,9 +13,7 @@ import {
   StatusAgreement,
   typeAgreement,
 } from '../../models/interface/convenios.interface';
-import { TypeProviders } from '../../models/interface/proveedores.interface';
-import { state } from '@angular/animations';
-
+import { TableAgreemetsService } from '../../../service/table-agreement(convenios)/table-agreements.service';
 @Component({
   selector: 'infoSalud-convenios',
   templateUrl: './convenios.component.html',
@@ -45,7 +45,13 @@ export class ConveniosComponent implements OnInit {
     ]),
     typeProviders: new FormControl<string>('', [Validators.required]),
   });
-  constructor(private router: Router, private cdr: ChangeDetectorRef) {}
+  constructor(
+    private tableAgreemetsService: TableAgreemetsService,
+    private router: Router,
+    private cdr: ChangeDetectorRef
+  ) {}
+
+
 
   convenios!: Convenios[];
   allConvenios: any[] = [];
@@ -60,6 +66,17 @@ export class ConveniosComponent implements OnInit {
   public cities: City[] | undefined = [];
 
   ngOnInit(): void {
+
+    this.tableAgreemetsService.getData().then((data) => {
+      console.log('Datos cargados',data);
+      if(data){
+        this.allConvenios = data;
+        this.convenios = [...this.allConvenios];
+      }else{
+        console.error('No se pudieron cargar los valores');
+      }
+
+    });
     this.initializeDropdowns();
   }
 
@@ -72,9 +89,10 @@ export class ConveniosComponent implements OnInit {
     ];
 
     this.statusAgreements = [
-      { statusAgreement: 'Activo' },
+      { statusAgreement: 'Vigente' },
       { statusAgreement: 'Bloqueado' },
-      { statusAgreement: 'Deshabilitado' },
+      { statusAgreement: 'Cancelado' },
+      { statusAgreement: 'Pendiente Formalización' },
     ];
 
     this.ramos = [

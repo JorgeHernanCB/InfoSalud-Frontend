@@ -231,7 +231,6 @@
 
       <!-- Row 4 -->
       <div class="formgrid grid mt-3 custom-col-extend">
-
         <!-- Renovacion automatica -->
         <div class="field custom-col">
           <p-floatLabel>
@@ -295,7 +294,13 @@
         <!-- Usuario -->
         <div class="field custom-col">
           <p-floatLabel>
-            <input formControlName="user" pInputText id="user" class="ipt-disabled" type="text" />
+            <input
+              formControlName="user"
+              pInputText
+              id="user"
+              class="ipt-disabled"
+              type="text"
+            />
             <label
               htmlFor="float-label"
               id="custom-pfloatLabel"
@@ -310,9 +315,9 @@
 
   <!--Table-->
   <div class="mt-4">
-   <p-panel header="CONVENIOS ENCONTRADOS" toggleable="true">
-    <p-table
-    #dt1
+    <p-panel header="CONVENIOS ENCONTRADOS" toggleable="true">
+      <p-table
+        #dt1
         [value]="convenios"
         [paginator]="true"
         [rows]="10"
@@ -326,21 +331,125 @@
           'product',
           'dateStart',
           'dateFinish ',
-          'dateStart',
           'statusAgreement',
-          'active rate',
+          'activeRate'
         ]"
         [rowHover]="true"
         dataKey="id"
         currentPageReportTemplate="Mostrando del {first} al {last} de {totalRecords} datos"
         [showCurrentPageReport]="true"
         emptyMessage="No hay datos"
+      >
+      <ng-template pTemplate="header">
+        <tr>
+          <!-- <th style="width: 4rem;">
+            <p-tableHeaderCheckbox />
+          </th> -->
+          <th pSortableColumn="numberAgreement"
+            class="text-center p-table-title"
+            style="width: 100px;">
+            Numero de convenio
+            <p-sortIcon field="numberAgreement"></p-sortIcon>
+          </th>
+          <th
+            pSortableColumn="typeAgreement"
+            class="text-center p-table-title"
+            style="width: 150px;">
+            Tipo de convenio
+            <p-sortIcon field="typeAgreement"></p-sortIcon>
+          </th>
+          <th
+            pSortableColumn="nameAgreement"
+            class="text-center p-table-title"
+            style="width: 250px;">
+            Nombre
+            <p-sortIcon field="nameAgreement"></p-sortIcon>
+          </th>
+          <th
+            pSortableColumn="product"
+            class="text-center p-table-title"
+            style="width: 150px;">
+            Producto <p-sortIcon field="product"></p-sortIcon>
+          </th>
+          <th
+            pSortableColumn="dateStart"
+            class="text-center p-table-title"
+            style="width: 100px;">
+            Fecha vigente inicial <p-sortIcon field="dateStart"></p-sortIcon>
+          </th>
+          <th
+            pSortableColumn="dateFinish"
+            class="text-center p-table-title"
+            style="width: 100px;">
+            Fecha vigente final
+            <p-sortIcon field="dateFinish"></p-sortIcon>
+          </th>
+          <th
+            pSortableColumn="statusAgreement"
+            class="text-center p-table-title"
+            style="width: 100px;">
+            Estado
+            <p-sortIcon field="statusAgreement"></p-sortIcon>
+          </th>
+          <th
+            pSortableColumn="activeRate"
+            class="text-center p-table-title"
+            style="width: 150px;">
+            Tarifa activa <p-sortIcon field="activeRate"></p-sortIcon>
+          </th>
+          <th class="text-center p-table-title"
+            style="width:50px">Acciones</th>
+        </tr>
+      </ng-template>
 
-    >
+      <ng-template pTemplate="body" let-convenios>
+        <tr>
+          <!-- <td>
+            <p-tableCheckbox [value]="proveedor" />
+          </td> -->
 
-    </p-table>
+          <td class="text-center">{{ convenios.numberAgreement }}</td>
+          <td class="text-center">{{ convenios.typeAgreement }}</td>
+          <td class="text-center">{{ convenios.nameAgreement }}</td>
+          <td class="text-center">{{ convenios.product }}</td>
+          <td class="text-center">{{ convenios.dateStart }}</td>
+          <td class="text-center">{{ convenios.dateFinish }}</td>
+          <td class="text-center">{{ convenios.statusAgreement }}</td>
+          <td class="text-center">{{ convenios.activeRate }}</td>
+          <td class="text-center">
+            <div class="flex justify-content-center align-items-center">
+              <!-- (click)="editProveedor(proveedor)" -->
+              <!-- (click)="showProveedor(proveedor)" -->
+              <p-button
+                icon="pi pi-search"
+                [rounded]="true"
+                [text]="true"
+                pTooltip="Buscar"
+                tooltipPosition="top"
+                class="p-button-rounded flex-1"
+                [state]="{ convenio: convenios, isViewMode: true }"
+                [routerLink]="['/convenios/mostrar', convenios.id]"
+              >
+              </p-button>
+              <!-- (click)="editProveedor(proveedor)" -->
+              <p-button
+                icon="pi pi-pencil"
+                [rounded]="true"
+                [text]="true"
+                pTooltip="Editar"
+                tooltipPosition="top"
+                class="p-button-rounded flex-1"
+                [state]="{ convenio: convenios, isViewMode: false }"
+                [routerLink]="['/convenios/editar', convenios.id]"
+              >
+              </p-button>
+            </div>
+          </td>
+        </tr>
+      </ng-template>
 
-   </p-panel>
 
+      </p-table>
+    </p-panel>
   </div>
 </div>

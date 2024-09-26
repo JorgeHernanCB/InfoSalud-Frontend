@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ConveniosComponent } from './convenios.component';
 import { ModificarConveniosComponent } from './pages/modificar-convenios/modificar-convenios.component';
 import { NuevoConveniosComponent } from './pages/nuevo-convenios/nuevo-convenios.component';
+import { VerConveniosComponent } from './pages/ver-convenios/ver-convenios.component';
 
 
 const routes: Routes = [
@@ -19,7 +20,7 @@ const routes: Routes = [
       },
       {
         path: 'mostrar/:id',
-        component: ModificarConveniosComponent,
+        component: VerConveniosComponent,
         data: { isViewMode: true}
       },
       {

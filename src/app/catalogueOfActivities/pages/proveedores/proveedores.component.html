@@ -9,7 +9,6 @@
 
       <!-- Row 1 -->
       <div class="formgrid mt-5 grid custom-col-extend">
-
         <div class="field custom-col">
           <p-floatLabel>
             <p-dropdown
@@ -19,82 +18,100 @@
               inputId="float-label"
               placeholder="Tipo de proveedor"
             />
-            <label for="float-label" id="custom-pfloatLabel" class="custom-w">Tipo de proveedor</label>
+            <label for="float-label" id="custom-pfloatLabel" class="custom-w"
+              >Tipo de proveedor</label
+            >
           </p-floatLabel>
         </div>
 
         <div class="field custom-col">
           <p-floatLabel>
-          <p-dropdown
-            [options]="status"
-            formControlName="status"
-            optionLabel="status"
-            inputId="float-label"
-            placeholder="Estado"
-          />
-          <label for="float-label" id="custom-pfloatLabel" class="custom-w">Estado</label>
-        </p-floatLabel>
+            <p-dropdown
+              [options]="status"
+              formControlName="status"
+              optionLabel="status"
+              inputId="float-label"
+              placeholder="Estado"
+            />
+            <label for="float-label" id="custom-pfloatLabel" class="custom-w"
+              >Estado</label
+            >
+          </p-floatLabel>
         </div>
 
         <div class="field custom-col">
           <p-floatLabel>
-          <p-dropdown
-            [options]="deparments"
-            formControlName="departament"
-            optionLabel="name"
-            inputId="float-label"
-            placeholder="Departamento / provincia"
-          />
-          <label for="float-label" id="custom-pfloatLabel" class="custom-w">Departamento</label>
+            <p-dropdown
+              [options]="deparments"
+              formControlName="departament"
+              optionLabel="name"
+              inputId="float-label"
+              placeholder="Departamento / provincia"
+            />
+            <label for="float-label" id="custom-pfloatLabel" class="custom-w"
+              >Departamento</label
+            >
           </p-floatLabel>
         </div>
 
         <div class="field custom-col">
           <div class="flex-auto">
             <p-floatLabel>
-            <p-dropdown
-              [options]="cities"
-              formControlName="city"
-              optionLabel="city"
-              inputId="float-label"
-              placeholder="Ciudad / Municipio"
-            />
-            <label htmlFor="float-label" id="custom-pfloatLabel" class="custom-w">Ciudad / Municipio</label>
+              <p-dropdown
+                [options]="cities"
+                formControlName="city"
+                optionLabel="city"
+                inputId="float-label"
+                placeholder="Ciudad / Municipio"
+              />
+              <label
+                htmlFor="float-label"
+                id="custom-pfloatLabel"
+                class="custom-w"
+                >Ciudad / Municipio</label
+              >
             </p-floatLabel>
           </div>
         </div>
-
       </div>
 
       <!-- Row 2 -->
       <div class="formgrid grid mt-3 custom-col-extend">
-
         <div class="field custom-col">
           <div class="flex-auto">
             <p-floatLabel>
-            <p-dropdown
-              [options]="typePerson"
-              formControlName="typePerson"
-              optionLabel="typePerson"
-              placeholder="Tipo de persona"
-            />
-            <label htmlFor="float-label" id="custom-pfloatLabel" class="custom-w">Tipo de persona</label>
+              <p-dropdown
+                [options]="typePerson"
+                formControlName="typePerson"
+                optionLabel="typePerson"
+                placeholder="Tipo de persona"
+              />
+              <label
+                htmlFor="float-label"
+                id="custom-pfloatLabel"
+                class="custom-w"
+                >Tipo de persona</label
+              >
             </p-floatLabel>
           </div>
         </div>
 
         <div class="field custom-col">
           <p-floatLabel>
-          <p-dropdown
-            [options]="typeDocument"
-            formControlName="typeDocument"
-            optionLabel="identification"
-            placeholder="Tipo de identificación"
-          />
-          <label htmlFor="float-label" id="custom-pfloatLabel" class="custom-w">Tipo de Documento</label>
+            <p-dropdown
+              [options]="typeDocument"
+              formControlName="typeDocument"
+              optionLabel="identification"
+              placeholder="Tipo de identificación"
+            />
+            <label
+              htmlFor="float-label"
+              id="custom-pfloatLabel"
+              class="custom-w"
+              >Tipo de Documento</label
+            >
           </p-floatLabel>
         </div>
-
 
         <div class="field custom-col">
           <p-floatLabel>
@@ -104,7 +121,10 @@
               type="number"
               formControlName="numberDocument"
             />
-            <label htmlFor="float-label" id="custom-pfloatLabel" class="custom-w"
+            <label
+              htmlFor="float-label"
+              id="custom-pfloatLabel"
+              class="custom-w"
               >N&uacute;mero de identificaci&oacute;n
             </label>
           </p-floatLabel>
@@ -112,16 +132,15 @@
 
         <div class="field custom-col">
           <p-floatLabel>
-            <input pInputText
-              id="name"
-              type="text"
-              formControlName="name" />
-            <label htmlFor="float-label" id="custom-pfloatLabel" class="custom-w"
+            <input pInputText id="name" type="text" formControlName="name" />
+            <label
+              htmlFor="float-label"
+              id="custom-pfloatLabel"
+              class="custom-w"
               >Nombre / Raz&oacute;n social
             </label>
           </p-floatLabel>
         </div>
-
       </div>
 
       <div class="formgrid grid mt-3 custom-col-extend">
@@ -134,18 +153,21 @@
               optionLabel="name"
               placeholder="Tipo de especialidad"
             />
-            <label htmlFor="float-label" id="custom-pfloatLabel"
-            class="custom-w">Tipo de especialidad</label>
+            <label
+              htmlFor="float-label"
+              id="custom-pfloatLabel"
+              class="custom-w"
+              >Tipo de especialidad</label
+            >
           </p-floatLabel>
         </div>
       </div>
-
     </form>
   </p-panel>
 
   <!-- Table -->
   <div class="mt-4">
-    <p-panel header="PROVEEDORES ENCONTRADOS"  [toggleable]="true">
+    <p-panel header="PROVEEDORES ENCONTRADOS" [toggleable]="true">
       <p-table
         #dt1
         [value]="proveedores"
@@ -174,53 +196,62 @@
             <!-- <th style="width: 4rem;">
               <p-tableHeaderCheckbox />
             </th> -->
-            <th pSortableColumn="typeDocument"
+            <th
+              pSortableColumn="typeDocument"
               class="text-center p-table-title"
-              style="width: 100px;">
+              style="width: 100px"
+            >
               Tipo de identificaci&oacute;n
               <p-sortIcon field="typeDocument"></p-sortIcon>
             </th>
             <th
               pSortableColumn="numberDocument"
               class="text-center p-table-title"
-              style="width: 150px;">
+              style="width: 150px"
+            >
               N&uacute;mero de identificaci&oacute;n
               <p-sortIcon field="numberDocument"></p-sortIcon>
             </th>
             <th
               pSortableColumn="name"
               class="text-center p-table-title"
-              style="width: 250px;">
+              style="width: 250px"
+            >
               Nombre / Raz&oacute;n Social
               <p-sortIcon field="name"></p-sortIcon>
             </th>
             <th
               pSortableColumn="typeProviders"
               class="text-center p-table-title"
-              style="width: 150px;">
+              style="width: 150px"
+            >
               Tipo de Proveedor <p-sortIcon field="typeProviders"></p-sortIcon>
             </th>
             <th
               pSortableColumn="status"
               class="text-center p-table-title"
-              style="width: 100px;">
+              style="width: 100px"
+            >
               Estado <p-sortIcon field="status"></p-sortIcon>
             </th>
             <th
               pSortableColumn="departament"
               class="text-center p-table-title"
-              style="width: 150px;">
+              style="width: 150px"
+            >
               Departamento / Provincia
               <p-sortIcon field="departament"></p-sortIcon>
             </th>
             <th
               pSortableColumn="city"
               class="text-center p-table-title"
-              style="width: 150px;">
+              style="width: 150px"
+            >
               Ciudad / Municipio <p-sortIcon field="city"></p-sortIcon>
             </th>
-            <th class="text-center p-table-title"
-              style="width:50px">Acciones</th>
+            <th class="text-center p-table-title" style="width: 50px">
+              Acciones
+            </th>
           </tr>
         </ng-template>
         <ng-template pTemplate="body" let-proveedor>

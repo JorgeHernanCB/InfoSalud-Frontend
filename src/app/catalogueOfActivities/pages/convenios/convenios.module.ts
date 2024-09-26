@@ -8,12 +8,14 @@ import { SharedModule } from '../../../shared/shared.module';
 import { ConveniosComponent } from './convenios.component';
 import { NuevoConveniosComponent } from './pages/nuevo-convenios/nuevo-convenios.component';
 import { ModificarConveniosComponent } from './pages/modificar-convenios/modificar-convenios.component';
+import { VerConveniosComponent } from './pages/ver-convenios/ver-convenios.component';
 
 
 @NgModule({
   declarations: [
     ConveniosComponent,
     NuevoConveniosComponent,
+    VerConveniosComponent,
     ModificarConveniosComponent
   ],
   imports: [
@@ -28,6 +30,7 @@ import { ModificarConveniosComponent } from './pages/modificar-convenios/modific
   exports: [
     ConveniosComponent,
     NuevoConveniosComponent,
+    VerConveniosComponent,
     ModificarConveniosComponent
   ],
 })

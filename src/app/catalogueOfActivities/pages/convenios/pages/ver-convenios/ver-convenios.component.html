@@ -1,0 +1,479 @@
+<div class="mt-3">
+  <p-panel header="Ver convenios" [toggleable]="true">
+    <form [formGroup]="viewConveniosForm">
+      <div class="formgrid grid flex justify-content-between">
+        <div class="field-col ml-4">
+          <p-button
+            icon="pi pi-step-backward"
+            [text]="true"
+            [raised]="true"
+            [rounded]="true"
+            pTooltip="Regresar"
+            tooltipPosition="bottom"
+            [routerLink]="['/convenios']"
+          />
+        </div>
+      </div>
+      <div class="formgrid grid mt-4 custom-col-extend">
+        <div class="field custom-col">
+          <p-floatLabel>
+            <input
+              pInputText
+              id="numberAgreement"
+              type="number"
+              class="ipt-disabled"
+              formControlName="numberAgreement"
+            />
+            <label
+              htmlFor="numberAgreement"
+              id="custom-pfloatLabel"
+              class="custom-w"
+            >
+              Número de convenio
+            </label>
+          </p-floatLabel>
+        </div>
+
+        <div class="field custom-col">
+          <p-floatLabel>
+            <input
+              pInputText
+              id="nameAgreement"
+              type="text"
+              class="ipt-disabled"
+              formControlName="nameAgreement"
+            />
+            <label
+              htmlFor="nameAgreement"
+              id="custom-pfloatLabel"
+              class="custom-w"
+            >
+              Nombre de convenio
+            </label>
+          </p-floatLabel>
+        </div>
+
+        <div class="field custom-col">
+          <p-floatLabel>
+            <input
+              pInputText
+              id="activeRate"
+              type="text"
+              class="ipt-disabled"
+              formControlName="activeRate"
+            />
+            <label
+              htmlFor="activeRate"
+              id="custom-pfloatLabel"
+              class="custom-w"
+            >
+              Tarifa
+            </label>
+          </p-floatLabel>
+        </div>
+
+        <div class="field custom-col">
+          <p-floatLabel>
+            <input
+              pInputText
+              id="statusAgreement"
+              type="text"
+              class="ipt-disabled"
+              formControlName="statusAgreement"
+            />
+            <label
+              htmlFor="statusAgreement"
+              id="custom-pfloatLabel"
+              class="custom-w"
+            >
+              Estado
+            </label>
+          </p-floatLabel>
+        </div>
+      </div>
+    </form>
+  </p-panel>
+  <div class="mt-4">
+    <p-panel header="Información General" toggleable="true">
+      <span>Datos básicos convenios</span>
+      <form [formGroup]="viewGeneralForm">
+        <div class="formgrid grid mt-4 custom-col-extend">
+          <div class="field custom-col">
+            <p-floatLabel>
+              <input
+                pInputText
+                id="numberAgreement"
+                type="number"
+                class="ipt-disabled"
+                formControlName="numberAgreement"
+              />
+              <label
+                htmlFor="numberAgreement"
+                id="custom-pfloatLabel"
+                class="custom-w"
+              >
+                Número de convenio
+              </label>
+            </p-floatLabel>
+          </div>
+
+          <div class="field custom-col">
+            <p-floatLabel>
+              <input
+                pInputText
+                id="nameAgreement"
+                type="number"
+                class="ipt-disabled"
+                formControlName="nameAgreement"
+              />
+              <label
+                htmlFor="nameAgreement"
+                id="custom-pfloatLabel"
+                class="custom-w"
+              >
+                Nombre de convenio
+              </label>
+            </p-floatLabel>
+          </div>
+
+          <div class="field custom-col">
+            <p-floatLabel>
+              <input
+                pInputText
+                id="codeProvider"
+                type="number"
+                class="ipt-disabled"
+                formControlName="codeProvider"
+              />
+              <label
+                htmlFor="codeProvider"
+                id="custom-pfloatLabel"
+                class="custom-w"
+              >
+                Codigo de prestador
+              </label>
+            </p-floatLabel>
+          </div>
+          <div class="field custom-col">
+            <p-dropdown
+              [options]="typeAgreements"
+              formControlName="typeAgreement"
+              optionLabel="typeAgreement"
+              placeholder="Tipo de convenio"
+            />
+          </div>
+
+          <div class="field custom-col">
+            <p-floatLabel>
+              <p-calendar
+                formControlName="dateStart"
+                [showIcon]="true"
+                inputId="buttondisplay"
+                [showOnFocus]="false"
+              />
+              <label
+                htmlFor="float-label"
+                id="custom-pfloatLabel"
+                class="custom-w"
+                >Fecha inicio vigencia
+              </label>
+            </p-floatLabel>
+          </div>
+
+          <!-- Fecha vigencia final -->
+          <div class="field custom-col">
+            <div class="flex-auto">
+              <p-floatLabel>
+                <p-calendar
+                  formControlName="dateFinish"
+                  [showIcon]="true"
+                  inputId="buttondisplay"
+                  [showOnFocus]="false"
+                />
+                <label
+                  htmlFor="float-label"
+                  id="custom-pfloatLabel"
+                  class="custom-w"
+                  >Fecha vigencia final
+                </label>
+              </p-floatLabel>
+            </div>
+          </div>
+
+          <div class="field custom-col">
+            <p-floatLabel>
+              <input
+                pInputText
+                id="numberAgreement"
+                type="number"
+                class="ipt-disabled"
+                formControlName="numberAgreement"
+              />
+              <label
+                htmlFor="numberAgreement"
+                id="custom-pfloatLabel"
+                class="custom-w"
+              >
+                Estado
+              </label>
+            </p-floatLabel>
+          </div>
+          <div class="field custom-col">
+            <p-floatLabel>
+              <input
+                pInputText
+                id="numberAgreement"
+                type="number"
+                class="ipt-disabled"
+                formControlName="numberAgreement"
+              />
+              <label
+                htmlFor="numberAgreement"
+                id="custom-pfloatLabel"
+                class="custom-w"
+              >
+                Convenio basado en otro existente
+              </label>
+            </p-floatLabel>
+          </div>
+        </div>
+      </form>
+
+      <form [formGroup]="viewGeneralForm">
+        <span>Datos básicos proveedores</span>
+
+        <div class="formgrid grid mt-4 custom-col-extend">
+          <div class="field custom-col">
+            <p-dropdown
+              [options]="typeDocument"
+              formControlName="typeDocument"
+              optionLabel="identification"
+              placeholder="Tipo de documento"
+            />
+          </div>
+          <div class="field custom-col">
+            <p-floatLabel>
+              <input
+                pInputText
+                id="numberDocument"
+                type="number"
+                class="ipt-disabled"
+                formControlName="numberDocument"
+              />
+              <label
+                htmlFor="numberDocument"
+                id="custom-pfloatLabel"
+                class="custom-w"
+              >
+                Número de identificación
+              </label>
+            </p-floatLabel>
+          </div>
+
+          <div class="field custom-col">
+            <p-floatLabel>
+              <input
+                pInputText
+                id="nameProviders"
+                formControlName="nameProviders"
+                class="ipt-disabled"
+              />
+              <label htmlFor="name" id="custom-pfloatLabel" class="custom-w">
+                Nombre / Razón social
+              </label>
+            </p-floatLabel>
+          </div>
+
+          <div class="field custom-col">
+            <p-dropdown
+              formControlName="typeProviders"
+              [options]="typeProviders"
+              optionLabel="name"
+              placeholder="Tipo de proveedor"
+            />
+          </div>
+
+          <div class="field custom-col">
+            <p-dropdown
+              [options]="status"
+              formControlName="statusProvider"
+              optionLabel="status"
+              placeholder="Estado"
+              class="ipt-disabled"
+            />
+          </div>
+
+          <div class="field custom-col">
+            <p-floatLabel>
+              <input
+                pInputText
+                id="businessNameProviders"
+                formControlName="businessNameProviders"
+                class="ipt-disabled"
+              />
+              <label htmlFor="name" id="custom-pfloatLabel" class="custom-w">
+                Nombre / Razón social
+              </label>
+            </p-floatLabel>
+          </div>
+          <div class="field custom-col">
+            <p-dropdown
+              [options]="typeProviders"
+              formControlName="typePerson"
+              optionLabel="name"
+              placeholder="Tipo de proveedor"
+              class="ipt-disabled"
+            />
+          </div>
+        </div>
+      </form>
+      <p-table
+        #dt1
+        [value]="convenios"
+        [paginator]="true"
+        [rows]="10"
+        [rowsPerPageOptions]="[5, 10, 20, 100]"
+        styleClass="p-datatable-gridlines p-datatable-sm"
+        [tableStyle]="{ 'min-width': '45rem' }"
+        [globalFilterFields]="[
+          'numberAgreement',
+          'typeAgreement',
+          'nameAgreement',
+          'product',
+          'dateStart',
+          'dateFinish ',
+          'statusAgreement',
+          'activeRate'
+        ]"
+        [rowHover]="true"
+        dataKey="id"
+        currentPageReportTemplate="Mostrando del {first} al {last} de {totalRecords} datos"
+        [showCurrentPageReport]="true"
+        emptyMessage="No hay datos"
+      >
+        <ng-template pTemplate="header">
+          <tr>
+            <!-- <th style="width: 4rem;">
+            <p-tableHeaderCheckbox />
+          </th> -->
+            <th
+              pSortableColumn="numberAgreement"
+              class="text-center p-table-title"
+              style="width: 100px"
+            >
+              Numero de convenio
+              <p-sortIcon field="numberAgreement"></p-sortIcon>
+            </th>
+            <th
+              pSortableColumn="typeAgreement"
+              class="text-center p-table-title"
+              style="width: 150px"
+            >
+              Tipo de convenio
+              <p-sortIcon field="typeAgreement"></p-sortIcon>
+            </th>
+            <th
+              pSortableColumn="nameAgreement"
+              class="text-center p-table-title"
+              style="width: 250px"
+            >
+              Nombre
+              <p-sortIcon field="nameAgreement"></p-sortIcon>
+            </th>
+            <th
+              pSortableColumn="product"
+              class="text-center p-table-title"
+              style="width: 150px"
+            >
+              Producto <p-sortIcon field="product"></p-sortIcon>
+            </th>
+            <th
+              pSortableColumn="dateStart"
+              class="text-center p-table-title"
+              style="width: 100px"
+            >
+              Fecha vigente inicial <p-sortIcon field="dateStart"></p-sortIcon>
+            </th>
+            <th
+              pSortableColumn="dateFinish"
+              class="text-center p-table-title"
+              style="width: 100px"
+            >
+              Fecha vigente final
+              <p-sortIcon field="dateFinish"></p-sortIcon>
+            </th>
+            <th
+              pSortableColumn="statusAgreement"
+              class="text-center p-table-title"
+              style="width: 100px"
+            >
+              Estado
+              <p-sortIcon field="statusAgreement"></p-sortIcon>
+            </th>
+            <th
+              pSortableColumn="activeRate"
+              class="text-center p-table-title"
+              style="width: 150px"
+            >
+              Tarifa activa <p-sortIcon field="activeRate"></p-sortIcon>
+            </th>
+          </tr>
+        </ng-template>
+
+        <ng-template pTemplate="body" let-convenios>
+          <tr>
+            <!-- <td>
+            <p-tableCheckbox [value]="proveedor" />
+          </td> -->
+
+            <td class="text-center">{{ convenios.numberAgreement }}</td>
+            <td class="text-center">{{ convenios.typeAgreement }}</td>
+            <td class="text-center">{{ convenios.nameAgreement }}</td>
+            <td class="text-center">{{ convenios.product }}</td>
+            <td class="text-center">{{ convenios.dateStart }}</td>
+            <td class="text-center">{{ convenios.dateFinish }}</td>
+            <td class="text-center">{{ convenios.statusAgreement }}</td>
+            <td class="text-center">{{ convenios.activeRate }}</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </p-panel>
+    <p-panel header="Características" toggleable="true">
+      <span>Información complementaria</span>
+      <form [formGroup]="viewCharacteristicsForm">
+        <div class="formgrid grid mt-4 custom-col-extend">
+          <div class="field custom-col">
+            <p-dropdown
+              [options]="priorityRemission"
+              formControlName="priorityRemission"
+              optionLabel="priorityRemission"
+              placeholder="Prioridad de remisión"
+            />
+          </div>
+
+          <div class="field custom-col">
+            <p-floatLabel>
+              <input
+                pInputText
+                id="valueUVR"
+                formControlName="valueUVR"
+                type="number"
+              />
+              <label htmlFor="name" id="custom-pfloatLabel" class="custom-w">
+                Valor UVR
+              </label>
+            </p-floatLabel>
+          </div>
+
+
+        </div>
+
+
+
+      </form>
+
+
+
+    </p-panel>
+  </div>
+</div>
