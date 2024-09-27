@@ -7,11 +7,15 @@ import { PrimeNgModule } from '../../../prime-ng/prime-ng.module';
 
 import { AuditoriasRoutingModule } from './auditorias-routing.module';
 import { SharedModule } from '../../../shared/shared.module';
+import { ConsultarAuditoriasComponent } from './consultar-auditorias/consultar-auditorias.component';
+import { ModificarAuditoriasComponent } from './modificar-auditorias/modificar-auditorias.component';
 
 
 @NgModule({
   declarations: [
-    AuditoriasComponent
+    AuditoriasComponent,
+    ConsultarAuditoriasComponent,
+    ModificarAuditoriasComponent
   ],
   imports: [
     CommonModule,
@@ -22,7 +26,9 @@ import { SharedModule } from '../../../shared/shared.module';
     SharedModule,
   ],
   exports: [
-    AuditoriasComponent
+    AuditoriasComponent,
+    ConsultarAuditoriasComponent,
+    ModificarAuditoriasComponent
   ],
 
 })

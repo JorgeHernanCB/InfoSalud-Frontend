@@ -1,1 +1,540 @@
-<p>facturas works!</p>
+<div class="mt-3">
+    <form [formGroup]="facturasForm" (ngSubmit)="onSubmit()">
+        <p-panel header="BUSQUEDA DE FACTURAS" toggleable="true">
+            <app-filtered-button
+                (onSearch)="onSearch()"
+                (onClear)="clearForm()"
+            ></app-filtered-button>
+
+            <!-- Row 1 -->
+            <div class="formgrid mt-5 grid custom-col-extend">
+
+                <!-- Numero siniestro -->
+                <div class="field custom-col">
+                    <p-floatLabel>
+                        <input
+                          pInputText
+                          id="numberAccident"
+                          type="number"
+                          formControlName="numberAccident"
+                        />
+                        <label htmlFor="float-label" id="custom-pfloatLabel" class="custom-w"
+                          >N&uacute;mero Siniestro
+                        </label>
+                    </p-floatLabel>
+                </div>
+
+                <!-- Numero Factura asignado -->
+                <div class="field custom-col">
+                    <p-floatLabel>
+                        <input
+                          pInputText
+                          id="numberFactureAssigned"
+                          type="number"
+                          formControlName="numberFactureAssigned"
+                        />
+                        <label htmlFor="float-label" id="custom-pfloatLabel" class="custom-w"
+                          >N&uacute;mero Factura Asignado
+                        </label>
+                    </p-floatLabel>
+                </div>
+
+                <!-- Estado de pago -->
+                <div class="field custom-col">
+                    <p-floatLabel>
+                      <p-dropdown
+                        [options]="paymentStatus"
+                        formControlName="paymentStatus"
+                        optionLabel="status"
+                        inputId="float-label"
+                        placeholder="Estado"
+                      />
+                      <label for="float-label" id="custom-pfloatLabel" class="custom-w">Estado Pago</label>
+                    </p-floatLabel>
+                </div>
+
+                <!-- Ramo -->
+                <div class="field custom-col">
+                    <p-floatLabel>
+                      <p-dropdown
+                        [options]="ramo"
+                        formControlName="ramo"
+                        optionLabel="ramo"
+                        inputId="float-label"
+                        placeholder="Estado"
+                      />
+                      <label for="float-label" id="custom-pfloatLabel" class="custom-w">Ramo</label>
+                    </p-floatLabel>
+                </div>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="formgrid mt-3 grid custom-col-extend">
+
+                <!-- Numero Convenio -->
+                <div class="field custom-col">
+                    <p-floatLabel>
+                        <input
+                          pInputText
+                          id="agreementNumber"
+                          type="number"
+                          formControlName="agreementNumber"
+                        />
+                        <label htmlFor="float-label" id="custom-pfloatLabel" class="custom-w"
+                        >N&uacute;mero Convenio
+                        </label>
+                    </p-floatLabel>
+                </div>
+
+                <!-- Sucursal Pagadora -->
+                <div class="field custom-col">
+                    <p-floatLabel>
+                        <input
+                          pInputText
+                          id="branch"
+                          type="number"
+                          formControlName="branch"
+                        />
+                        <label htmlFor="float-label" id="custom-pfloatLabel" class="custom-w"
+                        >Sucursal Pagadora
+                        </label>
+                    </p-floatLabel>
+                </div>
+
+                <!-- Tipo de identificacion proveedor -->
+                <div class="field custom-col">
+                    <p-floatLabel>
+                      <p-dropdown
+                        [options]="typeDocumentProvider"
+                        formControlName="typeDocumentProvider"
+                        optionLabel="document"
+                        inputId="float-label"
+                        placeholder="Tipo Identificación Proveedor"
+                      />
+                      <label for="float-label" id="custom-pfloatLabel" class="custom-w">Tipo Identificaci&oacute;n Proveedor</label>
+                    </p-floatLabel>
+                </div>
+
+                <!-- Numero identificacion proveedor -->
+                <div class="field custom-col">
+                    <p-floatLabel>
+                        <input
+                          pInputText
+                          id="numberIdentification"
+                          type="number"
+                          formControlName="numberIdentification"
+                        />
+                        <label htmlFor="float-label" id="custom-pfloatLabel" class="custom-w"
+                        >N&uacute;mero de Identificaci&oacute;n
+                        </label>
+                    </p-floatLabel>
+                </div>
+            </div>
+
+            <!-- Row 3 -->
+            <div class="formgrid mt-3 grid custom-col-extend">
+
+                <!-- Estado Factura -->
+                <div class="field custom-col">
+                    <p-floatLabel>
+                      <p-dropdown
+                        [options]="stateFacture"
+                        formControlName="stateFacture"
+                        optionLabel="status"
+                        inputId="float-label"
+                        placeholder="Estado"
+                      />
+                      <label for="float-label" id="custom-pfloatLabel" class="custom-w">Estado Factura</label>
+                    </p-floatLabel>
+                </div>
+
+                <!-- Numero Factura -->
+                <div class="field custom-col">
+                    <p-floatLabel>
+                        <input
+                          pInputText
+                          id="numberFactura"
+                          type="number"
+                          formControlName="numberFactura"
+                        />
+                        <label htmlFor="float-label" id="custom-pfloatLabel" class="custom-w"
+                        >N&uacute;mero. Factura
+                        </label>
+                    </p-floatLabel>
+                </div>
+
+                <div class="field custom-col">
+
+                </div>
+
+                <!-- Usuario -->
+                <div class="field custom-col">
+                    <p-floatLabel>
+                        <input
+                            pInputText
+                            id="user"
+                            type="text"
+                            class="ipt-disabled"
+                            formControlName="user"
+                            [disabled]="true"
+                        />
+                        <label htmlFor="float-label" id="custom-pfloatLabel" class="custom-w"
+                            >Usuario
+                        </label>
+                    </p-floatLabel>
+                </div>
+            </div>
+        </p-panel>
+
+        <!-- Progress Spinner -->
+        <div
+        class="card flex justify-content-center loading-indicator"
+        *ngIf="loading"
+        >
+        <p-progressSpinner
+        styleClass="w-4rem h-4rem"
+        strokeWidth="8"
+        fill="transparent"
+        animationDuration="2.5s"
+        />
+        </div>
+
+        
+        <p-panel header="FILTRAR POR RANGO DE FECHA" [toggleable]="true" styleClass="mt-3">
+
+            <!-- Row 1 -->
+            <div class="formgrid grid mt-3 custom-col-extend">
+
+                <!-- Fecha emision factura inicial -->
+                <div class="field custom-col">
+                    <p-floatLabel>
+                    <p-calendar
+                        formControlName="dateEmisioninitial"
+                        [showIcon]="true"
+                        inputId="buttondisplay"
+                        [showOnFocus]="false"
+                    />
+                    <label
+                        htmlFor="float-label"
+                        id="custom-pfloatLabel"
+                        class="custom-w"
+                        >Fecha Emisi&oacute;n Factura Inicial
+                    </label>
+                    </p-floatLabel>
+                </div>
+
+                <!-- Fecha emision final -->
+                <div class="field custom-col">
+                    <p-floatLabel>
+                    <p-calendar
+                        formControlName="dateEmisionEnd"
+                        [showIcon]="true"
+                        inputId="buttondisplay"
+                        [showOnFocus]="false"
+                    />
+                    <label
+                        htmlFor="float-label"
+                        id="custom-pfloatLabel"
+                        class="custom-w"
+                        >Fecha Emisi&oacute;n Final
+                    </label>
+                    </p-floatLabel>
+                </div>
+
+                <!-- Fecha Registro Inicial -->
+                <div class="field custom-col">
+                    <p-floatLabel>
+                    <p-calendar
+                        formControlName="dateRegisterInitial"
+                        [showIcon]="true"
+                        inputId="buttondisplay"
+                        [showOnFocus]="false"
+                    />
+                    <label
+                        htmlFor="float-label"
+                        id="custom-pfloatLabel"
+                        class="custom-w"
+                        >Fecha Registro Inicial
+                    </label>
+                    </p-floatLabel>
+                </div>
+
+                <!-- Fecha Registro Final -->
+                <div class="field custom-col">
+                    <p-floatLabel>
+                    <p-calendar
+                        formControlName="dateRegisterEnd"
+                        [showIcon]="true"
+                        inputId="buttondisplay"
+                        [showOnFocus]="false"
+                    />
+                    <label
+                        htmlFor="float-label"
+                        id="custom-pfloatLabel"
+                        class="custom-w"
+                        >Fecha Registro Final
+                    </label>
+                    </p-floatLabel>
+                </div>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="formgrid grid mt-3 custom-col-extend">
+
+                <!-- Fecha recepcion inicial -->
+                <div class="field custom-col">
+                    <p-floatLabel>
+                    <p-calendar
+                        formControlName="dateReceptionInitial"
+                        [showIcon]="true"
+                        inputId="buttondisplay"
+                        [showOnFocus]="false"
+                    />
+                    <label
+                        htmlFor="float-label"
+                        id="custom-pfloatLabel"
+                        class="custom-w"
+                        >Fecha Recepci&oacute;n Inicial
+                    </label>
+                    </p-floatLabel>
+                </div>
+
+                <!-- Fecha recepcion final -->
+                <div class="field custom-col">
+                    <p-floatLabel>
+                    <p-calendar
+                        formControlName="dateReceptionEnd"
+                        [showIcon]="true"
+                        inputId="buttondisplay"
+                        [showOnFocus]="false"
+                    />
+                    <label
+                        htmlFor="float-label"
+                        id="custom-pfloatLabel"
+                        class="custom-w"
+                        >Fecha Recepci&oacute;n Final
+                    </label>
+                    </p-floatLabel>
+                </div>
+
+                <!-- Fecha Pago Inicial -->
+                <div class="field custom-col">
+                    <p-floatLabel>
+                    <p-calendar
+                        formControlName="datePayInitial"
+                        [showIcon]="true"
+                        inputId="buttondisplay"
+                        [showOnFocus]="false"
+                    />
+                    <label
+                        htmlFor="float-label"
+                        id="custom-pfloatLabel"
+                        class="custom-w"
+                        >Fecha Pago Inicial
+                    </label>
+                    </p-floatLabel>
+                </div>
+
+                <!-- Fecha Pago Final -->
+                <div class="field custom-col">
+                    <p-floatLabel>
+                    <p-calendar
+                        formControlName="datePayEnd"
+                        [showIcon]="true"
+                        inputId="buttondisplay"
+                        [showOnFocus]="false"
+                    />
+                    <label
+                        htmlFor="float-label"
+                        id="custom-pfloatLabel"
+                        class="custom-w"
+                        >Fecha Pago Final
+                    </label>
+                    </p-floatLabel>
+                </div>
+            </div>
+        </p-panel>
+    </form>
+
+    <!-- Tabla -->
+    <p-panel header="FACTURAS ENCONTRADAS" [toggleable]="true" styleClass="mt-3">
+
+        <p-table
+        #dt15
+        [value]="facturas"
+        [paginator]="true"
+        [rows]="10"
+        [rowsPerPageOptions]="[5, 10, 20, 100]"
+        styleClass="p-datatable-gridlines p-datatable-sm"
+        [tableStyle]="{ 'min-width': '45rem' }"
+        [globalFilterFields]="[
+        'numberFactureAssigned',
+        'numberFactura',
+        'ramo',
+        'nameProvider',
+        'agreementNumber',
+        'dateEmision',
+        'dateEnd',
+        'datePay',
+        'invoiceFactura',
+        'stateFactura',
+        'statePay',
+        ]"
+        [rowHover]="true"
+        dataKey="id"
+        currentPageReportTemplate="Mostrando del {first} al {last} de {totalRecords} datos"
+        [showCurrentPageReport]="true"
+        emptyMessage="No hay datos"
+        >
+        <ng-template pTemplate="header">
+            <tr>
+            <!-- <th style="width: 4rem;">
+                <p-tableHeaderCheckbox />
+            </th> -->
+            <th pSortableColumn="numberFactureAssigned"
+                class="text-center p-table-title"
+                style="width: 100px;">
+                Numero Factura Asignado
+                <p-sortIcon field="numberFactureAssigned"></p-sortIcon>
+            </th>
+            <th pSortableColumn="numberFactura"
+                class="text-center p-table-title"
+                style="width: 100px;">
+                N&uacute;mero. Factura
+                <p-sortIcon field="numberFactura"></p-sortIcon>
+            </th>
+            <th pSortableColumn="ramo"
+                class="text-center p-table-title"
+                style="width: 100px;">
+                Ramo
+                <p-sortIcon field="ramo"></p-sortIcon>
+            </th>
+            <th pSortableColumn="nameProvider"
+                class="text-center p-table-title"
+                style="width: 150px;">
+                Nombre Proveedor
+                <p-sortIcon field="nameProvider"></p-sortIcon>
+            </th>
+            <th pSortableColumn="agreementNumber"
+                class="text-center p-table-title"
+                style="width: 50px;">
+                N&uacute;mero Convenio
+                <p-sortIcon field="agreementNumber"></p-sortIcon>
+            </th>
+            <th pSortableColumn="dateEmision"
+                class="text-center p-table-title"
+                style="width: 100px;">
+                Fecha Emisi&oacute;n
+                <p-sortIcon field="dateEmision"></p-sortIcon>
+            </th>
+            <th pSortableColumn="dateEnd"
+                class="text-center p-table-title"
+                style="width: 50px;">
+                Fecha Vencimiento
+                <p-sortIcon field="dateEnd"></p-sortIcon>
+            </th>
+            <th pSortableColumn="datePay"
+                class="text-center p-table-title"
+                style="width: 100px;">
+                Fecha Pago
+                <p-sortIcon field="datePay"></p-sortIcon>
+            </th>
+            <th pSortableColumn="invoiceFactura"
+                class="text-center p-table-title"
+                style="width: 100px;">
+                Valor Factura
+                <p-sortIcon field="invoiceFactura"></p-sortIcon>
+            </th>
+            <th pSortableColumn="stateFactura"
+                class="text-center p-table-title"
+                style="width: 100px;">
+                Estado Factura
+                <p-sortIcon field="stateFactura"></p-sortIcon>
+            </th>
+            <th pSortableColumn="statePay"
+                class="text-center p-table-title"
+                style="width: 150px;">
+                Estado Pago
+                <p-sortIcon field="statePay"></p-sortIcon>
+            </th>
+            <th class="text-center p-table-title"
+                style="width:50px">Acciones
+            </th>
+            <th class="text-center p-table-title"
+                style="width: 50px;">Pdf
+            </th>
+            </tr>
+        </ng-template>
+
+        <ng-template pTemplate="body" let-factura>
+            <tr>
+            <!-- <td>
+                <p-tableCheckbox [value]="proveedor" />
+            </td> -->
+            <td class="text-center">{{ factura.numberFactureAssigned }}</td>
+            <td class="text-center">{{ factura.numberFactura }}</td>
+            <td class="text-center">{{ factura.ramo }}</td>
+            <td class="text-center">{{ factura.provider_ips }}</td>
+            <td class="text-center">{{ factura.nameProvider }}</td>
+            <td class="text-center">{{ factura.agreementNumber }}</td>
+            <td class="text-center">{{ factura.dateEmision }}</td>
+            <td class="text-center">{{ factura.dateEnd }}</td>
+            <td class="text-center">{{ factura.datePay }}</td>
+            <td class="text-center">{{ factura.invoiceFactura }}</td>
+            <td class="text-center">{{ factura.stateFactura }}</td>
+            <td class="text-center">{{ factura.statePay }}</td>
+            <td class="text-center">
+                <div class="flex justify-content-center align-items-center">
+                <!-- (click)="editProveedor(proveedor)" -->
+                <!-- (click)="showProveedor(proveedor)" -->
+                    <p-button
+                    icon="pi pi-search"
+                    [rounded]="true"
+                    [text]="true"
+                    pTooltip="Buscar"
+                    tooltipPosition="top"
+                    class="p-button-rounded flex-1"
+                    [state]="{ factura: factura}"
+                    [routerLink]="['/facturas/mostrar', factura.id]"
+                    >
+                    </p-button>
+                    <!-- (click)="editProveedor(proveedor)" -->
+                    <p-button
+                    icon="pi pi-pencil"
+                    [rounded]="true"
+                    [text]="true"
+                    pTooltip="Editar"
+                    tooltipPosition="top"
+                    class="p-button-rounded flex-1"
+                    [state]="{ factura: facturas }"
+                    [routerLink]="['/facturas/editar', factura.id]"
+                    >
+                    </p-button>
+                </div>
+            </td>
+            <td>
+                <p-button
+                icon="pi pi-file-pdf"
+                [rounded]="true"
+                [text]="true"
+                pTooltip="Descargar PDF"
+                tooltipPosition="top"
+                class="p-button-rounded flex-1"
+                />
+            </td>
+            </tr>
+        </ng-template>
+        </p-table>
+    
+    </p-panel>
+
+    <!-- Carga masiva -->
+    <p-panel header="CARGUE MASIVO DE FACTURACIÓN" [toggleable]="true" [collapsed]="true" styleClass="mt-3">
+
+    </p-panel>
+
+    <!-- Facturas con inconsistencia -->
+    <p-panel header="FACTURAS CON INCONSISTENCIAS" [toggleable]="true" [collapsed]="true" styleClass="mt-3">
+
+    </p-panel>
+</div>
