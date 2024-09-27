@@ -3,7 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Convenios,typeAgreement } from '../../../../models/interface/convenios.interface';
 import { TypeDocument, TypeProviders, Status, TypePerson } from '../../../../models/interface/proveedores.interface';
 import { TableAgreemetsService } from '../../../../../service/table-agreement(convenios)/table-agreements.service';
-
+import { Location } from '../../../../models/interface/location.interface';
 
 @Component({
   selector: 'app-ver-convenios',
@@ -48,10 +48,15 @@ export class VerConveniosComponent implements OnInit {
   public viewCharacteristicsForm = new FormGroup({
     priorityRemission: new FormControl<string>('' , [Validators.required]),
     valueUVR: new FormControl<string>('', [Validators.required]),
+    restrictions: new FormControl<string>('', [Validators.required]),
+    temporary: new FormControl<string>('', [Validators.required]),
+    checkAutorization: new FormControl<string>('', [Validators.required]),
   });
-
-  convenios!: Convenios[];
-  allConvenios: any[] = [];
+  //inicialización de los datos
+  public locations!: Location[];
+  public convenios!: Convenios[];
+  public allConvenios: any[] = [];
+  public characteristics: any[] = [];
 
   //Dropdowns
   public typeAgreements: typeAgreement[] | undefined = [];

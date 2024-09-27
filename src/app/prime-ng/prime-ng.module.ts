@@ -17,7 +17,7 @@ import { CalendarModule } from 'primeng/calendar';
 import { FileUploadModule } from 'primeng/fileupload';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { TooltipModule } from 'primeng/tooltip';
-
+import { CheckboxModule } from 'primeng/checkbox';
 
 import { DialogModule } from 'primeng/dialog';
 import { ToolbarModule } from 'primeng/toolbar';
@@ -47,7 +47,8 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
     ToolbarModule,
     ConfirmDialogModule,
     ProgressSpinnerModule,
-    TooltipModule
+    TooltipModule,
+    CheckboxModule
   ]
 })
 export class PrimeNgModule { }

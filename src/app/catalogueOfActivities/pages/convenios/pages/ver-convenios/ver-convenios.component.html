@@ -93,6 +93,7 @@
       </div>
     </form>
   </p-panel>
+
   <div class="mt-4">
     <p-panel header="Información General" toggleable="true">
       <span>Datos básicos convenios</span>
@@ -438,17 +439,26 @@
         </ng-template>
       </p-table>
     </p-panel>
+  </div>
+  <div class="mt-4">
     <p-panel header="Características" toggleable="true">
       <span>Información complementaria</span>
+
       <form [formGroup]="viewCharacteristicsForm">
+        <!--Row 1 -->
         <div class="formgrid grid mt-4 custom-col-extend">
           <div class="field custom-col">
-            <p-dropdown
-              [options]="priorityRemission"
-              formControlName="priorityRemission"
-              optionLabel="priorityRemission"
-              placeholder="Prioridad de remisión"
-            />
+            <p-floatLabel>
+              <p-dropdown
+                [options]="priorityRemission"
+                formControlName="priorityRemission"
+                optionLabel="priorityRemission"
+                placeholder="Prioridad de remisión"
+              />
+              <label for="float-label" id="custom-pfloatLabel" class="custom-w"
+                >Prioridad de remisión</label
+              >
+            </p-floatLabel>
           </div>
 
           <div class="field custom-col">
@@ -464,16 +474,151 @@
               </label>
             </p-floatLabel>
           </div>
-
-
         </div>
 
-
-
+        <div class="formgrid grid mt-3 custom-col-extend">
+          <div class="flex align-items-center">
+            <p-checkbox
+              formControlName="restrictions"
+              value="restrictions"
+              inputId="restric"
+            />
+            <label for="restric">Restringido(No permite autorizaciones)</label>
+          </div>
+          <div class="flex align-items-center">
+            <p-checkbox
+              formControlName="temporary"
+              value="temporary"
+              inputId="temp"
+            />
+            <label for="temp">Temporal(convenio temporal)</label>
+          </div>
+          <div class="flex align-items-center">
+            <p-checkbox
+              formControlName="checkAutorization"
+              value="checkAutorization"
+              inputId="checkAut"
+            />
+            <label for="checkAut">Marca autorizaciones</label>
+          </div>
+        </div>
       </form>
 
-
-
+      <p-panel header="Descuento financiero(Opcional)">
+        <p-table
+          #dt8
+          [value]="characteristics"
+          styleClass="p-datatable-gridlines p-datatable-sm"
+          [tableStyle]="{ 'min-width': '50rem' }"
+          [globalFilterFields]="[
+            'discounts',
+            'percentage',
+            'initialReceptionDate',
+            'finalReceptionDate',
+            'remarks',
+            'asset'
+          ]"
+          [rowHover]="true"
+          dataKey="id"
+          currentPageReportTemplate="Mostrando del {first} al {last} de {totalRecords} datos"
+          [showCurrentPageReport]="true"
+        >
+          <ng-template pTemplate="header">
+            <tr>
+              <th pSortableColumn="discounts" class="text-center">
+                Descuento<p-sortIcon field="discounts"></p-sortIcon>
+              </th>
+              <th pSortableColumn="percentage" class="text-center">
+                Porcentaje <p-sortIcon field="percentage"></p-sortIcon>
+              </th>
+              <th pSortableColumn="initialReceptionDate" class="text-center">
+                Fecha recepción inicio<p-sortIcon
+                  field="initialReceptionDate"
+                ></p-sortIcon>
+              </th>
+              <th pSortableColumn="percentage" class="text-center">
+                Porcentaje <p-sortIcon field="percentage"></p-sortIcon>
+              </th>
+              <th pSortableColumn="finalReceptionDate" class="text-center">
+                Fecha recepción final
+                <p-sortIcon field="finalReceptionDate"></p-sortIcon>
+              </th>
+              <th pSortableColumn="remarks" class="text-center">
+                Observaciones<p-sortIcon field="remarks"></p-sortIcon>
+              </th>
+              <th pSortableColumn="asset" class="text-center">
+                Activo<p-sortIcon field="asset"></p-sortIcon>
+              </th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-specials>
+            <tr>
+              <td class="text-center">{{ specials.code }}</td>
+              <td class="text-center">{{ specials.name }}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </p-panel>
+    </p-panel>
+  </div>
+  <div class="mt-4">
+    <p-panel header="Ver Sedes" [toggleable]="true" [collapsed]="true">
+      <p-table
+        #dt1
+        [value]="locations"
+        styleClass="p-datatable-gridlines p-datatable-sm"
+        [tableStyle]="{ 'min-width': '50rem' }"
+        [globalFilterFields]="[
+          'code',
+          'name',
+          'address',
+          'principalSede',
+          'departament',
+          'city',
+          'locationMain'
+        ]"
+        [rowHover]="true"
+        dataKey="id"
+        currentPageReportTemplate="Mostrando del {first} al {last} de {totalRecords} datos"
+        [showCurrentPageReport]="true"
+      >
+        <ng-template pTemplate="header">
+          <tr>
+            <th pSortableColumn="code" class="text-center">
+              Codigo<p-sortIcon field="code"></p-sortIcon>
+            </th>
+            <th pSortableColumn="name" class="text-center">
+              Nombre <p-sortIcon field="name"></p-sortIcon>
+            </th>
+            <th pSortableColumn="address" class="text-center">
+              Direcci&oacute;n<p-sortIcon field="address"></p-sortIcon>
+            </th>
+            <th pSortableColumn="active" class="text-center">
+              Activo<p-sortIcon field="active"></p-sortIcon>
+            </th>
+            <th pSortableColumn="principalSede" class="text-center">
+              Sede Principal<p-sortIcon field="sedePrincipal"></p-sortIcon>
+            </th>
+            <th pSortableColumn="city" class="text-center">
+              Ciudad<p-sortIcon field="city"></p-sortIcon>
+            </th>
+            <th pSortableColumn="departament" class="text-center">
+              Departamento<p-sortIcon field="departament"></p-sortIcon>
+            </th>
+          </tr>
+        </ng-template>
+        <!-- <ng-template pTemplate="body" let-locations>
+          <tr>
+            <td class="text-center">{{ locations.code }}</td>
+            <td class="text-center">{{ locations.name }}</td>
+            <td class="text-center">{{ locations.address }}</td>
+            <td class="text-center">{{ locations.activo }}</td>
+            <td class="text-center">{{ locations.principalSede }}</td>
+            <td class="text-center">{{ locations.city }}</td>
+            <td class="text-center">{{ locations.departament }}</td>
+          </tr>
+        </ng-template> -->
+      </p-table>
     </p-panel>
   </div>
 </div>
