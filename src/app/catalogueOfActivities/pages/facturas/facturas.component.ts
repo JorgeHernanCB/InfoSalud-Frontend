@@ -53,7 +53,7 @@ export class FacturasComponent implements OnInit{
 
   
   facturas!: Facturas[];
-  allFacturas: any[] = [];
+  allFacturas: any[] = []; //Mostrar datos en la tabla
 
 
 
@@ -71,7 +71,7 @@ export class FacturasComponent implements OnInit{
       console.log('Datos cargados',data);
       if(data){
         this.allFacturas = data;
-        this.facturas = [...this.facturas];
+        this.facturas = [...this.allFacturas];
       }else{
         console.error('No se pudieron cargar los valores');
       }

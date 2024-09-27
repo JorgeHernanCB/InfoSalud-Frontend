@@ -7,15 +7,17 @@ export class TableAgreemetsService {
 
   constructor() { }
 
-          // 'numberAgreement',
-          // 'typeAgreement',
-          // 'nameAgreement',
-          // 'product',
-          // 'dateStart',
-          // 'dateFinish ',
-          // 'dateStart',
-          // 'statusAgreement',
-          // 'activeRate'
+          // 'numberFactureAssigned',
+          // 'numberFactura',
+          // 'ramo',
+          // 'nameProvider',
+          // 'agreementNumber',
+          // 'dateEmision ',
+          // 'dateEnd',
+          // 'datePay',
+          // 'invoiceFactura',
+          // 'stateFactura',
+          // 'statePay'
 
   getDataTable() {
     return [

@@ -211,8 +211,8 @@
                     <p-calendar
                         formControlName="dateEmisioninitial"
                         [showIcon]="true"
-                        inputId="buttondisplay"
-                        [showOnFocus]="false"
+                        inputId="icondisplay"
+                        [iconDisplay]="'input'"
                     />
                     <label
                         htmlFor="float-label"
@@ -229,8 +229,8 @@
                     <p-calendar
                         formControlName="dateEmisionEnd"
                         [showIcon]="true"
-                        inputId="buttondisplay"
-                        [showOnFocus]="false"
+                        inputId="icondisplay"
+                       [iconDisplay]="'input'"
                     />
                     <label
                         htmlFor="float-label"
@@ -247,8 +247,8 @@
                     <p-calendar
                         formControlName="dateRegisterInitial"
                         [showIcon]="true"
-                        inputId="buttondisplay"
-                        [showOnFocus]="false"
+                        inputId="icondisplay"
+                        [iconDisplay]="'input'"
                     />
                     <label
                         htmlFor="float-label"
@@ -265,8 +265,8 @@
                     <p-calendar
                         formControlName="dateRegisterEnd"
                         [showIcon]="true"
-                        inputId="buttondisplay"
-                        [showOnFocus]="false"
+                        inputId="icondisplay"
+                       [iconDisplay]="'input'"
                     />
                     <label
                         htmlFor="float-label"
@@ -287,8 +287,8 @@
                     <p-calendar
                         formControlName="dateReceptionInitial"
                         [showIcon]="true"
-                        inputId="buttondisplay"
-                        [showOnFocus]="false"
+                        inputId="icondisplay"
+                       [iconDisplay]="'input'"
                     />
                     <label
                         htmlFor="float-label"
@@ -305,8 +305,8 @@
                     <p-calendar
                         formControlName="dateReceptionEnd"
                         [showIcon]="true"
-                        inputId="buttondisplay"
-                        [showOnFocus]="false"
+                        inputId="icondisplay"
+                       [iconDisplay]="'input'"
                     />
                     <label
                         htmlFor="float-label"
@@ -323,8 +323,8 @@
                     <p-calendar
                         formControlName="datePayInitial"
                         [showIcon]="true"
-                        inputId="buttondisplay"
-                        [showOnFocus]="false"
+                        inputId="icondisplay"
+                       [iconDisplay]="'input'"
                     />
                     <label
                         htmlFor="float-label"
@@ -341,8 +341,8 @@
                     <p-calendar
                         formControlName="datePayEnd"
                         [showIcon]="true"
-                        inputId="buttondisplay"
-                        [showOnFocus]="false"
+                        inputId="icondisplay"
+                       [iconDisplay]="'input'"
                     />
                     <label
                         htmlFor="float-label"
@@ -474,7 +474,6 @@
             <td class="text-center">{{ factura.numberFactureAssigned }}</td>
             <td class="text-center">{{ factura.numberFactura }}</td>
             <td class="text-center">{{ factura.ramo }}</td>
-            <td class="text-center">{{ factura.provider_ips }}</td>
             <td class="text-center">{{ factura.nameProvider }}</td>
             <td class="text-center">{{ factura.agreementNumber }}</td>
             <td class="text-center">{{ factura.dateEmision }}</td>
@@ -506,18 +505,18 @@
                     pTooltip="Editar"
                     tooltipPosition="top"
                     class="p-button-rounded flex-1"
-                    [state]="{ factura: facturas }"
+                    [state]="{ factura: factura }"
                     [routerLink]="['/facturas/editar', factura.id]"
                     >
                     </p-button>
                 </div>
             </td>
-            <td>
+            <td class="text-center">
                 <p-button
                 icon="pi pi-file-pdf"
                 [rounded]="true"
                 [text]="true"
-                pTooltip="Descargar PDF"
+                pTooltip="Descargar"
                 tooltipPosition="top"
                 class="p-button-rounded flex-1"
                 />
