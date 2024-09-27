@@ -30,15 +30,9 @@
 }
 
 /* Estilos de los iconos en los INPUT */
-.p-inputtext .p-datepicker-trigger {
-  background: transparent; /* Elimina el fondo del botón del ícono */
-  border: none; /* Elimina cualquier borde que pueda aparecer */
-  outline: none; /* Elimina el contorno del enfoque */
-}
-
-.p-inputtext .p-datepicker-trigger:hover {
-  cursor: pointer; /* Cambia el cursor al pasar el mouse sobre el ícono */
-}
+/* .p-input-icon-right > .p-icon-wrapper {
+  color: #3498db  ;
+} */
 
 /* --------------------------------------------- */
 

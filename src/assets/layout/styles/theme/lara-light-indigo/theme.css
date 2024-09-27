@@ -1305,7 +1305,8 @@
   .p-input-icon-right > .p-icon-wrapper,
 .p-input-icon-right > i:last-of-type {
     right: 0.75rem;
-    color: #6b7280;
+    /* color: #6b7280; */
+    color: #E03A3D;
   }
 
   .p-input-icon-right > .p-inputtext {
